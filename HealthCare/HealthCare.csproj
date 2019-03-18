@@ -83,6 +83,7 @@
   <ItemGroup>
     <Folder Include="Controller\" />
     <Folder Include="DAL\" />
+    <Folder Include="DB\" />
     <Folder Include="UserControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
