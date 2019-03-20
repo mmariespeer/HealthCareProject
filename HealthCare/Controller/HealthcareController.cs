@@ -38,5 +38,10 @@ namespace HealthCare.Controller
         {
             return personDAL.GetPersonByID(personID);
         }
+
+        public Doctor GetDoctorByPersonID(int personID)
+        {
+            return doctorDAL.GetDoctorByPersonID(personID);
+        }
     }
 }

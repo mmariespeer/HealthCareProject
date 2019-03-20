@@ -15,8 +15,7 @@ namespace HealthCare.DAL
             List<Doctor> doctorList = new List<Doctor>();
             string selectStatement =
                 "SELECT doctor.doctorID, doctor.personID " +
-                "FROM doctor " +
-                "JOIN person ON person.personID = doctor.doctorID";
+                "FROM doctor";
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
@@ -37,6 +36,33 @@ namespace HealthCare.DAL
                 }
             }
             return doctorList;
+        }
+
+        public Doctor GetDoctorByPersonID(int personID)
+        {
+            Doctor doctor = new Doctor();
+            string selectStatement =
+             "SELECT doctorID, personID " +
+             "FROM doctor " +
+             "WHERE personID = @personID";
+            
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@personID", personID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            doctor.DoctorID = (int)reader["doctorID"];
+                            doctor.PersonID = (int)reader["personID"];
+                        }
+                    }
+                }
+            }
+            return doctor;
         }
     }
 }

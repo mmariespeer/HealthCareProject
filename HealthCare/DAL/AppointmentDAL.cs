@@ -16,10 +16,9 @@ namespace HealthCare.DAL
             SqlConnection connection = HealthcareDBConnection.GetConnection();
             string insertStatement =
                 "INSERT Appointment " +
-                  "(appointmentID, patientID, doctorID, dateTime, reasonForVisit) " +
-                "VALUES (@appointmentID, @patientID, @doctorID, @dateTime, @reasonForVisit)";
+                  "(patientID, doctorID, dateTime, reasonForVisit) " +
+                "VALUES (@patientID, @doctorID, @dateTime, @reasonForVisit)";
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
-            insertCommand.Parameters.AddWithValue("@appointmentID", appointment.AppointmentID);
             insertCommand.Parameters.AddWithValue("@patientID", appointment.PatientID);
             insertCommand.Parameters.AddWithValue("@doctorID", appointment.DoctorID);
             insertCommand.Parameters.AddWithValue("@dateTime", appointment.DateTime);

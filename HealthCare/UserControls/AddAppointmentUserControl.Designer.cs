@@ -49,6 +49,7 @@
             // 
             // doctorComboBox
             // 
+            this.doctorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorComboBox.FormattingEnabled = true;
             this.doctorComboBox.Location = new System.Drawing.Point(204, 90);
             this.doctorComboBox.Name = "doctorComboBox";
@@ -96,13 +97,16 @@
             this.createAppointmentButton.TabIndex = 6;
             this.createAppointmentButton.Text = "Create Appointment";
             this.createAppointmentButton.UseVisualStyleBackColor = true;
+            this.createAppointmentButton.Click += new System.EventHandler(this.createAppointmentButton_Click);
             // 
             // appointmentCreatedLabel
             // 
             this.appointmentCreatedLabel.AutoSize = true;
-            this.appointmentCreatedLabel.Location = new System.Drawing.Point(514, 554);
+            this.appointmentCreatedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appointmentCreatedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.appointmentCreatedLabel.Location = new System.Drawing.Point(467, 549);
             this.appointmentCreatedLabel.Name = "appointmentCreatedLabel";
-            this.appointmentCreatedLabel.Size = new System.Drawing.Size(0, 32);
+            this.appointmentCreatedLabel.Size = new System.Drawing.Size(0, 39);
             this.appointmentCreatedLabel.TabIndex = 7;
             // 
             // AddAppointmentUserControl
@@ -118,7 +122,7 @@
             this.Controls.Add(this.doctorComboBox);
             this.Controls.Add(this.doctorLabel);
             this.Name = "AddAppointmentUserControl";
-            this.Size = new System.Drawing.Size(1327, 714);
+            this.Size = new System.Drawing.Size(1327, 1141);
             this.ResumeLayout(false);
             this.PerformLayout();
 
