@@ -49,9 +49,11 @@
     <Compile Include="Controller\HealthcareController.cs" />
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
+    <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="DB\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Person.cs" />
     <Compile Include="Model\PlayAroundcs.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>

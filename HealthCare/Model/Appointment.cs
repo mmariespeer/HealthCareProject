@@ -8,14 +8,14 @@ namespace HealthCare.Model
     /// </summary>
     public class Appointment
     {
-        public int appointmentID { get; set; }
+        public int AppointmentID { get; set; }
         
-        public int patientID { get; set; }
+        public int PatientID { get; set; }
 
-        public int doctorID { get; set; }
+        public int DoctorID { get; set; }
         
-        public DateTime dateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
-        public string reasonForVisit { get; set; }
+        public string ReasonForVisit { get; set; }
     }
 }

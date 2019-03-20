@@ -22,9 +22,16 @@ namespace HealthCare.UserControls
             try
             {
                 List<Doctor> doctorForAppointments = healthcareController.GetDoctors();
-                doctorComboBox.DataSource = doctorForAppointments;
-                doctorComboBox.DisplayMember = "personID";
-                doctorComboBox.ValueMember = "doctorID";
+
+                List<Person> doctorNames = new List<Person>();
+                foreach (Doctor doc in doctorForAppointments)
+                {
+                    doctorNames.Add(this.healthcareController.GetPeronById(doc.PersonID));
+                }
+
+                doctorComboBox.DataSource = doctorNames;
+                doctorComboBox.DisplayMember = "FullName";
+                doctorComboBox.ValueMember = "personID";
             }
             catch (Exception ex)
             {

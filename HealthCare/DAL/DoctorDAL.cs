@@ -14,7 +14,7 @@ namespace HealthCare.DAL
         {
             List<Doctor> doctorList = new List<Doctor>();
             string selectStatement =
-                "SELECT doctor.doctorID, doctor.personID, person.lastName " +
+                "SELECT doctor.doctorID, doctor.personID " +
                 "FROM doctor " +
                 "JOIN person ON person.personID = doctor.doctorID";
 
@@ -29,8 +29,8 @@ namespace HealthCare.DAL
                         while (reader.Read())
                         {
                             Doctor doctor = new Doctor();
-                            doctor.doctorID = (int)reader["doctorID"];
-                            doctor.personID = (int)reader["personID"];
+                            doctor.DoctorID = (int)reader["doctorID"];
+                            doctor.PersonID = (int)reader["personID"];
                             doctorList.Add(doctor);
                         }
                     }

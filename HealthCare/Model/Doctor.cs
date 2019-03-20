@@ -2,12 +2,13 @@
 namespace HealthCare.Model
 {
     /// <summary>
-    /// Gets and sets all attributes of an doctor
+    /// Gets and sets all attributes of a doctor
     /// </summary>
     class Doctor
     {
-        public int doctorID { get; set; }
+        public int DoctorID { get; set; }
 
-        public int personID { get; set; }
+        public int PersonID { get; set; }
     }
+
 }

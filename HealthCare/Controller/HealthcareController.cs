@@ -11,12 +11,14 @@ namespace HealthCare.Controller
     {
         private AppointmentDAL appointmentDAL;
         private DoctorDAL doctorDAL;
+        private PersonDAL personDAL;
 
         //Initalizes DAL objects
         public HealthcareController()
         {
             appointmentDAL = new AppointmentDAL();
             doctorDAL = new DoctorDAL();
+            personDAL = new PersonDAL();
         }
 
         //Adds a new appointment to the DB
@@ -29,6 +31,12 @@ namespace HealthCare.Controller
         public List<Doctor> GetDoctors()
         {
             return doctorDAL.GetDoctors();
+        }
+
+        //Get a person by their personID
+        public Person GetPeronById(int personID)
+        {
+            return personDAL.GetPersonByID(personID);
         }
     }
 }
