@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.doctorLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.doctorComboBox = new System.Windows.Forms.ComboBox();
             this.appointmentDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.appointmentDateLabel = new System.Windows.Forms.Label();
             this.reasonForVisitTextBox = new System.Windows.Forms.TextBox();
@@ -47,13 +47,13 @@
             this.doctorLabel.TabIndex = 0;
             this.doctorLabel.Text = "Doctor: ";
             // 
-            // comboBox1
+            // doctorComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(204, 90);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(324, 39);
-            this.comboBox1.TabIndex = 1;
+            this.doctorComboBox.FormattingEnabled = true;
+            this.doctorComboBox.Location = new System.Drawing.Point(204, 90);
+            this.doctorComboBox.Name = "doctorComboBox";
+            this.doctorComboBox.Size = new System.Drawing.Size(324, 39);
+            this.doctorComboBox.TabIndex = 1;
             // 
             // appointmentDateTimePicker
             // 
@@ -115,7 +115,7 @@
             this.Controls.Add(this.reasonForVisitTextBox);
             this.Controls.Add(this.appointmentDateLabel);
             this.Controls.Add(this.appointmentDateTimePicker);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.doctorComboBox);
             this.Controls.Add(this.doctorLabel);
             this.Name = "AddAppointmentUserControl";
             this.Size = new System.Drawing.Size(1327, 714);
@@ -126,7 +126,7 @@
 
         #endregion
         private System.Windows.Forms.Label doctorLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox doctorComboBox;
         private System.Windows.Forms.DateTimePicker appointmentDateTimePicker;
         private System.Windows.Forms.Label appointmentDateLabel;
         private System.Windows.Forms.TextBox reasonForVisitTextBox;

@@ -1,28 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthCare.Controller;
+using HealthCare.Model;
 
 namespace HealthCare.UserControls
 {
     public partial class AddAppointmentUserControl : UserControl
     {
+        private HealthcareController healthcareController;
         public AddAppointmentUserControl()
         {
             InitializeComponent();
+            healthcareController = new HealthcareController();
+            this.LoadDoctorComboBox();
         }
 
-        private void doctorBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        // Manages the information obtained from the database that populates the comboboxes
+        public void LoadDoctorComboBox()
         {
-            this.Validate();
-            this.doctorBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._cs6232_g2DataSet);
-
+            try
+            {
+                List<Doctor> doctorForAppointments = healthcareController.GetDoctors();
+                doctorComboBox.DataSource = doctorForAppointments;
+                doctorComboBox.DisplayMember = "personID";
+                doctorComboBox.ValueMember = "doctorID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
     }
 }
