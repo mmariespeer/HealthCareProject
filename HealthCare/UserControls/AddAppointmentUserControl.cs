@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
@@ -13,16 +15,20 @@ namespace HealthCare.UserControls
     {
         private HealthcareController healthcareController;
         private Appointment appointment;
+        private DateTime time;
+        private DataTable selectedTime;
 
         public AddAppointmentUserControl()
         {
             InitializeComponent();
+            time = DateTime.Today;
             healthcareController = new HealthcareController();
             this.LoadDoctorComboBox();
+            this.LoadTimesComboBox();
         }
 
         // Manages the information obtained from the database that populates the comboboxes
-        public void LoadDoctorComboBox()
+        private void LoadDoctorComboBox()
         {
             try
             {
@@ -33,7 +39,6 @@ namespace HealthCare.UserControls
                 {
                     doctorNames.Add(this.healthcareController.GetPeronById(doc.PersonID));
                 }
-
                 doctorComboBox.DataSource = doctorNames;
                 doctorComboBox.DisplayMember = "FullName";
                 doctorComboBox.ValueMember = "personID";
@@ -42,6 +47,29 @@ namespace HealthCare.UserControls
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
+        }
+
+        //Creates a combobox of times between 9:00am and 4:30pm for a nurse to use in scheduling
+        private void LoadTimesComboBox()
+        {
+            selectedTime = new DataTable();
+            selectedTime.Columns.Add("dateTime", typeof(DateTime));
+            selectedTime.Columns.Add("time", typeof(string));
+            try
+            {
+                for (DateTime tm = time.AddHours(9); tm < time.AddHours(17); tm = tm.AddMinutes(30))
+                {
+                    selectedTime.Rows.Add(tm, tm.ToShortTimeString());
+                }
+                appointmentTimeComboBox.DataSource = selectedTime;
+                appointmentTimeComboBox.DisplayMember = "time";
+                appointmentTimeComboBox.ValueMember = "dateTime";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
 
         //Creates a new appointment on button click
@@ -69,11 +97,12 @@ namespace HealthCare.UserControls
         {
             
             appointment.PatientID = 1;
-
+            
             int docID = (int)doctorComboBox.SelectedValue;
             appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
-            MessageBox.Show(appointment.DoctorID + "");
-            appointment.DateTime = appointmentDateTimePicker.Value;
+
+            DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
+            appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
             appointment.ReasonForVisit = reasonForVisitTextBox.Text;
         }
     }
