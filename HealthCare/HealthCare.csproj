@@ -62,6 +62,12 @@
     <Compile Include="UserControls\AddAppointmentUserControl.Designer.cs">
       <DependentUpon>AddAppointmentUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\VisitUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VisitUserControl.Designer.cs">
+      <DependentUpon>VisitUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\AddAppointmentUserControl.resx">
       <DependentUpon>AddAppointmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VisitUserControl.resx">
+      <DependentUpon>VisitUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
