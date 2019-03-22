@@ -1,27 +1,51 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using HealthCare.Controller;
 
 namespace HealthCare.View
 {
     public partial class LoginForm : Form
     {
-       // private MainDashboard md;
+       private NurseDashboard nd;
+      //private AdminDashboard ad;
+        private readonly HealthcareController healthController;
+
 
         public LoginForm()
         {
             InitializeComponent();
-           // md = new MainDashboard(this);
+            this.healthController = new HealthcareController();
+            nd = new NurseDashboard(this);
+           //ad = new NurseDashboard(this);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if ((usernameTextBox.Text == ) && (passwordTextBox.Text == ))
+            DataTable dt = this.healthController.getLogin(usernameTextBox.Text, passwordTextBox.Text);
+
+            if (dt.Rows.Count > 0)
             {
-                Hide();
-                usernameTextBox.Clear();
-                passwordTextBox.Clear();
-               // md.Show();
+                Boolean isNurse = this.healthController.isNurse(Convert.ToInt32(dt.Rows[0]["personID"]));
+                Console.WriteLine(isNurse);
+
+                if (isNurse)
+                {
+                    Hide();
+                    usernameTextBox.Clear();
+                    passwordTextBox.Clear();
+                    nd.SetTextForLabel(dt.Rows[0]["name"].ToString());
+                    nd.Show();
+                }
+                else
+                {
+                    Hide();
+                    usernameTextBox.Clear();
+                    passwordTextBox.Clear();
+                    //ad.SetTextForLabel(Convert.ToString(dt.Rows[0]["name"]));
+                    //ad.Show();
+                }
             }
             else
             {
@@ -31,7 +55,6 @@ namespace HealthCare.View
             }
 
         }
-
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {

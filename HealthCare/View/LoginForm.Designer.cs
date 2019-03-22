@@ -121,7 +121,7 @@
             this.ClientSize = new System.Drawing.Size(462, 342);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Login Form";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
