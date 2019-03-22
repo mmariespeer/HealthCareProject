@@ -68,6 +68,12 @@
     <Compile Include="UserControls\AddTestUserControl.Designer.cs">
       <DependentUpon>AddTestUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LogTestResultsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LogTestResultsUserControl.Designer.cs">
+      <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\VisitUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddTestUserControl.resx">
       <DependentUpon>AddTestUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LogTestResultsUserControl.resx">
+      <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
