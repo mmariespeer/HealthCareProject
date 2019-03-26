@@ -51,6 +51,7 @@
     <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\SearchPatientDAL.cs" />
     <Compile Include="DB\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
@@ -73,6 +74,18 @@
     </Compile>
     <Compile Include="UserControls\LogTestResultsUserControl.Designer.cs">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RegisterDeletePatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegisterDeletePatientUserControl.Designer.cs">
+      <DependentUpon>RegisterDeletePatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SearchPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SearchPatientUserControl.Designer.cs">
+      <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\VisitUserControl.cs">
       <SubType>UserControl</SubType>
@@ -100,6 +113,11 @@
     <Compile Include="View\NurseDashboard.Designer.cs">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="_cs6232_g2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_cs6232_g2DataSet1.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -117,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogTestResultsUserControl.resx">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegisterDeletePatientUserControl.resx">
+      <DependentUpon>RegisterDeletePatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SearchPatientUserControl.resx">
+      <DependentUpon>SearchPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
@@ -139,6 +163,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_cs6232_g2DataSet1.xsc">
+      <DependentUpon>_cs6232_g2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="_cs6232_g2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_cs6232_g2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_cs6232_g2DataSet1.xss">
+      <DependentUpon>_cs6232_g2DataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
