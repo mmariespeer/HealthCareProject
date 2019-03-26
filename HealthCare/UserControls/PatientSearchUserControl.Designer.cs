@@ -33,7 +33,6 @@
             System.Windows.Forms.Label lastNameLabel;
             System.Windows.Forms.Label firstNameLabel;
             System.Windows.Forms.Label dateOfBirthLabel;
-            System.Windows.Forms.Label dateOfBirthLabel1;
             this._cs6232_g2DataSet = new HealthCare._cs6232_g2DataSet();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.personTableAdapter = new HealthCare._cs6232_g2DataSetTableAdapters.personTableAdapter();
@@ -51,14 +50,12 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.personBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.lastNameComboBox = new System.Windows.Forms.ComboBox();
-            this.firstNameComboBox = new System.Windows.Forms.ComboBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dateOfBirthComboBox = new System.Windows.Forms.ComboBox();
             lastNameLabel = new System.Windows.Forms.Label();
             firstNameLabel = new System.Windows.Forms.Label();
             dateOfBirthLabel = new System.Windows.Forms.Label();
-            dateOfBirthLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g2DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingNavigator)).BeginInit();
@@ -111,7 +108,7 @@
             this.personBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.personBindingNavigator.Name = "personBindingNavigator";
             this.personBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.personBindingNavigator.Size = new System.Drawing.Size(525, 25);
+            this.personBindingNavigator.Size = new System.Drawing.Size(343, 25);
             this.personBindingNavigator.TabIndex = 0;
             this.personBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -212,47 +209,41 @@
             // lastNameLabel
             // 
             lastNameLabel.AutoSize = true;
-            lastNameLabel.Location = new System.Drawing.Point(19, 36);
+            lastNameLabel.Location = new System.Drawing.Point(37, 46);
             lastNameLabel.Name = "lastNameLabel";
             lastNameLabel.Size = new System.Drawing.Size(57, 13);
             lastNameLabel.TabIndex = 1;
             lastNameLabel.Text = "last Name:";
             // 
-            // lastNameComboBox
+            // lastNameTextBox
             // 
-            this.lastNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personBindingSource, "lastName", true));
-            this.lastNameComboBox.DataSource = this.personBindingSource;
-            this.lastNameComboBox.DisplayMember = "lastName";
-            this.lastNameComboBox.FormattingEnabled = true;
-            this.lastNameComboBox.Location = new System.Drawing.Point(94, 33);
-            this.lastNameComboBox.Name = "lastNameComboBox";
-            this.lastNameComboBox.Size = new System.Drawing.Size(200, 21);
-            this.lastNameComboBox.TabIndex = 2;
+            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personBindingSource, "lastName", true));
+            this.lastNameTextBox.Location = new System.Drawing.Point(112, 43);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.lastNameTextBox.TabIndex = 2;
             // 
             // firstNameLabel
             // 
             firstNameLabel.AutoSize = true;
-            firstNameLabel.Location = new System.Drawing.Point(19, 63);
+            firstNameLabel.Location = new System.Drawing.Point(37, 72);
             firstNameLabel.Name = "firstNameLabel";
             firstNameLabel.Size = new System.Drawing.Size(57, 13);
             firstNameLabel.TabIndex = 3;
             firstNameLabel.Text = "first Name:";
             // 
-            // firstNameComboBox
+            // firstNameTextBox
             // 
-            this.firstNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personBindingSource, "firstName", true));
-            this.firstNameComboBox.DataSource = this.personBindingSource;
-            this.firstNameComboBox.DisplayMember = "firstName";
-            this.firstNameComboBox.FormattingEnabled = true;
-            this.firstNameComboBox.Location = new System.Drawing.Point(94, 60);
-            this.firstNameComboBox.Name = "firstNameComboBox";
-            this.firstNameComboBox.Size = new System.Drawing.Size(200, 21);
-            this.firstNameComboBox.TabIndex = 4;
+            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personBindingSource, "firstName", true));
+            this.firstNameTextBox.Location = new System.Drawing.Point(112, 69);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
+            this.firstNameTextBox.TabIndex = 4;
             // 
             // dateOfBirthLabel
             // 
             dateOfBirthLabel.AutoSize = true;
-            dateOfBirthLabel.Location = new System.Drawing.Point(19, 91);
+            dateOfBirthLabel.Location = new System.Drawing.Point(37, 99);
             dateOfBirthLabel.Name = "dateOfBirthLabel";
             dateOfBirthLabel.Size = new System.Drawing.Size(69, 13);
             dateOfBirthLabel.TabIndex = 5;
@@ -261,47 +252,24 @@
             // dateOfBirthDateTimePicker
             // 
             this.dateOfBirthDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.personBindingSource, "dateOfBirth", true));
-            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(94, 87);
+            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(112, 95);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateOfBirthDateTimePicker.TabIndex = 6;
-            // 
-            // dateOfBirthLabel1
-            // 
-            dateOfBirthLabel1.AutoSize = true;
-            dateOfBirthLabel1.Location = new System.Drawing.Point(74, 163);
-            dateOfBirthLabel1.Name = "dateOfBirthLabel1";
-            dateOfBirthLabel1.Size = new System.Drawing.Size(69, 13);
-            dateOfBirthLabel1.TabIndex = 7;
-            dateOfBirthLabel1.Text = "date Of Birth:";
-            // 
-            // dateOfBirthComboBox
-            // 
-            this.dateOfBirthComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personBindingSource, "dateOfBirth", true));
-            this.dateOfBirthComboBox.DataSource = this.personBindingSource;
-            this.dateOfBirthComboBox.DisplayMember = "dateOfBirth";
-            this.dateOfBirthComboBox.FormattingEnabled = true;
-            this.dateOfBirthComboBox.Location = new System.Drawing.Point(149, 160);
-            this.dateOfBirthComboBox.Name = "dateOfBirthComboBox";
-            this.dateOfBirthComboBox.Size = new System.Drawing.Size(121, 21);
-            this.dateOfBirthComboBox.TabIndex = 8;
             // 
             // PatientSearchUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(dateOfBirthLabel1);
-            this.Controls.Add(this.dateOfBirthComboBox);
             this.Controls.Add(lastNameLabel);
-            this.Controls.Add(this.lastNameComboBox);
+            this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(firstNameLabel);
-            this.Controls.Add(this.firstNameComboBox);
+            this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(dateOfBirthLabel);
             this.Controls.Add(this.dateOfBirthDateTimePicker);
             this.Controls.Add(this.personBindingNavigator);
             this.Name = "PatientSearchUserControl";
-            this.Size = new System.Drawing.Size(525, 299);
-            this.Load += new System.EventHandler(this.PatientSearchUserControl_Load);
+            this.Size = new System.Drawing.Size(343, 164);
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g2DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingNavigator)).EndInit();
@@ -331,9 +299,8 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton personBindingNavigatorSaveItem;
-        private System.Windows.Forms.ComboBox lastNameComboBox;
-        private System.Windows.Forms.ComboBox firstNameComboBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.DateTimePicker dateOfBirthDateTimePicker;
-        private System.Windows.Forms.ComboBox dateOfBirthComboBox;
     }
 }

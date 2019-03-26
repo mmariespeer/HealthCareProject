@@ -16,24 +16,5 @@ namespace HealthCare.UserControls
         {
             InitializeComponent();
         }
-
-        private void PatientSearchUserControl_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                technicianList = this.incidentController.GetAllTechnicians();
-
-                nameComboBox1.DataSource = technicianList;
-                nameComboBox1.SelectedIndex = 0;
-
-                incidentList = this.incidentController.GetOpenIncidentsByTechnician(technicianList[0].TechID);
-                incidentDataGridView.DataSource = incidentList;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }

@@ -11,7 +11,7 @@ namespace HealthCare.DAL
 {
     public class SearchPatientDAL
     {
-        public List<Person> GetAllPatients()
+        public void GetAllPatients() //test test
         {
             List<Person> allPatients = new List<Person>();
             string selectStatement = "SELECT DISTINCT t.TechID, t.Name, t.Email, t.Phone FROM Technicians t JOIN Incidents i ON t.TechID = i.TechID WHERE i.TechID IS NOT NULL;";
@@ -30,7 +30,7 @@ namespace HealthCare.DAL
                            Person patient = new Person();
                             patient.LastName = reader["Name"].ToString();
                             patient.FirstName = reader["Email"].ToString();
-                            patient.DateOfBirth = reader["Phone"].ToString();
+                           // patient.DateOfBirth = reader["Phone"].ToString();
 
                             allPatients.Add(patient);
                         }
@@ -41,7 +41,7 @@ namespace HealthCare.DAL
 
             }
 
-            return allPatients;
+            //return allPatients;
         }
     }
 }

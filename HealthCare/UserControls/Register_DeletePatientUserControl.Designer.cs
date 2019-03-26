@@ -28,23 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.patientSearchUserControl1 = new HealthCare.UserControls.PatientSearchUserControl();
+            this.patientSearchUserControl2 = new HealthCare.UserControls.PatientSearchUserControl();
             this.SuspendLayout();
             // 
-            // patientSearchUserControl1
+            // patientSearchUserControl2
             // 
-            this.patientSearchUserControl1.Location = new System.Drawing.Point(163, 50);
-            this.patientSearchUserControl1.Name = "patientSearchUserControl1";
-            this.patientSearchUserControl1.Size = new System.Drawing.Size(349, 299);
-            this.patientSearchUserControl1.TabIndex = 0;
+            this.patientSearchUserControl2.Location = new System.Drawing.Point(13, 19);
+            this.patientSearchUserControl2.Name = "patientSearchUserControl2";
+            this.patientSearchUserControl2.Size = new System.Drawing.Size(338, 145);
+            this.patientSearchUserControl2.TabIndex = 0;
             // 
             // Register_DeletePatientUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.patientSearchUserControl1);
+            this.Controls.Add(this.patientSearchUserControl2);
             this.Name = "Register_DeletePatientUserControl";
-            this.Size = new System.Drawing.Size(729, 441);
+            this.Size = new System.Drawing.Size(446, 259);
             this.ResumeLayout(false);
 
         }
@@ -52,5 +50,6 @@
         #endregion
 
         private PatientSearchUserControl patientSearchUserControl1;
+        private PatientSearchUserControl patientSearchUserControl2;
     }
 }
