@@ -34,7 +34,9 @@
             this.visitTabPage = new System.Windows.Forms.TabPage();
             this.logoutLinkDashboard = new System.Windows.Forms.LinkLabel();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.patientSearchUserControl1 = new HealthCare.UserControls.PatientSearchUserControl();
             this.nurseTabControl.SuspendLayout();
+            this.patientTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // nurseTabControl
@@ -51,6 +53,7 @@
             // 
             // patientTabPage
             // 
+            this.patientTabPage.Controls.Add(this.patientSearchUserControl1);
             this.patientTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientTabPage.Location = new System.Drawing.Point(4, 29);
             this.patientTabPage.Name = "patientTabPage";
@@ -99,6 +102,14 @@
             this.nameLabel.TabIndex = 4;
             this.nameLabel.Text = "label1";
             // 
+            // patientSearchUserControl1
+            // 
+            this.patientSearchUserControl1.Location = new System.Drawing.Point(145, 52);
+            this.patientSearchUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.patientSearchUserControl1.Name = "patientSearchUserControl1";
+            this.patientSearchUserControl1.Size = new System.Drawing.Size(525, 299);
+            this.patientSearchUserControl1.TabIndex = 0;
+            // 
             // NurseDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,6 +121,7 @@
             this.Name = "NurseDashboard";
             this.Text = "Nurse Dashboard";
             this.nurseTabControl.ResumeLayout(false);
+            this.patientTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,5 +135,6 @@
         private System.Windows.Forms.TabPage visitTabPage;
         private System.Windows.Forms.LinkLabel logoutLinkDashboard;
         private System.Windows.Forms.Label nameLabel;
+        private UserControls.PatientSearchUserControl patientSearchUserControl1;
     }
 }

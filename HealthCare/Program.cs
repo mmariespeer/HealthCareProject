@@ -16,8 +16,8 @@ namespace HealthCare
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.LoginForm());
-           //use this to skip the login form Application.Run(new View.NurseDashboard(new View.LoginForm()));
+            //Application.Run(new View.LoginForm());
+            Application.Run(new View.NurseDashboard(new View.LoginForm()));
 
         }
     }
