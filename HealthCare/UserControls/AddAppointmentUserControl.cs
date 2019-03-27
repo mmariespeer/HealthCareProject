@@ -82,7 +82,12 @@ namespace HealthCare.UserControls
                 throw new ArgumentException("Appointment cannot be null or empty.");
             }
             this.ReadIncidentData(appointment);
-           try
+            if (this.healthcareController.CheckIfDoctorHasAppointmentScheduled(appointment.DoctorID, appointment.DateTime))
+            {
+                MessageBox.Show("An appointment has already been scheduled with this doctor. Please select another date,time, or doctor.");
+                return;
+            }
+            try
             {
                 this.healthcareController.AddAppointment(appointment);
                 this.LoadAppointmentGridView();
@@ -104,6 +109,7 @@ namespace HealthCare.UserControls
 
             DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
             appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
+
             appointment.ReasonForVisit = reasonForVisitTextBox.Text;
         }
 

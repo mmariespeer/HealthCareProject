@@ -51,9 +51,16 @@ namespace HealthCare.Controller
             return doctorDAL.GetDoctorByPersonID(personID);
         }
 
+        //Retrieves list of appointments by patient ID
         public List<Appointment> GetAppointmentsByPatientID(int patientID)
         {
             return appointmentDAL.GetAppointmentsByPatientID(patientID);
+        }
+
+        //Checks if the doctor already has an appointment scheduled at that time.
+        public bool CheckIfDoctorHasAppointmentScheduled(int doctorID, DateTime dateTime)
+        {
+            return doctorDAL.CheckIfDoctorHasAppointmentScheduled(doctorID, dateTime);
         }
 
         /// <summary>

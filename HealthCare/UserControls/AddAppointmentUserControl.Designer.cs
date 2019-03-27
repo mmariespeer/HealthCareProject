@@ -73,16 +73,16 @@
             // 
             // appointmentDateTimePicker
             // 
-            this.appointmentDateTimePicker.Location = new System.Drawing.Point(1011, 639);
+            this.appointmentDateTimePicker.Location = new System.Drawing.Point(979, 639);
             this.appointmentDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentDateTimePicker.Name = "appointmentDateTimePicker";
-            this.appointmentDateTimePicker.Size = new System.Drawing.Size(529, 38);
+            this.appointmentDateTimePicker.Size = new System.Drawing.Size(506, 38);
             this.appointmentDateTimePicker.TabIndex = 2;
             // 
             // appointmentDateLabel
             // 
             this.appointmentDateLabel.AutoSize = true;
-            this.appointmentDateLabel.Location = new System.Drawing.Point(845, 658);
+            this.appointmentDateLabel.Location = new System.Drawing.Point(840, 651);
             this.appointmentDateLabel.Name = "appointmentDateLabel";
             this.appointmentDateLabel.Size = new System.Drawing.Size(83, 32);
             this.appointmentDateLabel.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.reasonForVisitTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reasonForVisitTextBox.Multiline = true;
             this.reasonForVisitTextBox.Name = "reasonForVisitTextBox";
-            this.reasonForVisitTextBox.Size = new System.Drawing.Size(1247, 107);
+            this.reasonForVisitTextBox.Size = new System.Drawing.Size(1192, 107);
             this.reasonForVisitTextBox.TabIndex = 4;
             // 
             // reasonForVisitLabel
@@ -131,7 +131,7 @@
             // appointmentTimeLabel
             // 
             this.appointmentTimeLabel.AutoSize = true;
-            this.appointmentTimeLabel.Location = new System.Drawing.Point(845, 718);
+            this.appointmentTimeLabel.Location = new System.Drawing.Point(840, 711);
             this.appointmentTimeLabel.Name = "appointmentTimeLabel";
             this.appointmentTimeLabel.Size = new System.Drawing.Size(93, 32);
             this.appointmentTimeLabel.TabIndex = 8;
@@ -141,10 +141,10 @@
             // 
             this.appointmentTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appointmentTimeComboBox.FormattingEnabled = true;
-            this.appointmentTimeComboBox.Location = new System.Drawing.Point(1011, 699);
+            this.appointmentTimeComboBox.Location = new System.Drawing.Point(979, 699);
             this.appointmentTimeComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.appointmentTimeComboBox.Name = "appointmentTimeComboBox";
-            this.appointmentTimeComboBox.Size = new System.Drawing.Size(529, 39);
+            this.appointmentTimeComboBox.Size = new System.Drawing.Size(506, 39);
             this.appointmentTimeComboBox.TabIndex = 9;
             // 
             // label1
@@ -158,11 +158,14 @@
             // 
             // appointmentGridView
             // 
+            this.appointmentGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.appointmentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.appointmentGridView.Location = new System.Drawing.Point(165, 434);
             this.appointmentGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentGridView.Name = "appointmentGridView";
+            this.appointmentGridView.ReadOnly = true;
             this.appointmentGridView.RowTemplate.Height = 40;
+            this.appointmentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentGridView.Size = new System.Drawing.Size(1320, 165);
             this.appointmentGridView.TabIndex = 42;
             // 
@@ -213,10 +216,12 @@
             // 
             // patientGridView
             // 
+            this.patientGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.patientGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientGridView.Location = new System.Drawing.Point(165, 196);
             this.patientGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.patientGridView.Name = "patientGridView";
+            this.patientGridView.ReadOnly = true;
             this.patientGridView.RowTemplate.Height = 40;
             this.patientGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientGridView.Size = new System.Drawing.Size(1320, 165);
