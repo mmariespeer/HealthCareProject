@@ -160,7 +160,6 @@ namespace HealthCare.DAL
                     }
                 }
             }
-
             return searchList;
         }
     }

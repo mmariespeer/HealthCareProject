@@ -56,27 +56,30 @@
             // dateOfBirthLabel1
             // 
             dateOfBirthLabel1.AutoSize = true;
-            dateOfBirthLabel1.Location = new System.Drawing.Point(20, 107);
+            dateOfBirthLabel1.Location = new System.Drawing.Point(53, 223);
+            dateOfBirthLabel1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             dateOfBirthLabel1.Name = "dateOfBirthLabel1";
-            dateOfBirthLabel1.Size = new System.Drawing.Size(135, 13);
+            dateOfBirthLabel1.Size = new System.Drawing.Size(346, 32);
             dateOfBirthLabel1.TabIndex = 7;
             dateOfBirthLabel1.Text = "Date Of Birth (M/D/YYYY):";
             // 
             // fullNameLabel
             // 
             fullNameLabel.AutoSize = true;
-            fullNameLabel.Location = new System.Drawing.Point(20, 31);
+            fullNameLabel.Location = new System.Drawing.Point(60, 70);
+            fullNameLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             fullNameLabel.Name = "fullNameLabel";
-            fullNameLabel.Size = new System.Drawing.Size(57, 13);
+            fullNameLabel.Size = new System.Drawing.Size(152, 32);
             fullNameLabel.TabIndex = 9;
             fullNameLabel.Text = "Full Name:";
             // 
             // lastNameLabel1
             // 
             lastNameLabel1.AutoSize = true;
-            lastNameLabel1.Location = new System.Drawing.Point(27, 73);
+            lastNameLabel1.Location = new System.Drawing.Point(53, 147);
+            lastNameLabel1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             lastNameLabel1.Name = "lastNameLabel1";
-            lastNameLabel1.Size = new System.Drawing.Size(61, 13);
+            lastNameLabel1.Size = new System.Drawing.Size(159, 32);
             lastNameLabel1.TabIndex = 10;
             lastNameLabel1.Text = "Last Name:";
             // 
@@ -91,9 +94,10 @@
             this.firstNameDataGridViewTextBoxColumn,
             this.dateOfBirthDataGridViewTextBoxColumn});
             this.searchPatientDataGridView.DataSource = this.searchPatientBindingSource;
-            this.searchPatientDataGridView.Location = new System.Drawing.Point(3, 167);
+            this.searchPatientDataGridView.Location = new System.Drawing.Point(8, 398);
+            this.searchPatientDataGridView.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.searchPatientDataGridView.Name = "searchPatientDataGridView";
-            this.searchPatientDataGridView.Size = new System.Drawing.Size(459, 95);
+            this.searchPatientDataGridView.Size = new System.Drawing.Size(1224, 227);
             this.searchPatientDataGridView.TabIndex = 7;
             // 
             // patientIDDataGridViewTextBoxColumn
@@ -126,9 +130,10 @@
             // 
             // DOBButton
             // 
-            this.DOBButton.Location = new System.Drawing.Point(264, 101);
+            this.DOBButton.Location = new System.Drawing.Point(704, 203);
+            this.DOBButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.DOBButton.Name = "DOBButton";
-            this.DOBButton.Size = new System.Drawing.Size(91, 23);
+            this.DOBButton.Size = new System.Drawing.Size(243, 55);
             this.DOBButton.TabIndex = 9;
             this.DOBButton.Text = "Search D.O.B";
             this.DOBButton.UseVisualStyleBackColor = true;
@@ -139,9 +144,10 @@
             this.fullNameComboBox.DataSource = this.patientBindingSource;
             this.fullNameComboBox.DisplayMember = "FullName";
             this.fullNameComboBox.FormattingEnabled = true;
-            this.fullNameComboBox.Location = new System.Drawing.Point(83, 28);
+            this.fullNameComboBox.Location = new System.Drawing.Point(221, 67);
+            this.fullNameComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.fullNameComboBox.Name = "fullNameComboBox";
-            this.fullNameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.fullNameComboBox.Size = new System.Drawing.Size(454, 39);
             this.fullNameComboBox.TabIndex = 10;
             this.fullNameComboBox.SelectedIndexChanged += new System.EventHandler(this.fullNameComboBox_SelectedIndexChanged);
             // 
@@ -151,9 +157,10 @@
             // 
             // lastNameButton
             // 
-            this.lastNameButton.Location = new System.Drawing.Point(228, 73);
+            this.lastNameButton.Location = new System.Drawing.Point(704, 124);
+            this.lastNameButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.lastNameButton.Name = "lastNameButton";
-            this.lastNameButton.Size = new System.Drawing.Size(111, 23);
+            this.lastNameButton.Size = new System.Drawing.Size(296, 55);
             this.lastNameButton.TabIndex = 12;
             this.lastNameButton.Text = "Search Last Name";
             this.lastNameButton.UseVisualStyleBackColor = true;
@@ -161,23 +168,26 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(94, 75);
+            this.lastNameTextBox.Location = new System.Drawing.Point(228, 141);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.Size = new System.Drawing.Size(447, 38);
             this.lastNameTextBox.TabIndex = 13;
             // 
             // DOBTextBox
             // 
-            this.DOBTextBox.Location = new System.Drawing.Point(158, 104);
+            this.DOBTextBox.Location = new System.Drawing.Point(415, 220);
+            this.DOBTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.DOBTextBox.Name = "DOBTextBox";
-            this.DOBTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DOBTextBox.Size = new System.Drawing.Size(260, 38);
             this.DOBTextBox.TabIndex = 14;
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(311, 130);
+            this.clearButton.Location = new System.Drawing.Point(704, 297);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(111, 23);
+            this.clearButton.Size = new System.Drawing.Size(296, 55);
             this.clearButton.TabIndex = 15;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -185,7 +195,7 @@
             // 
             // PatientSearchUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.DOBTextBox);
@@ -197,8 +207,9 @@
             this.Controls.Add(this.DOBButton);
             this.Controls.Add(dateOfBirthLabel1);
             this.Controls.Add(this.searchPatientDataGridView);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "PatientSearchUserControl";
-            this.Size = new System.Drawing.Size(471, 274);
+            this.Size = new System.Drawing.Size(1256, 653);
             this.Load += new System.EventHandler(this.PatientSearchUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchPatientDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchPatientBindingSource)).EndInit();
@@ -209,7 +220,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridView searchPatientDataGridView;
         private System.Windows.Forms.Button DOBButton;
         private System.Windows.Forms.ComboBox fullNameComboBox;

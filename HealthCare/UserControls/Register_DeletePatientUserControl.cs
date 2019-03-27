@@ -21,5 +21,27 @@ namespace HealthCare.UserControls
         {
             
         }
+
+        private void InitializeComponent()
+        {
+            this.patientSearchUserControl1 = new HealthCare.UserControls.PatientSearchUserControl();
+            this.SuspendLayout();
+            // 
+            // patientSearchUserControl1
+            // 
+            this.patientSearchUserControl1.Location = new System.Drawing.Point(8, 7);
+            this.patientSearchUserControl1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.patientSearchUserControl1.Name = "patientSearchUserControl1";
+            this.patientSearchUserControl1.Size = new System.Drawing.Size(1395, 968);
+            this.patientSearchUserControl1.TabIndex = 0;
+            // 
+            // Register_DeletePatientUserControl
+            // 
+            this.Controls.Add(this.patientSearchUserControl1);
+            this.Name = "Register_DeletePatientUserControl";
+            this.Size = new System.Drawing.Size(1411, 982);
+            this.ResumeLayout(false);
+
+        }
     }
 }

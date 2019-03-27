@@ -17,6 +17,7 @@ namespace HealthCare.UserControls
         private Appointment appointment;
         private DateTime time;
         private DataTable selectedTime;
+        private List<SearchPatient> patients;
 
         public AddAppointmentUserControl()
         {
@@ -95,15 +96,51 @@ namespace HealthCare.UserControls
         //Reads the data inputed into the fields and inserts into the new appointment
         private void ReadIncidentData(Appointment appointment)
         {
-            
-            appointment.PatientID = 1;
-            
+            int patientID = (int)patientGridView.SelectedRows[0].Cells[0].Value;
+            appointment.PatientID = patientID;
+
             int docID = (int)doctorComboBox.SelectedValue;
             appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
 
             DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
             appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
             appointment.ReasonForVisit = reasonForVisitTextBox.Text;
+        }
+
+        private void searchByLastNameButton_Click(object sender, EventArgs e)
+        {
+            if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter last name.");
+            }
+            try
+            {
+                patientGridView.DataBindings.Clear();
+                patients = this.healthcareController.GetPatientsByLastName(lastNameTextBox.Text);
+                patientGridView.DataSource = patients;
+            } catch (Exception)
+            {
+                MessageBox.Show("Enter last name to search by last name.");
+            }
+        }
+
+        private void searchDOBButton_Click(object sender, EventArgs e)
+        {
+            if(dobPicker.Value.Date == DateTime.Now.Date)
+            {
+                MessageBox.Show("Please select a Date of Birth");
+            }
+
+            try
+            {
+                patientGridView.DataBindings.Clear();
+                patients = this.healthcareController.GetPatientsByDOB(dobPicker.Value.Date);
+                patientGridView.DataSource = patients;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Enter last name to search by last name.");
+            }
         }
     }
 }
