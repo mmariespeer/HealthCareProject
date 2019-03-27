@@ -112,11 +112,17 @@ namespace HealthCare.UserControls
             if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
             {
                 MessageBox.Show("Please enter last name.");
+                return;
             }
             try
             {
                 patientGridView.DataBindings.Clear();
                 patients = this.healthcareController.GetPatientsByLastName(lastNameTextBox.Text);
+                if (!patients.Any())
+                {
+                    MessageBox.Show("No patients with that last name.");
+                    return;
+                }
                 patientGridView.DataSource = patients;
             } catch (Exception)
             {
@@ -129,12 +135,18 @@ namespace HealthCare.UserControls
             if(dobPicker.Value.Date == DateTime.Now.Date)
             {
                 MessageBox.Show("Please select a Date of Birth");
+                return;
             }
 
             try
             {
                 patientGridView.DataBindings.Clear();
                 patients = this.healthcareController.GetPatientsByDOB(dobPicker.Value.Date);
+                if (!patients.Any())
+                {
+                    MessageBox.Show("No patients with that date of birth.");
+                    return;
+                }
                 patientGridView.DataSource = patients;
             }
             catch (Exception)
