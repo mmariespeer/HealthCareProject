@@ -67,7 +67,6 @@ namespace HealthCare.UserControls
 
             foreach (Patient patient in patientList)
             {
-               // Console.WriteLine(patient.DateOfBirth.ToString("M/d/yyyy"));
                 if (patient.DateOfBirth.ToString("M/d/yyyy") == DOBTextBox.Text)
                 {
                     patientBindingSource.Clear();
@@ -99,8 +98,8 @@ namespace HealthCare.UserControls
                 if (patient.LastName == lastNameTextBox.Text)
                 {
 
-                    patientBindingSource.Clear();
-                    patientBindingSource.Add(patient);
+                   patientBindingSource.Clear();
+                   patientBindingSource.Add(patient);
 
                     try
                     {
@@ -116,6 +115,12 @@ namespace HealthCare.UserControls
                     return;
                 }
             }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            this.DOBTextBox.Text = "";
+            this.lastNameTextBox.Text = "";
         }
     }
     }

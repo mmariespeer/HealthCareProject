@@ -7,7 +7,9 @@ namespace HealthCare.Model
 
         public int PersonID { get; set; }
 
-       public string LastName { get; set; }
+        public int PatientID { get; set; }
+
+        public string LastName { get; set; }
 
         public string FullName { get; set; }
 

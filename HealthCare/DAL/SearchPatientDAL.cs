@@ -15,7 +15,7 @@ namespace HealthCare.DAL
         public List<Patient> GetAllPatients() 
         {
             List<Patient> allPatients = new List<Patient>();
-            string selectStatement = "SELECT (p.firstName + ' ' + p.lastname) AS Name, p.lastname, p.dateOfBirth, pa.personID FROM person p JOIN patient pa ON p.personID = pa.personID"; //SELECT p.lastName, p.firstName, p.dateOfBirth, p.personID FROM person p JOIN patient pa ON p.personID = pa.personID";
+            string selectStatement = "SELECT (p.firstName + ' ' + p.lastname) AS Name, p.lastname, p.dateOfBirth, pa.personID, pa.patientID FROM person p JOIN patient pa ON p.personID = pa.personID ORDER BY Name ASC"; 
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
@@ -30,7 +30,7 @@ namespace HealthCare.DAL
                         {
                            Patient patient = new Patient();
                             patient.LastName = reader["lastName"].ToString();
-                            //patient.FirstName = reader["firstName"].ToString();
+                            patient.PatientID = Convert.ToInt32(reader["patientID"]);
                             patient.FullName = reader["Name"].ToString();
                             patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
                             patient.PersonID = Convert.ToInt32(reader["personID"]);
