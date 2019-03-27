@@ -33,16 +33,17 @@
             // 
             // patientSearchUserControl2
             // 
-            this.patientSearchUserControl2.Location = new System.Drawing.Point(13, 19);
+            this.patientSearchUserControl2.Location = new System.Drawing.Point(3, 3);
             this.patientSearchUserControl2.Name = "patientSearchUserControl2";
-            this.patientSearchUserControl2.Size = new System.Drawing.Size(338, 145);
+            this.patientSearchUserControl2.Size = new System.Drawing.Size(368, 174);
             this.patientSearchUserControl2.TabIndex = 0;
+            this.patientSearchUserControl2.Load += new System.EventHandler(this.patientSearchUserControl2_Load);
             // 
             // Register_DeletePatientUserControl
             // 
             this.Controls.Add(this.patientSearchUserControl2);
             this.Name = "Register_DeletePatientUserControl";
-            this.Size = new System.Drawing.Size(446, 259);
+            this.Size = new System.Drawing.Size(395, 205);
             this.ResumeLayout(false);
 
         }

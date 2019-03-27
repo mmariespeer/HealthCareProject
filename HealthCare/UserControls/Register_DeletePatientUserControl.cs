@@ -16,5 +16,10 @@ namespace HealthCare.UserControls
         {
             InitializeComponent();
         }
+
+        private void patientSearchUserControl2_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

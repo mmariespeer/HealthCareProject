@@ -51,11 +51,14 @@
     <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\SearchPatientDAL.cs" />
     <Compile Include="DB\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\PlayAroundcs.cs" />
+    <Compile Include="Model\SearchPatient.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +158,8 @@
     </EmbeddedResource>
     <None Include="bin\Debug\HealthCare.exe.config" />
     <None Include="obj\Release\HealthCare.csproj.CoreCompileInputs.cache" />
+    <None Include="Properties\DataSources\HealthCare.Model.Patient.datasource" />
+    <None Include="Properties\DataSources\HealthCare.Model.SearchPatient.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

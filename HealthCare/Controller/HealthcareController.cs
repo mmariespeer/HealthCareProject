@@ -15,6 +15,7 @@ namespace HealthCare.Controller
         private DoctorDAL doctorDAL;
         private PersonDAL personDAL;
         private LoginDAL loginDAL;
+        private SearchPatientDAL searchDAL;
 
         //Initalizes DAL objects
         public HealthcareController()
@@ -23,6 +24,7 @@ namespace HealthCare.Controller
             doctorDAL = new DoctorDAL();
             personDAL = new PersonDAL();
             loginDAL = new LoginDAL();
+            searchDAL = new SearchPatientDAL();
         }
 
         //Adds a new appointment to the DB
@@ -68,6 +70,45 @@ namespace HealthCare.Controller
         public Boolean isNurse(int personID)
         {
             return loginDAL.isNurse(personID);
+        }
+
+        /// <summary>
+        /// return a list of all current patients
+        /// </summary>
+        /// <returns>list of all current patients</returns>
+        public List<Patient> GetAllPatients()
+        {
+            return this.searchDAL.GetAllPatients();
+        }
+
+        /// <summary>
+        /// return a patient based on personID
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <returns>a patient based on personID</returns>
+        public List<SearchPatient> GetSelectedPatients(int personID)
+        {
+            return this.searchDAL.GetSelectedPatients(personID);
+        }
+
+        /// <summary>
+        /// return a list of patients by last name
+        /// </summary>
+        /// <param name="lname"></param>
+        /// <returns>list of patients searched by last name</returns>
+        public List<SearchPatient> GetPatientsByLastName(string lname)
+        {
+            return this.searchDAL.GetPatientsByLastName(lname);
+        }
+
+        /// <summary>
+        /// return a list of patients by date of birth
+        /// </summary>
+        /// <param name="dob"></param>
+        /// <returns>list of patients searched by date of birth</returns>
+        public List<SearchPatient> GetPatientsByDOB(DateTime dob)
+        {
+            return this.searchDAL.GetPatientsByDOB(dob);
         }
     }
 }

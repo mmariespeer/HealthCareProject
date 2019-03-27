@@ -285,6 +285,8 @@ namespace HealthCare {
             
             private global::System.Data.DataColumn columndateOfBirth;
             
+            private global::System.Data.DataColumn columnpersonID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public personDataTable() {
@@ -344,6 +346,14 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn personIDColumn {
+                get {
+                    return this.columnpersonID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -384,10 +394,18 @@ namespace HealthCare {
                 object[] columnValuesArray = new object[] {
                         lastName,
                         firstName,
-                        dateOfBirth};
+                        dateOfBirth,
+                        null};
                 rowpersonRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpersonRow);
                 return rowpersonRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public personRow FindBypersonID(int personID) {
+                return ((personRow)(this.Rows.Find(new object[] {
+                            personID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -410,6 +428,7 @@ namespace HealthCare {
                 this.columnlastName = base.Columns["lastName"];
                 this.columnfirstName = base.Columns["firstName"];
                 this.columndateOfBirth = base.Columns["dateOfBirth"];
+                this.columnpersonID = base.Columns["personID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -421,11 +440,21 @@ namespace HealthCare {
                 base.Columns.Add(this.columnfirstName);
                 this.columndateOfBirth = new global::System.Data.DataColumn("dateOfBirth", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndateOfBirth);
+                this.columnpersonID = new global::System.Data.DataColumn("personID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpersonID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnpersonID}, true));
                 this.columnlastName.AllowDBNull = false;
                 this.columnlastName.MaxLength = 50;
                 this.columnfirstName.AllowDBNull = false;
                 this.columnfirstName.MaxLength = 50;
                 this.columndateOfBirth.AllowDBNull = false;
+                this.columnpersonID.AutoIncrement = true;
+                this.columnpersonID.AutoIncrementSeed = -1;
+                this.columnpersonID.AutoIncrementStep = -1;
+                this.columnpersonID.AllowDBNull = false;
+                this.columnpersonID.ReadOnly = true;
+                this.columnpersonID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -598,6 +627,17 @@ namespace HealthCare {
                     this[this.tableperson.dateOfBirthColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int personID {
+                get {
+                    return ((int)(this[this.tableperson.personIDColumn]));
+                }
+                set {
+                    this[this.tableperson.personIDColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -762,6 +802,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("lastName", "lastName");
             tableMapping.ColumnMappings.Add("firstName", "firstName");
             tableMapping.ColumnMappings.Add("dateOfBirth", "dateOfBirth");
+            tableMapping.ColumnMappings.Add("personID", "personID");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -778,7 +819,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT lastName, firstName, dateOfBirth FROM dbo.person";
+            this._commandCollection[0].CommandText = "SELECT lastName, firstName, dateOfBirth, personID FROM dbo.person";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
