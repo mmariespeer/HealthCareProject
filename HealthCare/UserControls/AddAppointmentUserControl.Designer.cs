@@ -44,9 +44,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.dobPicker = new System.Windows.Forms.DateTimePicker();
-            this.searchByLastNameButton = new System.Windows.Forms.Button();
+            this.searchByNameButton = new System.Windows.Forms.Button();
             this.patientGridView = new System.Windows.Forms.DataGridView();
             this.searchDOBButton = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.searchDOBandLastNameButton = new System.Windows.Forms.Button();
             this.selectpatientLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientGridView)).BeginInit();
@@ -181,7 +184,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(867, 32);
+            this.label2.Location = new System.Drawing.Point(1128, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(173, 32);
             this.label2.TabIndex = 36;
@@ -189,10 +192,10 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(1046, 26);
+            this.lastNameTextBox.Location = new System.Drawing.Point(1302, 33);
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(439, 38);
+            this.lastNameTextBox.Size = new System.Drawing.Size(183, 38);
             this.lastNameTextBox.TabIndex = 38;
             // 
             // dobPicker
@@ -200,48 +203,74 @@
             this.dobPicker.Location = new System.Drawing.Point(240, 26);
             this.dobPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dobPicker.Name = "dobPicker";
-            this.dobPicker.Size = new System.Drawing.Size(575, 38);
+            this.dobPicker.Size = new System.Drawing.Size(500, 38);
             this.dobPicker.TabIndex = 39;
             // 
-            // searchByLastNameButton
+            // searchByNameButton
             // 
-            this.searchByLastNameButton.Location = new System.Drawing.Point(1046, 105);
-            this.searchByLastNameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchByLastNameButton.Name = "searchByLastNameButton";
-            this.searchByLastNameButton.Size = new System.Drawing.Size(376, 62);
-            this.searchByLastNameButton.TabIndex = 40;
-            this.searchByLastNameButton.Text = "Search Last Name";
-            this.searchByLastNameButton.UseVisualStyleBackColor = true;
-            this.searchByLastNameButton.Click += new System.EventHandler(this.searchByLastNameButton_Click);
+            this.searchByNameButton.Location = new System.Drawing.Point(1109, 104);
+            this.searchByNameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.searchByNameButton.Name = "searchByNameButton";
+            this.searchByNameButton.Size = new System.Drawing.Size(376, 62);
+            this.searchByNameButton.TabIndex = 40;
+            this.searchByNameButton.Text = "Search by Full Name";
+            this.searchByNameButton.UseVisualStyleBackColor = true;
+            this.searchByNameButton.Click += new System.EventHandler(this.searchByNameButton_Click);
             // 
             // patientGridView
             // 
             this.patientGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.patientGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientGridView.Location = new System.Drawing.Point(165, 196);
+            this.patientGridView.Location = new System.Drawing.Point(165, 213);
             this.patientGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.patientGridView.Name = "patientGridView";
             this.patientGridView.ReadOnly = true;
             this.patientGridView.RowTemplate.Height = 40;
             this.patientGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.patientGridView.Size = new System.Drawing.Size(1320, 165);
+            this.patientGridView.Size = new System.Drawing.Size(1320, 148);
             this.patientGridView.TabIndex = 41;
             this.patientGridView.SelectionChanged += new System.EventHandler(this.patientGridView_SelectionChanged);
             // 
             // searchDOBButton
             // 
-            this.searchDOBButton.Location = new System.Drawing.Point(240, 105);
+            this.searchDOBButton.Location = new System.Drawing.Point(165, 104);
             this.searchDOBButton.Name = "searchDOBButton";
             this.searchDOBButton.Size = new System.Drawing.Size(376, 62);
             this.searchDOBButton.TabIndex = 44;
-            this.searchDOBButton.Text = "Search DOB";
+            this.searchDOBButton.Text = "Search by DOB";
             this.searchDOBButton.UseVisualStyleBackColor = true;
             this.searchDOBButton.Click += new System.EventHandler(this.searchDOBButton_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(766, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(167, 32);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "First Name :";
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(939, 30);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(183, 38);
+            this.firstNameTextBox.TabIndex = 47;
+            // 
+            // searchDOBandLastNameButton
+            // 
+            this.searchDOBandLastNameButton.Location = new System.Drawing.Point(624, 104);
+            this.searchDOBandLastNameButton.Name = "searchDOBandLastNameButton";
+            this.searchDOBandLastNameButton.Size = new System.Drawing.Size(428, 64);
+            this.searchDOBandLastNameButton.TabIndex = 48;
+            this.searchDOBandLastNameButton.Text = "Search by DOB and Last Name";
+            this.searchDOBandLastNameButton.UseVisualStyleBackColor = true;
+            this.searchDOBandLastNameButton.Click += new System.EventHandler(this.searchDOBandLastNameButton_Click);
             // 
             // selectpatientLabel
             // 
             this.selectpatientLabel.AutoSize = true;
-            this.selectpatientLabel.Location = new System.Drawing.Point(691, 162);
+            this.selectpatientLabel.Location = new System.Drawing.Point(688, 179);
             this.selectpatientLabel.Name = "selectpatientLabel";
             this.selectpatientLabel.Size = new System.Drawing.Size(277, 32);
             this.selectpatientLabel.TabIndex = 45;
@@ -251,12 +280,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchDOBandLastNameButton);
+            this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.selectpatientLabel);
             this.Controls.Add(this.searchDOBButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.appointmentGridView);
             this.Controls.Add(this.patientGridView);
-            this.Controls.Add(this.searchByLastNameButton);
+            this.Controls.Add(this.searchByNameButton);
             this.Controls.Add(this.dobPicker);
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.label2);
@@ -298,9 +330,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.DateTimePicker dobPicker;
-        private System.Windows.Forms.Button searchByLastNameButton;
+        private System.Windows.Forms.Button searchByNameButton;
         private System.Windows.Forms.DataGridView patientGridView;
         private System.Windows.Forms.Button searchDOBButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Button searchDOBandLastNameButton;
         private System.Windows.Forms.Label selectpatientLabel;
     }
 }

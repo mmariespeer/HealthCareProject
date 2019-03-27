@@ -136,32 +136,6 @@ namespace HealthCare.UserControls
             reasonForVisitTextBox.Text = "";
         }
 
-        //Searches for patient by last name when button is clicked.
-        private void searchByLastNameButton_Click(object sender, EventArgs e)
-        {
-            if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
-            {
-                MessageBox.Show("Please enter last name.");
-                return;
-            }
-            try
-            {
-                patientGridView.DataBindings.Clear();
-                patients = this.healthcareController.GetPatientsByLastName(lastNameTextBox.Text);
-                if (!patients.Any())
-                {
-                    MessageBox.Show("No patients with that last name.");
-                    return;
-                }
-                patientGridView.DataSource = patients;
-                this.LoadAppointmentGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
         //Searches for patient by date of birth when the search button is clicked.
         private void searchDOBButton_Click(object sender, EventArgs e)
         {
@@ -186,6 +160,68 @@ namespace HealthCare.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show("Error has occured. " + ex.Message);
+            }
+        }
+
+        //Searches the patient by first and last name
+        private void searchByNameButton_Click(object sender, EventArgs e)
+        {
+            if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter last name.");
+                return;
+            } else if (firstNameTextBox.Text == null || firstNameTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter first name.");
+                return;
+            }
+
+            try
+            {
+                patientGridView.DataBindings.Clear();
+                patients = this.healthcareController.GetPatientsByFullName(firstNameTextBox.Text, lastNameTextBox.Text);
+                if (!patients.Any())
+                {
+                    MessageBox.Show("No patients with that first name and last name.");
+                    return;
+                }
+                patientGridView.DataSource = patients;
+                this.LoadAppointmentGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+        }
+
+        //Searches a patient by the DOB and Last Name when clicked
+        private void searchDOBandLastNameButton_Click(object sender, EventArgs e)
+        {
+            if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
+            {
+                MessageBox.Show("Please enter last name.");
+                return;
+            } else if (dobPicker.Value.Date == DateTime.Now.Date)
+            {
+                MessageBox.Show("Please enter Date of Birth");
+                return;
+            }
+
+            try
+            {
+                patientGridView.DataBindings.Clear();
+                patients = this.healthcareController.GetPatientsByDOBandLastName(dobPicker.Value.Date, lastNameTextBox.Text);
+                if (!patients.Any())
+                {
+                    MessageBox.Show("No patients with that last name and date of birth.");
+                    return;
+                }
+                patientGridView.DataSource = patients;
+                this.LoadAppointmentGridView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 

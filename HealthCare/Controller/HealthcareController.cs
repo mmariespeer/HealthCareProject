@@ -75,6 +75,16 @@ namespace HealthCare.Controller
             return this.personDAL.GetPersonByPatientID(patientID);
         }
 
+        public List<SearchPatient> GetPatientsByFullName(string fname, string lname)
+        {
+            return this.searchDAL.GetPatientsByFullName(fname, lname);
+        }
+
+        public List<SearchPatient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
+        {
+            return this.searchDAL.GetPatientsByDOBandLastName(dateOfBirth, lname);
+        }
+
         /// <summary>
         /// retrieve a person's login information
         /// </summary>

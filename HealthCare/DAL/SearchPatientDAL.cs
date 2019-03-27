@@ -162,5 +162,85 @@ namespace HealthCare.DAL
             }
             return searchList;
         }
+
+        //Gets a list of patients by their first and last name
+        public List<SearchPatient> GetPatientsByFullName(string fname, string lname)
+        {
+            List<SearchPatient> searchList = new List<SearchPatient>();
+
+            string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID " +
+                "FROM person p " +
+                "JOIN patient pa " +
+                "ON p.personID = pa.personID " +
+                "WHERE p.lastName = @lname AND p.firstName = @fname";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@lname", lname);
+                    selectCommand.Parameters.AddWithValue("@fname", fname);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SearchPatient patient = new SearchPatient();
+                            patient.LastName = reader["lastName"].ToString();
+                            patient.FirstName = reader["firstName"].ToString();
+                            patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            patient.PatientID = Convert.ToInt32(reader["patientID"]);
+
+
+                            searchList.Add(patient);
+                        }
+                    }
+                }
+            }
+
+            return searchList;
+        }
+
+        //Gets a list of patients by their first and last name
+        public List<SearchPatient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
+        {
+            List<SearchPatient> searchList = new List<SearchPatient>();
+
+            string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID " +
+                "FROM person p " +
+                "JOIN patient pa " +
+                "ON p.personID = pa.personID " +
+                "WHERE p.lastName = @lname AND p.dateOfBirth = @dateOfBirth";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@lname", lname);
+                    selectCommand.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            SearchPatient patient = new SearchPatient();
+                            patient.LastName = reader["lastName"].ToString();
+                            patient.FirstName = reader["firstName"].ToString();
+                            patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            patient.PatientID = Convert.ToInt32(reader["patientID"]);
+
+
+                            searchList.Add(patient);
+                        }
+                    }
+                }
+            }
+
+            return searchList;
+        }
     }
 }
