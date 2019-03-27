@@ -85,6 +85,7 @@ namespace HealthCare.UserControls
            try
             {
                 this.healthcareController.AddAppointment(appointment);
+                this.LoadAppointmentGridView();
                 appointmentCreatedLabel.Text = "Your appointment has been created!";
            }
             catch (Exception)
@@ -96,8 +97,7 @@ namespace HealthCare.UserControls
         //Reads the data inputed into the fields and inserts into the new appointment
         private void ReadIncidentData(Appointment appointment)
         {
-            int patientID = (int)patientGridView.SelectedRows[0].Cells[0].Value;
-            appointment.PatientID = patientID;
+            appointment.PatientID = this.GetPatientIDBySelectedRow();
 
             int docID = (int)doctorComboBox.SelectedValue;
             appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
@@ -107,6 +107,17 @@ namespace HealthCare.UserControls
             appointment.ReasonForVisit = reasonForVisitTextBox.Text;
         }
 
+        //Reads the selected row and returns a patient ID based off row data
+        private int GetPatientIDBySelectedRow()
+        {
+            int rowindex = patientGridView.CurrentCell.RowIndex;
+            int columnindex = patientGridView.CurrentCell.ColumnIndex;
+
+            int patientID = Convert.ToInt32(patientGridView.Rows[rowindex].Cells[columnindex].Value.ToString());
+            return patientID;
+        }
+
+        //Searches for patient by last name when button is clicked.
         private void searchByLastNameButton_Click(object sender, EventArgs e)
         {
             if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
@@ -124,12 +135,14 @@ namespace HealthCare.UserControls
                     return;
                 }
                 patientGridView.DataSource = patients;
+                this.LoadAppointmentGridView();
             } catch (Exception)
             {
                 MessageBox.Show("Enter last name to search by last name.");
             }
         }
 
+        //Searches for patient by date of birth when the search button is clicked.
         private void searchDOBButton_Click(object sender, EventArgs e)
         {
             if(dobPicker.Value.Date == DateTime.Now.Date)
@@ -148,11 +161,25 @@ namespace HealthCare.UserControls
                     return;
                 }
                 patientGridView.DataSource = patients;
+                this.LoadAppointmentGridView();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Enter last name to search by last name.");
+                MessageBox.Show("Error has occured. " + ex.Message);
             }
+        }
+
+        private void LoadAppointmentGridView()
+        {
+            List<Appointment> appointments = new List<Appointment>();
+            appointmentGridView.DataBindings.Clear();
+            appointments = this.healthcareController.GetAppointmentsByPatientID(this.GetPatientIDBySelectedRow());
+            appointmentGridView.DataSource = appointments;
+        }
+
+        private void patientGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            this.LoadAppointmentGridView();
         }
     }
 }

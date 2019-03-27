@@ -218,8 +218,10 @@
             this.patientGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.patientGridView.Name = "patientGridView";
             this.patientGridView.RowTemplate.Height = 40;
+            this.patientGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.patientGridView.Size = new System.Drawing.Size(1320, 165);
             this.patientGridView.TabIndex = 41;
+            this.patientGridView.SelectionChanged += new System.EventHandler(this.patientGridView_SelectionChanged);
             // 
             // searchDOBButton
             // 

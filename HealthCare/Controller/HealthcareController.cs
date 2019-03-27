@@ -51,6 +51,11 @@ namespace HealthCare.Controller
             return doctorDAL.GetDoctorByPersonID(personID);
         }
 
+        public List<Appointment> GetAppointmentsByPatientID(int patientID)
+        {
+            return appointmentDAL.GetAppointmentsByPatientID(patientID);
+        }
+
         /// <summary>
         /// retrieve a person's login information
         /// </summary>
