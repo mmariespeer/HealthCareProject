@@ -84,18 +84,24 @@ namespace HealthCare.UserControls
             this.ReadIncidentData(appointment);
             if (this.healthcareController.CheckIfDoctorHasAppointmentScheduled(appointment.DoctorID, appointment.DateTime))
             {
-                MessageBox.Show("An appointment has already been scheduled with this doctor. Please select another date,time, or doctor.");
+                MessageBox.Show("An appointment has already been scheduled at this time and date with this doctor. " +
+                    "Please select another date, time, or doctor.");
                 return;
             }
             try
             {
                 this.healthcareController.AddAppointment(appointment);
                 this.LoadAppointmentGridView();
-                appointmentCreatedLabel.Text = "Your appointment has been created!";
+                this.ClearScheduling();
+                MessageBox.Show("Appointment has been created! \n"
+                    + this.healthcareController.GetPersonByPatientID(appointment.PatientID).FirstName + " "
+                    + this.healthcareController.GetPersonByPatientID(appointment.PatientID).LastName + "\n" 
+                    + "on " + appointment.DateTime.ToShortDateString() + " at " + appointment.DateTime.ToShortTimeString() + "\n"
+                    + "With Dr. " + this.healthcareController.GetPersonByDoctorID(appointment.DoctorID).LastName);
            }
-            catch (Exception)
+            catch (Exception ex)
             {
-               MessageBox.Show("Your appointment has not been added.");
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
         
@@ -123,6 +129,13 @@ namespace HealthCare.UserControls
             return patientID;
         }
 
+        private void ClearScheduling()
+        {
+            this.LoadDoctorComboBox();
+            this.LoadTimesComboBox();
+            reasonForVisitTextBox.Text = "";
+        }
+
         //Searches for patient by last name when button is clicked.
         private void searchByLastNameButton_Click(object sender, EventArgs e)
         {
@@ -142,9 +155,10 @@ namespace HealthCare.UserControls
                 }
                 patientGridView.DataSource = patients;
                 this.LoadAppointmentGridView();
-            } catch (Exception)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Enter last name to search by last name.");
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 
@@ -175,6 +189,7 @@ namespace HealthCare.UserControls
             }
         }
 
+        //Populates the appointment gridview with the selected patients appointment information
         private void LoadAppointmentGridView()
         {
             List<Appointment> appointments = new List<Appointment>();
@@ -183,6 +198,7 @@ namespace HealthCare.UserControls
             appointmentGridView.DataSource = appointments;
         }
 
+        //Updates the gridview when there are multiple patients to choose from
         private void patientGridView_SelectionChanged(object sender, EventArgs e)
         {
             this.LoadAppointmentGridView();

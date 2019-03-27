@@ -63,6 +63,18 @@ namespace HealthCare.Controller
             return doctorDAL.CheckIfDoctorHasAppointmentScheduled(doctorID, dateTime);
         }
 
+        //Gets a person by the doctorID
+        public Person GetPersonByDoctorID(int docID)
+        {
+            return this.personDAL.GetPersonByDoctorID(docID);
+        }
+
+        //Gets a person by the patientID
+        public Person GetPersonByPatientID(int patientID)
+        {
+            return this.personDAL.GetPersonByPatientID(patientID);
+        }
+
         /// <summary>
         /// retrieve a person's login information
         /// </summary>

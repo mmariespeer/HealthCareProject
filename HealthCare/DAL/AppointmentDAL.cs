@@ -37,8 +37,7 @@ namespace HealthCare.DAL
         public List<Appointment> GetAppointmentsByPatientID(int patientID)
         {
             List<Appointment> appointments = new List<Appointment>();
-            
-            
+
             string selectStatement =
                 "SELECT appointmentID, patientID, doctorID, dateTime, reasonForVisit " +
                 "FROM Appointment " +

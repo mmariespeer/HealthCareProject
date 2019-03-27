@@ -68,7 +68,7 @@ namespace HealthCare.DAL
             return doctor;
         }
 
-        //Retrieves doctorID by personID
+        //Returns true if the doctor already has an appointment at that date/time
         public bool CheckIfDoctorHasAppointmentScheduled(int doctorID, DateTime dateTime)
         {
             Doctor doctor = new Doctor();
