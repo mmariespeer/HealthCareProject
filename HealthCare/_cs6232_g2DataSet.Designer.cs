@@ -287,6 +287,18 @@ namespace HealthCare {
             
             private global::System.Data.DataColumn columnpersonID;
             
+            private global::System.Data.DataColumn columnstreetAddress;
+            
+            private global::System.Data.DataColumn columncity;
+            
+            private global::System.Data.DataColumn columnstateCode;
+            
+            private global::System.Data.DataColumn columnzipCode;
+            
+            private global::System.Data.DataColumn columnphoneNumber;
+            
+            private global::System.Data.DataColumn columnssn;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public personDataTable() {
@@ -354,6 +366,54 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn streetAddressColumn {
+                get {
+                    return this.columnstreetAddress;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn cityColumn {
+                get {
+                    return this.columncity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn stateCodeColumn {
+                get {
+                    return this.columnstateCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn zipCodeColumn {
+                get {
+                    return this.columnzipCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn phoneNumberColumn {
+                get {
+                    return this.columnphoneNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ssnColumn {
+                get {
+                    return this.columnssn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +449,19 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public personRow AddpersonRow(string lastName, string firstName, System.DateTime dateOfBirth) {
+            public personRow AddpersonRow(string lastName, string firstName, System.DateTime dateOfBirth, string streetAddress, string city, string stateCode, int zipCode, string phoneNumber, string ssn) {
                 personRow rowpersonRow = ((personRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         lastName,
                         firstName,
                         dateOfBirth,
-                        null};
+                        null,
+                        streetAddress,
+                        city,
+                        stateCode,
+                        zipCode,
+                        phoneNumber,
+                        ssn};
                 rowpersonRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpersonRow);
                 return rowpersonRow;
@@ -429,6 +495,12 @@ namespace HealthCare {
                 this.columnfirstName = base.Columns["firstName"];
                 this.columndateOfBirth = base.Columns["dateOfBirth"];
                 this.columnpersonID = base.Columns["personID"];
+                this.columnstreetAddress = base.Columns["streetAddress"];
+                this.columncity = base.Columns["city"];
+                this.columnstateCode = base.Columns["stateCode"];
+                this.columnzipCode = base.Columns["zipCode"];
+                this.columnphoneNumber = base.Columns["phoneNumber"];
+                this.columnssn = base.Columns["ssn"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,6 +514,18 @@ namespace HealthCare {
                 base.Columns.Add(this.columndateOfBirth);
                 this.columnpersonID = new global::System.Data.DataColumn("personID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpersonID);
+                this.columnstreetAddress = new global::System.Data.DataColumn("streetAddress", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstreetAddress);
+                this.columncity = new global::System.Data.DataColumn("city", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncity);
+                this.columnstateCode = new global::System.Data.DataColumn("stateCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstateCode);
+                this.columnzipCode = new global::System.Data.DataColumn("zipCode", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnzipCode);
+                this.columnphoneNumber = new global::System.Data.DataColumn("phoneNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnphoneNumber);
+                this.columnssn = new global::System.Data.DataColumn("ssn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnssn);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnpersonID}, true));
                 this.columnlastName.AllowDBNull = false;
@@ -455,6 +539,17 @@ namespace HealthCare {
                 this.columnpersonID.AllowDBNull = false;
                 this.columnpersonID.ReadOnly = true;
                 this.columnpersonID.Unique = true;
+                this.columnstreetAddress.AllowDBNull = false;
+                this.columnstreetAddress.MaxLength = 50;
+                this.columncity.AllowDBNull = false;
+                this.columncity.MaxLength = 50;
+                this.columnstateCode.AllowDBNull = false;
+                this.columnstateCode.MaxLength = 2;
+                this.columnzipCode.AllowDBNull = false;
+                this.columnphoneNumber.AllowDBNull = false;
+                this.columnphoneNumber.MaxLength = 14;
+                this.columnssn.AllowDBNull = false;
+                this.columnssn.MaxLength = 14;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -638,6 +733,72 @@ namespace HealthCare {
                     this[this.tableperson.personIDColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string streetAddress {
+                get {
+                    return ((string)(this[this.tableperson.streetAddressColumn]));
+                }
+                set {
+                    this[this.tableperson.streetAddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string city {
+                get {
+                    return ((string)(this[this.tableperson.cityColumn]));
+                }
+                set {
+                    this[this.tableperson.cityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string stateCode {
+                get {
+                    return ((string)(this[this.tableperson.stateCodeColumn]));
+                }
+                set {
+                    this[this.tableperson.stateCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int zipCode {
+                get {
+                    return ((int)(this[this.tableperson.zipCodeColumn]));
+                }
+                set {
+                    this[this.tableperson.zipCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string phoneNumber {
+                get {
+                    return ((string)(this[this.tableperson.phoneNumberColumn]));
+                }
+                set {
+                    this[this.tableperson.phoneNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ssn {
+                get {
+                    return ((string)(this[this.tableperson.ssnColumn]));
+                }
+                set {
+                    this[this.tableperson.ssnColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -803,6 +964,12 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("firstName", "firstName");
             tableMapping.ColumnMappings.Add("dateOfBirth", "dateOfBirth");
             tableMapping.ColumnMappings.Add("personID", "personID");
+            tableMapping.ColumnMappings.Add("streetAddress", "streetAddress");
+            tableMapping.ColumnMappings.Add("city", "city");
+            tableMapping.ColumnMappings.Add("stateCode", "stateCode");
+            tableMapping.ColumnMappings.Add("zipCode", "zipCode");
+            tableMapping.ColumnMappings.Add("phoneNumber", "phoneNumber");
+            tableMapping.ColumnMappings.Add("ssn", "ssn");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -819,7 +986,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT lastName, firstName, dateOfBirth, personID FROM dbo.person";
+            this._commandCollection[0].CommandText = "SELECT * FROM dbo.person";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="cs6232_g2ConnectionString1 (Settings)" DbObjectName="[cs6232-g2].dbo.person" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT lastName, firstName, dateOfBirth, personID FROM dbo.person</CommandText>
+                    <CommandText>SELECT * FROM dbo.person</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -23,6 +23,12 @@
               <Mapping SourceColumn="firstName" DataSetColumn="firstName" />
               <Mapping SourceColumn="dateOfBirth" DataSetColumn="dateOfBirth" />
               <Mapping SourceColumn="personID" DataSetColumn="personID" />
+              <Mapping SourceColumn="streetAddress" DataSetColumn="streetAddress" />
+              <Mapping SourceColumn="city" DataSetColumn="city" />
+              <Mapping SourceColumn="stateCode" DataSetColumn="stateCode" />
+              <Mapping SourceColumn="zipCode" DataSetColumn="zipCode" />
+              <Mapping SourceColumn="phoneNumber" DataSetColumn="phoneNumber" />
+              <Mapping SourceColumn="ssn" DataSetColumn="ssn" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -34,7 +40,7 @@
   <xs:element name="_cs6232_g2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="_cs6232_g2DataSet" msprop:Generator_UserDSName="_cs6232_g2DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="person" msprop:Generator_TableClassName="personDataTable" msprop:Generator_TableVarName="tableperson" msprop:Generator_TablePropName="person" msprop:Generator_RowDeletingName="personRowDeleting" msprop:Generator_RowChangingName="personRowChanging" msprop:Generator_RowEvHandlerName="personRowChangeEventHandler" msprop:Generator_RowDeletedName="personRowDeleted" msprop:Generator_UserTableName="person" msprop:Generator_RowChangedName="personRowChanged" msprop:Generator_RowEvArgName="personRowChangeEvent" msprop:Generator_RowClassName="personRow">
+        <xs:element name="person" msprop:Generator_TableClassName="personDataTable" msprop:Generator_TableVarName="tableperson" msprop:Generator_RowChangedName="personRowChanged" msprop:Generator_TablePropName="person" msprop:Generator_RowDeletingName="personRowDeleting" msprop:Generator_RowChangingName="personRowChanging" msprop:Generator_RowEvHandlerName="personRowChangeEventHandler" msprop:Generator_RowDeletedName="personRowDeleted" msprop:Generator_RowClassName="personRow" msprop:Generator_UserTableName="person" msprop:Generator_RowEvArgName="personRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="lastName" msprop:Generator_ColumnVarNameInTable="columnlastName" msprop:Generator_ColumnPropNameInRow="lastName" msprop:Generator_ColumnPropNameInTable="lastNameColumn" msprop:Generator_UserColumnName="lastName">
@@ -53,6 +59,42 @@
               </xs:element>
               <xs:element name="dateOfBirth" msprop:Generator_ColumnVarNameInTable="columndateOfBirth" msprop:Generator_ColumnPropNameInRow="dateOfBirth" msprop:Generator_ColumnPropNameInTable="dateOfBirthColumn" msprop:Generator_UserColumnName="dateOfBirth" type="xs:dateTime" />
               <xs:element name="personID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnpersonID" msprop:Generator_ColumnPropNameInRow="personID" msprop:Generator_ColumnPropNameInTable="personIDColumn" msprop:Generator_UserColumnName="personID" type="xs:int" />
+              <xs:element name="streetAddress" msprop:Generator_ColumnVarNameInTable="columnstreetAddress" msprop:Generator_ColumnPropNameInRow="streetAddress" msprop:Generator_ColumnPropNameInTable="streetAddressColumn" msprop:Generator_UserColumnName="streetAddress">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_UserColumnName="city">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stateCode" msprop:Generator_ColumnVarNameInTable="columnstateCode" msprop:Generator_ColumnPropNameInRow="stateCode" msprop:Generator_ColumnPropNameInTable="stateCodeColumn" msprop:Generator_UserColumnName="stateCode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="zipCode" msprop:Generator_ColumnVarNameInTable="columnzipCode" msprop:Generator_ColumnPropNameInRow="zipCode" msprop:Generator_ColumnPropNameInTable="zipCodeColumn" msprop:Generator_UserColumnName="zipCode" type="xs:int" />
+              <xs:element name="phoneNumber" msprop:Generator_ColumnVarNameInTable="columnphoneNumber" msprop:Generator_ColumnPropNameInRow="phoneNumber" msprop:Generator_ColumnPropNameInTable="phoneNumberColumn" msprop:Generator_UserColumnName="phoneNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ssn" msprop:Generator_ColumnVarNameInTable="columnssn" msprop:Generator_ColumnPropNameInRow="ssn" msprop:Generator_ColumnPropNameInTable="ssnColumn" msprop:Generator_UserColumnName="ssn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
