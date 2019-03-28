@@ -52,12 +52,14 @@
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="DAL\SearchPatientDAL.cs" />
+    <Compile Include="DAL\VisitDAL.cs" />
     <Compile Include="DB\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchPatient.cs" />
+    <Compile Include="Model\Visit.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -40,5 +40,10 @@ namespace HealthCare.View
             lf.Show();
         }
 
+        private void NurseDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
