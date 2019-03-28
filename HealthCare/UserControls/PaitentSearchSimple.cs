@@ -1,8 +1,11 @@
 ﻿using HealthCare.Controller;
 using HealthCare.Model;
+using HealthCare.View;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace HealthCare.UserControls
 {
@@ -56,6 +59,8 @@ namespace HealthCare.UserControls
                 MessageBox.Show("You must enter either the date of birth, date of birth and last name, or both first and last name for patient search!" +
                 Environment.NewLine, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
         }
 
         private void SetListView(List<Patient> patientList)
@@ -86,6 +91,13 @@ namespace HealthCare.UserControls
                                 Environment.NewLine, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void PatientListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+            dashboard.SelectedPatientID = int.Parse(this.patientListView.SelectedItems[0].SubItems[0].Text);
+            dashboard.RefreshTabs(sender, e);
         }
     }
 }

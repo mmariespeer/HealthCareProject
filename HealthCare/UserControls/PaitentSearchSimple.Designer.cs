@@ -121,11 +121,13 @@
             this.dobHeader});
             this.patientListView.FullRowSelect = true;
             this.patientListView.Location = new System.Drawing.Point(16, 60);
+            this.patientListView.MultiSelect = false;
             this.patientListView.Name = "patientListView";
             this.patientListView.Size = new System.Drawing.Size(598, 69);
             this.patientListView.TabIndex = 9;
             this.patientListView.UseCompatibleStateImageBehavior = false;
             this.patientListView.View = System.Windows.Forms.View.Details;
+            this.patientListView.SelectedIndexChanged += new System.EventHandler(this.PatientListView_SelectedIndexChanged);
             // 
             // patientIDHeader
             // 

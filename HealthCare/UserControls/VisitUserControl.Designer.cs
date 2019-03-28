@@ -52,6 +52,7 @@
             this.completeRadioButton = new System.Windows.Forms.RadioButton();
             this.updateButton = new System.Windows.Forms.Button();
             this.completedLabel = new System.Windows.Forms.Label();
+            this.testLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,10 +263,21 @@
             this.completedLabel.TabIndex = 23;
             this.completedLabel.Text = "Visit has been marked complete - cannot edit.";
             // 
+            // testLabel
+            // 
+            this.testLabel.AutoSize = true;
+            this.testLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testLabel.Location = new System.Drawing.Point(340, 333);
+            this.testLabel.Name = "testLabel";
+            this.testLabel.Size = new System.Drawing.Size(84, 24);
+            this.testLabel.TabIndex = 24;
+            this.testLabel.Text = "testLabel";
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.testLabel);
             this.Controls.Add(this.completedLabel);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.completeRadioButton);
@@ -324,5 +336,6 @@
         private System.Windows.Forms.RadioButton completeRadioButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Label completedLabel;
+        private System.Windows.Forms.Label testLabel;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
@@ -17,6 +18,10 @@ namespace HealthCare.UserControls
             InitializeComponent();
         }
 
-       
+        public void VisitUserControl_Load(object sender, EventArgs e)
+        {
+            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+            this.testLabel.Text = dashboard.SelectedPatientID.ToString(); 
+        }
     }
 }
