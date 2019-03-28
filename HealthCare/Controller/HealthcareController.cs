@@ -75,12 +75,12 @@ namespace HealthCare.Controller
             return this.personDAL.GetPersonByPatientID(patientID);
         }
 
-        public List<SearchPatient> GetPatientsByFullName(string fname, string lname)
+        public List<Patient> GetPatientsByFullName(string fname, string lname)
         {
             return this.searchDAL.GetPatientsByFullName(fname, lname);
         }
 
-        public List<SearchPatient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
+        public List<Patient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
         {
             return this.searchDAL.GetPatientsByDOBandLastName(dateOfBirth, lname);
         }
@@ -130,7 +130,7 @@ namespace HealthCare.Controller
         /// </summary>
         /// <param name="lname"></param>
         /// <returns>list of patients searched by last name</returns>
-        public List<SearchPatient> GetPatientsByLastName(string lname)
+        public List<Patient> GetPatientsByLastName(string lname)
         {
             return this.searchDAL.GetPatientsByLastName(lname);
         }
@@ -140,7 +140,7 @@ namespace HealthCare.Controller
         /// </summary>
         /// <param name="dob"></param>
         /// <returns>list of patients searched by date of birth</returns>
-        public List<SearchPatient> GetPatientsByDOB(DateTime dob)
+        public List<Patient> GetPatientsByDOB(DateTime dob)
         {
             return this.searchDAL.GetPatientsByDOB(dob);
         }

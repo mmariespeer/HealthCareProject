@@ -74,7 +74,7 @@ namespace HealthCare.UserControls
 
                     try
                     {
-                        searchList = this.healthController.GetPatientsByDOB(patient.DateOfBirth);
+                       // searchList = this.healthController.GetPatientsByDOB(patient.DateOfBirth);
                         Console.WriteLine("here2");
                         searchPatientDataGridView.DataSource = searchList;
                     }
@@ -103,7 +103,7 @@ namespace HealthCare.UserControls
 
                     try
                     {
-                        searchList = this.healthController.GetPatientsByLastName(patient.LastName);
+                        //searchList = this.healthController.GetPatientsByLastName(patient.LastName);
                         searchPatientDataGridView.DataSource = searchList;
                     }
                     catch (Exception ex)
