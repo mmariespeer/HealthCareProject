@@ -76,6 +76,12 @@
     <Compile Include="UserControls\LogTestResultsUserControl.Designer.cs">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PaitentSearchSimple.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PaitentSearchSimple.Designer.cs">
+      <DependentUpon>PaitentSearchSimple.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PatientSearchUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     <Compile Include="View\NurseDashboard.Designer.cs">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="_cs6232_g2DataSet.cs">
+      <DependentUpon>_cs6232_g2DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_cs6232_g2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogTestResultsUserControl.resx">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PaitentSearchSimple.resx">
+      <DependentUpon>PaitentSearchSimple.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PatientSearchUserControl.resx">
       <DependentUpon>PatientSearchUserControl.cs</DependentUpon>

@@ -91,9 +91,9 @@ namespace HealthCare.DAL
         /// </summary>
         /// <param name="lname"></param>
         /// <returns>list of patients searched by last name</returns>
-        public List<SearchPatient> GetPatientsByLastName(string lname)
+        public List<Patient> GetPatientsByLastName(string lname)
         {
-            List<SearchPatient> searchList = new List<SearchPatient>();
+            List<Patient> searchList = new List<Patient>();
 
             string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID FROM person p JOIN patient pa ON p.personID = pa.personID WHERE p.lastName = @lname";
 
@@ -109,12 +109,11 @@ namespace HealthCare.DAL
                     {
                         while (reader.Read())
                         {
-                            SearchPatient patient = new SearchPatient();
+                            Patient patient = new Patient();
                             patient.LastName = reader["lastName"].ToString();
                             patient.FirstName = reader["firstName"].ToString();
                             patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
                             patient.PatientID = Convert.ToInt32(reader["patientID"]);
-
 
                             searchList.Add(patient);
                         }
@@ -130,9 +129,9 @@ namespace HealthCare.DAL
         /// </summary>
         /// <param name="dob"></param>
         /// <returns>list of patients searched by date of birth</returns>
-        public List<SearchPatient> GetPatientsByDOB(DateTime dob)
+        public List<Patient> GetPatientsByDOB(DateTime dob)
         {
-            List<SearchPatient> searchList = new List<SearchPatient>();
+            List<Patient> searchList = new List<Patient>();
 
             string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID FROM person p JOIN patient pa ON p.personID = pa.personID WHERE CAST(p.dateOfBirth as DATE) = @DOB";
 
@@ -148,7 +147,7 @@ namespace HealthCare.DAL
                     {
                         while (reader.Read())
                         {
-                            SearchPatient patient = new SearchPatient();
+                            Patient patient = new Patient();
                             patient.LastName = reader["lastName"].ToString();
                             patient.FirstName = reader["firstName"].ToString();
                             patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
@@ -164,9 +163,9 @@ namespace HealthCare.DAL
         }
 
         //Gets a list of patients by their first and last name
-        public List<SearchPatient> GetPatientsByFullName(string fname, string lname)
+        public List<Patient> GetPatientsByFullName(string fname, string lname)
         {
-            List<SearchPatient> searchList = new List<SearchPatient>();
+            List<Patient> searchList = new List<Patient>();
 
             string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID " +
                 "FROM person p " +
@@ -187,7 +186,7 @@ namespace HealthCare.DAL
                     {
                         while (reader.Read())
                         {
-                            SearchPatient patient = new SearchPatient();
+                            Patient patient = new Patient();
                             patient.LastName = reader["lastName"].ToString();
                             patient.FirstName = reader["firstName"].ToString();
                             patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
@@ -204,9 +203,9 @@ namespace HealthCare.DAL
         }
 
         //Gets a list of patients by their first and last name
-        public List<SearchPatient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
+        public List<Patient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
         {
-            List<SearchPatient> searchList = new List<SearchPatient>();
+            List<Patient> searchList = new List<Patient>();
 
             string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID " +
                 "FROM person p " +
@@ -227,7 +226,7 @@ namespace HealthCare.DAL
                     {
                         while (reader.Read())
                         {
-                            SearchPatient patient = new SearchPatient();
+                            Patient patient = new Patient();
                             patient.LastName = reader["lastName"].ToString();
                             patient.FirstName = reader["firstName"].ToString();
                             patient.DateOfBirth = (DateTime)reader["dateOfBirth"];

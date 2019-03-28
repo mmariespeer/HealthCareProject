@@ -148,7 +148,7 @@ namespace HealthCare.UserControls
             try
             {
                 patientGridView.DataBindings.Clear();
-                patients = this.healthcareController.GetPatientsByDOB(dobPicker.Value.Date);
+                //patients = this.healthcareController.GetPatientsByDOB(dobPicker.Value.Date);
                 if (!patients.Any())
                 {
                     MessageBox.Show("No patients with that date of birth.");
@@ -179,7 +179,7 @@ namespace HealthCare.UserControls
             try
             {
                 patientGridView.DataBindings.Clear();
-                patients = this.healthcareController.GetPatientsByFullName(firstNameTextBox.Text, lastNameTextBox.Text);
+                //patients = this.healthcareController.GetPatientsByFullName(firstNameTextBox.Text, lastNameTextBox.Text);
                 if (!patients.Any())
                 {
                     MessageBox.Show("No patients with that first name and last name.");
@@ -210,7 +210,7 @@ namespace HealthCare.UserControls
             try
             {
                 patientGridView.DataBindings.Clear();
-                patients = this.healthcareController.GetPatientsByDOBandLastName(dobPicker.Value.Date, lastNameTextBox.Text);
+                //patients = this.healthcareController.GetPatientsByDOBandLastName(dobPicker.Value.Date, lastNameTextBox.Text);
                 if (!patients.Any())
                 {
                     MessageBox.Show("No patients with that last name and date of birth.");
