@@ -12,6 +12,8 @@ namespace HealthCare.Model
 
         public int DoctorID { get; set; }
 
+        public string DoctorName { get; set; }
+
         public int NurseID { get; set; }
 
         public DateTime DateTime { get; set; }

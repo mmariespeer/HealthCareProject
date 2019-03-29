@@ -33,11 +33,11 @@
             this.patientSearchUserControl1 = new HealthCare.UserControls.PatientSearchUserControl();
             this.appointmentTabPage = new System.Windows.Forms.TabPage();
             this.addAppointmentUserControl1 = new HealthCare.UserControls.AddAppointmentUserControl();
-            this.visitTabPage = new System.Windows.Forms.TabPage();
-            this.visitUserControl1 = new HealthCare.UserControls.VisitUserControl();
             this.logoutLinkDashboard = new System.Windows.Forms.LinkLabel();
             this.nameLabel = new System.Windows.Forms.Label();
             this.paitentSearchSimple2 = new HealthCare.UserControls.PaitentSearchSimple();
+            this.visitUserControl1 = new HealthCare.UserControls.VisitUserControl();
+            this.visitTabPage = new System.Windows.Forms.TabPage();
             this.nurseTabControl.SuspendLayout();
             this.patientTabPage.SuspendLayout();
             this.appointmentTabPage.SuspendLayout();
@@ -98,25 +98,6 @@
             this.addAppointmentUserControl1.Size = new System.Drawing.Size(770, 633);
             this.addAppointmentUserControl1.TabIndex = 0;
             // 
-            // visitTabPage
-            // 
-            this.visitTabPage.Controls.Add(this.visitUserControl1);
-            this.visitTabPage.Location = new System.Drawing.Point(4, 29);
-            this.visitTabPage.Name = "visitTabPage";
-            this.visitTabPage.Size = new System.Drawing.Size(776, 639);
-            this.visitTabPage.TabIndex = 2;
-            this.visitTabPage.Text = "Visit Information";
-            this.visitTabPage.UseVisualStyleBackColor = true;
-            // 
-            // visitUserControl1
-            // 
-            this.visitUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.visitUserControl1.Location = new System.Drawing.Point(4, 4);
-            this.visitUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.visitUserControl1.Name = "visitUserControl1";
-            this.visitUserControl1.Size = new System.Drawing.Size(705, 682);
-            this.visitUserControl1.TabIndex = 0;
-            // 
             // logoutLinkDashboard
             // 
             this.logoutLinkDashboard.AutoSize = true;
@@ -126,7 +107,7 @@
             this.logoutLinkDashboard.TabIndex = 3;
             this.logoutLinkDashboard.TabStop = true;
             this.logoutLinkDashboard.Text = "logout";
-            this.logoutLinkDashboard.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.logoutLinkDashboard_LinkClicked);
+            this.logoutLinkDashboard.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LogoutLinkDashboard_LinkClicked);
             // 
             // nameLabel
             // 
@@ -143,6 +124,25 @@
             this.paitentSearchSimple2.Name = "paitentSearchSimple2";
             this.paitentSearchSimple2.Size = new System.Drawing.Size(651, 146);
             this.paitentSearchSimple2.TabIndex = 5;
+            // 
+            // visitUserControl1
+            // 
+            this.visitUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitUserControl1.Location = new System.Drawing.Point(34, 15);
+            this.visitUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.visitUserControl1.Name = "visitUserControl1";
+            this.visitUserControl1.Size = new System.Drawing.Size(705, 682);
+            this.visitUserControl1.TabIndex = 0;
+            // 
+            // visitTabPage
+            // 
+            this.visitTabPage.Controls.Add(this.visitUserControl1);
+            this.visitTabPage.Location = new System.Drawing.Point(4, 29);
+            this.visitTabPage.Name = "visitTabPage";
+            this.visitTabPage.Size = new System.Drawing.Size(776, 639);
+            this.visitTabPage.TabIndex = 2;
+            this.visitTabPage.Text = "Visit Information";
+            this.visitTabPage.UseVisualStyleBackColor = true;
             // 
             // NurseDashboard
             // 
@@ -169,12 +169,12 @@
         private System.Windows.Forms.TabControl nurseTabControl;
         private System.Windows.Forms.TabPage patientTabPage;
         private System.Windows.Forms.TabPage appointmentTabPage;
-        private System.Windows.Forms.TabPage visitTabPage;
         private System.Windows.Forms.LinkLabel logoutLinkDashboard;
         private System.Windows.Forms.Label nameLabel;
-        private UserControls.VisitUserControl visitUserControl1;
         private UserControls.AddAppointmentUserControl addAppointmentUserControl1;
         private UserControls.PatientSearchUserControl patientSearchUserControl1;
         private UserControls.PaitentSearchSimple paitentSearchSimple2;
+        private System.Windows.Forms.TabPage visitTabPage;
+        private UserControls.VisitUserControl visitUserControl1;
     }
 }

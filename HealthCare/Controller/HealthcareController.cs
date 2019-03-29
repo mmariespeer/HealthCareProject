@@ -11,6 +11,7 @@ namespace HealthCare.Controller
     /// </summary>
     class HealthcareController
     {
+        private VisitDAL visitDAL;
         private AppointmentDAL appointmentDAL;
         private DoctorDAL doctorDAL;
         private PersonDAL personDAL;
@@ -20,6 +21,7 @@ namespace HealthCare.Controller
         //Initalizes DAL objects
         public HealthcareController()
         {
+            visitDAL = new VisitDAL();
             appointmentDAL = new AppointmentDAL();
             doctorDAL = new DoctorDAL();
             personDAL = new PersonDAL();
@@ -143,6 +145,16 @@ namespace HealthCare.Controller
         public List<Patient> GetPatientsByDOB(DateTime dob)
         {
             return this.searchDAL.GetPatientsByDOB(dob);
+        }
+
+        /// <summary>
+        /// Get a single visit from the visit DAL layer
+        /// </summary>
+        /// <param name="apptID">the appt associated with the visit</param>
+        /// <returns>A visit object</returns>
+        public Visit GetVisitByAppointmentID(int apptID)
+        {
+            return this.visitDAL.GetVisitByAppt(apptID);
         }
     }
 }

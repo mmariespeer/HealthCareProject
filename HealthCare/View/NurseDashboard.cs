@@ -28,13 +28,17 @@ namespace HealthCare.View
             this.nameLabel.Text = myText;
         }
 
+        /// <summary>
+        /// Reload the tabs when a patient is selected
+        /// </summary>
+        /// <param name="sender">as an object</param>
+        /// <param name="e">event argument</param>
         public void RefreshTabs(object sender, EventArgs e)
         {
-            Debug.WriteLine("called");
             this.visitUserControl1.VisitUserControl_Load(sender, e);
         }
 
-        private void logoutLinkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LogoutLinkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Hide();
             lf.Show();
