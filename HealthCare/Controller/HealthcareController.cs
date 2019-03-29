@@ -156,5 +156,10 @@ namespace HealthCare.Controller
         {
             return this.visitDAL.GetVisitByAppt(apptID);
         }
+
+        public List<Test> GetTestsByVisitId(int visitId)
+        {
+            return visitDAL.GetTestsByVisitId(visitId);
+        }
     }
 }

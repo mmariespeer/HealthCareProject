@@ -73,5 +73,10 @@ namespace HealthCare.UserControls
             this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
 
         }
+
+        private void GetTests()
+        {
+
+        }
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchPatient.cs" />
+    <Compile Include="Model\Test.cs" />
     <Compile Include="Model\Visit.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
