@@ -16,6 +16,7 @@ namespace HealthCare.Controller
         private PersonDAL personDAL;
         private LoginDAL loginDAL;
         private SearchPatientDAL searchDAL;
+        private PatientDAL patientDAL;
 
         //Initalizes DAL objects
         public HealthcareController()
@@ -25,6 +26,7 @@ namespace HealthCare.Controller
             personDAL = new PersonDAL();
             loginDAL = new LoginDAL();
             searchDAL = new SearchPatientDAL();
+            patientDAL = new PatientDAL();
         }
 
         //Adds a new appointment to the DB
@@ -143,6 +145,16 @@ namespace HealthCare.Controller
         public List<Patient> GetPatientsByDOB(DateTime dob)
         {
             return this.searchDAL.GetPatientsByDOB(dob);
+        }
+
+        public void registerPatient(Person person)
+        {
+            this.patientDAL.registerPatient(person);
+        }
+
+        public List<State> GetAllStates()
+        {
+            return this.patientDAL.GetAllStates();
         }
     }
 }

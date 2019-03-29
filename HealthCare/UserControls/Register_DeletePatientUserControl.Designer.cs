@@ -24,19 +24,6 @@
         private System.Windows.Forms.BindingSource personBindingSource;
         private _cs6232_g2DataSetTableAdapters.personTableAdapter personTableAdapter;
         private _cs6232_g2DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator personBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton personBindingNavigatorSaveItem;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button deleteButton;
@@ -45,9 +32,7 @@
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.Label ssnLabel;
-        private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.ComboBox stateCodeComboBox;
         private System.Windows.Forms.TextBox streetTextBox;
@@ -58,5 +43,11 @@
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.Label DOBLabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.MaskedTextBox ssnTextBox;
+        private System.Windows.Forms.MaskedTextBox phoneTextBox;
+        private System.Windows.Forms.Label stateCodeLabel;
+        private System.Windows.Forms.Label confirmLabel;
     }
 }

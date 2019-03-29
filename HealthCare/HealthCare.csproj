@@ -50,6 +50,7 @@
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="DAL\SearchPatientDAL.cs" />
     <Compile Include="DB\HealthcareDBConnection.cs" />
@@ -58,6 +59,8 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchPatient.cs" />
+    <Compile Include="Model\State.cs" />
+    <Compile Include="Model\Visit.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +91,12 @@
     <Compile Include="UserControls\PatientSearchUserControl.Designer.cs">
       <DependentUpon>PatientSearchUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\RegisterPatientUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RegisterPatientUserControl.Designer.cs">
+      <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Register_DeletePatientUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -113,9 +122,6 @@
     </Compile>
     <Compile Include="View\NurseDashboard.Designer.cs">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_cs6232_g2DataSet.cs">
-      <DependentUpon>_cs6232_g2DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="_cs6232_g2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PatientSearchUserControl.resx">
       <DependentUpon>PatientSearchUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
+      <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Register_DeletePatientUserControl.resx">
       <DependentUpon>Register_DeletePatientUserControl.cs</DependentUpon>
