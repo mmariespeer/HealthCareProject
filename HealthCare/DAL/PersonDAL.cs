@@ -86,7 +86,7 @@ namespace HealthCare.DAL
         {
             Person person = new Person();
             string selectStatement =
-                "SELECT Person.personID, lastName, firstName, streetAddress, city, stateCode, zipCode, phoneNumber, ssn " +
+                "SELECT Person.personID, lastName, firstName, dateOfBirth, streetAddress, city, stateCode, zipCode, phoneNumber, ssn " +
                 "FROM Person " +
                 "INNER JOIN Patient " +
                 "ON Patient.PersonID = Person.PersonID " +
@@ -106,7 +106,7 @@ namespace HealthCare.DAL
                             person.PersonID = (int)reader["personID"];
                             person.LastName = (string)reader["lastName"];
                             person.FirstName = (string)reader["firstName"];
-                            //person.DateOfBirth = (DateTime)reader["dateTime"];
+                            person.DateOfBirth = (DateTime)reader["dateOfBirth"];
                             person.StreetAddress = (string)reader["streetAddress"];
                             person.City = (string)reader["city"];
                             person.StateCode = (string)reader["stateCode"];

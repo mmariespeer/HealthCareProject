@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HealthCare.DB;
 using HealthCare.Model;
 
@@ -77,6 +74,44 @@ namespace HealthCare.DAL
             }
 
             return allStates;
+        }
+
+        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
+        {
+            string updateStatement = "UPDATE person SET firstName = @firstName, lastName = @lastName, stateCode = @stateCode, phoneNumber = @phone, streetAddress = @street, " +
+                                      "city = @city, zipCode = @zip WHERE personID = @id";
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@id", personID);
+                    updateCommand.Parameters.AddWithValue("@lastName", lastName);
+                    updateCommand.Parameters.AddWithValue("@firstName", firstName);
+                    updateCommand.Parameters.AddWithValue("@street", street);
+                    updateCommand.Parameters.AddWithValue("@city", city);
+                    updateCommand.Parameters.AddWithValue("@stateCode", state);
+                    updateCommand.Parameters.AddWithValue("@zip", zipCode);
+                    updateCommand.Parameters.AddWithValue("@phone", phone);
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public String findStateNamebyCode(string stateCode)
+        {
+            string stateName = "";
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("SELECT stateName FROM state where stateCode = @code", connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@code", stateCode);
+                    stateName = selectCommand.ExecuteScalar().ToString();
+                }
+            }
+
+            return stateName;
         }
     }
 }

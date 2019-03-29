@@ -50,8 +50,6 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.confirmLabel = new System.Windows.Forms.Label();
-            this.updateLabel = new System.Windows.Forms.Label();
             this.zipTextBox = new System.Windows.Forms.MaskedTextBox();
             this.stateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.stateBindingSource)).BeginInit();
@@ -224,6 +222,7 @@
             this.updateButton.TabIndex = 49;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // clearButton
             // 
@@ -234,26 +233,6 @@
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // confirmLabel
-            // 
-            this.confirmLabel.AutoSize = true;
-            this.confirmLabel.Location = new System.Drawing.Point(147, 296);
-            this.confirmLabel.Name = "confirmLabel";
-            this.confirmLabel.Size = new System.Drawing.Size(119, 13);
-            this.confirmLabel.TabIndex = 72;
-            this.confirmLabel.Text = "New Patient Registered";
-            this.confirmLabel.Visible = false;
-            // 
-            // updateLabel
-            // 
-            this.updateLabel.AutoSize = true;
-            this.updateLabel.Location = new System.Drawing.Point(147, 318);
-            this.updateLabel.Name = "updateLabel";
-            this.updateLabel.Size = new System.Drawing.Size(129, 13);
-            this.updateLabel.TabIndex = 73;
-            this.updateLabel.Text = "Patient has been updated";
-            this.updateLabel.Visible = false;
             // 
             // zipTextBox
             // 
@@ -273,8 +252,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.zipTextBox);
-            this.Controls.Add(this.updateLabel);
-            this.Controls.Add(this.confirmLabel);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.ssnTextBox);
             this.Controls.Add(this.DOBDateTimePicker);
@@ -328,9 +305,7 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Label confirmLabel;
         private System.Windows.Forms.BindingSource stateBindingSource;
-        private System.Windows.Forms.Label updateLabel;
         private System.Windows.Forms.MaskedTextBox zipTextBox;
     }
 }
