@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
@@ -72,11 +73,32 @@ namespace HealthCare.UserControls
             this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
             this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
 
+            GetTests(visit.VisitID);
         }
 
-        private void GetTests()
+        private void GetTests(int visitId)
         {
+            List<Test> testList = new List<Test>();
+            testList = this.controller.GetTestsByVisitId(visitId);
+            Debug.WriteLine(testList.Count);
+            this.testsListView.Items.Clear();
+            this.testsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
+            if (testList.Count > 0)
+            {
+                Test test;
+                for (int i = 0; i < testList.Count; i++)
+                {
+                    test = testList[i];
+                    this.testsListView.Items.Add(test.TestCode.ToString());
+                    this.testsListView.Items[i].SubItems.Add(test.TestName);
+                    this.testsListView.Items[i].SubItems.Add(test.TestDate.ToShortDateString());
+                    this.testsListView.Items[i].SubItems.Add(test.Results);
+                    this.testsListView.Items[i].SubItems.Add(test.Normal.ToString());
+                }
+                this.testsListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                this.testsListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
         }
     }
 }

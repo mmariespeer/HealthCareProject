@@ -57,6 +57,9 @@
             this.testsListView = new System.Windows.Forms.ListView();
             this.testNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.testDateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.normalHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.testCodeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -290,21 +293,44 @@
             // testsListView
             // 
             this.testsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.testCodeHeader,
             this.testNameHeader,
-            this.resultHeader});
+            this.testDateHeader,
+            this.resultHeader,
+            this.normalHeader});
             this.testsListView.Location = new System.Drawing.Point(111, 300);
             this.testsListView.Name = "testsListView";
             this.testsListView.Size = new System.Drawing.Size(522, 108);
             this.testsListView.TabIndex = 28;
             this.testsListView.UseCompatibleStateImageBehavior = false;
+            this.testsListView.View = System.Windows.Forms.View.Details;
             // 
             // testNameHeader
             // 
+            this.testNameHeader.DisplayIndex = 0;
             this.testNameHeader.Text = "Test Name";
+            this.testNameHeader.Width = 86;
             // 
             // resultHeader
             // 
+            this.resultHeader.DisplayIndex = 1;
             this.resultHeader.Text = "Result";
+            // 
+            // testDateHeader
+            // 
+            this.testDateHeader.Text = "Date";
+            this.testDateHeader.Width = 77;
+            // 
+            // normalHeader
+            // 
+            this.normalHeader.DisplayIndex = 3;
+            this.normalHeader.Text = "Normal";
+            this.normalHeader.Width = 80;
+            // 
+            // testCodeHeader
+            // 
+            this.testCodeHeader.Text = "Code";
+            this.testCodeHeader.Width = 56;
             // 
             // VisitUserControl
             // 
@@ -375,5 +401,8 @@
         private System.Windows.Forms.ListView testsListView;
         private System.Windows.Forms.ColumnHeader testNameHeader;
         private System.Windows.Forms.ColumnHeader resultHeader;
+        private System.Windows.Forms.ColumnHeader testCodeHeader;
+        private System.Windows.Forms.ColumnHeader testDateHeader;
+        private System.Windows.Forms.ColumnHeader normalHeader;
     }
 }

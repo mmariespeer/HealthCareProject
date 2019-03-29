@@ -3,6 +3,7 @@ using HealthCare.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace HealthCare.DAL
 {
@@ -32,6 +33,7 @@ namespace HealthCare.DAL
                     {
                         while (reader.Read())
                         {
+                            visit.VisitID = (int)reader["visitID"];
                             visit.AppointmentID = (int)reader["appointmentID"];
                             visit.PatientID = (int)reader["patientID"];
                             visit.DoctorName = (string)reader["doctorName"];
@@ -53,13 +55,14 @@ namespace HealthCare.DAL
 
         public List<Test> GetTestsByVisitId(int visitId)
         {
+            Debug.WriteLine("we get to the sql with " + visitId);
             List<Test> testList = new List<Test>();
 
             string selectStatement =
                 "SELECT t.testName, tr.testCode, tr.results, tr.normal, tr.testDate " +
                 "FROM testResult AS tr " +
                 "JOIN test AS t ON tr.testCode = t.testCode "+
-                "WHERE tr.visitID = @visittID";
+                "WHERE tr.visitID = @visitID";
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
@@ -77,7 +80,7 @@ namespace HealthCare.DAL
                             test.TestCode = (string)reader["testCode"];
                             test.TestName = (string)reader["testName"];
                             test.Results = (string)reader["results"];
-                            test.Normal = (bool?)reader["normal"];
+                            test.Normal = reader["normal"] as bool?;
                             test.TestDate = (DateTime)reader["testDate"];
 
                             testList.Add(test);
