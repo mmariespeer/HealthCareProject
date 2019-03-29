@@ -61,7 +61,6 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchPatient.cs" />
     <Compile Include="Model\Test.cs" />
-    <Compile Include="Model\Visit.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Visit.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
@@ -99,12 +98,6 @@
     </Compile>
     <Compile Include="UserControls\RegisterPatientUserControl.Designer.cs">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Register_DeletePatientUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Register_DeletePatientUserControl.Designer.cs">
-      <DependentUpon>Register_DeletePatientUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\VisitUserControl.cs">
       <SubType>UserControl</SubType>
@@ -157,9 +150,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Register_DeletePatientUserControl.resx">
-      <DependentUpon>Register_DeletePatientUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
