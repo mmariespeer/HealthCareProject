@@ -175,9 +175,9 @@ namespace HealthCare.Controller
             return visitDAL.GetTestsByVisitId(visitId);
         }
 
-        public void RegisterPatient(Person person)
+        public void registerPatient(Person person)
         {
-            this.patientDAL.RegisterPatient(person);
+            this.patientDAL.registerPatient(person);
         }
 
         public List<State> GetAllStates()
