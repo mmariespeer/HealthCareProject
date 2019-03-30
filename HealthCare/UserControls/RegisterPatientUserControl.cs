@@ -24,9 +24,7 @@ namespace HealthCare.UserControls
         {
             NurseDashboard dashboard = this.ParentForm as NurseDashboard;
             this.patientID = dashboard.SelectedPatientID;
-            Console.WriteLine(this.patientID);
-
-
+           
             try
             {
                 stateList = this.healthController.GetAllStates();
@@ -47,6 +45,7 @@ namespace HealthCare.UserControls
                 this.updateButton.Enabled = true;
                 this.deleteButton.Enabled = true;
                 this.registerButton.Enabled = false;
+                this.clearButton.Enabled = false;
             } else
             {
                 stateCodeComboBox.SelectedIndex = 0;
@@ -65,7 +64,7 @@ namespace HealthCare.UserControls
             this.ssnTextBox.Clear();
             this.lastNameTextBox.Clear();
             this.firstNameTextBox.Clear();
-            stateCodeComboBox.SelectedIndex = 0;
+            this.stateCodeComboBox.SelectedIndex = 0;
             this.DOBDateTimePicker.CustomFormat = " ";
             this.DOBDateTimePicker.Format = DateTimePickerFormat.Custom;            
         }
@@ -73,61 +72,69 @@ namespace HealthCare.UserControls
         private void registerButton_Click(object sender, EventArgs e)
         {
 
-           if (String.IsNullOrEmpty(this.lastNameTextBox.Text)|| String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
-                !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null)
+            if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
+                 !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null)
             {
                 MessageBox.Show("All fields must be filled in completely. SSN must be 9 digits, phone must be 10 digits, and zipcode must be 5 digits", "Invalid input format",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
-
-            try
+            else
             {
-                Person person = new Person();
-                person.LastName = this.lastNameTextBox.Text;
-                person.FirstName = this.firstNameTextBox.Text;
-                person.City = this.cityTextBox.Text;
-                person.PhoneNumber = this.phoneTextBox.Text;
-                person.SSN = this.ssnTextBox.Text;
-                person.StreetAddress = this.addressTextBox.Text;
-                person.StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
-                person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
-                person.DateOfBirth = this.DOBDateTimePicker.Value;
+                try
+                {
+                    Person person = new Person();
+                    person.LastName = this.lastNameTextBox.Text;
+                    person.FirstName = this.firstNameTextBox.Text;
+                    person.City = this.cityTextBox.Text;
+                    person.PhoneNumber = this.phoneTextBox.Text;
+                    person.SSN = this.ssnTextBox.Text;
+                    person.StreetAddress = this.addressTextBox.Text;
+                    person.StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                    person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
+                    person.DateOfBirth = this.DOBDateTimePicker.Value;
 
-                this.healthController.registerPatient(person);
+                    this.healthController.registerPatient(person);
 
-                MessageBox.Show("New Patient Registered");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    MessageBox.Show("New Patient Registered");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
             }
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-           string lastName = this.lastNameTextBox.Text;
-           string firstName = this.firstNameTextBox.Text;
-           string city = this.cityTextBox.Text;
-           string PhoneNumber = this.phoneTextBox.Text;
-           string StreetAddress = this.addressTextBox.Text;
-           string StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
-           int ZipCode = Convert.ToInt32(this.zipTextBox.Text);
-
-            try
+            if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
+               String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull)
             {
-                this.healthController.updatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber);
-                MessageBox.Show("Patient has been updated");
-
+                MessageBox.Show("All fields must be filled in completely. Phone must be 10 digits and zipcode must be 5 digits", "Invalid input format",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
+                string lastName = this.lastNameTextBox.Text;
+                string firstName = this.firstNameTextBox.Text;
+                string city = this.cityTextBox.Text;
+                string PhoneNumber = this.phoneTextBox.Text;
+                string StreetAddress = this.addressTextBox.Text;
+                string StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                int ZipCode = Convert.ToInt32(this.zipTextBox.Text);
 
+                try
+                {
+                    this.healthController.updatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber);
+                    MessageBox.Show("Patient has been updated");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
         }
-
-      
 
         private void PopulatePatient()
         {
@@ -152,5 +159,6 @@ namespace HealthCare.UserControls
             }
 
         }
+
     }
 }
