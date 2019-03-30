@@ -163,7 +163,6 @@ namespace HealthCare.UserControls
             {
                 this.ClearScheduling();
                 appointmentGridView.DataBindings.Clear();
-                MessageBox.Show(this.patientID + "");
             }
         }
     }
