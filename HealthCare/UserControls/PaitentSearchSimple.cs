@@ -66,7 +66,6 @@ namespace HealthCare.UserControls
         private void SetListView(List<Patient> patientList)
         {
             this.patientListView.Items.Clear();
-            this.patientListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
             if (patientList.Count > 0)
             {
@@ -97,6 +96,16 @@ namespace HealthCare.UserControls
         {
             NurseDashboard dashboard = this.ParentForm as NurseDashboard;
             dashboard.SelectedPatientID = int.Parse(this.patientListView.SelectedItems[0].SubItems[0].Text);
+            dashboard.RefreshTabs(sender, e);
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            this.patientListView.Items.Clear();
+            this.firstNameTextBox.Text = "";
+            this.lastNameTextBox.Text = "";
+            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+            dashboard.SelectedPatientID = 0;
             dashboard.RefreshTabs(sender, e);
         }
     }

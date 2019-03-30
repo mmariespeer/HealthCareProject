@@ -31,13 +31,13 @@
             this.logoutLinkDashboard = new System.Windows.Forms.LinkLabel();
             this.nameLabel = new System.Windows.Forms.Label();
             this.appointmentTabPage = new System.Windows.Forms.TabPage();
+            this.addAppointmentUserControl1 = new HealthCare.UserControls.AddAppointmentUserControl();
             this.patientTabPage = new System.Windows.Forms.TabPage();
+            this.registerPatientUserControl2 = new HealthCare.UserControls.RegisterPatientUserControl();
             this.nurseTabControl = new System.Windows.Forms.TabControl();
             this.visitTabPage = new System.Windows.Forms.TabPage();
-            this.paitentSearchSimple2 = new HealthCare.UserControls.PaitentSearchSimple();
-            this.registerPatientUserControl2 = new HealthCare.UserControls.RegisterPatientUserControl();
-            this.addAppointmentUserControl1 = new HealthCare.UserControls.AddAppointmentUserControl();
             this.visitUserControl1 = new HealthCare.UserControls.VisitUserControl();
+            this.paitentSearchSimple2 = new HealthCare.UserControls.PaitentSearchSimple();
             this.appointmentTabPage.SuspendLayout();
             this.patientTabPage.SuspendLayout();
             this.nurseTabControl.SuspendLayout();
@@ -47,7 +47,7 @@
             // logoutLinkDashboard
             // 
             this.logoutLinkDashboard.AutoSize = true;
-            this.logoutLinkDashboard.Location = new System.Drawing.Point(776, 9);
+            this.logoutLinkDashboard.Location = new System.Drawing.Point(681, 9);
             this.logoutLinkDashboard.Name = "logoutLinkDashboard";
             this.logoutLinkDashboard.Size = new System.Drawing.Size(36, 13);
             this.logoutLinkDashboard.TabIndex = 3;
@@ -58,7 +58,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(703, 9);
+            this.nameLabel.Location = new System.Drawing.Point(581, 9);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 4;
@@ -70,10 +70,20 @@
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 29);
             this.appointmentTabPage.Name = "appointmentTabPage";
             this.appointmentTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.appointmentTabPage.Size = new System.Drawing.Size(776, 639);
+            this.appointmentTabPage.Size = new System.Drawing.Size(688, 639);
             this.appointmentTabPage.TabIndex = 1;
             this.appointmentTabPage.Text = "Appointment Information";
             this.appointmentTabPage.UseVisualStyleBackColor = true;
+            // 
+            // addAppointmentUserControl1
+            // 
+            this.addAppointmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addAppointmentUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addAppointmentUserControl1.Location = new System.Drawing.Point(3, 3);
+            this.addAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.addAppointmentUserControl1.Name = "addAppointmentUserControl1";
+            this.addAppointmentUserControl1.Size = new System.Drawing.Size(682, 633);
+            this.addAppointmentUserControl1.TabIndex = 0;
             // 
             // patientTabPage
             // 
@@ -87,6 +97,14 @@
             this.patientTabPage.Text = "Register/Delete Patient";
             this.patientTabPage.UseVisualStyleBackColor = true;
             // 
+            // registerPatientUserControl2
+            // 
+            this.registerPatientUserControl2.Location = new System.Drawing.Point(59, 50);
+            this.registerPatientUserControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.registerPatientUserControl2.Name = "registerPatientUserControl2";
+            this.registerPatientUserControl2.Size = new System.Drawing.Size(673, 458);
+            this.registerPatientUserControl2.TabIndex = 0;
+            // 
             // nurseTabControl
             // 
             this.nurseTabControl.Controls.Add(this.patientTabPage);
@@ -96,7 +114,7 @@
             this.nurseTabControl.Location = new System.Drawing.Point(28, 177);
             this.nurseTabControl.Name = "nurseTabControl";
             this.nurseTabControl.SelectedIndex = 0;
-            this.nurseTabControl.Size = new System.Drawing.Size(784, 672);
+            this.nurseTabControl.Size = new System.Drawing.Size(696, 672);
             this.nurseTabControl.TabIndex = 0;
             // 
             // visitTabPage
@@ -104,35 +122,10 @@
             this.visitTabPage.Controls.Add(this.visitUserControl1);
             this.visitTabPage.Location = new System.Drawing.Point(4, 29);
             this.visitTabPage.Name = "visitTabPage";
-            this.visitTabPage.Size = new System.Drawing.Size(776, 639);
+            this.visitTabPage.Size = new System.Drawing.Size(688, 639);
             this.visitTabPage.TabIndex = 2;
             this.visitTabPage.Text = "Visit Information";
             this.visitTabPage.UseVisualStyleBackColor = true;
-            // 
-            // paitentSearchSimple2
-            // 
-            this.paitentSearchSimple2.Location = new System.Drawing.Point(12, 25);
-            this.paitentSearchSimple2.Name = "paitentSearchSimple2";
-            this.paitentSearchSimple2.Size = new System.Drawing.Size(651, 146);
-            this.paitentSearchSimple2.TabIndex = 5;
-            // 
-            // registerPatientUserControl2
-            // 
-            this.registerPatientUserControl2.Location = new System.Drawing.Point(59, 50);
-            this.registerPatientUserControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.registerPatientUserControl2.Name = "registerPatientUserControl2";
-            this.registerPatientUserControl2.Size = new System.Drawing.Size(673, 458);
-            this.registerPatientUserControl2.TabIndex = 0;
-            // 
-            // addAppointmentUserControl1
-            // 
-            this.addAppointmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addAppointmentUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAppointmentUserControl1.Location = new System.Drawing.Point(3, 3);
-            this.addAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.addAppointmentUserControl1.Name = "addAppointmentUserControl1";
-            this.addAppointmentUserControl1.Size = new System.Drawing.Size(770, 633);
-            this.addAppointmentUserControl1.TabIndex = 0;
             // 
             // visitUserControl1
             // 
@@ -143,11 +136,19 @@
             this.visitUserControl1.Size = new System.Drawing.Size(705, 682);
             this.visitUserControl1.TabIndex = 0;
             // 
+            // paitentSearchSimple2
+            // 
+            this.paitentSearchSimple2.Location = new System.Drawing.Point(12, 25);
+            this.paitentSearchSimple2.Name = "paitentSearchSimple2";
+            this.paitentSearchSimple2.Size = new System.Drawing.Size(726, 146);
+            this.paitentSearchSimple2.TabIndex = 5;
+            // 
             // NurseDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 861);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(775, 861);
             this.Controls.Add(this.paitentSearchSimple2);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.logoutLinkDashboard);

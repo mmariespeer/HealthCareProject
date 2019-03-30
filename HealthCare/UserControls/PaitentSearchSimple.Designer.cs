@@ -41,6 +41,7 @@
             this.patientLastNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.firstNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dobHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lastNameLabel
@@ -123,7 +124,7 @@
             this.patientListView.Location = new System.Drawing.Point(16, 60);
             this.patientListView.MultiSelect = false;
             this.patientListView.Name = "patientListView";
-            this.patientListView.Size = new System.Drawing.Size(598, 69);
+            this.patientListView.Size = new System.Drawing.Size(688, 69);
             this.patientListView.TabIndex = 9;
             this.patientListView.UseCompatibleStateImageBehavior = false;
             this.patientListView.View = System.Windows.Forms.View.Details;
@@ -137,19 +138,33 @@
             // patientLastNameHeader
             // 
             this.patientLastNameHeader.Text = "Last Name";
+            this.patientLastNameHeader.Width = 98;
             // 
             // firstNameHeader
             // 
             this.firstNameHeader.Text = "First Name";
+            this.firstNameHeader.Width = 97;
             // 
             // dobHeader
             // 
             this.dobHeader.Text = "DOB";
+            this.dobHeader.Width = 91;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(629, 9);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 10;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // PaitentSearchSimple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.patientListView);
             this.Controls.Add(this.searchResultLabel);
             this.Controls.Add(this.searchButton);
@@ -160,7 +175,7 @@
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.lastNameLabel);
             this.Name = "PaitentSearchSimple";
-            this.Size = new System.Drawing.Size(628, 146);
+            this.Size = new System.Drawing.Size(726, 146);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +196,6 @@
         private System.Windows.Forms.ColumnHeader patientLastNameHeader;
         private System.Windows.Forms.ColumnHeader firstNameHeader;
         private System.Windows.Forms.ColumnHeader dobHeader;
+        private System.Windows.Forms.Button clearButton;
     }
 }
