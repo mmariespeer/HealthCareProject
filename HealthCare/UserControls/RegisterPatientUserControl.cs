@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
+using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
     public partial class RegisterPatientUserControl : UserControl
     {
         private readonly HealthcareController healthController;
-        private List<State> stateList; 
+        private List<State> stateList;
+        private int patientID;
+        private Person currentPerson;
+
         public RegisterPatientUserControl()
         {
             InitializeComponent();
             this.healthController = new HealthcareController();
+            this.patientID = 0;
         }
-        private void RegisterPatientUserControl_Load(object sender, EventArgs e)
+        public void RegisterPatientUserControl_Load(object sender, EventArgs e)
         {
+            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+            this.patientID = dashboard.SelectedPatientID;
+            Console.WriteLine(this.patientID);
+
+
             try
             {
                 stateList = this.healthController.GetAllStates();
@@ -30,8 +34,6 @@ namespace HealthCare.UserControls
                 stateCodeComboBox.DataSource = stateList;
                 stateCodeComboBox.DisplayMember = "stateName";
                 stateCodeComboBox.ValueMember = "stateCode";
-
-                stateCodeComboBox.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -39,6 +41,19 @@ namespace HealthCare.UserControls
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            if (this.patientID != 0)
+            {
+                this.PopulatePatient();
+                this.updateButton.Enabled = true;
+                this.deleteButton.Enabled = true;
+                this.registerButton.Enabled = false;
+            } else
+            {
+                stateCodeComboBox.SelectedIndex = 0;
+                this.updateButton.Enabled = false;
+                this.deleteButton.Enabled = false;
+                this.registerButton.Enabled = true;
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -52,7 +67,7 @@ namespace HealthCare.UserControls
             this.firstNameTextBox.Clear();
             stateCodeComboBox.SelectedIndex = 0;
             this.DOBDateTimePicker.CustomFormat = " ";
-            this.DOBDateTimePicker.Format = DateTimePickerFormat.Custom;
+            this.DOBDateTimePicker.Format = DateTimePickerFormat.Custom;            
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -81,8 +96,7 @@ namespace HealthCare.UserControls
 
                 this.healthController.registerPatient(person);
 
-                confirmLabel.ForeColor = Color.Green;
-                confirmLabel.Visible = true;
+                MessageBox.Show("New Patient Registered");
             }
             catch (Exception ex)
             {
@@ -90,6 +104,53 @@ namespace HealthCare.UserControls
             }
         }
 
-       
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+           string lastName = this.lastNameTextBox.Text;
+           string firstName = this.firstNameTextBox.Text;
+           string city = this.cityTextBox.Text;
+           string PhoneNumber = this.phoneTextBox.Text;
+           string StreetAddress = this.addressTextBox.Text;
+           string StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+           int ZipCode = Convert.ToInt32(this.zipTextBox.Text);
+
+            try
+            {
+                this.healthController.updatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber);
+                MessageBox.Show("Patient has been updated");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
+
+      
+
+        private void PopulatePatient()
+        {
+            try
+            {
+                this.currentPerson = this.healthController.GetPersonByPatientID(this.patientID);
+                this.lastNameTextBox.Text = currentPerson.LastName;
+                this.firstNameTextBox.Text = currentPerson.FirstName;
+                this.cityTextBox.Text = currentPerson.City;
+                this.phoneTextBox.Text = currentPerson.PhoneNumber;
+                this.ssnTextBox.Text = currentPerson.SSN;
+                this.ssnTextBox.ReadOnly = true;
+                this.addressTextBox.Text = currentPerson.StreetAddress;
+                this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.findStateNamebyCode(currentPerson.StateCode));
+                this.zipTextBox.Text = currentPerson.ZipCode.ToString();
+                this.DOBDateTimePicker.Value = currentPerson.DateOfBirth;
+                this.DOBDateTimePicker.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
     }
 }

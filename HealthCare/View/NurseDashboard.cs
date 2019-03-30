@@ -11,12 +11,13 @@ namespace HealthCare.View
         private readonly HealthcareController healthController;
         public int SelectedPatientID { get; set; }
 
-        public NurseDashboard(LoginForm lf)
+    public NurseDashboard(LoginForm lf)
         {
             InitializeComponent();
             this.healthController = new HealthcareController();
             this.lf = lf;
             this.SelectedPatientID = 0;
+            
         }
 
         /// <summary>
@@ -36,6 +37,7 @@ namespace HealthCare.View
         public void RefreshTabs(object sender, EventArgs e)
         {
             this.visitUserControl1.VisitUserControl_Load(sender, e);
+            this.registerPatientUserControl2.RegisterPatientUserControl_Load(sender, e);
         }
 
         private void LogoutLinkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

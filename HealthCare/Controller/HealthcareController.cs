@@ -184,5 +184,15 @@ namespace HealthCare.Controller
         {
             return this.patientDAL.GetAllStates();
         }
+
+        public String findStateNamebyCode(string stateCode)
+        {
+            return this.patientDAL.findStateNamebyCode(stateCode);
+        }
+
+        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
+        {
+            this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone);
+        }
     }
 }
