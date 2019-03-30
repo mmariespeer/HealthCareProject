@@ -51,15 +51,16 @@
             this.updateButton = new System.Windows.Forms.Button();
             this.completedLabel = new System.Windows.Forms.Label();
             this.visitListView = new System.Windows.Forms.ListView();
+            this.apptIDHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.visitDateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.selectApttLabel = new System.Windows.Forms.Label();
             this.doctorTextBox = new System.Windows.Forms.TextBox();
             this.testsListView = new System.Windows.Forms.ListView();
-            this.testNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.resultHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.testDateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.normalHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.testCodeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.testNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.testDateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.normalHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -210,6 +211,7 @@
             this.statusLabel.Size = new System.Drawing.Size(62, 13);
             this.statusLabel.TabIndex = 19;
             this.statusLabel.Text = "Visit Status:";
+            this.statusLabel.Visible = false;
             // 
             // pendingRadioButton
             // 
@@ -221,6 +223,7 @@
             this.pendingRadioButton.TabStop = true;
             this.pendingRadioButton.Text = "Pending";
             this.pendingRadioButton.UseVisualStyleBackColor = true;
+            this.pendingRadioButton.Visible = false;
             // 
             // completeRadioButton
             // 
@@ -232,6 +235,7 @@
             this.completeRadioButton.TabStop = true;
             this.completeRadioButton.Text = "Complete";
             this.completeRadioButton.UseVisualStyleBackColor = true;
+            this.completeRadioButton.Visible = false;
             // 
             // updateButton
             // 
@@ -241,6 +245,7 @@
             this.updateButton.TabIndex = 22;
             this.updateButton.Text = "Update Visit";
             this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // completedLabel
             // 
@@ -257,8 +262,10 @@
             // visitListView
             // 
             this.visitListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.apptIDHeader,
             this.visitDateHeader});
             this.visitListView.FullRowSelect = true;
+            this.visitListView.HideSelection = false;
             this.visitListView.Location = new System.Drawing.Point(111, 18);
             this.visitListView.MultiSelect = false;
             this.visitListView.Name = "visitListView";
@@ -267,6 +274,11 @@
             this.visitListView.UseCompatibleStateImageBehavior = false;
             this.visitListView.View = System.Windows.Forms.View.Details;
             this.visitListView.SelectedIndexChanged += new System.EventHandler(this.VisitListView_SelectedIndexChanged);
+            // 
+            // apptIDHeader
+            // 
+            this.apptIDHeader.Text = "Appointment ID";
+            this.apptIDHeader.Width = 94;
             // 
             // visitDateHeader
             // 
@@ -305,32 +317,30 @@
             this.testsListView.UseCompatibleStateImageBehavior = false;
             this.testsListView.View = System.Windows.Forms.View.Details;
             // 
+            // testCodeHeader
+            // 
+            this.testCodeHeader.Text = "Code";
+            this.testCodeHeader.Width = 56;
+            // 
             // testNameHeader
             // 
-            this.testNameHeader.DisplayIndex = 0;
             this.testNameHeader.Text = "Test Name";
-            this.testNameHeader.Width = 86;
-            // 
-            // resultHeader
-            // 
-            this.resultHeader.DisplayIndex = 1;
-            this.resultHeader.Text = "Result";
+            this.testNameHeader.Width = 103;
             // 
             // testDateHeader
             // 
             this.testDateHeader.Text = "Date";
             this.testDateHeader.Width = 77;
             // 
+            // resultHeader
+            // 
+            this.resultHeader.Text = "Result";
+            this.resultHeader.Width = 73;
+            // 
             // normalHeader
             // 
-            this.normalHeader.DisplayIndex = 3;
             this.normalHeader.Text = "Normal";
             this.normalHeader.Width = 80;
-            // 
-            // testCodeHeader
-            // 
-            this.testCodeHeader.Text = "Code";
-            this.testCodeHeader.Width = 56;
             // 
             // VisitUserControl
             // 
@@ -404,5 +414,6 @@
         private System.Windows.Forms.ColumnHeader testCodeHeader;
         private System.Windows.Forms.ColumnHeader testDateHeader;
         private System.Windows.Forms.ColumnHeader normalHeader;
+        private System.Windows.Forms.ColumnHeader apptIDHeader;
     }
 }

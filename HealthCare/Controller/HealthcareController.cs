@@ -3,6 +3,7 @@ using HealthCare.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 
 namespace HealthCare.Controller
 {
@@ -139,6 +140,16 @@ namespace HealthCare.Controller
             return this.searchDAL.GetPatientsByLastName(lname);
         }
 
+        public bool AddVisit(Visit visit)
+        {
+            Visit existingVisit = visitDAL.GetVisitByAppt(visit.AppointmentID);
+            if(existingVisit != null)
+            {
+                visit.VisitID = existingVisit.VisitID;
+            }
+            return this.visitDAL.AddOrUpdateVisit(visit);
+        }
+
         /// <summary>
         /// return a list of patients by date of birth
         /// </summary>
@@ -164,9 +175,9 @@ namespace HealthCare.Controller
             return visitDAL.GetTestsByVisitId(visitId);
         }
 
-        public void registerPatient(Person person)
+        public void RegisterPatient(Person person)
         {
-            this.patientDAL.registerPatient(person);
+            this.patientDAL.RegisterPatient(person);
         }
 
         public List<State> GetAllStates()
