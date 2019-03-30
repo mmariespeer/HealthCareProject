@@ -82,7 +82,7 @@
             this.addAppointmentUserControl1.Location = new System.Drawing.Point(3, 3);
             this.addAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.addAppointmentUserControl1.Name = "addAppointmentUserControl1";
-            this.addAppointmentUserControl1.Size = new System.Drawing.Size(682, 633);
+            this.addAppointmentUserControl1.Size = new System.Drawing.Size(770, 633);
             this.addAppointmentUserControl1.TabIndex = 0;
             // 
             // patientTabPage
@@ -99,11 +99,12 @@
             // 
             // registerPatientUserControl2
             // 
-            this.registerPatientUserControl2.Location = new System.Drawing.Point(59, 50);
+            this.registerPatientUserControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerPatientUserControl2.Location = new System.Drawing.Point(118, 58);
             this.registerPatientUserControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.registerPatientUserControl2.Name = "registerPatientUserControl2";
-            this.registerPatientUserControl2.Size = new System.Drawing.Size(673, 458);
-            this.registerPatientUserControl2.TabIndex = 0;
+            this.registerPatientUserControl2.Size = new System.Drawing.Size(588, 379);
+            this.registerPatientUserControl2.TabIndex = 1;
             // 
             // nurseTabControl
             // 
@@ -172,9 +173,9 @@
         private System.Windows.Forms.TabPage appointmentTabPage;
         private UserControls.AddAppointmentUserControl addAppointmentUserControl1;
         private System.Windows.Forms.TabPage patientTabPage;
-        private UserControls.RegisterPatientUserControl registerPatientUserControl2;
         private System.Windows.Forms.TabControl nurseTabControl;
         private System.Windows.Forms.TabPage visitTabPage;
         private UserControls.VisitUserControl visitUserControl1;
+        private UserControls.RegisterPatientUserControl registerPatientUserControl2;
     }
 }

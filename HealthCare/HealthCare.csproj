@@ -54,7 +54,7 @@
     <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="DAL\SearchPatientDAL.cs" />
     <Compile Include="DAL\VisitDAL.cs" />
-    <Compile Include="DB\HealthcareDBConnection.cs" />
+    <Compile Include="DAL\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Patient.cs" />
@@ -161,6 +161,7 @@
       <DependentUpon>NurseDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\HealthCare.exe.config" />
+    <None Include="DB\CS6232-g2" />
     <None Include="obj\Release\HealthCare.csproj.CoreCompileInputs.cache" />
     <None Include="Properties\DataSources\HealthCare.Model.Patient.datasource" />
     <None Include="Properties\DataSources\HealthCare.Model.SearchPatient.datasource" />

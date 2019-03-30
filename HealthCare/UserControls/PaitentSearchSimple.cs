@@ -3,9 +3,8 @@ using HealthCare.Model;
 using HealthCare.View;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
-using System.Linq;
+
 
 namespace HealthCare.UserControls
 {
@@ -94,6 +93,10 @@ namespace HealthCare.UserControls
 
         private void PatientListView_SelectedIndexChanged(object sender, EventArgs e)
         {
+           if(this.patientListView.SelectedItems.Count == 0)
+            {
+                return;
+            }
             NurseDashboard dashboard = this.ParentForm as NurseDashboard;
             dashboard.SelectedPatientID = int.Parse(this.patientListView.SelectedItems[0].SubItems[0].Text);
             dashboard.RefreshTabs(sender, e);

@@ -3,7 +3,6 @@ using HealthCare.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 
 namespace HealthCare.Controller
 {
@@ -170,26 +169,55 @@ namespace HealthCare.Controller
             return this.visitDAL.GetVisitByAppt(apptID);
         }
 
+        /// <summary>
+        /// return a list of test by visit id
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <returns>a list of tests</returns>
         public List<Test> GetTestsByVisitId(int visitId)
         {
             return visitDAL.GetTestsByVisitId(visitId);
         }
 
+        /// <summary>
+        /// add a new patient
+        /// </summary>
+        /// <param name="person"></param>
         public void registerPatient(Person person)
         {
             this.patientDAL.registerPatient(person);
         }
 
+        /// <summary>
+        /// return a list of all states
+        /// </summary>
+        /// <returns>list of all states</returns>
         public List<State> GetAllStates()
         {
             return this.patientDAL.GetAllStates();
         }
 
+        /// <summary>
+        /// return a state's name by its state code
+        /// </summary>
+        /// <param name="stateCode"></param>
+        /// <returns>a state's name</returns>
         public String findStateNamebyCode(string stateCode)
         {
             return this.patientDAL.findStateNamebyCode(stateCode);
         }
 
+        /// <summary>
+        /// update a patient's information
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="zipCode"></param>
+        /// <param name="firstName"></param>
+        /// <param name="street"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="phone"></param>
         public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
         {
             this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone);

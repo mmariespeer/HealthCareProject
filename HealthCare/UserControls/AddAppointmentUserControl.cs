@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
+using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
@@ -17,7 +17,7 @@ namespace HealthCare.UserControls
         private Appointment appointment;
         private DateTime time;
         private DataTable selectedTime;
-        private List<SearchPatient> patients;
+        private int patientID;
 
         public AddAppointmentUserControl()
         {
@@ -26,6 +26,7 @@ namespace HealthCare.UserControls
             healthcareController = new HealthcareController();
             this.LoadDoctorComboBox();
             this.LoadTimesComboBox();
+            this.patientID = 0;
         }
 
         // Manages the information obtained from the database that populates the comboboxes
@@ -122,10 +123,8 @@ namespace HealthCare.UserControls
         //Reads the selected row and returns a patient ID based off row data
         private int GetPatientIDBySelectedRow()
         {
-            int rowindex = patientGridView.CurrentCell.RowIndex;
-            int columnindex = patientGridView.CurrentCell.ColumnIndex;
-
-            int patientID = Convert.ToInt32(patientGridView.Rows[rowindex].Cells[columnindex].Value.ToString());
+            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+            this.patientID = dashboard.SelectedPatientID;
             return patientID;
         }
 
@@ -136,101 +135,12 @@ namespace HealthCare.UserControls
             reasonForVisitTextBox.Text = "";
         }
 
-        //Searches for patient by date of birth when the search button is clicked.
-        private void searchDOBButton_Click(object sender, EventArgs e)
-        {
-            if(dobPicker.Value.Date == DateTime.Now.Date)
-            {
-                MessageBox.Show("Please select a Date of Birth");
-                return;
-            }
-
-            try
-            {
-                patientGridView.DataBindings.Clear();
-                //patients = this.healthcareController.GetPatientsByDOB(dobPicker.Value.Date);
-                if (!patients.Any())
-                {
-                    MessageBox.Show("No patients with that date of birth.");
-                    return;
-                }
-                patientGridView.DataSource = patients;
-                this.LoadAppointmentGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error has occured. " + ex.Message);
-            }
-        }
-
-        //Searches the patient by first and last name
-        private void searchByNameButton_Click(object sender, EventArgs e)
-        {
-            if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
-            {
-                MessageBox.Show("Please enter last name.");
-                return;
-            } else if (firstNameTextBox.Text == null || firstNameTextBox.Text == "")
-            {
-                MessageBox.Show("Please enter first name.");
-                return;
-            }
-
-            try
-            {
-                patientGridView.DataBindings.Clear();
-                //patients = this.healthcareController.GetPatientsByFullName(firstNameTextBox.Text, lastNameTextBox.Text);
-                if (!patients.Any())
-                {
-                    MessageBox.Show("No patients with that first name and last name.");
-                    return;
-                }
-                patientGridView.DataSource = patients;
-                this.LoadAppointmentGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
-        //Searches a patient by the DOB and Last Name when clicked
-        private void searchDOBandLastNameButton_Click(object sender, EventArgs e)
-        {
-            if (lastNameTextBox.Text == null || lastNameTextBox.Text == "")
-            {
-                MessageBox.Show("Please enter last name.");
-                return;
-            } else if (dobPicker.Value.Date == DateTime.Now.Date)
-            {
-                MessageBox.Show("Please enter Date of Birth");
-                return;
-            }
-
-            try
-            {
-                patientGridView.DataBindings.Clear();
-                //patients = this.healthcareController.GetPatientsByDOBandLastName(dobPicker.Value.Date, lastNameTextBox.Text);
-                if (!patients.Any())
-                {
-                    MessageBox.Show("No patients with that last name and date of birth.");
-                    return;
-                }
-                patientGridView.DataSource = patients;
-                this.LoadAppointmentGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
-            }
-        }
-
         //Populates the appointment gridview with the selected patients appointment information
         private void LoadAppointmentGridView()
         {
             List<Appointment> appointments = new List<Appointment>();
             appointmentGridView.DataBindings.Clear();
-            appointments = this.healthcareController.GetAppointmentsByPatientID(this.GetPatientIDBySelectedRow());
+            appointments = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
             appointmentGridView.DataSource = appointments;
         }
 
@@ -238,6 +148,21 @@ namespace HealthCare.UserControls
         private void patientGridView_SelectionChanged(object sender, EventArgs e)
         {
             this.LoadAppointmentGridView();
+        }
+
+        public void AddAppointmentUserControl_Load(object sender, EventArgs e)
+        {
+            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+            this.patientID = dashboard.SelectedPatientID;
+            if (this.patientID != 0)
+            {
+                this.LoadAppointmentGridView();
+            }
+            else
+            {
+                this.ClearScheduling();
+                appointmentGridView.DataBindings.Clear();
+            }
         }
     }
 }
