@@ -47,7 +47,7 @@
             // doctorLabel
             // 
             this.doctorLabel.AutoSize = true;
-            this.doctorLabel.Location = new System.Drawing.Point(73, 478);
+            this.doctorLabel.Location = new System.Drawing.Point(276, 593);
             this.doctorLabel.Name = "doctorLabel";
             this.doctorLabel.Size = new System.Drawing.Size(113, 32);
             this.doctorLabel.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             this.doctorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorComboBox.FormattingEnabled = true;
-            this.doctorComboBox.Location = new System.Drawing.Point(313, 478);
+            this.doctorComboBox.Location = new System.Drawing.Point(516, 593);
             this.doctorComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(471, 39);
@@ -65,7 +65,7 @@
             // 
             // appointmentDateTimePicker
             // 
-            this.appointmentDateTimePicker.Location = new System.Drawing.Point(999, 473);
+            this.appointmentDateTimePicker.Location = new System.Drawing.Point(1202, 588);
             this.appointmentDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentDateTimePicker.Name = "appointmentDateTimePicker";
             this.appointmentDateTimePicker.Size = new System.Drawing.Size(506, 38);
@@ -74,7 +74,7 @@
             // appointmentDateLabel
             // 
             this.appointmentDateLabel.AutoSize = true;
-            this.appointmentDateLabel.Location = new System.Drawing.Point(860, 485);
+            this.appointmentDateLabel.Location = new System.Drawing.Point(1063, 600);
             this.appointmentDateLabel.Name = "appointmentDateLabel";
             this.appointmentDateLabel.Size = new System.Drawing.Size(83, 32);
             this.appointmentDateLabel.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             // reasonForVisitTextBox
             // 
-            this.reasonForVisitTextBox.Location = new System.Drawing.Point(313, 640);
+            this.reasonForVisitTextBox.Location = new System.Drawing.Point(516, 755);
             this.reasonForVisitTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reasonForVisitTextBox.Multiline = true;
             this.reasonForVisitTextBox.Name = "reasonForVisitTextBox";
@@ -92,7 +92,7 @@
             // reasonForVisitLabel
             // 
             this.reasonForVisitLabel.AutoSize = true;
-            this.reasonForVisitLabel.Location = new System.Drawing.Point(60, 640);
+            this.reasonForVisitLabel.Location = new System.Drawing.Point(263, 755);
             this.reasonForVisitLabel.Name = "reasonForVisitLabel";
             this.reasonForVisitLabel.Size = new System.Drawing.Size(230, 32);
             this.reasonForVisitLabel.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Location = new System.Drawing.Point(680, 774);
+            this.createAppointmentButton.Location = new System.Drawing.Point(883, 889);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(376, 79);
@@ -115,7 +115,7 @@
             this.appointmentCreatedLabel.AutoSize = true;
             this.appointmentCreatedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentCreatedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.appointmentCreatedLabel.Location = new System.Drawing.Point(663, 876);
+            this.appointmentCreatedLabel.Location = new System.Drawing.Point(866, 991);
             this.appointmentCreatedLabel.Name = "appointmentCreatedLabel";
             this.appointmentCreatedLabel.Size = new System.Drawing.Size(0, 39);
             this.appointmentCreatedLabel.TabIndex = 7;
@@ -123,7 +123,7 @@
             // appointmentTimeLabel
             // 
             this.appointmentTimeLabel.AutoSize = true;
-            this.appointmentTimeLabel.Location = new System.Drawing.Point(860, 545);
+            this.appointmentTimeLabel.Location = new System.Drawing.Point(1063, 660);
             this.appointmentTimeLabel.Name = "appointmentTimeLabel";
             this.appointmentTimeLabel.Size = new System.Drawing.Size(93, 32);
             this.appointmentTimeLabel.TabIndex = 8;
@@ -133,7 +133,7 @@
             // 
             this.appointmentTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appointmentTimeComboBox.FormattingEnabled = true;
-            this.appointmentTimeComboBox.Location = new System.Drawing.Point(999, 533);
+            this.appointmentTimeComboBox.Location = new System.Drawing.Point(1202, 648);
             this.appointmentTimeComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.appointmentTimeComboBox.Name = "appointmentTimeComboBox";
             this.appointmentTimeComboBox.Size = new System.Drawing.Size(506, 39);
@@ -142,7 +142,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(674, 12);
+            this.label1.Location = new System.Drawing.Point(877, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(333, 32);
             this.label1.TabIndex = 43;
@@ -152,7 +152,7 @@
             // 
             this.appointmentGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.appointmentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentGridView.Location = new System.Drawing.Point(3, 45);
+            this.appointmentGridView.Location = new System.Drawing.Point(206, 160);
             this.appointmentGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentGridView.Name = "appointmentGridView";
             this.appointmentGridView.ReadOnly = true;
@@ -164,7 +164,7 @@
             // scheduleNewAppointmentLabel
             // 
             this.scheduleNewAppointmentLabel.AutoSize = true;
-            this.scheduleNewAppointmentLabel.Location = new System.Drawing.Point(674, 402);
+            this.scheduleNewAppointmentLabel.Location = new System.Drawing.Point(877, 517);
             this.scheduleNewAppointmentLabel.Name = "scheduleNewAppointmentLabel";
             this.scheduleNewAppointmentLabel.Size = new System.Drawing.Size(366, 32);
             this.scheduleNewAppointmentLabel.TabIndex = 44;
@@ -189,7 +189,7 @@
             this.Controls.Add(this.createAppointmentButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddAppointmentUserControl";
-            this.Size = new System.Drawing.Size(1594, 1062);
+            this.Size = new System.Drawing.Size(2039, 1064);
             this.Load += new System.EventHandler(this.AddAppointmentUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).EndInit();
             this.ResumeLayout(false);
