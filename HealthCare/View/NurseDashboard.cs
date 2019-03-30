@@ -38,6 +38,7 @@ namespace HealthCare.View
         {
             this.visitUserControl1.VisitUserControl_Load(sender, e);
             this.registerPatientUserControl2.RegisterPatientUserControl_Load(sender, e);
+            this.addAppointmentUserControl1.AddAppointmentUserControl_Load(sender, e);
         }
 
         private void LogoutLinkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

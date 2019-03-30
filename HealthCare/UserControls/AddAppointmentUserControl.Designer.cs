@@ -40,25 +40,14 @@
             this.appointmentTimeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.appointmentGridView = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lastNameTextBox = new System.Windows.Forms.TextBox();
-            this.dobPicker = new System.Windows.Forms.DateTimePicker();
-            this.searchByNameButton = new System.Windows.Forms.Button();
-            this.patientGridView = new System.Windows.Forms.DataGridView();
-            this.searchDOBButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.searchDOBandLastNameButton = new System.Windows.Forms.Button();
-            this.selectpatientLabel = new System.Windows.Forms.Label();
+            this.scheduleNewAppointmentLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // doctorLabel
             // 
             this.doctorLabel.AutoSize = true;
-            this.doctorLabel.Location = new System.Drawing.Point(53, 644);
+            this.doctorLabel.Location = new System.Drawing.Point(73, 478);
             this.doctorLabel.Name = "doctorLabel";
             this.doctorLabel.Size = new System.Drawing.Size(113, 32);
             this.doctorLabel.TabIndex = 0;
@@ -68,7 +57,7 @@
             // 
             this.doctorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.doctorComboBox.FormattingEnabled = true;
-            this.doctorComboBox.Location = new System.Drawing.Point(293, 644);
+            this.doctorComboBox.Location = new System.Drawing.Point(313, 478);
             this.doctorComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(471, 39);
@@ -76,7 +65,7 @@
             // 
             // appointmentDateTimePicker
             // 
-            this.appointmentDateTimePicker.Location = new System.Drawing.Point(979, 639);
+            this.appointmentDateTimePicker.Location = new System.Drawing.Point(999, 473);
             this.appointmentDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentDateTimePicker.Name = "appointmentDateTimePicker";
             this.appointmentDateTimePicker.Size = new System.Drawing.Size(506, 38);
@@ -85,7 +74,7 @@
             // appointmentDateLabel
             // 
             this.appointmentDateLabel.AutoSize = true;
-            this.appointmentDateLabel.Location = new System.Drawing.Point(840, 651);
+            this.appointmentDateLabel.Location = new System.Drawing.Point(860, 485);
             this.appointmentDateLabel.Name = "appointmentDateLabel";
             this.appointmentDateLabel.Size = new System.Drawing.Size(83, 32);
             this.appointmentDateLabel.TabIndex = 3;
@@ -93,7 +82,7 @@
             // 
             // reasonForVisitTextBox
             // 
-            this.reasonForVisitTextBox.Location = new System.Drawing.Point(293, 806);
+            this.reasonForVisitTextBox.Location = new System.Drawing.Point(313, 640);
             this.reasonForVisitTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reasonForVisitTextBox.Multiline = true;
             this.reasonForVisitTextBox.Name = "reasonForVisitTextBox";
@@ -103,7 +92,7 @@
             // reasonForVisitLabel
             // 
             this.reasonForVisitLabel.AutoSize = true;
-            this.reasonForVisitLabel.Location = new System.Drawing.Point(40, 806);
+            this.reasonForVisitLabel.Location = new System.Drawing.Point(60, 640);
             this.reasonForVisitLabel.Name = "reasonForVisitLabel";
             this.reasonForVisitLabel.Size = new System.Drawing.Size(230, 32);
             this.reasonForVisitLabel.TabIndex = 5;
@@ -112,7 +101,7 @@
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Location = new System.Drawing.Point(664, 949);
+            this.createAppointmentButton.Location = new System.Drawing.Point(680, 774);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(376, 79);
@@ -126,7 +115,7 @@
             this.appointmentCreatedLabel.AutoSize = true;
             this.appointmentCreatedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.appointmentCreatedLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.appointmentCreatedLabel.Location = new System.Drawing.Point(643, 1042);
+            this.appointmentCreatedLabel.Location = new System.Drawing.Point(663, 876);
             this.appointmentCreatedLabel.Name = "appointmentCreatedLabel";
             this.appointmentCreatedLabel.Size = new System.Drawing.Size(0, 39);
             this.appointmentCreatedLabel.TabIndex = 7;
@@ -134,7 +123,7 @@
             // appointmentTimeLabel
             // 
             this.appointmentTimeLabel.AutoSize = true;
-            this.appointmentTimeLabel.Location = new System.Drawing.Point(840, 711);
+            this.appointmentTimeLabel.Location = new System.Drawing.Point(860, 545);
             this.appointmentTimeLabel.Name = "appointmentTimeLabel";
             this.appointmentTimeLabel.Size = new System.Drawing.Size(93, 32);
             this.appointmentTimeLabel.TabIndex = 8;
@@ -144,7 +133,7 @@
             // 
             this.appointmentTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appointmentTimeComboBox.FormattingEnabled = true;
-            this.appointmentTimeComboBox.Location = new System.Drawing.Point(979, 699);
+            this.appointmentTimeComboBox.Location = new System.Drawing.Point(999, 533);
             this.appointmentTimeComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.appointmentTimeComboBox.Name = "appointmentTimeComboBox";
             this.appointmentTimeComboBox.Size = new System.Drawing.Size(506, 39);
@@ -153,7 +142,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(669, 401);
+            this.label1.Location = new System.Drawing.Point(674, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(333, 32);
             this.label1.TabIndex = 43;
@@ -163,136 +152,31 @@
             // 
             this.appointmentGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.appointmentGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.appointmentGridView.Location = new System.Drawing.Point(165, 434);
+            this.appointmentGridView.Location = new System.Drawing.Point(3, 45);
             this.appointmentGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.appointmentGridView.Name = "appointmentGridView";
             this.appointmentGridView.ReadOnly = true;
             this.appointmentGridView.RowTemplate.Height = 40;
             this.appointmentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.appointmentGridView.Size = new System.Drawing.Size(1320, 165);
+            this.appointmentGridView.Size = new System.Drawing.Size(1588, 287);
             this.appointmentGridView.TabIndex = 42;
             // 
-            // label4
+            // scheduleNewAppointmentLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(194, 32);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Date of Birth : ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1128, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 32);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Last Name : ";
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(1302, 33);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(183, 38);
-            this.lastNameTextBox.TabIndex = 38;
-            // 
-            // dobPicker
-            // 
-            this.dobPicker.Location = new System.Drawing.Point(240, 26);
-            this.dobPicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dobPicker.Name = "dobPicker";
-            this.dobPicker.Size = new System.Drawing.Size(500, 38);
-            this.dobPicker.TabIndex = 39;
-            // 
-            // searchByNameButton
-            // 
-            this.searchByNameButton.Location = new System.Drawing.Point(1109, 104);
-            this.searchByNameButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.searchByNameButton.Name = "searchByNameButton";
-            this.searchByNameButton.Size = new System.Drawing.Size(376, 62);
-            this.searchByNameButton.TabIndex = 40;
-            this.searchByNameButton.Text = "Search by Full Name";
-            this.searchByNameButton.UseVisualStyleBackColor = true;
-            this.searchByNameButton.Click += new System.EventHandler(this.searchByNameButton_Click);
-            // 
-            // patientGridView
-            // 
-            this.patientGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.patientGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.patientGridView.Location = new System.Drawing.Point(165, 213);
-            this.patientGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.patientGridView.Name = "patientGridView";
-            this.patientGridView.ReadOnly = true;
-            this.patientGridView.RowTemplate.Height = 40;
-            this.patientGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.patientGridView.Size = new System.Drawing.Size(1320, 148);
-            this.patientGridView.TabIndex = 41;
-            this.patientGridView.SelectionChanged += new System.EventHandler(this.patientGridView_SelectionChanged);
-            // 
-            // searchDOBButton
-            // 
-            this.searchDOBButton.Location = new System.Drawing.Point(165, 104);
-            this.searchDOBButton.Name = "searchDOBButton";
-            this.searchDOBButton.Size = new System.Drawing.Size(376, 62);
-            this.searchDOBButton.TabIndex = 44;
-            this.searchDOBButton.Text = "Search by DOB";
-            this.searchDOBButton.UseVisualStyleBackColor = true;
-            this.searchDOBButton.Click += new System.EventHandler(this.searchDOBButton_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(766, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 32);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "First Name :";
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(939, 30);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(183, 38);
-            this.firstNameTextBox.TabIndex = 47;
-            // 
-            // searchDOBandLastNameButton
-            // 
-            this.searchDOBandLastNameButton.Location = new System.Drawing.Point(624, 104);
-            this.searchDOBandLastNameButton.Name = "searchDOBandLastNameButton";
-            this.searchDOBandLastNameButton.Size = new System.Drawing.Size(428, 64);
-            this.searchDOBandLastNameButton.TabIndex = 48;
-            this.searchDOBandLastNameButton.Text = "Search by DOB and Last Name";
-            this.searchDOBandLastNameButton.UseVisualStyleBackColor = true;
-            this.searchDOBandLastNameButton.Click += new System.EventHandler(this.searchDOBandLastNameButton_Click);
-            // 
-            // selectpatientLabel
-            // 
-            this.selectpatientLabel.AutoSize = true;
-            this.selectpatientLabel.Location = new System.Drawing.Point(688, 179);
-            this.selectpatientLabel.Name = "selectpatientLabel";
-            this.selectpatientLabel.Size = new System.Drawing.Size(277, 32);
-            this.selectpatientLabel.TabIndex = 45;
-            this.selectpatientLabel.Text = "Select Patient Below";
+            this.scheduleNewAppointmentLabel.AutoSize = true;
+            this.scheduleNewAppointmentLabel.Location = new System.Drawing.Point(674, 402);
+            this.scheduleNewAppointmentLabel.Name = "scheduleNewAppointmentLabel";
+            this.scheduleNewAppointmentLabel.Size = new System.Drawing.Size(366, 32);
+            this.scheduleNewAppointmentLabel.TabIndex = 44;
+            this.scheduleNewAppointmentLabel.Text = "Schedule New Appointment";
             // 
             // AddAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.searchDOBandLastNameButton);
-            this.Controls.Add(this.firstNameTextBox);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.selectpatientLabel);
-            this.Controls.Add(this.searchDOBButton);
+            this.Controls.Add(this.scheduleNewAppointmentLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.appointmentGridView);
-            this.Controls.Add(this.patientGridView);
-            this.Controls.Add(this.searchByNameButton);
-            this.Controls.Add(this.dobPicker);
-            this.Controls.Add(this.lastNameTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.appointmentTimeComboBox);
             this.Controls.Add(this.appointmentTimeLabel);
             this.Controls.Add(this.doctorLabel);
@@ -306,8 +190,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddAppointmentUserControl";
             this.Size = new System.Drawing.Size(1594, 1062);
+            this.Load += new System.EventHandler(this.AddAppointmentUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.patientGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,16 +210,6 @@
         private System.Windows.Forms.ComboBox appointmentTimeComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView appointmentGridView;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox lastNameTextBox;
-        private System.Windows.Forms.DateTimePicker dobPicker;
-        private System.Windows.Forms.Button searchByNameButton;
-        private System.Windows.Forms.DataGridView patientGridView;
-        private System.Windows.Forms.Button searchDOBButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.Button searchDOBandLastNameButton;
-        private System.Windows.Forms.Label selectpatientLabel;
+        private System.Windows.Forms.Label scheduleNewAppointmentLabel;
     }
 }
