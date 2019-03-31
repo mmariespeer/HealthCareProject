@@ -21,21 +21,28 @@ namespace HealthCare.UserControls
 
         public void VisitUserControl_Load(object sender, EventArgs e)
         {
-            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
-            this.patientID = dashboard.SelectedPatientID;
-
-            //This is going to be implemented later
-            this.addTestsButton.Enabled = false;
-
-            if (this.patientID != 0)
+            try
             {
-                this.PopulateApptList();
-                this.visitListView.Enabled = true;
-                this.updateButton.Enabled = true;
-            }
-            else
+                NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+                this.patientID = dashboard.SelectedPatientID;
+
+                //This is going to be implemented later
+                this.addTestsButton.Enabled = false;
+
+                if (this.patientID != 0)
+                {
+                    this.PopulateApptList();
+                    this.visitListView.Enabled = true;
+                    this.updateButton.Enabled = true;
+                }
+                else
+                {
+                    this.ResetVisitForm();
+                }
+            } 
+            catch (Exception ex)
             {
-                this.ResetVisitForm();
+                MessageBox.Show(ex.Message);
             }
 
         }

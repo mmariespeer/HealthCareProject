@@ -22,37 +22,47 @@ namespace HealthCare.UserControls
         }
         public void RegisterPatientUserControl_Load(object sender, EventArgs e)
         {
-            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
-            this.patientID = dashboard.SelectedPatientID;
-           
+
             try
             {
-                stateList = this.healthController.GetAllStates();
+                NurseDashboard dashboard = this.ParentForm as NurseDashboard;
+                this.patientID = dashboard.SelectedPatientID;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+    
 
-                stateCodeComboBox.DataSource = stateList;
-                stateCodeComboBox.DisplayMember = "stateName";
-                stateCodeComboBox.ValueMember = "stateCode";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                try
+                {
+                    stateList = this.healthController.GetAllStates();
 
-            if (this.patientID != 0)
-            {
-                this.PopulatePatient();
-                this.updateButton.Enabled = true;
-                this.deleteButton.Enabled = true;
-                this.registerButton.Enabled = false;
-                this.clearButton.Enabled = false;
-            } else
-            {
-                stateCodeComboBox.SelectedIndex = 0;
-                this.updateButton.Enabled = false;
-                this.deleteButton.Enabled = false;
-                this.registerButton.Enabled = true;
-            }
+                    stateCodeComboBox.DataSource = stateList;
+                    stateCodeComboBox.DisplayMember = "stateName";
+                    stateCodeComboBox.ValueMember = "stateCode";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (this.patientID != 0)
+                {
+                    this.PopulatePatient();
+                    this.updateButton.Enabled = true;
+                    this.deleteButton.Enabled = true;
+                    this.registerButton.Enabled = false;
+                    this.clearButton.Enabled = false;
+                }
+                else
+                {
+                    stateCodeComboBox.SelectedIndex = 0;
+                    this.updateButton.Enabled = false;
+                    this.deleteButton.Enabled = false;
+                    this.registerButton.Enabled = true;
+                }
+            
         }
 
         private void clearButton_Click(object sender, EventArgs e)

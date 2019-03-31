@@ -152,17 +152,25 @@ namespace HealthCare.UserControls
 
         public void AddAppointmentUserControl_Load(object sender, EventArgs e)
         {
-            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
-            this.patientID = dashboard.SelectedPatientID;
-            if (this.patientID != 0)
+            try
             {
-                this.LoadAppointmentGridView();
-            }
-            else
+                NurseDashboard dashboard = (NurseDashboard)ParentForm;
+
+                this.patientID = dashboard.SelectedPatientID;
+                if (this.patientID != 0)
+                {
+                    this.LoadAppointmentGridView();
+                }
+                else
+                {
+                    this.ClearScheduling();
+                    appointmentGridView.DataBindings.Clear();
+                }
+            } catch (Exception ex)
             {
-                this.ClearScheduling();
-                appointmentGridView.DataBindings.Clear();
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
+            
         }
     }
 }
