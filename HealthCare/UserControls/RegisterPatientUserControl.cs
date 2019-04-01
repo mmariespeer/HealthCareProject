@@ -29,7 +29,7 @@ namespace HealthCare.UserControls
                 this.patientID = dashboard.SelectedPatientID;
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                //MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
     
 

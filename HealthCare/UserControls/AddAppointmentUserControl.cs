@@ -109,7 +109,7 @@ namespace HealthCare.UserControls
         //Reads the data inputed into the fields and inserts into the new appointment
         private void ReadIncidentData(Appointment appointment)
         {
-            appointment.PatientID = this.GetPatientIDBySelectedRow();
+            appointment.PatientID = this.patientID;
 
             int docID = (int)doctorComboBox.SelectedValue;
             appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
@@ -120,19 +120,13 @@ namespace HealthCare.UserControls
             appointment.ReasonForVisit = reasonForVisitTextBox.Text;
         }
 
-        //Reads the selected row and returns a patient ID based off row data
-        private int GetPatientIDBySelectedRow()
-        {
-            NurseDashboard dashboard = this.ParentForm as NurseDashboard;
-            this.patientID = dashboard.SelectedPatientID;
-            return patientID;
-        }
-
+        //Clears all data from appointment 
         private void ClearScheduling()
         {
             this.LoadDoctorComboBox();
             this.LoadTimesComboBox();
             reasonForVisitTextBox.Text = "";
+            this.LoadAppointmentGridView();
         }
 
         //Populates the appointment gridview with the selected patients appointment information
@@ -150,13 +144,16 @@ namespace HealthCare.UserControls
             this.LoadAppointmentGridView();
         }
 
+        //Loads the scheduled appointments for the current patient ID
         public void AddAppointmentUserControl_Load(object sender, EventArgs e)
         {
             try
             {
-                NurseDashboard dashboard = (NurseDashboard)ParentForm;
-
+                NurseDashboard dashboard = this.ParentForm as NurseDashboard;
                 this.patientID = dashboard.SelectedPatientID;
+
+                
+
                 if (this.patientID != 0)
                 {
                     this.LoadAppointmentGridView();
@@ -164,13 +161,12 @@ namespace HealthCare.UserControls
                 else
                 {
                     this.ClearScheduling();
-                    appointmentGridView.DataBindings.Clear();
                 }
-            } catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-            
+            catch (Exception ex)
+            {
+                // MessageBox.Show(ex.Message);
+            }
         }
     }
 }
