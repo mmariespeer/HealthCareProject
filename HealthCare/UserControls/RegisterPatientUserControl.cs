@@ -54,29 +54,26 @@ namespace HealthCare.UserControls
                     this.deleteButton.Enabled = true;
                     this.registerButton.Enabled = false;
                     this.clearButton.Enabled = false;
-                }
+                    this.ssnTextBox.ReadOnly = true;
+                    this.DOBDateTimePicker.Enabled = false;
+
+            }
                 else
                 {
-                    stateCodeComboBox.SelectedIndex = 0;
                     this.updateButton.Enabled = false;
                     this.deleteButton.Enabled = false;
                     this.registerButton.Enabled = true;
-                }
+                    this.clearButton.Enabled = true;
+                    this.clearForm();
+                    this.ssnTextBox.ReadOnly = false;
+                    this.DOBDateTimePicker.Enabled = true;
+            }
             
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            this.addressTextBox.Clear();
-            this.cityTextBox.Clear();
-            this.zipTextBox.Clear();
-            this.phoneTextBox.Clear();
-            this.ssnTextBox.Clear();
-            this.lastNameTextBox.Clear();
-            this.firstNameTextBox.Clear();
-            this.stateCodeComboBox.SelectedIndex = 0;
-            this.DOBDateTimePicker.CustomFormat = " ";
-            this.DOBDateTimePicker.Format = DateTimePickerFormat.Custom;            
+            this.clearForm();         
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -153,21 +150,32 @@ namespace HealthCare.UserControls
                 this.currentPerson = this.healthController.GetPersonByPatientID(this.patientID);
                 this.lastNameTextBox.Text = currentPerson.LastName;
                 this.firstNameTextBox.Text = currentPerson.FirstName;
-                this.cityTextBox.Text = currentPerson.City;
-                this.phoneTextBox.Text = currentPerson.PhoneNumber;
+                this.cityTextBox.Text = this.currentPerson.City;
+                this.phoneTextBox.Text = this.currentPerson.PhoneNumber;
                 this.ssnTextBox.Text = currentPerson.SSN;
-                this.ssnTextBox.ReadOnly = true;
                 this.addressTextBox.Text = currentPerson.StreetAddress;
                 this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.findStateNamebyCode(currentPerson.StateCode));
-                this.zipTextBox.Text = currentPerson.ZipCode.ToString();
-                this.DOBDateTimePicker.Value = currentPerson.DateOfBirth;
-                this.DOBDateTimePicker.Enabled = false;
+                this.zipTextBox.Text = this.currentPerson.ZipCode.ToString();
+                this.DOBDateTimePicker.Value = this.currentPerson.DateOfBirth;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
 
+        }
+
+        private void clearForm()
+        {
+            this.addressTextBox.Clear();
+            this.cityTextBox.Clear();
+            this.zipTextBox.Clear();
+            this.phoneTextBox.Clear();
+            this.ssnTextBox.Clear();
+            this.lastNameTextBox.Clear();
+            this.firstNameTextBox.Clear();
+            this.stateCodeComboBox.SelectedIndex = 0;
+            
         }
 
     }

@@ -82,7 +82,7 @@
             this.addAppointmentUserControl1.Location = new System.Drawing.Point(3, 3);
             this.addAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.addAppointmentUserControl1.Name = "addAppointmentUserControl1";
-            this.addAppointmentUserControl1.Size = new System.Drawing.Size(770, 633);
+            this.addAppointmentUserControl1.Size = new System.Drawing.Size(682, 633);
             this.addAppointmentUserControl1.TabIndex = 0;
             // 
             // patientTabPage
@@ -92,7 +92,7 @@
             this.patientTabPage.Location = new System.Drawing.Point(4, 29);
             this.patientTabPage.Name = "patientTabPage";
             this.patientTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.patientTabPage.Size = new System.Drawing.Size(776, 639);
+            this.patientTabPage.Size = new System.Drawing.Size(688, 639);
             this.patientTabPage.TabIndex = 0;
             this.patientTabPage.Text = "Register/Delete Patient";
             this.patientTabPage.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@
             // registerPatientUserControl2
             // 
             this.registerPatientUserControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerPatientUserControl2.Location = new System.Drawing.Point(118, 58);
+            this.registerPatientUserControl2.Location = new System.Drawing.Point(52, 46);
             this.registerPatientUserControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.registerPatientUserControl2.Name = "registerPatientUserControl2";
             this.registerPatientUserControl2.Size = new System.Drawing.Size(588, 379);
