@@ -64,7 +64,7 @@ namespace HealthCare.UserControls
                     this.deleteButton.Enabled = false;
                     this.registerButton.Enabled = true;
                     this.clearButton.Enabled = true;
-                    this.clearForm();
+                    this.ClearForm();
                     this.ssnTextBox.ReadOnly = false;
                     this.DOBDateTimePicker.Enabled = true;
             }
@@ -73,7 +73,7 @@ namespace HealthCare.UserControls
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            this.clearForm();         
+            this.ClearForm();         
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace HealthCare.UserControls
 
         }
 
-        private void clearForm()
+        private void ClearForm()
         {
             this.addressTextBox.Clear();
             this.cityTextBox.Clear();

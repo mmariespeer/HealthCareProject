@@ -7,11 +7,17 @@ using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// User control to display patient visit information
+    /// </summary>
     public partial class VisitUserControl : UserControl
     {
         private int patientID;
         private HealthcareController controller;
 
+        /// <summary>
+        /// Initalizes controller and patientID to 0
+        /// </summary>
         public VisitUserControl()
         {
             InitializeComponent();
@@ -19,6 +25,11 @@ namespace HealthCare.UserControls
             this.patientID = 0;
         }
 
+        /// <summary>
+        /// Loads the appointment list by the SelectedPatientID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void VisitUserControl_Load(object sender, EventArgs e)
         {
             try
@@ -47,6 +58,9 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Clears all data from visit information
+        /// </summary>
         private void ResetVisitForm()
         {
             this.doctorTextBox.Text = "";
@@ -62,6 +76,9 @@ namespace HealthCare.UserControls
             this.visitListView.Items.Clear();
         }
 
+        /// <summary>
+        /// Populates the appointment list for a specific patient
+        /// </summary>
         private void PopulateApptList()
         {
             List<Appointment> apptList = new List<Appointment>();
@@ -86,6 +103,11 @@ namespace HealthCare.UserControls
             }
         }
 
+        /// <summary>
+        /// On visit selection change, displays appropriate information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void VisitListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
@@ -116,6 +138,10 @@ namespace HealthCare.UserControls
             
         }
 
+        /// <summary>
+        /// Gets all tests for a specific visit
+        /// </summary>
+        /// <param name="visitId">visitID to search</param>
         private void GetTests(int visitId)
         {
             List<Test> testList = new List<Test>();
@@ -138,6 +164,11 @@ namespace HealthCare.UserControls
             }
         }
 
+        /// <summary>
+        /// On click, updates the visit information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             bool validDiastolic = int.TryParse(this.diastolicTextBox.Text, out int diastolicValidated);

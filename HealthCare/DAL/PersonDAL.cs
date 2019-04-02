@@ -50,7 +50,11 @@ namespace HealthCare.DAL
             }
         }
 
-        //Retrieves a person by the doctorsID
+        /// <summary>
+        /// Retrieves a person by the doctorsID
+        /// </summary>
+        /// <param name="docID">doctorID to search</param>
+        /// <returns>Person of that doctorID</returns>
         public Person GetPersonByDoctorID(int docID)
         {
             Person person = new Person();
@@ -81,7 +85,11 @@ namespace HealthCare.DAL
             }
         }
 
-        //Retrieves a person by the patientID
+        /// <summary>
+        /// Retrieves a person by the patientID
+        /// </summary>
+        /// <param name="patientID">patientID to search</param>
+        /// <returns>Person fo that patientID</returns>
         public Person GetPersonByPatientID(int patientID)
         {
             Person person = new Person();
