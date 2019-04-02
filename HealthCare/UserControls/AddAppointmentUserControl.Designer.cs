@@ -108,7 +108,7 @@
             this.createAppointmentButton.TabIndex = 6;
             this.createAppointmentButton.Text = "Create Appointment";
             this.createAppointmentButton.UseVisualStyleBackColor = true;
-            this.createAppointmentButton.Click += new System.EventHandler(this.createAppointmentButton_Click);
+            this.createAppointmentButton.Click += new System.EventHandler(this.CreateAppointmentButton_Click);
             // 
             // appointmentCreatedLabel
             // 

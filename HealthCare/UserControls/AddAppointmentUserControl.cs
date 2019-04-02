@@ -86,7 +86,7 @@ namespace HealthCare.UserControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void createAppointmentButton_Click(object sender, EventArgs e)
+        private void CreateAppointmentButton_Click(object sender, EventArgs e)
         {
             appointment = new Appointment();
             if (appointment == null)
@@ -107,10 +107,10 @@ namespace HealthCare.UserControls
                 this.ClearScheduling();
                 MessageBox.Show("Appointment has been created! \n"
                     + this.healthcareController.GetPersonByPatientID(appointment.PatientID).FirstName + " "
-                    + this.healthcareController.GetPersonByPatientID(appointment.PatientID).LastName + "\n" 
+                    + this.healthcareController.GetPersonByPatientID(appointment.PatientID).LastName + "\n"
                     + "on " + appointment.DateTime.ToShortDateString() + " at " + appointment.DateTime.ToShortTimeString() + "\n"
                     + "With Dr. " + this.healthcareController.GetPersonByDoctorID(appointment.DoctorID).LastName);
-           }
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
@@ -154,16 +154,6 @@ namespace HealthCare.UserControls
             appointmentGridView.DataBindings.Clear();
             appointments = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
             appointmentGridView.DataSource = appointments;
-        }
-
-        /// <summary>
-        /// Updates the gridview when there are multiple patients to choose from
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void patientGridView_SelectionChanged(object sender, EventArgs e)
-        {
-            this.LoadAppointmentGridView();
         }
 
         /// <summary>

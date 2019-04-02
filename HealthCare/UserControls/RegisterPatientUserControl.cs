@@ -77,12 +77,12 @@ namespace HealthCare.UserControls
             
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
+        private void ClearButton_Click(object sender, EventArgs e)
         {
-            this.ClearForm();         
+            this.ClearForm();
         }
 
-        private void registerButton_Click(object sender, EventArgs e)
+        private void RegisterButton_Click(object sender, EventArgs e)
         {
 
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
@@ -117,7 +117,7 @@ namespace HealthCare.UserControls
             }
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
+        private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
                String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull)
