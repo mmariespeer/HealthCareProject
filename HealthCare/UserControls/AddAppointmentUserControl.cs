@@ -157,10 +157,18 @@ namespace HealthCare.UserControls
                 if (this.patientID != 0)
                 {
                     this.LoadAppointmentGridView();
+                    this.createAppointmentButton.Enabled = true;
+                    this.doctorComboBox.Enabled = true;
+                    this.appointmentDateTimePicker.Enabled = true;
+                    this.appointmentTimeComboBox.Enabled = true;
                 }
                 else
                 {
                     this.ClearScheduling();
+                    this.createAppointmentButton.Enabled = false;
+                    this.doctorComboBox.Enabled = false;
+                    this.appointmentDateTimePicker.Enabled = false;
+                    this.appointmentTimeComboBox.Enabled = false;
                 }
             }
             catch (Exception ex)
