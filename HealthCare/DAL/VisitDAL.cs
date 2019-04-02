@@ -11,7 +11,7 @@ namespace HealthCare.DAL
     {
         #region VisitStatements
         private const string insertVisitStatement = "INSERT INTO visit([nurseID], [appointmentID], [weight], [systolicBP], [diastolicBP], [temp], [pulse], [symptoms])" +
-                        "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,1,@symptoms)";
+                        "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,1,@symptoms); SELECT SCOPE_IDENTITY()";
         private const string insertDiagnosticStatement = "INSERT INTO diagnosis([visitID],[initialDiagnosis],[finalDiagnosis])" +
                         "VALUES(@visitID,@initial,@final)";
         private const string updateVisitStatement = "UPDATE visit SET [nurseID] = @nurseID, [appointmentID] = @apptID, [weight] = @weight, [systolicBP] = @systolicBP, [diastolicBP] = @diastolicBP"+
@@ -21,13 +21,13 @@ namespace HealthCare.DAL
 
         #endregion
 
-        private const string selectStatement = "SELECT v.*, p.firstName + ' ' + p.lastName AS doctorName, a.patientID, a.datetime, dg.initialDiagnosis, dg.finalDiagnosis " +
-                "FROM Visit AS v " +
-                "JOIN Appointment AS a ON v.appointmentID = a.appointmentID " +
+        private const string selectStatement = "SELECT p.firstName + ' ' + p.lastName AS doctorName, a.patientID, a.datetime, dg.initialDiagnosis, dg.finalDiagnosis, v.weight, v.systolicBP, v.diastolicBP, v.temp, v.pulse, v.symptoms, v.visitID, a.appointmentID " +
+                "FROM Appointment AS a " +
+                "LEFT JOIN Visit AS v ON v.appointmentID = a.appointmentID " +
                 "JOIN Doctor AS d ON a.doctorID = d.doctorID " +
                 "JOIN Person AS p ON d.personID = p.personID " +
-                "JOIN Diagnosis AS dg ON v.visitID = dg.visitID " +
-                "WHERE v.appointmentID = @apptID ";
+                "LEFT JOIN Diagnosis AS dg ON v.visitID = dg.visitID " +
+                "WHERE a.appointmentID = @apptID ";
 
         public Visit GetVisitByAppt(int apptID)
         {
@@ -44,17 +44,17 @@ namespace HealthCare.DAL
                     {
                         while (reader.Read())
                         {
-                            visit.VisitID = (int)reader["visitID"];
+                            visit.VisitID = reader["visitID"] as int? ?? 0;
                             visit.AppointmentID = (int)reader["appointmentID"];
                             visit.PatientID = (int)reader["patientID"];
                             visit.DoctorName = (string)reader["doctorName"];
                             visit.DateTime = (DateTime)reader["dateTime"];
-                            visit.Weight = (decimal)reader["weight"];
-                            visit.Temp = (decimal)reader["temp"];
-                            visit.SystolicBP = (int)reader["systolicBP"];
-                            visit.DiastolicBP = (int)reader["diastolicBP"];
-                            visit.Symptoms = (string)reader["symptoms"];
-                            visit.InitialDiagnosis = (string)reader["initialDiagnosis"];
+                            visit.Weight = reader["weight"] as decimal? ?? 0;
+                            visit.Temp = reader["temp"] as decimal? ?? 0;
+                            visit.SystolicBP = reader["systolicBP"] as int? ?? 0;
+                            visit.DiastolicBP = reader["diastolicBP"] as int? ?? 0;
+                            visit.Symptoms = reader["symptoms"] as string;
+                            visit.InitialDiagnosis = reader["initialDiagnosis"] as string;
                             visit.FinalDiagnosis = reader["finalDiagnosis"] as string;
                         }
 
@@ -110,12 +110,14 @@ namespace HealthCare.DAL
                 //create new visit
                 using (SqlConnection connection = HealthcareDBConnection.GetConnection())
                 {
+                    int pk = -1;
                     connection.Open();
                     SqlTransaction transaction = connection.BeginTransaction();
                     try
                     {
                         using (SqlCommand insertCommand = new SqlCommand(insertVisitStatement, connection))
                         {
+                            insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@nurseID", visit.NurseID);
                             insertCommand.Parameters.AddWithValue("@apptID", visit.AppointmentID);
                             insertCommand.Parameters.AddWithValue("@weight", visit.Weight);
@@ -124,11 +126,13 @@ namespace HealthCare.DAL
                             insertCommand.Parameters.AddWithValue("@temp", visit.Temp);
                             insertCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
 
-                            visitResult = insertCommand.ExecuteNonQuery();
+                            //visitResult = insertCommand.ExecuteNonQuery();
+                            pk = Convert.ToInt32(insertCommand.ExecuteScalar());
                         }
                         using (SqlCommand insertDiagnosisCommand = new SqlCommand(insertDiagnosticStatement, connection))
                         {
-                            insertDiagnosisCommand.Parameters.AddWithValue("@visitID", visit.VisitID);
+                            insertDiagnosisCommand.Transaction = transaction;
+                            insertDiagnosisCommand.Parameters.AddWithValue("@visitID", pk);
                             insertDiagnosisCommand.Parameters.AddWithValue("@initial", visit.InitialDiagnosis);
                             insertDiagnosisCommand.Parameters.AddWithValue("@final", visit.FinalDiagnosis);
 

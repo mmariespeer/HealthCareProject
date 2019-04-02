@@ -113,5 +113,123 @@ namespace HealthCare.DAL
 
             return stateName;
         }
+
+        /// <summary>
+        /// return a list of patients by date of birth
+        /// </summary>
+        /// <param name="dob"></param>
+        /// <returns>list of patients searched by date of birth</returns>
+        public List<Patient> GetPatientsByDOB(DateTime dob)
+        {
+            List<Patient> searchList = new List<Patient>();
+
+            string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID FROM person p JOIN patient pa ON p.personID = pa.personID WHERE CAST(p.dateOfBirth as DATE) = @DOB";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@DOB", dob.ToString("yyyy-MM-dd"));
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Patient patient = new Patient();
+                            patient.LastName = reader["lastName"].ToString();
+                            patient.FirstName = reader["firstName"].ToString();
+                            patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            patient.PatientID = Convert.ToInt32(reader["patientID"]);
+
+
+                            searchList.Add(patient);
+                        }
+                    }
+                }
+            }
+            return searchList;
+        }
+
+        //Gets a list of patients by their first and last name
+        public List<Patient> GetPatientsByFullName(string fname, string lname)
+        {
+            List<Patient> searchList = new List<Patient>();
+
+            string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID " +
+                "FROM person p " +
+                "JOIN patient pa " +
+                "ON p.personID = pa.personID " +
+                "WHERE p.lastName = @lname AND p.firstName = @fname";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@lname", lname);
+                    selectCommand.Parameters.AddWithValue("@fname", fname);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Patient patient = new Patient();
+                            patient.LastName = reader["lastName"].ToString();
+                            patient.FirstName = reader["firstName"].ToString();
+                            patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            patient.PatientID = Convert.ToInt32(reader["patientID"]);
+
+
+                            searchList.Add(patient);
+                        }
+                    }
+                }
+            }
+
+            return searchList;
+        }
+
+        //Gets a list of patients by their first and last name
+        public List<Patient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
+        {
+            List<Patient> searchList = new List<Patient>();
+
+            string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, pa.patientID " +
+                "FROM person p " +
+                "JOIN patient pa " +
+                "ON p.personID = pa.personID " +
+                "WHERE p.lastName = @lname AND p.dateOfBirth = @dateOfBirth";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@lname", lname);
+                    selectCommand.Parameters.AddWithValue("@dateOfBirth", dateOfBirth);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Patient patient = new Patient();
+                            patient.LastName = reader["lastName"].ToString();
+                            patient.FirstName = reader["firstName"].ToString();
+                            patient.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            patient.PatientID = Convert.ToInt32(reader["patientID"]);
+
+
+                            searchList.Add(patient);
+                        }
+                    }
+                }
+            }
+
+            return searchList;
+        }
     }
 }

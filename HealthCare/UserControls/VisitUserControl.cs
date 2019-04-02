@@ -91,16 +91,29 @@ namespace HealthCare.UserControls
             int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
             this.visitListView.Enabled = false;
             Visit visit = this.controller.GetVisitByAppointmentID(apptID);
-            this.doctorTextBox.Text = visit.DoctorName.ToString();
-            this.weightTextBox.Text = visit.Weight.ToString();
-            this.tempTextBox.Text = visit.Temp.ToString();
-            this.systolicTextBox.Text = visit.SystolicBP.ToString();
-            this.diastolicTextBox.Text = visit.DiastolicBP.ToString();
-            this.symptomsTextBox.Text = visit.Symptoms;
-            this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
-            this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
-
-            this.GetTests(visit.VisitID);
+            if (visit.VisitID != 0)
+            {
+                this.doctorTextBox.Text = visit.DoctorName.ToString();
+                this.weightTextBox.Text = visit.Weight.ToString();
+                this.tempTextBox.Text = visit.Temp.ToString();
+                this.systolicTextBox.Text = visit.SystolicBP.ToString();
+                this.diastolicTextBox.Text = visit.DiastolicBP.ToString();
+                this.symptomsTextBox.Text = visit.Symptoms;
+                this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
+                this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
+                this.GetTests(visit.VisitID);
+            } else
+            {
+                this.doctorTextBox.Text = visit.DoctorName.ToString();
+                this.weightTextBox.Text = "";
+                this.tempTextBox.Text = "";
+                this.systolicTextBox.Text = "";
+                this.diastolicTextBox.Text = "";
+                this.symptomsTextBox.Text = "";
+                this.initDiagnosisTextBox.Text = "";
+                this.finalDiagnosisTextBox.Text = "";
+            }
+            
         }
 
         private void GetTests(int visitId)

@@ -16,7 +16,6 @@ namespace HealthCare.Controller
         private DoctorDAL doctorDAL;
         private PersonDAL personDAL;
         private LoginDAL loginDAL;
-        private SearchPatientDAL searchDAL;
         private PatientDAL patientDAL;
 
         //Initalizes DAL objects
@@ -27,7 +26,6 @@ namespace HealthCare.Controller
             doctorDAL = new DoctorDAL();
             personDAL = new PersonDAL();
             loginDAL = new LoginDAL();
-            searchDAL = new SearchPatientDAL();
             patientDAL = new PatientDAL();
         }
 
@@ -79,14 +77,26 @@ namespace HealthCare.Controller
             return this.personDAL.GetPersonByPatientID(patientID);
         }
 
+        /// <summary>
+        /// Get a patient using their full name
+        /// </summary>
+        /// <param name="fname">firat name as a string</param>
+        /// <param name="lname">last name as a string</param>
+        /// <returns>a list of patients</returns>
         public List<Patient> GetPatientsByFullName(string fname, string lname)
         {
-            return this.searchDAL.GetPatientsByFullName(fname, lname);
+            return this.patientDAL.GetPatientsByFullName(fname, lname);
         }
 
+        /// <summary>
+        /// Get patients using their date of birth and lastname
+        /// </summary>
+        /// <param name="dateOfBirth">as a datetime</param>
+        /// <param name="lname">last name as a string</param>
+        /// <returns></returns>
         public List<Patient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
         {
-            return this.searchDAL.GetPatientsByDOBandLastName(dateOfBirth, lname);
+            return this.patientDAL.GetPatientsByDOBandLastName(dateOfBirth, lname);
         }
 
         /// <summary>
@@ -111,34 +121,10 @@ namespace HealthCare.Controller
         }
 
         /// <summary>
-        /// return a list of all current patients
+        /// Add or update a visit
         /// </summary>
-        /// <returns>list of all current patients</returns>
-        public List<Patient> GetAllPatients()
-        {
-            return this.searchDAL.GetAllPatients();
-        }
-
-        /// <summary>
-        /// return a patient based on personID
-        /// </summary>
-        /// <param name="personID"></param>
-        /// <returns>a patient based on personID</returns>
-        public List<SearchPatient> GetSelectedPatients(int personID)
-        {
-            return this.searchDAL.GetSelectedPatients(personID);
-        }
-
-        /// <summary>
-        /// return a list of patients by last name
-        /// </summary>
-        /// <param name="lname"></param>
-        /// <returns>list of patients searched by last name</returns>
-        public List<Patient> GetPatientsByLastName(string lname)
-        {
-            return this.searchDAL.GetPatientsByLastName(lname);
-        }
-
+        /// <param name="visit">a visit object to be inserted or updated</param>
+        /// <returns>a true or false value based on successs</returns>
         public bool AddVisit(Visit visit)
         {
             Visit existingVisit = visitDAL.GetVisitByAppt(visit.AppointmentID);
@@ -156,7 +142,7 @@ namespace HealthCare.Controller
         /// <returns>list of patients searched by date of birth</returns>
         public List<Patient> GetPatientsByDOB(DateTime dob)
         {
-            return this.searchDAL.GetPatientsByDOB(dob);
+            return this.patientDAL.GetPatientsByDOB(dob);
         }
 
         /// <summary>
