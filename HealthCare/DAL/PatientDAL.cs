@@ -8,6 +8,10 @@ namespace HealthCare.DAL
 {
     class PatientDAL
     {
+        /// <summary>
+        /// add a new patient
+        /// </summary>
+        /// <param name="person"></param>
         public void registerPatient(Person person)
         {
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
@@ -45,6 +49,10 @@ namespace HealthCare.DAL
                
         }
 
+        /// <summary>
+        /// return a list of all states
+        /// </summary>
+        /// <returns>list of 50 states</returns>
         public List<State> GetAllStates()
         {
             List<State> allStates = new List<State>();
@@ -76,6 +84,17 @@ namespace HealthCare.DAL
             return allStates;
         }
 
+        /// <summary>
+        /// update a patients personal information
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="zipCode"></param>
+        /// <param name="firstName"></param>
+        /// <param name="street"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="phone"></param>
         public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
         {
             string updateStatement = "UPDATE person SET firstName = @firstName, lastName = @lastName, stateCode = @stateCode, phoneNumber = @phone, streetAddress = @street, " +
@@ -98,6 +117,11 @@ namespace HealthCare.DAL
             }
         }
 
+        /// <summary>
+        /// return a state name based on its code
+        /// </summary>
+        /// <param name="stateCode"></param>
+        /// <returns>name of a state</returns>
         public String findStateNamebyCode(string stateCode)
         {
             string stateName = "";
@@ -152,7 +176,12 @@ namespace HealthCare.DAL
             return searchList;
         }
 
-        //Gets a list of patients by their first and last name
+        /// <summary>
+        /// Gets a list of patients by their first and last name
+        /// </summary>
+        /// <param name="fname"></param>
+        /// <param name="lname"></param>
+        /// <returns>list of patient's full name</returns>
         public List<Patient> GetPatientsByFullName(string fname, string lname)
         {
             List<Patient> searchList = new List<Patient>();
@@ -192,7 +221,12 @@ namespace HealthCare.DAL
             return searchList;
         }
 
-        //Gets a list of patients by their first and last name
+        /// <summary>
+        /// Gets a list of patients by their last name and DOB
+        /// </summary>
+        /// <param name="dateOfBirth"></param>
+        /// <param name="lname"></param>
+        /// <returns>list of patients based on last name and DOB</returns>
         public List<Patient> GetPatientsByDOBandLastName(DateTime dateOfBirth, string lname)
         {
             List<Patient> searchList = new List<Patient>();

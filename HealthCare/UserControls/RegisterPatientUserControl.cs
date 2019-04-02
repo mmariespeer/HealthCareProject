@@ -20,6 +20,12 @@ namespace HealthCare.UserControls
             this.healthController = new HealthcareController();
             this.patientID = 0;
         }
+
+        /// <summary>
+        /// load the patient user control in the nurse dashboard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void RegisterPatientUserControl_Load(object sender, EventArgs e)
         {
 
