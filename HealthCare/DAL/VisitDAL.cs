@@ -7,6 +7,9 @@ using System.Diagnostics;
 
 namespace HealthCare.DAL
 {
+    /// <summary>
+    /// Retrieves all the visit information from database
+    /// </summary>
     class VisitDAL
     {
         #region VisitStatements
@@ -29,6 +32,11 @@ namespace HealthCare.DAL
                 "LEFT JOIN Diagnosis AS dg ON v.visitID = dg.visitID " +
                 "WHERE a.appointmentID = @apptID ";
 
+        /// <summary>
+        /// Gets a visit by the appointmentID
+        /// </summary>
+        /// <param name="apptID">appointmentID to search</param>
+        /// <returns>Visit of that appointmentID</returns>
         public Visit GetVisitByAppt(int apptID)
         {
             Visit visit = new Visit();
@@ -64,6 +72,11 @@ namespace HealthCare.DAL
             return visit;
         }
 
+        /// <summary>
+        /// Gets tests by visit ID
+        /// </summary>
+        /// <param name="visitId">visitID to search</param>
+        /// <returns>List of tests for that visit</returns>
         public List<Test> GetTestsByVisitId(int visitId)
         {
             List<Test> testList = new List<Test>();
@@ -100,6 +113,11 @@ namespace HealthCare.DAL
             return testList;
         }
 
+        /// <summary>
+        /// Adds or updates a visit
+        /// </summary>
+        /// <param name="visit">visit to add or update</param>
+        /// <returns>True if visit is updated</returns>
         public bool AddOrUpdateVisit(Visit visit)
         {
             int visitResult=0;

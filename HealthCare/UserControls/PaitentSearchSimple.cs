@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// Simple search bar for all tabs controls to use from main nurse dashboard
+    /// </summary>
     public partial class PaitentSearchSimple : UserControl
     {
         private HealthcareController controller;
@@ -18,6 +21,11 @@ namespace HealthCare.UserControls
             this.controller = new HealthcareController();
         }
 
+        /// <summary>
+        /// On click, searches for patient with specific last name and dob, full name, or just dob
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchButton_Click(object sender, EventArgs e)
         {
             List<Patient> patientList;
@@ -63,6 +71,10 @@ namespace HealthCare.UserControls
             
         }
 
+        /// <summary>
+        /// Sets the listview to the patients found
+        /// </summary>
+        /// <param name="patientList">List of patients found in search</param>
         private void SetListView(List<Patient> patientList)
         {
             this.patientListView.Items.Clear();
@@ -92,6 +104,11 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Sets the SelectedPatientID to the current patient selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PatientListView_SelectedIndexChanged(object sender, EventArgs e)
         {
            if(this.patientListView.SelectedItems.Count == 0)
@@ -103,6 +120,11 @@ namespace HealthCare.UserControls
             dashboard.RefreshTabs(sender, e);
         }
 
+        /// <summary>
+        /// Clears all the data from search fields and tabs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.patientListView.Items.Clear();

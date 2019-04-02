@@ -11,7 +11,11 @@ namespace HealthCare.DAL
     /// </summary>
     class AppointmentDAL
     {
-        //Adds appointment to the database
+        /// <summary>
+        /// Adds appointment to the database
+        /// </summary>
+        /// <param name="appointment">appointment to add</param>
+        /// <returns></returns>
         public int AddAppointment(Appointment appointment)
         {
             SqlConnection connection = HealthcareDBConnection.GetConnection();
@@ -33,7 +37,11 @@ namespace HealthCare.DAL
             return appointmentID;
         }
 
-        //Gets all the appointments a patient is scheduled for
+        /// <summary>
+        /// Gets all the appointments a patient is scheduled for
+        /// </summary>
+        /// <param name="patientID">patient id for search</param>
+        /// <returns></returns>
         public List<Appointment> GetAppointmentsByPatientID(int patientID)
         {
             List<Appointment> appointments = new List<Appointment>();
