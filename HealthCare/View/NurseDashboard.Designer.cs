@@ -70,7 +70,7 @@
             this.appointmentTabPage.Location = new System.Drawing.Point(4, 29);
             this.appointmentTabPage.Name = "appointmentTabPage";
             this.appointmentTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.appointmentTabPage.Size = new System.Drawing.Size(688, 639);
+            this.appointmentTabPage.Size = new System.Drawing.Size(688, 552);
             this.appointmentTabPage.TabIndex = 1;
             this.appointmentTabPage.Text = "Appointment Information";
             this.appointmentTabPage.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             this.addAppointmentUserControl1.Location = new System.Drawing.Point(3, 3);
             this.addAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.addAppointmentUserControl1.Name = "addAppointmentUserControl1";
-            this.addAppointmentUserControl1.Size = new System.Drawing.Size(682, 633);
+            this.addAppointmentUserControl1.Size = new System.Drawing.Size(682, 546);
             this.addAppointmentUserControl1.TabIndex = 0;
             // 
             // patientTabPage
@@ -92,7 +92,7 @@
             this.patientTabPage.Location = new System.Drawing.Point(4, 29);
             this.patientTabPage.Name = "patientTabPage";
             this.patientTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.patientTabPage.Size = new System.Drawing.Size(688, 639);
+            this.patientTabPage.Size = new System.Drawing.Size(688, 552);
             this.patientTabPage.TabIndex = 0;
             this.patientTabPage.Text = "Register/Delete Patient";
             this.patientTabPage.UseVisualStyleBackColor = true;
@@ -156,6 +156,7 @@
             this.Controls.Add(this.nurseTabControl);
             this.Name = "NurseDashboard";
             this.Text = "Nurse Dashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NurseDashboard_FormClosing);
             this.appointmentTabPage.ResumeLayout(false);
             this.patientTabPage.ResumeLayout(false);
             this.nurseTabControl.ResumeLayout(false);

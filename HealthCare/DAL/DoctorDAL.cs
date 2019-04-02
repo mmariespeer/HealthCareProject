@@ -11,7 +11,10 @@ namespace HealthCare.DAL
     /// </summary>
     class DoctorDAL
     {
-        //Retrieves all doctors in DB
+        /// <summary>
+        /// Retrieves all doctors in DB
+        /// </summary>
+        /// <returns>List of all doctors</returns>
         public List<Doctor> GetDoctors()
         {
             List<Doctor> doctorList = new List<Doctor>();
@@ -40,7 +43,11 @@ namespace HealthCare.DAL
             return doctorList;
         }
 
-        //Retrieves doctorID by personID
+        /// <summary>
+        /// Retrieves doctorID by personID
+        /// </summary>
+        /// <param name="personID">Person ID to search</param>
+        /// <returns>Doctor of that person ID</returns>
         public Doctor GetDoctorByPersonID(int personID)
         {
             Doctor doctor = new Doctor();
@@ -68,7 +75,12 @@ namespace HealthCare.DAL
             return doctor;
         }
 
-        //Returns true if the doctor already has an appointment at that date/time
+        /// <summary>
+        /// Returns true if the doctor already has an appointment at that date/time
+        /// </summary>
+        /// <param name="doctorID">doctor to search</param>
+        /// <param name="dateTime">time to search</param>
+        /// <returns>True if doctor is already scheduled</returns>
         public bool CheckIfDoctorHasAppointmentScheduled(int doctorID, DateTime dateTime)
         {
             Doctor doctor = new Doctor();

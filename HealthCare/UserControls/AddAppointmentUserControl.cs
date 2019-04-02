@@ -19,6 +19,9 @@ namespace HealthCare.UserControls
         private DataTable selectedTime;
         private int patientID;
 
+        /// <summary>
+        /// Initalizes appointment user control
+        /// </summary>
         public AddAppointmentUserControl()
         {
             InitializeComponent();
@@ -29,7 +32,9 @@ namespace HealthCare.UserControls
             this.patientID = 0;
         }
 
-        // Manages the information obtained from the database that populates the comboboxes
+        /// <summary>
+        /// Manages the information obtained from the database that populates the comboboxes
+        /// </summary>
         private void LoadDoctorComboBox()
         {
             try
@@ -51,7 +56,9 @@ namespace HealthCare.UserControls
             }
         }
 
-        //Creates a combobox of times between 9:00am and 4:30pm for a nurse to use in scheduling
+        /// <summary>
+        /// Creates a combobox of times between 9:00am and 4:30pm for a nurse to use in scheduling
+        /// </summary>
         private void LoadTimesComboBox()
         {
             selectedTime = new DataTable();
@@ -74,7 +81,11 @@ namespace HealthCare.UserControls
 
         }
 
-        //Creates a new appointment on button click
+        /// <summary>
+        /// Creates a new appointment on button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createAppointmentButton_Click(object sender, EventArgs e)
         {
             appointment = new Appointment();
@@ -105,8 +116,11 @@ namespace HealthCare.UserControls
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-        
-        //Reads the data inputed into the fields and inserts into the new appointment
+
+        /// <summary>
+        /// Reads the data inputed into the fields and inserts into the new appointment
+        /// </summary>
+        /// <param name="appointment"></param>
         private void ReadIncidentData(Appointment appointment)
         {
             appointment.PatientID = this.patientID;
@@ -120,7 +134,9 @@ namespace HealthCare.UserControls
             appointment.ReasonForVisit = reasonForVisitTextBox.Text;
         }
 
-        //Clears all data from appointment 
+        /// <summary>
+        /// Clears all data from appointment 
+        /// </summary>
         private void ClearScheduling()
         {
             this.LoadDoctorComboBox();
@@ -129,7 +145,9 @@ namespace HealthCare.UserControls
             this.LoadAppointmentGridView();
         }
 
-        //Populates the appointment gridview with the selected patients appointment information
+        /// <summary>
+        /// Populates the appointment gridview with the selected patients appointment information
+        /// </summary>
         private void LoadAppointmentGridView()
         {
             List<Appointment> appointments = new List<Appointment>();
@@ -138,13 +156,21 @@ namespace HealthCare.UserControls
             appointmentGridView.DataSource = appointments;
         }
 
-        //Updates the gridview when there are multiple patients to choose from
+        /// <summary>
+        /// Updates the gridview when there are multiple patients to choose from
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void patientGridView_SelectionChanged(object sender, EventArgs e)
         {
             this.LoadAppointmentGridView();
         }
 
-        //Loads the scheduled appointments for the current patient ID
+        /// <summary>
+        /// Loads the scheduled appointments for the current patient ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void AddAppointmentUserControl_Load(object sender, EventArgs e)
         {
             try

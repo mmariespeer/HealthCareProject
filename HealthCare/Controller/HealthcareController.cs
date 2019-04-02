@@ -18,7 +18,9 @@ namespace HealthCare.Controller
         private LoginDAL loginDAL;
         private PatientDAL patientDAL;
 
-        //Initalizes DAL objects
+        /// <summary>
+        /// Initalizes DAL objects
+        /// </summary>
         public HealthcareController()
         {
             visitDAL = new VisitDAL();
@@ -29,49 +31,80 @@ namespace HealthCare.Controller
             patientDAL = new PatientDAL();
         }
 
-        //Adds a new appointment to the DB
+        /// <summary>
+        /// Adds a new appointment to the DB
+        /// </summary>
+        /// <param name="appointment">appointment to add</param>
         public void AddAppointment(Appointment appointment)
         {
             appointmentDAL.AddAppointment(appointment);
         }
 
-        //Gets all the doctors available
+        /// <summary>
+        /// Gets all the doctors available
+        /// </summary>
+        /// <returns>List of doctors</returns>
         public List<Doctor> GetDoctors()
         {
             return doctorDAL.GetDoctors();
         }
 
-        //Get a person by their personID
+        /// <summary>
+        /// Get a person by their personID
+        /// </summary>
+        /// <param name="personID">person ID to search</param>
+        /// <returns>Person of that ID</returns>
         public Person GetPeronById(int personID)
         {
             return personDAL.GetPersonByID(personID);
         }
 
-        //Get a doctor by their personID
+        /// <summary>
+        /// Get a doctor by their personID
+        /// </summary>
+        /// <param name="personID">person ID to search</param>
+        /// <returns>Doctor of that Person ID</returns>
         public Doctor GetDoctorByPersonID(int personID)
         {
             return doctorDAL.GetDoctorByPersonID(personID);
         }
 
-        //Retrieves list of appointments by patient ID
+        /// <summary>
+        /// Retrieves list of appointments by patient ID
+        /// </summary>
+        /// <param name="patientID">Patient ID to search</param>
+        /// <returns>List of appointments for that patient ID</returns>
         public List<Appointment> GetAppointmentsByPatientID(int patientID)
         {
             return appointmentDAL.GetAppointmentsByPatientID(patientID);
         }
 
-        //Checks if the doctor already has an appointment scheduled at that time.
+        /// <summary>
+        /// Checks if the doctor already has an appointment scheduled at that time.
+        /// </summary>
+        /// <param name="doctorID">Doctor ID to search</param>
+        /// <param name="dateTime">date/time to search</param>
+        /// <returns>True if doctor is scheduled</returns>
         public bool CheckIfDoctorHasAppointmentScheduled(int doctorID, DateTime dateTime)
         {
             return doctorDAL.CheckIfDoctorHasAppointmentScheduled(doctorID, dateTime);
         }
 
-        //Gets a person by the doctorID
+        /// <summary>
+        /// Gets a person by the doctorID
+        /// </summary>
+        /// <param name="docID">Doctor ID to search</param>
+        /// <returns>Peson with that DoctorID</returns>
         public Person GetPersonByDoctorID(int docID)
         {
             return this.personDAL.GetPersonByDoctorID(docID);
         }
 
-        //Gets a person by the patientID
+        /// <summary>
+        /// Gets a person by the patientID
+        /// </summary>
+        /// <param name="patientID">patient ID to search</param>
+        /// <returns>Person with that patient ID</returns>
         public Person GetPersonByPatientID(int patientID)
         {
             return this.personDAL.GetPersonByPatientID(patientID);
