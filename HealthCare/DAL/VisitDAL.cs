@@ -126,8 +126,9 @@ namespace HealthCare.DAL
                             insertCommand.Parameters.AddWithValue("@temp", visit.Temp);
                             insertCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
 
-                            //visitResult = insertCommand.ExecuteNonQuery();
+                            
                             pk = Convert.ToInt32(insertCommand.ExecuteScalar());
+                            visitResult = 1;
                         }
                         using (SqlCommand insertDiagnosisCommand = new SqlCommand(insertDiagnosticStatement, connection))
                         {
@@ -189,7 +190,7 @@ namespace HealthCare.DAL
                 }
 
             }
-            return (diagnosisResult == 1 && visitResult == 1 ? true : false);
+            return (diagnosisResult == 1 && visitResult >= 1 ? true : false);
         }
     }
 }
