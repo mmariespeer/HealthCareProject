@@ -21,6 +21,7 @@ namespace HealthCare.UserControls
 
         public void VisitUserControl_Load(object sender, EventArgs e)
         {
+            
             try
             {
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
@@ -31,6 +32,7 @@ namespace HealthCare.UserControls
 
                 if (this.patientID != 0)
                 {
+                    this.ResetVisitForm();
                     this.PopulateApptList();
                     this.visitListView.Enabled = true;
                     this.updateButton.Enabled = true;
