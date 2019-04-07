@@ -8,8 +8,8 @@ namespace HealthCare.View
 {
     public partial class LoginForm : Form
     {
-       private NurseDashboard nd;
-      //private AdminDashboard ad;
+        private NurseDashboard nd;
+        private AdminDashboard ad;
         private readonly HealthcareController healthController;
 
 
@@ -18,7 +18,7 @@ namespace HealthCare.View
             InitializeComponent();
             this.healthController = new HealthcareController();
             nd = new NurseDashboard(this);
-           //ad = new NurseDashboard(this);
+           ad = new AdminDashboard(this);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -43,8 +43,8 @@ namespace HealthCare.View
                     Hide();
                     usernameTextBox.Clear();
                     passwordTextBox.Clear();
-                    //ad.SetTextForLabel(Convert.ToString(dt.Rows[0]["name"]));
-                    //ad.Show();
+                    ad.SetTextForLabel(dt.Rows[0]["name"].ToString());
+                    ad.Show();
                 }
             }
             else
