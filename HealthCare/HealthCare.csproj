@@ -50,12 +50,14 @@
     <Compile Include="DAL\AppointmentDAL.cs" />
     <Compile Include="DAL\DoctorDAL.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\NurseDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="DAL\VisitDAL.cs" />
     <Compile Include="DAL\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Test.cs" />
@@ -90,6 +92,12 @@
     </Compile>
     <Compile Include="UserControls\RegisterPatientUserControl.Designer.cs">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewNurseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewNurseUserControl.Designer.cs">
+      <DependentUpon>ViewNurseUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\VisitUserControl.cs">
       <SubType>UserControl</SubType>
@@ -140,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\RegisterPatientUserControl.resx">
       <DependentUpon>RegisterPatientUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewNurseUserControl.resx">
+      <DependentUpon>ViewNurseUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
