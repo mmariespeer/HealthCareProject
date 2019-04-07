@@ -17,6 +17,7 @@ namespace HealthCare.Controller
         private PersonDAL personDAL;
         private LoginDAL loginDAL;
         private PatientDAL patientDAL;
+        private NurseDAL nurseDAL;
 
         /// <summary>
         /// Initalizes DAL objects
@@ -29,6 +30,7 @@ namespace HealthCare.Controller
             personDAL = new PersonDAL();
             loginDAL = new LoginDAL();
             patientDAL = new PatientDAL();
+            nurseDAL = new NurseDAL();
         }
 
         /// <summary>
@@ -240,6 +242,11 @@ namespace HealthCare.Controller
         public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
         {
             this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone);
+        }
+
+        public void addNurse(Person person)
+        {
+            this.nurseDAL.addNurse(person);
         }
     }
 }

@@ -65,6 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.clear_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // inactiveRadioButton
@@ -103,7 +104,7 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(249, 343);
+            this.addButton.Location = new System.Drawing.Point(210, 343);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(85, 33);
             this.addButton.TabIndex = 53;
@@ -113,7 +114,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(357, 343);
+            this.updateButton.Location = new System.Drawing.Point(316, 343);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 33);
             this.updateButton.TabIndex = 52;
@@ -383,10 +384,21 @@
             this.label3.TabIndex = 93;
             this.label3.Text = "Last Name:";
             // 
+            // clear_Button
+            // 
+            this.clear_Button.Location = new System.Drawing.Point(411, 343);
+            this.clear_Button.Name = "clear_Button";
+            this.clear_Button.Size = new System.Drawing.Size(75, 33);
+            this.clear_Button.TabIndex = 103;
+            this.clear_Button.Text = "Clear";
+            this.clear_Button.UseVisualStyleBackColor = true;
+            this.clear_Button.Click += new System.EventHandler(this.clear_Button_Click);
+            // 
             // ViewNurseUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clear_Button);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.patientListView);
             this.Controls.Add(this.searchResultLabel);
@@ -422,6 +434,7 @@
             this.Controls.Add(this.statusLabel);
             this.Name = "ViewNurseUserControl";
             this.Size = new System.Drawing.Size(730, 468);
+            this.Load += new System.EventHandler(this.ViewNurseUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +479,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button clear_Button;
     }
 }

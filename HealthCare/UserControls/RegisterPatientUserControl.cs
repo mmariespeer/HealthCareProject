@@ -63,7 +63,7 @@ namespace HealthCare.UserControls
                     this.ssnTextBox.ReadOnly = true;
                     this.DOBDateTimePicker.Enabled = false;
 
-            }
+                }
                 else
                 {
                     this.updateButton.Enabled = false;
@@ -73,7 +73,7 @@ namespace HealthCare.UserControls
                     this.ClearForm();
                     this.ssnTextBox.ReadOnly = false;
                     this.DOBDateTimePicker.Enabled = true;
-            }
+                }
             
         }
 
