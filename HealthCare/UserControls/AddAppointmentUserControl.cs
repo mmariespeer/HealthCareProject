@@ -123,6 +123,10 @@ namespace HealthCare.UserControls
         /// <param name="appointment"></param>
         private void ReadIncidentData(Appointment appointment)
         {
+            if (appointment.ReasonForVisit == null || appointment.ReasonForVisit == "")
+            {
+                throw new ArgumentException("Reason for visit cannot be null or empty.");
+            }
             appointment.PatientID = this.patientID;
 
             int docID = (int)doctorComboBox.SelectedValue;
