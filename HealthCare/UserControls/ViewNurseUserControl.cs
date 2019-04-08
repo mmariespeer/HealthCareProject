@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
-using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
@@ -17,6 +10,7 @@ namespace HealthCare.UserControls
     {
         private readonly HealthcareController healthController;
         private List<State> stateList;
+        private Person currentNurse;
 
         public ViewNurseUserControl()
         {
@@ -58,11 +52,6 @@ namespace HealthCare.UserControls
             }
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ViewNurseUserControl_Load(object sender, EventArgs e)
         {
 
@@ -96,6 +85,45 @@ namespace HealthCare.UserControls
             this.lastNameTextBox.Clear();
             this.firstNameTextBox.Clear();
             this.stateCodeComboBox.SelectedIndex = 0;
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            if (this.lastNameTextBox.Text == null || this.lastNameTextBox.Text == "" ||
+                this.firstNameTextBox.Text == null || this.firstNameTextBox.Text == "" ||
+                this.cityTextBox.Text == null || this.cityTextBox.Text == "" ||
+                !this.phoneTextBox.MaskFull ||
+                !this.ssnTextBox.MaskFull ||
+                this.addressTextBox.Text == null || this.addressTextBox.Text == "" ||
+                !this.zipTextBox.MaskFull ||
+                !this.ssnTextBox.MaskFull ||
+                this.DOBDateTimePicker.Value == null)
+            {
+                MessageBox.Show("All fields must be filled in completely. SSN must be 9 digits, phone must be 10 digits, and zipcode must be 5 digits", "Invalid input format",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string lName = this.lastNameTextBox.Text;
+                string fName = this.firstNameTextBox.Text;
+                DateTime dob = this.DOBDateTimePicker.Value.Date;
+                string city = this.cityTextBox.Text;
+                string streetAddress = this.addressTextBox.Text;
+                string state = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                int zipCode = Convert.ToInt32(this.zipTextBox.Text);
+                string phoneNumber = this.phoneTextBox.Text;
+                int ssn = Convert.ToInt32(this.ssnTextBox.Text);
+                try
+                {
+                    this.healthController.UpdateNuse(this.currentNurse.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn);
+                    MessageBox.Show("Nurse has been updated");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+
         }
     }
 }

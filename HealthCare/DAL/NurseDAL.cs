@@ -52,7 +52,46 @@ namespace HealthCare.DAL
 
                 }
             }
+        }
 
+        /// <summary>
+        /// Updates a nurses information
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <param name="lName"></param>
+        /// <param name="fName"></param>
+        /// <param name="dob"></param>
+        /// <param name="streetAddress"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zipCode"></param>
+        /// <param name="phone"></param>
+        /// <param name="ssn"></param>
+        public void UpdateNurse(int personID, string lName, string fName, DateTime dob, string streetAddress,
+            string city, string state, int zipCode, string phone, int ssn)
+        {
+            string updateStatement = "UPDATE person " +
+                                     "SET firstName = @fName, lastName = @lName, dob = @dob " +
+                                     "stateCode = @stateCode, phoneNumber = @phoneNumber, " +
+                                     "streetAddress = @streetAddress, city = @city, zipCode = @zip " +
+                                      "WHERE personID = @pID";
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@pID", personID);
+                    updateCommand.Parameters.AddWithValue("@lName", lName);
+                    updateCommand.Parameters.AddWithValue("@fName", dob);
+                    updateCommand.Parameters.AddWithValue("@dob", fName);
+                    updateCommand.Parameters.AddWithValue("@streetAddress", streetAddress);
+                    updateCommand.Parameters.AddWithValue("@city", city);
+                    updateCommand.Parameters.AddWithValue("@stateCode", state);
+                    updateCommand.Parameters.AddWithValue("@zip", zipCode);
+                    updateCommand.Parameters.AddWithValue("@phone", phone);
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

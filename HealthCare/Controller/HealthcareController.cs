@@ -244,9 +244,32 @@ namespace HealthCare.Controller
             this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone);
         }
 
+        /// <summary>
+        /// Adds a nurse
+        /// </summary>
+        /// <param name="person"></param>
         public void addNurse(Person person)
         {
             this.nurseDAL.addNurse(person);
+        }
+
+        /// <summary>
+        /// Updates a nurses information
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <param name="lName"></param>
+        /// <param name="fName"></param>
+        /// <param name="dob"></param>
+        /// <param name="streetAddress"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zipCode"></param>
+        /// <param name="phone"></param>
+        /// <param name="ssn"></param>
+        public void UpdateNuse(int personID, string lName, string fName, DateTime dob, 
+            string streetAddress, string city, string state, int zipCode, string phone, int ssn)
+        {
+            this.nurseDAL.UpdateNurse(personID, lName, fName, dob, streetAddress, city, state, zipCode, phone, ssn);
         }
     }
 }
