@@ -271,5 +271,14 @@ namespace HealthCare.Controller
         {
             this.nurseDAL.UpdateNurse(personID, lName, fName, dob, streetAddress, city, state, zipCode, phone, ssn);
         }
+
+        /// <summary>
+        /// return list of all nurses
+        /// </summary>
+        /// <returns>list of all nurses</returns>
+        public List<Nurse> GetAllNurses()
+        {
+            return this.nurseDAL.GetAllNurses();
+        }
     }
 }

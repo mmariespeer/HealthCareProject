@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
+using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
@@ -52,7 +53,7 @@ namespace HealthCare.UserControls
             }
         }
 
-        private void ViewNurseUserControl_Load(object sender, EventArgs e)
+        public void ViewNurseUserControl_Load(object sender, EventArgs e)
         {
 
             try
@@ -62,6 +63,36 @@ namespace HealthCare.UserControls
                 stateCodeComboBox.DataSource = stateList;
                 stateCodeComboBox.DisplayMember = "stateName";
                 stateCodeComboBox.ValueMember = "stateCode";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            this.SetListView();
+        }
+
+        private void SetListView()
+        {
+            try
+            {
+                List<Nurse> nurseList = this.healthController.GetAllNurses();
+
+                Nurse nurse;
+                for (int i = 0; i < nurseList.Count; i++)
+                {
+                    nurse = nurseList[i];
+                    this.nurseListView.Items.Add(nurse.NurseID.ToString());
+                    this.nurseListView.Items[i].SubItems.Add(nurse.LastName.ToString());
+                    this.nurseListView.Items[i].SubItems.Add(nurse.FirstName.ToString());
+                    this.nurseListView.Items[i].SubItems.Add(nurse.DateOfBirth.ToShortDateString());
+
+                }
+                this.nurseListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                this.nurseListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+                this.nurseListView.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
+                this.nurseListView.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             catch (Exception ex)
             {
@@ -124,6 +155,17 @@ namespace HealthCare.UserControls
                 }
             }
 
+        }
+
+        private void nurseListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.nurseListView.SelectedItems.Count == 0)
+            {
+                return;
+            }
+            AdminDashboard dashboard = this.ParentForm as AdminDashboard;
+            //dashboard.SelectedNurseID = int.Parse(this.nurseListView.SelectedItems[0].SubItems[0].Text);
+            //dashboard.RefreshTabs(sender, e);
         }
     }
 }

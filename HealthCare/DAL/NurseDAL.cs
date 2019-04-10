@@ -48,7 +48,7 @@ namespace HealthCare.DAL
                 catch
                 {
                     transaction.Rollback();
-                    MessageBox.Show("no double ssn");
+                   // MessageBox.Show("");
 
                 }
             }
@@ -92,6 +92,43 @@ namespace HealthCare.DAL
                     updateCommand.ExecuteNonQuery();
                 }
             }
+        }
+
+        /// <summary>
+        /// returs list of all nurses
+        /// </summary>
+        /// <returns>list of all nurses</returns>
+        public List<Nurse> GetAllNurses()
+        {
+            List<Nurse> nurseList = new List<Nurse>();
+
+            string selectStatement = "SELECT p.lastName, p.firstName, p.dateOfBirth, n.nurseID FROM person p JOIN nurse n ON p.personID = n.personID";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Nurse nurse = new Nurse();
+                            nurse.LastName = reader["lastName"].ToString();
+                            nurse.FirstName = reader["firstName"].ToString();
+                            nurse.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            nurse.NurseID = Convert.ToInt32(reader["nurseID"]);
+
+
+                            nurseList.Add(nurse);
+                        }
+                    }
+                }
+            }
+            return nurseList;
+
+
         }
     }
 }
