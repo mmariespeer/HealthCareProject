@@ -15,6 +15,7 @@ namespace HealthCare.View
             InitializeComponent();
             this.healthController = new HealthcareController();
             this.lf = lf;
+            this.SelectedNurseID = 0;
         }
 
         /// <summary>

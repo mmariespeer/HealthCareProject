@@ -3,7 +3,6 @@ using HealthCare.Model;
 using HealthCare.View;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 

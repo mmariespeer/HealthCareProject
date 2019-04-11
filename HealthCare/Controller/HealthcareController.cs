@@ -280,5 +280,15 @@ namespace HealthCare.Controller
         {
             return this.nurseDAL.GetAllNurses();
         }
+
+        /// <summary>
+        /// Gets a person by the nurseID
+        /// </summary>
+        /// <param name="nurseID">nurse ID to search</param>
+        /// <returns>Person with that nurse ID</returns>
+        public Person GetPersonByNurseID(int nurseID)
+        {
+            return this.personDAL.GetPersonByNurseID(nurseID);
+        }
     }
 }

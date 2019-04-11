@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthCare.DB;
 using HealthCare.Model;
@@ -48,7 +45,7 @@ namespace HealthCare.DAL
                 catch
                 {
                     transaction.Rollback();
-                   // MessageBox.Show("");
+                    MessageBox.Show("ghj");
 
                 }
             }

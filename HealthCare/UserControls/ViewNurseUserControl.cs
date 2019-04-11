@@ -11,12 +11,17 @@ namespace HealthCare.UserControls
     {
         private readonly HealthcareController healthController;
         private List<State> stateList;
-        private Person currentNurse;
+        private Person currentPerson;
+        private int nurseID;
+
 
         public ViewNurseUserControl()
         {
             this.healthController = new HealthcareController();
             InitializeComponent();
+            this.nurseID = 0;
+            this.SetListView();
+
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -44,7 +49,9 @@ namespace HealthCare.UserControls
 
                     this.healthController.addNurse(person);
 
-                   // MessageBox.Show("New Nurse Added"); 
+                    //MessageBox.Show("New Nurse Added");
+                    this.SetListView();
+
                 }
                 catch (Exception ex)
                 {
@@ -55,6 +62,16 @@ namespace HealthCare.UserControls
 
         public void ViewNurseUserControl_Load(object sender, EventArgs e)
         {
+
+            try
+            {
+                AdminDashboard dashboard = this.ParentForm as AdminDashboard;
+                this.nurseID = dashboard.SelectedNurseID;
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
 
             try
             {
@@ -70,11 +87,25 @@ namespace HealthCare.UserControls
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            this.SetListView();
+            if (this.nurseID != 0)
+            {
+                this.PopulateNurse();
+                this.updateButton.Enabled = true;
+                this.addButton.Enabled = false;
+            }
+            else
+            {
+                this.updateButton.Enabled = false;
+                this.addButton.Enabled = true;
+                this.ClearForm();
+            }
+
         }
 
         private void SetListView()
         {
+            this.nurseListView.Items.Clear();
+
             try
             {
                 List<Nurse> nurseList = this.healthController.GetAllNurses();
@@ -104,6 +135,12 @@ namespace HealthCare.UserControls
         private void clear_Button_Click(object sender, EventArgs e)
         {
             this.ClearForm();
+
+            //this.nurseListView.Items.Clear();
+            AdminDashboard dashboard = this.ParentForm as AdminDashboard;
+            dashboard.SelectedNurseID = 0;
+            dashboard.RefreshTabs(sender, e);
+
         }
 
         private void ClearForm()
@@ -116,6 +153,7 @@ namespace HealthCare.UserControls
             this.lastNameTextBox.Clear();
             this.firstNameTextBox.Clear();
             this.stateCodeComboBox.SelectedIndex = 0;
+
         }
 
         private void UpdateButton_Click(object sender, EventArgs e)
@@ -146,7 +184,7 @@ namespace HealthCare.UserControls
                 int ssn = Convert.ToInt32(this.ssnTextBox.Text);
                 try
                 {
-                    this.healthController.UpdateNuse(this.currentNurse.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn);
+                    this.healthController.UpdateNuse(this.currentPerson.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn);
                     MessageBox.Show("Nurse has been updated");
                 }
                 catch (Exception ex)
@@ -164,8 +202,30 @@ namespace HealthCare.UserControls
                 return;
             }
             AdminDashboard dashboard = this.ParentForm as AdminDashboard;
-            //dashboard.SelectedNurseID = int.Parse(this.nurseListView.SelectedItems[0].SubItems[0].Text);
-            //dashboard.RefreshTabs(sender, e);
+            dashboard.SelectedNurseID = int.Parse(this.nurseListView.SelectedItems[0].SubItems[0].Text);
+            dashboard.RefreshTabs(sender, e);
+        }
+
+        private void PopulateNurse()
+        {
+            try
+            {
+                this.currentPerson = this.healthController.GetPersonByNurseID(this.nurseID);
+                this.lastNameTextBox.Text = currentPerson.LastName;
+                this.firstNameTextBox.Text = currentPerson.FirstName;
+                this.cityTextBox.Text = this.currentPerson.City;
+                this.phoneTextBox.Text = this.currentPerson.PhoneNumber;
+                this.ssnTextBox.Text = currentPerson.SSN;
+                this.addressTextBox.Text = currentPerson.StreetAddress;
+                this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.findStateNamebyCode(currentPerson.StateCode));
+                this.zipTextBox.Text = this.currentPerson.ZipCode.ToString();
+                this.DOBDateTimePicker.Value = this.currentPerson.DateOfBirth;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
     }
 }

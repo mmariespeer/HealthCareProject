@@ -127,6 +127,45 @@ namespace HealthCare.DAL
                 return person;
             }
         }
+
+        public Person GetPersonByNurseID(int nurseID)
+        {
+            Person person = new Person();
+            string selectStatement =
+                "SELECT Person.personID, lastName, firstName, dateOfBirth, streetAddress, city, stateCode, zipCode, phoneNumber, ssn " +
+                "FROM Person " +
+                "INNER JOIN nurse " +
+                "ON nurse.PersonID = Person.PersonID " +
+                "WHERE nurseID = @nurseID";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@nurseID", nurseID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            person.PersonID = (int)reader["personID"];
+                            person.LastName = (string)reader["lastName"];
+                            person.FirstName = (string)reader["firstName"];
+                            person.DateOfBirth = (DateTime)reader["dateOfBirth"];
+                            person.StreetAddress = (string)reader["streetAddress"];
+                            person.City = (string)reader["city"];
+                            person.StateCode = (string)reader["stateCode"];
+                            person.ZipCode = (int)reader["zipCode"];
+                            person.PhoneNumber = (string)reader["phoneNumber"];
+                            person.SSN = (string)reader["ssn"];
+                        }
+                    }
+                }
+                return person;
+            }
+        }
+
     }
-    
+
 }

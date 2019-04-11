@@ -63,40 +63,37 @@
             // inactiveRadioButton
             // 
             this.inactiveRadioButton.AutoSize = true;
-            this.inactiveRadioButton.Location = new System.Drawing.Point(425, 389);
+            this.inactiveRadioButton.Location = new System.Drawing.Point(436, 307);
             this.inactiveRadioButton.Name = "inactiveRadioButton";
             this.inactiveRadioButton.Size = new System.Drawing.Size(63, 17);
             this.inactiveRadioButton.TabIndex = 24;
             this.inactiveRadioButton.TabStop = true;
             this.inactiveRadioButton.Text = "Inactive";
             this.inactiveRadioButton.UseVisualStyleBackColor = true;
-            this.inactiveRadioButton.Visible = false;
             // 
             // activeRadioButton
             // 
             this.activeRadioButton.AutoSize = true;
-            this.activeRadioButton.Location = new System.Drawing.Point(336, 389);
+            this.activeRadioButton.Location = new System.Drawing.Point(347, 307);
             this.activeRadioButton.Name = "activeRadioButton";
             this.activeRadioButton.Size = new System.Drawing.Size(55, 17);
             this.activeRadioButton.TabIndex = 23;
             this.activeRadioButton.TabStop = true;
             this.activeRadioButton.Text = "Active";
             this.activeRadioButton.UseVisualStyleBackColor = true;
-            this.activeRadioButton.Visible = false;
             // 
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(247, 391);
+            this.statusLabel.Location = new System.Drawing.Point(258, 309);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(73, 13);
             this.statusLabel.TabIndex = 22;
             this.statusLabel.Text = "Active Status:";
-            this.statusLabel.Visible = false;
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(235, 330);
+            this.addButton.Location = new System.Drawing.Point(235, 348);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(85, 33);
             this.addButton.TabIndex = 53;
@@ -106,7 +103,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(341, 330);
+            this.updateButton.Location = new System.Drawing.Point(341, 348);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 33);
             this.updateButton.TabIndex = 52;
@@ -311,7 +308,7 @@
             // 
             // clear_Button
             // 
-            this.clear_Button.Location = new System.Drawing.Point(436, 330);
+            this.clear_Button.Location = new System.Drawing.Point(436, 348);
             this.clear_Button.Name = "clear_Button";
             this.clear_Button.Size = new System.Drawing.Size(75, 33);
             this.clear_Button.TabIndex = 103;

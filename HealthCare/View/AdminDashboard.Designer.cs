@@ -74,7 +74,7 @@
             this.reportTabPage.Location = new System.Drawing.Point(4, 29);
             this.reportTabPage.Name = "reportTabPage";
             this.reportTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.reportTabPage.Size = new System.Drawing.Size(734, 355);
+            this.reportTabPage.Size = new System.Drawing.Size(734, 435);
             this.reportTabPage.TabIndex = 0;
             this.reportTabPage.Text = "Generate Test Report";
             this.reportTabPage.UseVisualStyleBackColor = true;
