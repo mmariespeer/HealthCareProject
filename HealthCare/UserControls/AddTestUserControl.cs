@@ -83,5 +83,11 @@ namespace HealthCare.UserControls
                 }
             }
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            AddTestForm tf = this.ParentForm as AddTestForm;
+            tf.Close();
+        }
     }
 }
