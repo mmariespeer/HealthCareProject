@@ -17,6 +17,8 @@ namespace HealthCare.UserControls
     {
         private HealthcareController controller;
         private int visitID;
+        private List<Test> all;
+        private List<Test> ordered;
         public AddTestUserControl()
         {
             InitializeComponent();
@@ -29,14 +31,32 @@ namespace HealthCare.UserControls
             AddTestForm tf = this.ParentForm as AddTestForm;
             this.visitID = tf.visitID;
 
-            List<Test> all = controller.GetAllTests();
-            List<Test> ordered = controller.GetTestsByVisitId(this.visitID);
+            this.all = controller.GetAllTests();
+            this.ordered = controller.GetTestsByVisitId(this.visitID);
 
             foreach(var test in ordered)
             {
                 all.Remove(all.Single(s => s.TestCode == test.TestCode));
             }
 
+            this.RefreshListView();
+        }
+
+        private void AddToOrderButton_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in availableListView.SelectedItems)
+            {
+                all.Remove(all.Single(s => s.TestCode == item.SubItems[0].Text));
+                Test test = new Test();
+                test.TestCode = item.SubItems[0].Text;
+                test.TestName = item.SubItems[1].Text;
+                ordered.Add(test);
+            }
+            this.RefreshListView();
+        }
+
+        private void RefreshListView()
+        {
             this.availableListView.Items.Clear();
             this.orderedListView.Items.Clear();
 
@@ -63,7 +83,5 @@ namespace HealthCare.UserControls
                 }
             }
         }
-
-        
     }
 }
