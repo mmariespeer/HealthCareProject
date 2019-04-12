@@ -39,6 +39,10 @@
             this.orderedTestsLabel = new System.Windows.Forms.Label();
             this.submitOrderButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.dateColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.normalColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.instructionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // availableListView
@@ -48,7 +52,7 @@
             this.nameColumnHeader});
             this.availableListView.FullRowSelect = true;
             this.availableListView.HideSelection = false;
-            this.availableListView.Location = new System.Drawing.Point(21, 33);
+            this.availableListView.Location = new System.Drawing.Point(22, 74);
             this.availableListView.Name = "availableListView";
             this.availableListView.Size = new System.Drawing.Size(231, 266);
             this.availableListView.TabIndex = 0;
@@ -63,16 +67,19 @@
             // nameColumnHeader
             // 
             this.nameColumnHeader.Text = "Name";
-            this.nameColumnHeader.Width = 135;
+            this.nameColumnHeader.Width = 176;
             // 
             // orderedListView
             // 
             this.orderedListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.codeColumnHead,
-            this.nameColumnHead});
-            this.orderedListView.Location = new System.Drawing.Point(284, 33);
+            this.nameColumnHead,
+            this.dateColumnHead,
+            this.resultColumnHead,
+            this.normalColumnHead});
+            this.orderedListView.Location = new System.Drawing.Point(285, 74);
             this.orderedListView.Name = "orderedListView";
-            this.orderedListView.Size = new System.Drawing.Size(231, 266);
+            this.orderedListView.Size = new System.Drawing.Size(455, 266);
             this.orderedListView.TabIndex = 1;
             this.orderedListView.UseCompatibleStateImageBehavior = false;
             this.orderedListView.View = System.Windows.Forms.View.Details;
@@ -85,11 +92,11 @@
             // nameColumnHead
             // 
             this.nameColumnHead.Text = "Name";
-            this.nameColumnHead.Width = 137;
+            this.nameColumnHead.Width = 184;
             // 
             // addToOrderButton
             // 
-            this.addToOrderButton.Location = new System.Drawing.Point(21, 306);
+            this.addToOrderButton.Location = new System.Drawing.Point(22, 347);
             this.addToOrderButton.Name = "addToOrderButton";
             this.addToOrderButton.Size = new System.Drawing.Size(231, 23);
             this.addToOrderButton.TabIndex = 2;
@@ -100,7 +107,7 @@
             // availableTestsLabel
             // 
             this.availableTestsLabel.AutoSize = true;
-            this.availableTestsLabel.Location = new System.Drawing.Point(18, 17);
+            this.availableTestsLabel.Location = new System.Drawing.Point(19, 58);
             this.availableTestsLabel.Name = "availableTestsLabel";
             this.availableTestsLabel.Size = new System.Drawing.Size(82, 13);
             this.availableTestsLabel.TabIndex = 4;
@@ -109,7 +116,7 @@
             // orderedTestsLabel
             // 
             this.orderedTestsLabel.AutoSize = true;
-            this.orderedTestsLabel.Location = new System.Drawing.Point(281, 17);
+            this.orderedTestsLabel.Location = new System.Drawing.Point(282, 58);
             this.orderedTestsLabel.Name = "orderedTestsLabel";
             this.orderedTestsLabel.Size = new System.Drawing.Size(77, 13);
             this.orderedTestsLabel.TabIndex = 5;
@@ -117,27 +124,51 @@
             // 
             // submitOrderButton
             // 
-            this.submitOrderButton.Location = new System.Drawing.Point(419, 353);
+            this.submitOrderButton.Location = new System.Drawing.Point(644, 347);
             this.submitOrderButton.Name = "submitOrderButton";
             this.submitOrderButton.Size = new System.Drawing.Size(96, 23);
             this.submitOrderButton.TabIndex = 6;
             this.submitOrderButton.Text = "Submit Order";
             this.submitOrderButton.UseVisualStyleBackColor = true;
+            this.submitOrderButton.Click += new System.EventHandler(this.SubmitOrderButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(317, 353);
+            this.cancelButton.Location = new System.Drawing.Point(542, 347);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(96, 23);
             this.cancelButton.TabIndex = 7;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            // 
+            // dateColumnHead
+            // 
+            this.dateColumnHead.Text = "Date";
+            this.dateColumnHead.Width = 82;
+            // 
+            // resultColumnHead
+            // 
+            this.resultColumnHead.Text = "Result";
+            // 
+            // normalColumnHead
+            // 
+            this.normalColumnHead.Text = "Normal";
+            this.normalColumnHead.Width = 67;
+            // 
+            // instructionLabel
+            // 
+            this.instructionLabel.Location = new System.Drawing.Point(22, 18);
+            this.instructionLabel.Name = "instructionLabel";
+            this.instructionLabel.Size = new System.Drawing.Size(231, 40);
+            this.instructionLabel.TabIndex = 8;
+            this.instructionLabel.Text = "To select multiple tests, hold down the CTRL button while clicking.";
             // 
             // AddTestUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.instructionLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.submitOrderButton);
             this.Controls.Add(this.orderedTestsLabel);
@@ -146,7 +177,7 @@
             this.Controls.Add(this.orderedListView);
             this.Controls.Add(this.availableListView);
             this.Name = "AddTestUserControl";
-            this.Size = new System.Drawing.Size(543, 395);
+            this.Size = new System.Drawing.Size(794, 395);
             this.Load += new System.EventHandler(this.LoadTests);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,5 +197,9 @@
         private System.Windows.Forms.ColumnHeader codeColumnHead;
         private System.Windows.Forms.ColumnHeader nameColumnHead;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.ColumnHeader dateColumnHead;
+        private System.Windows.Forms.ColumnHeader resultColumnHead;
+        private System.Windows.Forms.ColumnHeader normalColumnHead;
+        private System.Windows.Forms.Label instructionLabel;
     }
 }

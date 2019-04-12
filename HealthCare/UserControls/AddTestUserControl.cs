@@ -80,14 +80,30 @@ namespace HealthCare.UserControls
                     test = ordered[i];
                     this.orderedListView.Items.Add(test.TestCode.ToString());
                     this.orderedListView.Items[i].SubItems.Add(test.TestName.ToString());
+                    this.orderedListView.Items[i].SubItems.Add(test.TestDate == DateTime.MinValue ? string.Empty : test.TestDate.ToShortDateString());
+                    this.orderedListView.Items[i].SubItems.Add(test.Results?.ToString() ?? "");
+                    this.orderedListView.Items[i].SubItems.Add(test.Normal?.ToString() ?? "");
                 }
             }
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             AddTestForm tf = this.ParentForm as AddTestForm;
             tf.Close();
+        }
+
+        private void SubmitOrderButton_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            foreach (var test in ordered)
+            {
+                if (test.TestDate != DateTime.MinValue)
+                {
+                    count++;
+                } 
+            }
+            Console.WriteLine(count);
         }
     }
 }
