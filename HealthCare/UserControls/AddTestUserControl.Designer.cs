@@ -28,30 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.availableListView = new System.Windows.Forms.ListView();
+            this.orderedListView = new System.Windows.Forms.ListView();
             this.addToOrderButton = new System.Windows.Forms.Button();
-            this.removeTestButton = new System.Windows.Forms.Button();
+            this.removeFromOrderButton = new System.Windows.Forms.Button();
             this.availableTestsLabel = new System.Windows.Forms.Label();
             this.orderedTestsLabel = new System.Windows.Forms.Label();
             this.submitOrderButton = new System.Windows.Forms.Button();
+            this.codeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.codeColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nameColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // listView1
+            // availableListView
             // 
-            this.listView1.Location = new System.Drawing.Point(52, 57);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(196, 266);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.availableListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.codeColumnHeader,
+            this.nameColumnHeader});
+            this.availableListView.Location = new System.Drawing.Point(52, 57);
+            this.availableListView.Name = "availableListView";
+            this.availableListView.Size = new System.Drawing.Size(196, 266);
+            this.availableListView.TabIndex = 0;
+            this.availableListView.UseCompatibleStateImageBehavior = false;
+            this.availableListView.View = System.Windows.Forms.View.Details;
             // 
-            // listView2
+            // orderedListView
             // 
-            this.listView2.Location = new System.Drawing.Point(315, 57);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(196, 266);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.orderedListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.codeColumnHead,
+            this.nameColumnHead});
+            this.orderedListView.Location = new System.Drawing.Point(315, 57);
+            this.orderedListView.Name = "orderedListView";
+            this.orderedListView.Size = new System.Drawing.Size(196, 266);
+            this.orderedListView.TabIndex = 1;
+            this.orderedListView.UseCompatibleStateImageBehavior = false;
+            this.orderedListView.View = System.Windows.Forms.View.Details;
             // 
             // addToOrderButton
             // 
@@ -62,14 +74,14 @@
             this.addToOrderButton.Text = "Add Selected To Order >>";
             this.addToOrderButton.UseVisualStyleBackColor = true;
             // 
-            // removeTestButton
+            // removeFromOrderButton
             // 
-            this.removeTestButton.Location = new System.Drawing.Point(315, 330);
-            this.removeTestButton.Name = "removeTestButton";
-            this.removeTestButton.Size = new System.Drawing.Size(196, 23);
-            this.removeTestButton.TabIndex = 3;
-            this.removeTestButton.Text = "<< Remove Selected";
-            this.removeTestButton.UseVisualStyleBackColor = true;
+            this.removeFromOrderButton.Location = new System.Drawing.Point(315, 330);
+            this.removeFromOrderButton.Name = "removeFromOrderButton";
+            this.removeFromOrderButton.Size = new System.Drawing.Size(196, 23);
+            this.removeFromOrderButton.TabIndex = 3;
+            this.removeFromOrderButton.Text = "<< Remove Selected";
+            this.removeFromOrderButton.UseVisualStyleBackColor = true;
             // 
             // availableTestsLabel
             // 
@@ -98,6 +110,26 @@
             this.submitOrderButton.Text = "Submit Order";
             this.submitOrderButton.UseVisualStyleBackColor = true;
             // 
+            // codeColumnHeader
+            // 
+            this.codeColumnHeader.Text = "Code";
+            this.codeColumnHeader.Width = 48;
+            // 
+            // nameColumnHeader
+            // 
+            this.nameColumnHeader.Text = "Name";
+            this.nameColumnHeader.Width = 135;
+            // 
+            // codeColumnHead
+            // 
+            this.codeColumnHead.Text = "Code";
+            this.codeColumnHead.Width = 48;
+            // 
+            // nameColumnHead
+            // 
+            this.nameColumnHead.Text = "Name";
+            this.nameColumnHead.Width = 137;
+            // 
             // AddTestUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,12 +137,13 @@
             this.Controls.Add(this.submitOrderButton);
             this.Controls.Add(this.orderedTestsLabel);
             this.Controls.Add(this.availableTestsLabel);
-            this.Controls.Add(this.removeTestButton);
+            this.Controls.Add(this.removeFromOrderButton);
             this.Controls.Add(this.addToOrderButton);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.orderedListView);
+            this.Controls.Add(this.availableListView);
             this.Name = "AddTestUserControl";
             this.Size = new System.Drawing.Size(580, 425);
+            this.Load += new System.EventHandler(this.LoadTests);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,12 +151,16 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView availableListView;
+        private System.Windows.Forms.ListView orderedListView;
         private System.Windows.Forms.Button addToOrderButton;
-        private System.Windows.Forms.Button removeTestButton;
+        private System.Windows.Forms.Button removeFromOrderButton;
         private System.Windows.Forms.Label availableTestsLabel;
         private System.Windows.Forms.Label orderedTestsLabel;
         private System.Windows.Forms.Button submitOrderButton;
+        private System.Windows.Forms.ColumnHeader codeColumnHeader;
+        private System.Windows.Forms.ColumnHeader nameColumnHeader;
+        private System.Windows.Forms.ColumnHeader codeColumnHead;
+        private System.Windows.Forms.ColumnHeader nameColumnHead;
     }
 }

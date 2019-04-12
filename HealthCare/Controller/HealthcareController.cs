@@ -18,6 +18,7 @@ namespace HealthCare.Controller
         private LoginDAL loginDAL;
         private PatientDAL patientDAL;
         private NurseDAL nurseDAL;
+        private TestDAL testDAL;
 
         /// <summary>
         /// Initalizes DAL objects
@@ -31,6 +32,7 @@ namespace HealthCare.Controller
             loginDAL = new LoginDAL();
             patientDAL = new PatientDAL();
             nurseDAL = new NurseDAL();
+            testDAL = new TestDAL();
         }
 
         /// <summary>
@@ -197,7 +199,12 @@ namespace HealthCare.Controller
         /// <returns>a list of tests</returns>
         public List<Test> GetTestsByVisitId(int visitId)
         {
-            return visitDAL.GetTestsByVisitId(visitId);
+            return testDAL.GetTestsByVisitId(visitId);
+        }
+
+        public List<Test> GetAllTests()
+        {
+            return testDAL.GetAllTests();
         }
 
         /// <summary>

@@ -12,6 +12,7 @@ namespace HealthCare.UserControls
     /// </summary>
     public partial class VisitUserControl : UserControl
     {
+        private AddTestForm addTest;
         private int patientID;
         private HealthcareController controller;
 
@@ -23,6 +24,7 @@ namespace HealthCare.UserControls
             InitializeComponent();
             this.controller = new HealthcareController();
             this.patientID = 0;
+            
         }
 
         /// <summary>
@@ -126,6 +128,8 @@ namespace HealthCare.UserControls
                 this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
                 this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
                 this.GetTests(visit.VisitID);
+                this.addTestsButton.Enabled = true;
+                this.addTest = new AddTestForm(visit.VisitID);
             } else
             {
                 this.doctorTextBox.Text = visit.DoctorName.ToString();
@@ -243,6 +247,12 @@ namespace HealthCare.UserControls
                 return;
             }
 
+        }
+
+        private void AddTestsButton_Click(object sender, EventArgs e)
+        {
+            
+            this.addTest.ShowDialog();
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="DAL\NurseDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\TestDAL.cs" />
     <Compile Include="DAL\VisitDAL.cs" />
     <Compile Include="DAL\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
@@ -107,6 +108,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\AddTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddTestForm.Designer.cs">
+      <DependentUpon>AddTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\VisitUserControl.resx">
       <DependentUpon>VisitUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddTestForm.resx">
+      <DependentUpon>AddTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>

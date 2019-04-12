@@ -73,47 +73,6 @@ namespace HealthCare.DAL
         }
 
         /// <summary>
-        /// Gets tests by visit ID
-        /// </summary>
-        /// <param name="visitId">visitID to search</param>
-        /// <returns>List of tests for that visit</returns>
-        public List<Test> GetTestsByVisitId(int visitId)
-        {
-            List<Test> testList = new List<Test>();
-
-            string selectStatement =
-                "SELECT t.testName, tr.testCode, tr.results, tr.normal, tr.testDate " +
-                "FROM testResult AS tr " +
-                "JOIN test AS t ON tr.testCode = t.testCode " +
-                "WHERE tr.visitID = @visitID";
-
-            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
-            {
-                connection.Open();
-
-                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
-                {
-                    selectCommand.Parameters.AddWithValue("@visitID", visitId);
-                    using (SqlDataReader reader = selectCommand.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            Test test = new Test();
-
-                            test.TestCode = (string)reader["testCode"];
-                            test.TestName = (string)reader["testName"];
-                            test.Results = (string)reader["results"];
-                            test.Normal = reader["normal"] as bool?;
-                            test.TestDate = (DateTime)reader["testDate"];
-                            testList.Add(test);
-                        }
-                    }
-                }
-            }
-            return testList;
-        }
-
-        /// <summary>
         /// Adds or updates a visit
         /// </summary>
         /// <param name="visit">visit to add or update</param>

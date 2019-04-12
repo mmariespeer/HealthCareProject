@@ -186,6 +186,7 @@
             this.addTestsButton.TabIndex = 16;
             this.addTestsButton.Text = "Add Tests";
             this.addTestsButton.UseVisualStyleBackColor = true;
+            this.addTestsButton.Click += new System.EventHandler(this.AddTestsButton_Click);
             // 
             // finalDiagnosisTextBox
             // 
