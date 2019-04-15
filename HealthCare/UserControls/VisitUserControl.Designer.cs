@@ -61,6 +61,7 @@
             this.testDateHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.resultHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.normalHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.updateResultButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -311,12 +312,14 @@
             this.testDateHeader,
             this.resultHeader,
             this.normalHeader});
+            this.testsListView.FullRowSelect = true;
             this.testsListView.Location = new System.Drawing.Point(111, 300);
             this.testsListView.Name = "testsListView";
             this.testsListView.Size = new System.Drawing.Size(522, 108);
             this.testsListView.TabIndex = 28;
             this.testsListView.UseCompatibleStateImageBehavior = false;
             this.testsListView.View = System.Windows.Forms.View.Details;
+            this.testsListView.SelectedIndexChanged += new System.EventHandler(this.testsListView_SelectedIndexChanged);
             // 
             // testCodeHeader
             // 
@@ -343,10 +346,21 @@
             this.normalHeader.Text = "Normal";
             this.normalHeader.Width = 80;
             // 
+            // updateResultButton
+            // 
+            this.updateResultButton.Location = new System.Drawing.Point(235, 415);
+            this.updateResultButton.Name = "updateResultButton";
+            this.updateResultButton.Size = new System.Drawing.Size(113, 23);
+            this.updateResultButton.TabIndex = 29;
+            this.updateResultButton.Text = "Update Result";
+            this.updateResultButton.UseVisualStyleBackColor = true;
+            this.updateResultButton.Click += new System.EventHandler(this.updateResultButton_Click);
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.updateResultButton);
             this.Controls.Add(this.testsListView);
             this.Controls.Add(this.doctorTextBox);
             this.Controls.Add(this.selectApttLabel);
@@ -416,5 +430,6 @@
         private System.Windows.Forms.ColumnHeader testDateHeader;
         private System.Windows.Forms.ColumnHeader normalHeader;
         private System.Windows.Forms.ColumnHeader apptIDHeader;
+        private System.Windows.Forms.Button updateResultButton;
     }
 }

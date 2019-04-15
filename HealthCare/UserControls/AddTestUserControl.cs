@@ -29,7 +29,7 @@ namespace HealthCare.UserControls
         private void LoadTests(object sender, EventArgs e)
         {
             AddTestForm tf = this.ParentForm as AddTestForm;
-            this.visitID = tf.visitID;
+            this.visitID = tf.VisitID;
 
             this.all = controller.GetAllTests();
             this.ordered = controller.GetTestsByVisitId(this.visitID);
@@ -100,6 +100,19 @@ namespace HealthCare.UserControls
             List<Test> tests = new List<Test>();
             OrderTests(tests);
             MessageBox.Show("Tests Ordered");
+            var parent = this.ParentForm as AddTestForm;
+            parent.VisitControl.VisitUserControl_Load(null, null);
+            ListView apptListView = parent.VisitControl.Controls["visitListView"] as ListView;
+            var items = apptListView.Items;
+            foreach (ListViewItem item in items)
+            {
+                if (item.SubItems[0].Text == parent.VisitID.ToString())
+                {
+                    item.Selected = true;
+                    break;
+                }
+            }
+            apptListView.Select();
             AddTestForm tf = this.ParentForm as AddTestForm;
             tf.Close();
         }

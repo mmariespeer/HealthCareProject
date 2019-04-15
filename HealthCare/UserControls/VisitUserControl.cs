@@ -13,8 +13,10 @@ namespace HealthCare.UserControls
     public partial class VisitUserControl : UserControl
     {
         private AddTestForm addTest;
+        private LogTestResultForm logTest;
         private int patientID;
         private HealthcareController controller;
+        private int _visitID;
 
         /// <summary>
         /// Initalizes controller and patientID to 0
@@ -117,11 +119,12 @@ namespace HealthCare.UserControls
             int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
             this.visitListView.Enabled = false;
             Visit visit = this.controller.GetVisitByAppointmentID(apptID);
+            _visitID = visit.VisitID;
             if (visit.VisitID != 0)
             {
                 this.doctorTextBox.Text = visit.DoctorName.ToString();
                 this.weightTextBox.Text = visit.Weight.ToString();
-                this.tempTextBox.Text = visit.Temp.ToString();
+                this.tempTextBox.Text = visit.Temp.ToString(); 
                 this.systolicTextBox.Text = visit.SystolicBP.ToString();
                 this.diastolicTextBox.Text = visit.DiastolicBP.ToString();
                 this.symptomsTextBox.Text = visit.Symptoms;
@@ -129,7 +132,7 @@ namespace HealthCare.UserControls
                 this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
                 this.GetTests(visit.VisitID);
                 this.addTestsButton.Enabled = true;
-                this.addTest = new AddTestForm(visit.VisitID);
+                this.addTest = new AddTestForm(visit.VisitID, this);
             } else
             {
                 this.doctorTextBox.Text = visit.DoctorName.ToString();
@@ -140,8 +143,7 @@ namespace HealthCare.UserControls
                 this.symptomsTextBox.Text = "";
                 this.initDiagnosisTextBox.Text = "";
                 this.finalDiagnosisTextBox.Text = "";
-            }
-            
+            }            
         }
 
         /// <summary>
@@ -253,6 +255,30 @@ namespace HealthCare.UserControls
         {
             
             this.addTest.ShowDialog();
+        }
+
+        private void updateResultButton_Click(object sender, EventArgs e)
+        {
+            this.logTest.ShowDialog();
+        }
+
+        private void testsListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.testsListView.SelectedItems.Count > 0)
+            {
+                string result = this.testsListView.SelectedItems[0].SubItems[3].Text;
+                if (!string.IsNullOrEmpty(result))
+                {
+                    updateResultButton.Enabled = false;
+                }
+                else
+                {
+                    string testCode = this.testsListView.SelectedItems[0].SubItems[0].Text;
+                    this.logTest = new LogTestResultForm(this._visitID,testCode,this);
+                    updateResultButton.Enabled = true;
+                }
+            }
+
         }
     }
 }

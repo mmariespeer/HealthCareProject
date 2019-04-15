@@ -11,14 +11,17 @@ using System.Windows.Forms;
 
 namespace HealthCare.View
 {
-    public partial class AddTestForm : Form
+    public partial class LogTestResultForm : Form
     {
         public int VisitID { get; set; }
+        public string TestCode { get; set; }
+
         public VisitUserControl VisitControl { get; set; }
-        public AddTestForm(int visitID, VisitUserControl visitControl)
+        public LogTestResultForm(int visitID,string testCode, VisitUserControl visitControl)
         {
             InitializeComponent();
             this.VisitID = visitID;
+            this.TestCode = testCode;
             this.VisitControl = visitControl;
         }
     }

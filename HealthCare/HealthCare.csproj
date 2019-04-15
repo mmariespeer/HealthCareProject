@@ -126,6 +126,12 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LogTestResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogTestResultForm.Designer.cs">
+      <DependentUpon>LogTestResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\NurseDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogTestResultForm.resx">
+      <DependentUpon>LogTestResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseDashboard.resx">
       <DependentUpon>NurseDashboard.cs</DependentUpon>

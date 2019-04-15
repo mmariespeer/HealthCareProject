@@ -31,7 +31,7 @@
             this.resultLabel = new System.Windows.Forms.Label();
             this.normalRadioButton = new System.Windows.Forms.RadioButton();
             this.abnormalRadioButton = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.logResultText = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.testNameLabel = new System.Windows.Forms.Label();
@@ -68,12 +68,12 @@
             this.abnormalRadioButton.Text = "Abnormal";
             this.abnormalRadioButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // logResultText
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.logResultText.Location = new System.Drawing.Point(77, 44);
+            this.logResultText.Name = "logResultText";
+            this.logResultText.Size = new System.Drawing.Size(100, 20);
+            this.logResultText.TabIndex = 3;
             // 
             // cancelButton
             // 
@@ -83,6 +83,7 @@
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // saveButton
             // 
@@ -92,6 +93,7 @@
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // testNameLabel
             // 
@@ -109,7 +111,7 @@
             this.Controls.Add(this.testNameLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.logResultText);
             this.Controls.Add(this.abnormalRadioButton);
             this.Controls.Add(this.normalRadioButton);
             this.Controls.Add(this.resultLabel);
@@ -125,7 +127,7 @@
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.RadioButton normalRadioButton;
         private System.Windows.Forms.RadioButton abnormalRadioButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox logResultText;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Label testNameLabel;

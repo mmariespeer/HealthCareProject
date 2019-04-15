@@ -49,6 +49,30 @@ namespace HealthCare.DAL
             return testList;
         }
 
+        public void UpdateTestResult(int visitID, string testCode, string result, bool normal)
+        {
+            string updateStatement = "UPDATE testResult SET results = @result, normal = @normal WHERE visitID = @visitID AND testCode = @testCode;";
+            DateTime now = DateTime.Now;
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Transaction = connection.BeginTransaction();
+                    updateCommand.Parameters.AddWithValue("@visitID", visitID);
+                    updateCommand.Parameters.AddWithValue("@testCode", testCode);
+                    updateCommand.Parameters.AddWithValue("@result", result);
+                    updateCommand.Parameters.AddWithValue("@normal", normal);
+
+                    updateCommand.ExecuteNonQuery();
+
+                    updateCommand.Transaction.Commit();
+                }
+            }
+        }
+
         public List<Test> GetAllTests()
         {
             List<Test> testList = new List<Test>();
@@ -82,7 +106,6 @@ namespace HealthCare.DAL
         public void OrderTest(Test testToOrder)
         {
             string insertStatement = "INSERT INTO testResult(visitID,testCode,testDate,results,normal)VALUES(@visitID,@testCode,@testDate,@results,@normal);";
-            string values = string.Empty;
             DateTime now = DateTime.Now;
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())

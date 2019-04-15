@@ -35,6 +35,11 @@ namespace HealthCare.Controller
             testDAL = new TestDAL();
         }
 
+        public void UpdateTestResult(int visitID, string testCode, string result, bool normal)
+        {
+            testDAL.UpdateTestResult(visitID, testCode, result, normal);
+        }
+
         /// <summary>
         /// Adds a new appointment to the DB
         /// </summary>
