@@ -221,9 +221,9 @@ namespace HealthCare.Controller
         /// add a new patient
         /// </summary>
         /// <param name="person"></param>
-        public void registerPatient(Person person)
+        public Boolean registerPatient(Person person)
         {
-            this.patientDAL.registerPatient(person);
+            return this.patientDAL.registerPatient(person);
         }
 
         /// <summary>
@@ -265,9 +265,9 @@ namespace HealthCare.Controller
         /// Adds a nurse
         /// </summary>
         /// <param name="person"></param>
-        public void addNurse(Person person)
+        public Boolean addNurse(Person person)
         {
-            this.nurseDAL.addNurse(person);
+            return this.nurseDAL.addNurse(person);
         }
 
         /// <summary>

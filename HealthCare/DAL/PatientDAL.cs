@@ -12,8 +12,10 @@ namespace HealthCare.DAL
         /// add a new patient
         /// </summary>
         /// <param name="person"></param>
-        public void registerPatient(Person person)
+        public Boolean registerPatient(Person person)
         {
+            Boolean success = false;
+
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
@@ -39,14 +41,15 @@ namespace HealthCare.DAL
                     insertCommand = new SqlCommand("INSERT patient (personID) VALUES ((SELECT IDENT_CURRENT('person')))", connection, transaction);
                     insertCommand.ExecuteNonQuery();
                     transaction.Commit();
- 
+                    success = true;
                 }
                 catch
                 {
                     transaction.Rollback();
                 }
             }
-               
+
+            return success;
         }
 
         /// <summary>

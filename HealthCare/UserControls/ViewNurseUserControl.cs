@@ -47,10 +47,15 @@ namespace HealthCare.UserControls
                     person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
                     person.DateOfBirth = this.DOBDateTimePicker.Value;
 
-                    this.healthController.addNurse(person);
 
-                    //MessageBox.Show("New Nurse Added");
-                    this.SetListView();
+                    if (this.healthController.addNurse(person))
+                    {
+                        MessageBox.Show("New Nurse Added");
+                        this.SetListView();
+                    } else
+                    {
+                        MessageBox.Show("Duplicate SSN is not allowed");
+                    }
 
                 }
                 catch (Exception ex)

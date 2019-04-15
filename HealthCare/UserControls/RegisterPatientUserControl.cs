@@ -60,9 +60,6 @@ namespace HealthCare.UserControls
                     this.deleteButton.Enabled = true;
                     this.registerButton.Enabled = false;
                     this.clearButton.Enabled = false;
-                    this.ssnTextBox.ReadOnly = true;
-                    this.DOBDateTimePicker.Enabled = false;
-
                 }
                 else
                 {
@@ -70,9 +67,7 @@ namespace HealthCare.UserControls
                     this.deleteButton.Enabled = false;
                     this.registerButton.Enabled = true;
                     this.clearButton.Enabled = true;
-                    this.ClearForm();
-                    this.ssnTextBox.ReadOnly = false;
-                    this.DOBDateTimePicker.Enabled = true;
+                    this.ClearForm();                    
                 }
             
         }
@@ -106,9 +101,14 @@ namespace HealthCare.UserControls
                     person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
                     person.DateOfBirth = this.DOBDateTimePicker.Value;
 
-                    this.healthController.registerPatient(person);
-
-                    MessageBox.Show("New Patient Registered");
+                    if (this.healthController.registerPatient(person))
+                    {
+                        MessageBox.Show("New Patient Registered");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Duplicate SSN is not allowed");
+                    }
                 }
                 catch (Exception ex)
                 {

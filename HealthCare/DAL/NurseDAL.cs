@@ -13,8 +13,10 @@ namespace HealthCare.DAL
         /// add a new nurse 
         /// </summary>
         /// <param name="person"></param>
-        public void addNurse(Person person)
+        public Boolean addNurse(Person person)
         {
+            Boolean success = false;
+
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
@@ -40,15 +42,16 @@ namespace HealthCare.DAL
                     insertCommand = new SqlCommand("INSERT nurse (personID) VALUES ((SELECT IDENT_CURRENT('person')))", connection, transaction);
                     insertCommand.ExecuteNonQuery();
                     transaction.Commit();
-                    MessageBox.Show("New Nurse Added");
+                    
+                    success = true;
                 }
                 catch
                 {
                     transaction.Rollback();
-                    MessageBox.Show("ghj");
-
                 }
             }
+
+            return success;
         }
 
         /// <summary>
