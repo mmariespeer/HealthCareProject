@@ -284,7 +284,7 @@ namespace HealthCare.Controller
         /// <param name="phone"></param>
         /// <param name="ssn"></param>
         public void UpdateNuse(int personID, string lName, string fName, DateTime dob, 
-            string streetAddress, string city, string state, int zipCode, string phone, int ssn)
+            string streetAddress, string city, string state, int zipCode, string phone, string ssn)
         {
             this.nurseDAL.UpdateNurse(personID, lName, fName, dob, streetAddress, city, state, zipCode, phone, ssn);
         }

@@ -11,10 +11,11 @@ namespace HealthCare.DB
         {
             string connectionString =
                 "Data Source=localhost;Initial Catalog=cs6232-g2;" +
-                "Integrated Security=True";
+                "Integrated Security=True; Column Encryption Setting=Enabled";
 
 
             SqlConnection connection = new SqlConnection(connectionString);
+            
             return connection;
         }
     }

@@ -18,7 +18,7 @@ namespace HealthCare.DAL
         {
             Person person = new Person();
             string selectStatement =
-                "SELECT personID, lastName, firstName, streetAddress, city, stateCode, zipCode, phoneNumber, ssn " +
+                "SELECT personID, lastName, firstName, dateOfBirth, streetAddress, city, stateCode, zipCode, phoneNumber, ssn " +
                 "FROM Person " +
                 "WHERE personID = @personID";
 
@@ -36,7 +36,7 @@ namespace HealthCare.DAL
                             person.PersonID = (int)reader["personID"];
                             person.LastName = (string)reader["lastName"];
                             person.FirstName = (string)reader["firstName"];
-                            //person.DateOfBirth = (DateTime)reader["dateTime"];
+                            person.DateOfBirth = (DateTime)reader["dateOfBirth"];
                             person.StreetAddress = (string)reader["streetAddress"];
                             person.City = (string)reader["city"];
                             person.StateCode = (string)reader["stateCode"];

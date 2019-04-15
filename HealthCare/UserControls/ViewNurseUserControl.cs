@@ -175,13 +175,13 @@ namespace HealthCare.UserControls
             {
                 string lName = this.lastNameTextBox.Text;
                 string fName = this.firstNameTextBox.Text;
-                DateTime dob = this.DOBDateTimePicker.Value.Date;
+                DateTime dob = this.DOBDateTimePicker.Value;
                 string city = this.cityTextBox.Text;
                 string streetAddress = this.addressTextBox.Text;
                 string state = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
                 int zipCode = Convert.ToInt32(this.zipTextBox.Text);
                 string phoneNumber = this.phoneTextBox.Text;
-                int ssn = Convert.ToInt32(this.ssnTextBox.Text);
+                string ssn = this.ssnTextBox.Text;
                 try
                 {
                     this.healthController.UpdateNuse(this.currentPerson.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn);
