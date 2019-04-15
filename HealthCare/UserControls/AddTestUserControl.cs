@@ -46,10 +46,12 @@ namespace HealthCare.UserControls
         {
             foreach (ListViewItem item in availableListView.SelectedItems)
             {
+
                 all.Remove(all.Single(s => s.TestCode == item.SubItems[0].Text));
                 Test test = new Test();
                 test.TestCode = item.SubItems[0].Text;
                 test.TestName = item.SubItems[1].Text;
+                test.VisitId = this.visitID;
                 ordered.Add(test);
             }
             this.RefreshListView();
@@ -95,15 +97,22 @@ namespace HealthCare.UserControls
 
         private void SubmitOrderButton_Click(object sender, EventArgs e)
         {
-            int count = 0;
+            List<Test> tests = new List<Test>();
+            OrderTests(tests);
+            MessageBox.Show("Tests Ordered");
+            AddTestForm tf = this.ParentForm as AddTestForm;
+            tf.Close();
+        }
+
+        private void OrderTests(List<Test> tests)
+        {
             foreach (var test in ordered)
             {
-                if (test.TestDate != DateTime.MinValue)
+                if (test.TestDate == DateTime.MinValue)
                 {
-                    count++;
-                } 
+                    controller.OrderTest(test);
+                }
             }
-            Console.WriteLine(count);
         }
     }
 }

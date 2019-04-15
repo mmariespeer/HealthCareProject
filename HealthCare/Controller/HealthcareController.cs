@@ -207,6 +207,11 @@ namespace HealthCare.Controller
             return testDAL.GetAllTests();
         }
 
+        public void OrderTest(Test testToOrder)
+        {
+            testDAL.OrderTest(testToOrder);
+        }
+
         /// <summary>
         /// add a new patient
         /// </summary>

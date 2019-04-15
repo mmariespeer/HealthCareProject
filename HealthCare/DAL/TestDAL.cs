@@ -37,9 +37,10 @@ namespace HealthCare.DAL
 
                             test.TestCode = (string)reader["testCode"];
                             test.TestName = (string)reader["testName"];
-                            test.Results = (string)reader["results"];
+                            test.Results = reader["results"] as string;
                             test.Normal = reader["normal"] as bool?;
                             test.TestDate = (DateTime)reader["testDate"];
+                            test.VisitId = visitId;
                             testList.Add(test);
                         }
                     }
@@ -76,6 +77,31 @@ namespace HealthCare.DAL
                 }
             }
             return testList;
+        }
+
+        public void OrderTest(Test testToOrder)
+        {
+            string insertStatement = "INSERT INTO testResult(visitID,testCode,testDate,results,normal)VALUES(@visitID,@testCode,@testDate,@results,@normal);";
+            string values = string.Empty;
+            DateTime now = DateTime.Now;
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();             
+
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Transaction = connection.BeginTransaction();
+                    insertCommand.Parameters.AddWithValue("@visitID", testToOrder.VisitId);
+                    insertCommand.Parameters.AddWithValue("@testCode", testToOrder.TestCode);
+                    insertCommand.Parameters.AddWithValue("@testDate", now);
+                    insertCommand.Parameters.AddWithValue("@results", DBNull.Value);
+                    insertCommand.Parameters.AddWithValue("@normal", DBNull.Value);
+                    insertCommand.ExecuteNonQuery();
+
+                    insertCommand.Transaction.Commit();
+                }
+            }
         }
     }
 }
