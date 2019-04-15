@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using HealthCare.DB;
+using HealthCare.Model;
 
 namespace HealthCare.DAL
 {
@@ -16,18 +18,21 @@ namespace HealthCare.DAL
         public DataTable getLogin(string username, string password)
         {
             DataTable dt = new DataTable();
-            string selectStatement = "SELECT l.personID, l.userName, l.password, (p.firstName + ' ' + p.lastName) AS name" + 
+            string selectStatement = "SELECT l.personID, l.userName, l.password, (p.firstName + ' ' + p.lastName) AS name" +
                 " FROM login l JOIN person p ON p.personID = l.personID WHERE userName = @username AND password = @password";
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
-
                 SqlCommand sc = new SqlCommand(selectStatement, connection);
                 sc.Parameters.AddWithValue("@username", username);
-                sc.Parameters.AddWithValue("@password", password);
+
+                SqlParameter passwordParam = new SqlParameter("password", SqlDbType.VarChar, 50);
+                passwordParam.Value = password;
+                sc.Parameters.Add(passwordParam);
 
                 SqlDataReader reader = sc.ExecuteReader();
+
 
                 dt.Columns.Add("personID", typeof(int));
                 dt.Columns.Add("userName", typeof(string));
