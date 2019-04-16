@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HealthCare.Model
 {
+    /// <summary>
+    /// Hashing service to verify hashed passwords
+    /// </summary>
     class HashingService
     {
         public String PasswordHashing(string password)
@@ -18,6 +19,7 @@ namespace HealthCare.Model
             return ByteArrayToHexString(hash);
         }
 
+        //converts hashed passwords to appropriate hashed string
         private string ByteArrayToHexString(byte[] ba)
         {
             StringBuilder hex = new StringBuilder(ba.Length * 2);

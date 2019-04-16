@@ -100,6 +100,11 @@ namespace HealthCare.UserControls
                     "Please select another date, time, or doctor.");
                 return;
             }
+            if (reasonForVisitTextBox.Text == null || reasonForVisitTextBox.Text == "")
+            {
+                MessageBox.Show("Reason for visit cannot be null or empty.");
+                return;
+            }
             try
             {
                 this.healthcareController.AddAppointment(appointment);
@@ -123,19 +128,18 @@ namespace HealthCare.UserControls
         /// <param name="appointment"></param>
         private void ReadIncidentData(Appointment appointment)
         {
-            if (appointment.ReasonForVisit == null || appointment.ReasonForVisit == "")
-            {
-                throw new ArgumentException("Reason for visit cannot be null or empty.");
-            }
-            appointment.PatientID = this.patientID;
+           
+                appointment.PatientID = this.patientID;
 
-            int docID = (int)doctorComboBox.SelectedValue;
-            appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
+                int docID = (int)doctorComboBox.SelectedValue;
+                appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
 
-            DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
-            appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
+                DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
+                appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
 
-            appointment.ReasonForVisit = reasonForVisitTextBox.Text;
+                appointment.ReasonForVisit = reasonForVisitTextBox.Text;
+            
+
         }
 
         /// <summary>
