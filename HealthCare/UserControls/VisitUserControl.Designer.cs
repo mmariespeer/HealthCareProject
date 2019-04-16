@@ -62,12 +62,15 @@
             this.resultHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.normalHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.updateResultButton = new System.Windows.Forms.Button();
+            this.instructionLabel = new System.Windows.Forms.Label();
+            this.clearVisitButton = new System.Windows.Forms.Button();
+            this.visitLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // doctorLabel
             // 
             this.doctorLabel.AutoSize = true;
-            this.doctorLabel.Location = new System.Drawing.Point(22, 138);
+            this.doctorLabel.Location = new System.Drawing.Point(22, 171);
             this.doctorLabel.Name = "doctorLabel";
             this.doctorLabel.Size = new System.Drawing.Size(42, 13);
             this.doctorLabel.TabIndex = 0;
@@ -76,22 +79,22 @@
             // weightLabel
             // 
             this.weightLabel.AutoSize = true;
-            this.weightLabel.Location = new System.Drawing.Point(22, 166);
+            this.weightLabel.Location = new System.Drawing.Point(22, 199);
             this.weightLabel.Name = "weightLabel";
-            this.weightLabel.Size = new System.Drawing.Size(66, 13);
+            this.weightLabel.Size = new System.Drawing.Size(70, 13);
             this.weightLabel.TabIndex = 2;
-            this.weightLabel.Text = "Weight (lbs):";
+            this.weightLabel.Text = "Weight (lbs)*:";
             // 
             // weightTextBox
             // 
-            this.weightTextBox.Location = new System.Drawing.Point(111, 163);
+            this.weightTextBox.Location = new System.Drawing.Point(111, 196);
             this.weightTextBox.Name = "weightTextBox";
             this.weightTextBox.Size = new System.Drawing.Size(100, 20);
             this.weightTextBox.TabIndex = 3;
             // 
             // tempTextBox
             // 
-            this.tempTextBox.Location = new System.Drawing.Point(290, 163);
+            this.tempTextBox.Location = new System.Drawing.Point(290, 196);
             this.tempTextBox.Name = "tempTextBox";
             this.tempTextBox.Size = new System.Drawing.Size(96, 20);
             this.tempTextBox.TabIndex = 5;
@@ -99,15 +102,15 @@
             // tempLabel
             // 
             this.tempLabel.AutoSize = true;
-            this.tempLabel.Location = new System.Drawing.Point(232, 166);
+            this.tempLabel.Location = new System.Drawing.Point(232, 199);
             this.tempLabel.Name = "tempLabel";
-            this.tempLabel.Size = new System.Drawing.Size(52, 13);
+            this.tempLabel.Size = new System.Drawing.Size(56, 13);
             this.tempLabel.TabIndex = 4;
-            this.tempLabel.Text = "Temp (F):";
+            this.tempLabel.Text = "Temp (F)*:";
             // 
             // systolicTextBox
             // 
-            this.systolicTextBox.Location = new System.Drawing.Point(519, 163);
+            this.systolicTextBox.Location = new System.Drawing.Point(519, 196);
             this.systolicTextBox.Name = "systolicTextBox";
             this.systolicTextBox.Size = new System.Drawing.Size(45, 20);
             this.systolicTextBox.TabIndex = 7;
@@ -115,15 +118,15 @@
             // bpLabel
             // 
             this.bpLabel.AutoSize = true;
-            this.bpLabel.Location = new System.Drawing.Point(405, 166);
+            this.bpLabel.Location = new System.Drawing.Point(405, 199);
             this.bpLabel.Name = "bpLabel";
-            this.bpLabel.Size = new System.Drawing.Size(108, 13);
+            this.bpLabel.Size = new System.Drawing.Size(112, 13);
             this.bpLabel.TabIndex = 6;
-            this.bpLabel.Text = "BP Systolic/Diastolic:";
+            this.bpLabel.Text = "BP Systolic/Diastolic*:";
             // 
             // diastolicTextBox
             // 
-            this.diastolicTextBox.Location = new System.Drawing.Point(589, 163);
+            this.diastolicTextBox.Location = new System.Drawing.Point(589, 196);
             this.diastolicTextBox.Name = "diastolicTextBox";
             this.diastolicTextBox.Size = new System.Drawing.Size(45, 20);
             this.diastolicTextBox.TabIndex = 8;
@@ -131,7 +134,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(571, 167);
+            this.label2.Location = new System.Drawing.Point(571, 200);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(12, 13);
             this.label2.TabIndex = 9;
@@ -140,23 +143,23 @@
             // symptomsLabel
             // 
             this.symptomsLabel.AutoSize = true;
-            this.symptomsLabel.Location = new System.Drawing.Point(22, 190);
+            this.symptomsLabel.Location = new System.Drawing.Point(22, 223);
             this.symptomsLabel.Name = "symptomsLabel";
-            this.symptomsLabel.Size = new System.Drawing.Size(58, 13);
+            this.symptomsLabel.Size = new System.Drawing.Size(62, 13);
             this.symptomsLabel.TabIndex = 10;
-            this.symptomsLabel.Text = "Symptoms:";
+            this.symptomsLabel.Text = "Symptoms*:";
             // 
             // symptomsTextBox
             // 
-            this.symptomsTextBox.Location = new System.Drawing.Point(111, 190);
+            this.symptomsTextBox.Location = new System.Drawing.Point(111, 223);
             this.symptomsTextBox.Multiline = true;
             this.symptomsTextBox.Name = "symptomsTextBox";
-            this.symptomsTextBox.Size = new System.Drawing.Size(523, 75);
+            this.symptomsTextBox.Size = new System.Drawing.Size(523, 56);
             this.symptomsTextBox.TabIndex = 11;
             // 
             // initDiagnosisTextBox
             // 
-            this.initDiagnosisTextBox.Location = new System.Drawing.Point(111, 272);
+            this.initDiagnosisTextBox.Location = new System.Drawing.Point(111, 288);
             this.initDiagnosisTextBox.Name = "initDiagnosisTextBox";
             this.initDiagnosisTextBox.Size = new System.Drawing.Size(275, 20);
             this.initDiagnosisTextBox.TabIndex = 13;
@@ -164,16 +167,16 @@
             // initDiagnosisLabel
             // 
             this.initDiagnosisLabel.AutoSize = true;
-            this.initDiagnosisLabel.Location = new System.Drawing.Point(22, 275);
+            this.initDiagnosisLabel.Location = new System.Drawing.Point(22, 291);
             this.initDiagnosisLabel.Name = "initDiagnosisLabel";
-            this.initDiagnosisLabel.Size = new System.Drawing.Size(83, 13);
+            this.initDiagnosisLabel.Size = new System.Drawing.Size(87, 13);
             this.initDiagnosisLabel.TabIndex = 12;
-            this.initDiagnosisLabel.Text = "Initial Diagnosis:";
+            this.initDiagnosisLabel.Text = "Initial Diagnosis*:";
             // 
             // orderedTestlabel
             // 
             this.orderedTestlabel.AutoSize = true;
-            this.orderedTestlabel.Location = new System.Drawing.Point(22, 300);
+            this.orderedTestlabel.Location = new System.Drawing.Point(22, 316);
             this.orderedTestlabel.Name = "orderedTestlabel";
             this.orderedTestlabel.Size = new System.Drawing.Size(77, 13);
             this.orderedTestlabel.TabIndex = 14;
@@ -181,7 +184,7 @@
             // 
             // addTestsButton
             // 
-            this.addTestsButton.Location = new System.Drawing.Point(111, 414);
+            this.addTestsButton.Location = new System.Drawing.Point(111, 430);
             this.addTestsButton.Name = "addTestsButton";
             this.addTestsButton.Size = new System.Drawing.Size(117, 23);
             this.addTestsButton.TabIndex = 16;
@@ -191,7 +194,7 @@
             // 
             // finalDiagnosisTextBox
             // 
-            this.finalDiagnosisTextBox.Location = new System.Drawing.Point(111, 443);
+            this.finalDiagnosisTextBox.Location = new System.Drawing.Point(111, 459);
             this.finalDiagnosisTextBox.Name = "finalDiagnosisTextBox";
             this.finalDiagnosisTextBox.Size = new System.Drawing.Size(275, 20);
             this.finalDiagnosisTextBox.TabIndex = 18;
@@ -199,7 +202,7 @@
             // finalDiagnosisLabel
             // 
             this.finalDiagnosisLabel.AutoSize = true;
-            this.finalDiagnosisLabel.Location = new System.Drawing.Point(22, 446);
+            this.finalDiagnosisLabel.Location = new System.Drawing.Point(22, 462);
             this.finalDiagnosisLabel.Name = "finalDiagnosisLabel";
             this.finalDiagnosisLabel.Size = new System.Drawing.Size(81, 13);
             this.finalDiagnosisLabel.TabIndex = 17;
@@ -208,7 +211,7 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(22, 480);
+            this.statusLabel.Location = new System.Drawing.Point(22, 496);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(62, 13);
             this.statusLabel.TabIndex = 19;
@@ -218,7 +221,7 @@
             // pendingRadioButton
             // 
             this.pendingRadioButton.AutoSize = true;
-            this.pendingRadioButton.Location = new System.Drawing.Point(111, 478);
+            this.pendingRadioButton.Location = new System.Drawing.Point(111, 494);
             this.pendingRadioButton.Name = "pendingRadioButton";
             this.pendingRadioButton.Size = new System.Drawing.Size(64, 17);
             this.pendingRadioButton.TabIndex = 20;
@@ -230,7 +233,7 @@
             // completeRadioButton
             // 
             this.completeRadioButton.AutoSize = true;
-            this.completeRadioButton.Location = new System.Drawing.Point(200, 478);
+            this.completeRadioButton.Location = new System.Drawing.Point(200, 494);
             this.completeRadioButton.Name = "completeRadioButton";
             this.completeRadioButton.Size = new System.Drawing.Size(69, 17);
             this.completeRadioButton.TabIndex = 21;
@@ -254,7 +257,7 @@
             this.completedLabel.AutoSize = true;
             this.completedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.completedLabel.ForeColor = System.Drawing.Color.Red;
-            this.completedLabel.Location = new System.Drawing.Point(176, 515);
+            this.completedLabel.Location = new System.Drawing.Point(22, 518);
             this.completedLabel.Name = "completedLabel";
             this.completedLabel.Size = new System.Drawing.Size(341, 17);
             this.completedLabel.TabIndex = 23;
@@ -268,7 +271,7 @@
             this.visitDateHeader});
             this.visitListView.FullRowSelect = true;
             this.visitListView.HideSelection = false;
-            this.visitListView.Location = new System.Drawing.Point(111, 18);
+            this.visitListView.Location = new System.Drawing.Point(111, 34);
             this.visitListView.MultiSelect = false;
             this.visitListView.Name = "visitListView";
             this.visitListView.Size = new System.Drawing.Size(522, 102);
@@ -290,7 +293,7 @@
             // selectApttLabel
             // 
             this.selectApttLabel.AutoSize = true;
-            this.selectApttLabel.Location = new System.Drawing.Point(22, 18);
+            this.selectApttLabel.Location = new System.Drawing.Point(22, 34);
             this.selectApttLabel.Name = "selectApttLabel";
             this.selectApttLabel.Size = new System.Drawing.Size(65, 13);
             this.selectApttLabel.TabIndex = 26;
@@ -298,7 +301,7 @@
             // 
             // doctorTextBox
             // 
-            this.doctorTextBox.Location = new System.Drawing.Point(111, 130);
+            this.doctorTextBox.Location = new System.Drawing.Point(111, 163);
             this.doctorTextBox.Name = "doctorTextBox";
             this.doctorTextBox.ReadOnly = true;
             this.doctorTextBox.Size = new System.Drawing.Size(100, 20);
@@ -313,7 +316,7 @@
             this.resultHeader,
             this.normalHeader});
             this.testsListView.FullRowSelect = true;
-            this.testsListView.Location = new System.Drawing.Point(111, 300);
+            this.testsListView.Location = new System.Drawing.Point(111, 316);
             this.testsListView.Name = "testsListView";
             this.testsListView.Size = new System.Drawing.Size(522, 108);
             this.testsListView.TabIndex = 28;
@@ -348,7 +351,7 @@
             // 
             // updateResultButton
             // 
-            this.updateResultButton.Location = new System.Drawing.Point(235, 415);
+            this.updateResultButton.Location = new System.Drawing.Point(235, 431);
             this.updateResultButton.Name = "updateResultButton";
             this.updateResultButton.Size = new System.Drawing.Size(113, 23);
             this.updateResultButton.TabIndex = 29;
@@ -356,10 +359,42 @@
             this.updateResultButton.UseVisualStyleBackColor = true;
             this.updateResultButton.Click += new System.EventHandler(this.updateResultButton_Click);
             // 
+            // instructionLabel
+            // 
+            this.instructionLabel.AutoSize = true;
+            this.instructionLabel.Location = new System.Drawing.Point(22, 10);
+            this.instructionLabel.Name = "instructionLabel";
+            this.instructionLabel.Size = new System.Drawing.Size(562, 13);
+            this.instructionLabel.TabIndex = 30;
+            this.instructionLabel.Text = "Please select an appointment to view the appointments physcian and information. U" +
+    "se the clear button to begin again.";
+            // 
+            // clearVisitButton
+            // 
+            this.clearVisitButton.Location = new System.Drawing.Point(474, 515);
+            this.clearVisitButton.Name = "clearVisitButton";
+            this.clearVisitButton.Size = new System.Drawing.Size(75, 23);
+            this.clearVisitButton.TabIndex = 31;
+            this.clearVisitButton.Text = "Clear";
+            this.clearVisitButton.UseVisualStyleBackColor = true;
+            this.clearVisitButton.Click += new System.EventHandler(this.clearVisitButton_Click);
+            // 
+            // visitLabel
+            // 
+            this.visitLabel.AutoSize = true;
+            this.visitLabel.Location = new System.Drawing.Point(111, 144);
+            this.visitLabel.Name = "visitLabel";
+            this.visitLabel.Size = new System.Drawing.Size(256, 13);
+            this.visitLabel.TabIndex = 32;
+            this.visitLabel.Text = "Selected Visit Information:   *indicates a required field";
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.visitLabel);
+            this.Controls.Add(this.clearVisitButton);
+            this.Controls.Add(this.instructionLabel);
             this.Controls.Add(this.updateResultButton);
             this.Controls.Add(this.testsListView);
             this.Controls.Add(this.doctorTextBox);
@@ -431,5 +466,8 @@
         private System.Windows.Forms.ColumnHeader normalHeader;
         private System.Windows.Forms.ColumnHeader apptIDHeader;
         private System.Windows.Forms.Button updateResultButton;
+        private System.Windows.Forms.Label instructionLabel;
+        private System.Windows.Forms.Button clearVisitButton;
+        private System.Windows.Forms.Label visitLabel;
     }
 }

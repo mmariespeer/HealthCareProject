@@ -36,16 +36,17 @@
             this.addTestUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addTestUserControl1.Location = new System.Drawing.Point(0, 0);
             this.addTestUserControl1.Name = "addTestUserControl1";
-            this.addTestUserControl1.Size = new System.Drawing.Size(597, 450);
+            this.addTestUserControl1.Size = new System.Drawing.Size(765, 390);
             this.addTestUserControl1.TabIndex = 0;
             // 
             // AddTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 450);
+            this.ClientSize = new System.Drawing.Size(765, 390);
             this.Controls.Add(this.addTestUserControl1);
             this.Name = "AddTestForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddTestForm";
             this.ResumeLayout(false);
 

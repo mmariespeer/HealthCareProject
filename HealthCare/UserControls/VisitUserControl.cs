@@ -280,5 +280,10 @@ namespace HealthCare.UserControls
             }
 
         }
+
+        private void clearVisitButton_Click(object sender, EventArgs e)
+        {
+            this.VisitUserControl_Load(sender, e);
+        }
     }
 }

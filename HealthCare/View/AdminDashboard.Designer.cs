@@ -108,6 +108,7 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.logoutLinkDashboard);
             this.Name = "AdminDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminDashboard_FormClosing);
             this.adminTabControl.ResumeLayout(false);

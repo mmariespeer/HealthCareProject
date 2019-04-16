@@ -45,6 +45,7 @@
             this.ClientSize = new System.Drawing.Size(264, 212);
             this.Controls.Add(this.logTestResultsUserControl1);
             this.Name = "LogTestResultForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogTestResultForm";
             this.ResumeLayout(false);
 

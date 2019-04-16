@@ -112,7 +112,7 @@
             this.nurseTabControl.Controls.Add(this.appointmentTabPage);
             this.nurseTabControl.Controls.Add(this.visitTabPage);
             this.nurseTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nurseTabControl.Location = new System.Drawing.Point(28, 165);
+            this.nurseTabControl.Location = new System.Drawing.Point(30, 190);
             this.nurseTabControl.Name = "nurseTabControl";
             this.nurseTabControl.SelectedIndex = 0;
             this.nurseTabControl.Size = new System.Drawing.Size(696, 585);
@@ -141,7 +141,7 @@
             // 
             this.paitentSearchSimple2.Location = new System.Drawing.Point(12, 25);
             this.paitentSearchSimple2.Name = "paitentSearchSimple2";
-            this.paitentSearchSimple2.Size = new System.Drawing.Size(726, 146);
+            this.paitentSearchSimple2.Size = new System.Drawing.Size(726, 159);
             this.paitentSearchSimple2.TabIndex = 5;
             // 
             // NurseDashboard
@@ -149,12 +149,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(775, 749);
+            this.ClientSize = new System.Drawing.Size(775, 783);
             this.Controls.Add(this.paitentSearchSimple2);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.logoutLinkDashboard);
             this.Controls.Add(this.nurseTabControl);
             this.Name = "NurseDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nurse Dashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NurseDashboard_FormClosing);
             this.appointmentTabPage.ResumeLayout(false);

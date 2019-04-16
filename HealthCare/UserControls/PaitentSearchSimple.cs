@@ -113,6 +113,9 @@ namespace HealthCare.UserControls
            if(this.patientListView.SelectedItems.Count == 0)
             {
                 return;
+            } else
+            {
+                this.patientListView.Enabled = false;
             }
             NurseDashboard dashboard = this.ParentForm as NurseDashboard;
             dashboard.SelectedPatientID = int.Parse(this.patientListView.SelectedItems[0].SubItems[0].Text);
@@ -127,6 +130,7 @@ namespace HealthCare.UserControls
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.patientListView.Items.Clear();
+            this.patientListView.Enabled = true;
             this.firstNameTextBox.Text = "";
             this.lastNameTextBox.Text = "";
             NurseDashboard dashboard = this.ParentForm as NurseDashboard;
