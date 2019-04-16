@@ -265,9 +265,9 @@ namespace HealthCare.Controller
         /// Adds a nurse
         /// </summary>
         /// <param name="person"></param>
-        public Boolean addNurse(Person person)
+        public Boolean addNurse(Person person, String active)
         {
-            return this.nurseDAL.addNurse(person);
+            return this.nurseDAL.addNurse(person, active);
         }
 
         /// <summary>
@@ -283,10 +283,10 @@ namespace HealthCare.Controller
         /// <param name="zipCode"></param>
         /// <param name="phone"></param>
         /// <param name="ssn"></param>
-        public void UpdateNuse(int personID, string lName, string fName, DateTime dob, 
-            string streetAddress, string city, string state, int zipCode, string phone, string ssn)
+        public void UpdateNurse(int personID, string lName, string fName, DateTime dob, 
+            string streetAddress, string city, string state, int zipCode, string phone, string ssn, string active)
         {
-            this.nurseDAL.UpdateNurse(personID, lName, fName, dob, streetAddress, city, state, zipCode, phone, ssn);
+            this.nurseDAL.UpdateNurse(personID, lName, fName, dob, streetAddress, city, state, zipCode, phone, ssn, active);
         }
 
         /// <summary>
@@ -306,6 +306,11 @@ namespace HealthCare.Controller
         public Person GetPersonByNurseID(int nurseID)
         {
             return this.personDAL.GetPersonByNurseID(nurseID);
+        }
+
+        public int GetNurseStatus(int nurseID)
+        {
+            return this.nurseDAL.GetNurseStatus(nurseID);
         }
     }
 }
