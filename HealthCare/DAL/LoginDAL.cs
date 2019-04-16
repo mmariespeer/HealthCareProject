@@ -17,6 +17,7 @@ namespace HealthCare.DAL
         /// <returns></returns>
         public DataTable getLogin(string username, string password)
         {
+            HashingService hashing = new HashingService();
             DataTable dt = new DataTable();
             string selectStatement = "SELECT l.personID, l.userName, l.password, (p.firstName + ' ' + p.lastName) AS name" +
                 " FROM login l JOIN person p ON p.personID = l.personID WHERE userName = @username AND password = @password";
@@ -26,10 +27,11 @@ namespace HealthCare.DAL
                 connection.Open();
                 SqlCommand sc = new SqlCommand(selectStatement, connection);
                 sc.Parameters.AddWithValue("@username", username);
+                sc.Parameters.AddWithValue("@password", hashing.PasswordHashing(password));
 
-                SqlParameter passwordParam = new SqlParameter("password", SqlDbType.VarChar, 50);
-                passwordParam.Value = password;
-                sc.Parameters.Add(passwordParam);
+                //SqlParameter passwordParam = new SqlParameter("password", SqlDbType.VarChar, 50);
+                //passwordParam.Value = password;
+                //sc.Parameters.Add(passwordParam);
 
                 SqlDataReader reader = sc.ExecuteReader();
 

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using HealthCare.Controller;
+using HealthCare.DB;
 
 namespace HealthCare.View
 {
@@ -34,7 +37,7 @@ namespace HealthCare.View
         /// <param name="e">event argument</param>
         public void RefreshTabs(object sender, EventArgs e)
         {
-            this.viewNurseUserControl1.ViewNurseUserControl_Load(sender, e);
+            this.viewNurseUserControl2.ViewNurseUserControl_Load(sender, e);
         }
 
         private void logoutLinkDashboard_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -46,6 +49,28 @@ namespace HealthCare.View
         private void AdminDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
+        }
+
+        private void generateReportButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ShowReport()
+        {
+            this.reportViewer1.Reset();
+            DateTime.Parse(this.fromTextBox.Text);
+            DateTime.Parse(this.toTextBox.Text);
+            DataTable dt = new DataTable();
+            this.reportViewer1.RefreshReport();
         }
     }
 }
