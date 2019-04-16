@@ -47,7 +47,7 @@ namespace HealthCare.DAL
             List<Appointment> appointments = new List<Appointment>();
 
             string selectStatement =
-                "SELECT appointmentID, patientID, doctorID, dateTime, reasonForVisit " +
+                "SELECT appointmentID, patientID, doctorID,  dateTime, reasonForVisit " +
                 "FROM Appointment " +
                 "WHERE patientID = @patientID " +
                 "ORDER BY dateTime";
