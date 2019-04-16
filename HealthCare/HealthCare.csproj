@@ -242,7 +242,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\HealthCare.exe" />
     <Content Include="bin\Debug\HealthCare.pdb" />
-    <Content Include="DB\cs6232_g2_script.sql" />
+    <Content Include="DB\cs6232_g2_iteration2.sql" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
