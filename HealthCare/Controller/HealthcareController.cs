@@ -35,6 +35,13 @@ namespace HealthCare.Controller
             testDAL = new TestDAL();
         }
 
+        /// <summary>
+        /// update test results
+        /// </summary>
+        /// <param name="visitID"></param>
+        /// <param name="testCode"></param>
+        /// <param name="result"></param>
+        /// <param name="normal"></param>
         public void UpdateTestResult(int visitID, string testCode, string result, bool normal)
         {
             testDAL.UpdateTestResult(visitID, testCode, result, normal);
@@ -207,11 +214,19 @@ namespace HealthCare.Controller
             return testDAL.GetTestsByVisitId(visitId);
         }
 
+        /// <summary>
+        /// return a list of all tests
+        /// </summary>
+        /// <returns>lists of avaliable tests</returns>
         public List<Test> GetAllTests()
         {
             return testDAL.GetAllTests();
         }
 
+        /// <summary>
+        /// order a test for a patient
+        /// </summary>
+        /// <param name="testToOrder"></param>
         public void OrderTest(Test testToOrder)
         {
             testDAL.OrderTest(testToOrder);
@@ -256,9 +271,9 @@ namespace HealthCare.Controller
         /// <param name="city"></param>
         /// <param name="state"></param>
         /// <param name="phone"></param>
-        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
+        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone, string ssn, DateTime dob)
         {
-            this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone);
+            this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone, ssn, dob);
         }
 
         /// <summary>

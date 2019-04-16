@@ -135,10 +135,12 @@ namespace HealthCare.UserControls
                 string StreetAddress = this.addressTextBox.Text;
                 string StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
                 int ZipCode = Convert.ToInt32(this.zipTextBox.Text);
+                string ssn = this.ssnTextBox.Text;
+                DateTime dob = this.DOBDateTimePicker.Value;
 
                 try
                 {
-                    this.healthController.updatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber);
+                    this.healthController.updatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber, ssn, dob);
                     MessageBox.Show("Patient has been updated");
 
                 }

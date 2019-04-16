@@ -98,10 +98,10 @@ namespace HealthCare.DAL
         /// <param name="city"></param>
         /// <param name="state"></param>
         /// <param name="phone"></param>
-        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone)
+        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone, string ssn, DateTime dob)
         {
             string updateStatement = "UPDATE person SET firstName = @firstName, lastName = @lastName, stateCode = @stateCode, phoneNumber = @phone, streetAddress = @street, " +
-                                      "city = @city, zipCode = @zip WHERE personID = @id";
+                                      "city = @city, zipCode = @zip, ssn = @ssn, dateOfBirth = @dob WHERE personID = @id";
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
@@ -115,6 +115,8 @@ namespace HealthCare.DAL
                     updateCommand.Parameters.AddWithValue("@stateCode", state);
                     updateCommand.Parameters.AddWithValue("@zip", zipCode);
                     updateCommand.Parameters.AddWithValue("@phone", phone);
+                    updateCommand.Parameters.AddWithValue("@ssn", ssn);
+                    updateCommand.Parameters.AddWithValue("@dob", dob.Date);
                     updateCommand.ExecuteNonQuery();
                 }
             }

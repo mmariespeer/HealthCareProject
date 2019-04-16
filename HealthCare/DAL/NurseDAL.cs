@@ -90,7 +90,7 @@ namespace HealthCare.DAL
                     updateCommand.Parameters.AddWithValue("@pID", personID);
                     updateCommand.Parameters.AddWithValue("@lName", lName);
                     updateCommand.Parameters.AddWithValue("@fName", fName);
-                    updateCommand.Parameters.AddWithValue("@dob", dob);
+                    updateCommand.Parameters.AddWithValue("@dob", dob.Date);
                     updateCommand.Parameters.AddWithValue("@streetAddress", streetAddress);
                     updateCommand.Parameters.AddWithValue("@city", city);
                     updateCommand.Parameters.AddWithValue("@stateCode", state);
