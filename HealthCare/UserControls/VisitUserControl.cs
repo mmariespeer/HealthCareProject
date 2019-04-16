@@ -26,7 +26,7 @@ namespace HealthCare.UserControls
             InitializeComponent();
             this.controller = new HealthcareController();
             this.patientID = 0;
-            
+            updateResultButton.Enabled = false;
         }
 
         /// <summary>

@@ -47,18 +47,13 @@ namespace HealthCare.UserControls
                 var parent = this.ParentForm as LogTestResultForm;
                 controller.UpdateTestResult(parent.VisitID, parent.TestCode, result, normal);
                 MessageBox.Show("TestResult updated");
-                parent.VisitControl.VisitUserControl_Load(null, null);
                 ListView apptListView = parent.VisitControl.Controls["visitListView"] as ListView;
-                var items = apptListView.Items;
-                foreach(ListViewItem item in items)
-                {
-                    if(item.SubItems[0].Text == parent.VisitID.ToString())
-                    {
-                        item.Selected = true;
-                        break;
-                    }
-                }
-                apptListView.Select();
+                var selectedItemIndex = apptListView.SelectedItems[0].Index;
+                parent.VisitControl.VisitUserControl_Load(null, null);
+                var item = apptListView.Items[selectedItemIndex];
+                item.Selected = true;
+
+
                 parent.Close();                
             }
             

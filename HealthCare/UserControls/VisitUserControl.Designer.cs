@@ -351,6 +351,7 @@
             // 
             // updateResultButton
             // 
+            this.updateResultButton.Enabled = false;
             this.updateResultButton.Location = new System.Drawing.Point(235, 431);
             this.updateResultButton.Name = "updateResultButton";
             this.updateResultButton.Size = new System.Drawing.Size(113, 23);

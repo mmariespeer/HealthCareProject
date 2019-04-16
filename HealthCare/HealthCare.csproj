@@ -83,7 +83,6 @@
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Visit.cs" />
-    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,7 +174,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="UserControls\AddAppointmentUserControl.resx">
       <DependentUpon>AddAppointmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,19 +241,6 @@
     <Content Include="bin\Debug\HealthCare.exe" />
     <Content Include="bin\Debug\HealthCare.pdb" />
     <Content Include="DB\cs6232_g2_script.sql" />
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
