@@ -308,6 +308,11 @@ namespace HealthCare.Controller
             return this.personDAL.GetPersonByNurseID(nurseID);
         }
 
+        /// <summary>
+        /// return whether a nurse is active or inactive
+        /// </summary>
+        /// <param name="nurseID"></param>
+        /// <returns>1 for active, 0 for inactive</returns>
         public int GetNurseStatus(int nurseID)
         {
             return this.nurseDAL.GetNurseStatus(nurseID);

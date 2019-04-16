@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 using HealthCare.DB;
 using HealthCare.Model;
 
@@ -152,6 +151,11 @@ namespace HealthCare.DAL
             return nurseList;
         }
 
+        /// <summary>
+        /// return whether nurse is active or inactive
+        /// </summary>
+        /// <param name="nurseID"></param>
+        /// <returns>1 for active, 0 for inactive</returns>
         public int GetNurseStatus(int nurseID)
         {
             int active = 0;

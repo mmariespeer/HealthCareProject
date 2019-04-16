@@ -151,7 +151,6 @@ namespace HealthCare.UserControls
         {
             this.ClearForm();
 
-            //this.nurseListView.Items.Clear();
             AdminDashboard dashboard = this.ParentForm as AdminDashboard;
             dashboard.SelectedNurseID = 0;
             dashboard.RefreshTabs(sender, e);
