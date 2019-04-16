@@ -76,6 +76,7 @@
     <Compile Include="DAL\HealthcareDBConnection.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\HashingService.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
@@ -100,12 +101,6 @@
     </Compile>
     <Compile Include="UserControls\LogTestResultsUserControl.Designer.cs">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\MostTestsPerformedUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\MostTestsPerformedUserControl.Designer.cs">
-      <DependentUpon>MostTestsPerformedUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PaitentSearchSimple.cs">
       <SubType>UserControl</SubType>
@@ -189,9 +184,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogTestResultsUserControl.resx">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\MostTestsPerformedUserControl.resx">
-      <DependentUpon>MostTestsPerformedUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PaitentSearchSimple.resx">
       <DependentUpon>PaitentSearchSimple.cs</DependentUpon>
