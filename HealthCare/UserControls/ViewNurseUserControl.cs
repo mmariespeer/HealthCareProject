@@ -27,9 +27,12 @@ namespace HealthCare.UserControls
         private void addButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
-                 !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null)
+                 !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null || 
+                 (!this.activeRadioButton.Checked && !this.inactiveRadioButton.Checked)
+                 )
             {
-                MessageBox.Show("All fields must be filled in completely. SSN must be 9 digits, phone must be 10 digits, and zipcode must be 5 digits", "Invalid input format",
+                MessageBox.Show("All fields must be filled in completely. SSN must be 9 digits, phone must be 10 digits, and zipcode must be 5 digits." +
+                    " Nurse must be marked as either active or inactive", "Invalid input format",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -47,8 +50,16 @@ namespace HealthCare.UserControls
                     person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
                     person.DateOfBirth = this.DOBDateTimePicker.Value;
 
+                    string active = "";
+                   if (activeRadioButton.Checked)
+                    {
+                        active = "true";
+                    } else
+                    {
+                        active = "false";
+                    }
 
-                    if (this.healthController.addNurse(person))
+                    if (this.healthController.addNurse(person, active))
                     {
                         MessageBox.Show("New Nurse Added");
                         this.SetListView();
@@ -123,7 +134,6 @@ namespace HealthCare.UserControls
                     this.nurseListView.Items[i].SubItems.Add(nurse.LastName.ToString());
                     this.nurseListView.Items[i].SubItems.Add(nurse.FirstName.ToString());
                     this.nurseListView.Items[i].SubItems.Add(nurse.DateOfBirth.ToShortDateString());
-
                 }
                 this.nurseListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 this.nurseListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -158,6 +168,8 @@ namespace HealthCare.UserControls
             this.lastNameTextBox.Clear();
             this.firstNameTextBox.Clear();
             this.stateCodeComboBox.SelectedIndex = 0;
+            this.activeRadioButton.Checked = false;
+            this.inactiveRadioButton.Checked = false;
 
         }
 
@@ -187,9 +199,20 @@ namespace HealthCare.UserControls
                 int zipCode = Convert.ToInt32(this.zipTextBox.Text);
                 string phoneNumber = this.phoneTextBox.Text;
                 string ssn = this.ssnTextBox.Text;
+
+                string active = "";
+                if (activeRadioButton.Checked)
+                {
+                    active = "true";
+                }
+                else
+                {
+                    active = "false";
+                }
+
                 try
                 {
-                    this.healthController.UpdateNuse(this.currentPerson.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn);
+                    this.healthController.UpdateNurse(this.currentPerson.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn, active);
                     MessageBox.Show("Nurse has been updated");
                 }
                 catch (Exception ex)
@@ -225,6 +248,16 @@ namespace HealthCare.UserControls
                 this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.findStateNamebyCode(currentPerson.StateCode));
                 this.zipTextBox.Text = this.currentPerson.ZipCode.ToString();
                 this.DOBDateTimePicker.Value = this.currentPerson.DateOfBirth;
+
+                if (this.healthController.GetNurseStatus(this.nurseID) == 1)
+                {
+                    this.activeRadioButton.Checked = true;
+                }
+                else if (this.healthController.GetNurseStatus(this.nurseID) == 0)
+                {
+                    this.inactiveRadioButton.Checked = true;
+                }
+
             }
             catch (Exception ex)
             {

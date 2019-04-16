@@ -13,7 +13,7 @@ namespace HealthCare.DAL
         /// add a new nurse 
         /// </summary>
         /// <param name="person"></param>
-        public Boolean addNurse(Person person)
+        public Boolean addNurse(Person person, String active)
         {
             Boolean success = false;
 
@@ -41,8 +41,13 @@ namespace HealthCare.DAL
 
                     insertCommand = new SqlCommand("INSERT nurse (personID) VALUES ((SELECT IDENT_CURRENT('person')))", connection, transaction);
                     insertCommand.ExecuteNonQuery();
+
+
+                    SqlCommand updateCommand = new SqlCommand("UPDATE nurse SET active_status = @active WHERE nurseID = (SELECT IDENT_CURRENT('nurse'))", connection, transaction);
+                    updateCommand.Parameters.AddWithValue("@active", active);
+                    updateCommand.ExecuteNonQuery();
                     transaction.Commit();
-                    
+
                     success = true;
                 }
                 catch
@@ -68,7 +73,7 @@ namespace HealthCare.DAL
         /// <param name="phone"></param>
         /// <param name="ssn"></param>
         public void UpdateNurse(int personID, string lName, string fName, DateTime dob, string streetAddress,
-            string city, string state, int zipCode, string phoneNumber, string ssn)
+            string city, string state, int zipCode, string phoneNumber, string ssn, string active)
         {
             string updateStatement = "UPDATE person " +
                                      "SET firstName = @fName, lastName = @lName, dateOfBirth = @dob, " +
@@ -78,8 +83,11 @@ namespace HealthCare.DAL
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
-                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                try
                 {
+                    SqlCommand updateCommand = new SqlCommand(updateStatement, connection, transaction);
                     updateCommand.Parameters.AddWithValue("@pID", personID);
                     updateCommand.Parameters.AddWithValue("@lName", lName);
                     updateCommand.Parameters.AddWithValue("@fName", fName);
@@ -90,8 +98,22 @@ namespace HealthCare.DAL
                     updateCommand.Parameters.AddWithValue("@zip", zipCode);
                     updateCommand.Parameters.AddWithValue("@phoneNumber", phoneNumber);
                     updateCommand.Parameters.AddWithValue("@ssn", ssn);
+
                     updateCommand.ExecuteNonQuery();
+
+                    updateCommand = new SqlCommand("UPDATE nurse SET active_status = @active WHERE personID = @pID", connection, transaction);
+                    updateCommand.Parameters.AddWithValue("@active", active);
+                    updateCommand.Parameters.AddWithValue("@pID", personID);
+                    updateCommand.ExecuteNonQuery();
+
+
+                    transaction.Commit();
                 }
+                catch
+                {
+                    transaction.Rollback();
+                }
+
             }
         }
 
@@ -128,8 +150,23 @@ namespace HealthCare.DAL
                 }
             }
             return nurseList;
+        }
 
+        public int GetNurseStatus(int nurseID)
+        {
+            int active = 0;
 
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("SELECT active_status FROM nurse where nurseID = @id", connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@id", nurseID);
+                    active = Convert.ToInt32(selectCommand.ExecuteScalar());
+                }
+            }
+
+            return active;
         }
     }
 }
