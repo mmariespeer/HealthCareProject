@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace HealthCare.DAL
 {
+    //The test data access layer
     class TestDAL
     {
-
+        /// <summary>
+        /// Get specific test's assigned to a visit
+        /// </summary>
+        /// <param name="visitId">as an integer</param>
+        /// <returns>a list of tests</returns>
         public List<Test> GetTestsByVisitId(int visitId)
         {
             List<Test> testList = new List<Test>();
@@ -49,6 +54,14 @@ namespace HealthCare.DAL
             return testList;
         }
 
+        /// <summary>
+        /// Update an existing test
+        /// </summary>
+        /// <param name="visitID">visitid as an integer</param>
+        /// <param name="testCode">the test code as string</param>
+        /// <param name="result">as string</param>
+        /// <param name="normal">as bool</param>
+
         public void UpdateTestResult(int visitID, string testCode, string result, bool normal)
         {
             string updateStatement = "UPDATE testResult SET results = @result, normal = @normal WHERE visitID = @visitID AND testCode = @testCode;";
@@ -73,6 +86,10 @@ namespace HealthCare.DAL
             }
         }
 
+        /// <summary>
+        /// Get all available tests
+        /// </summary>
+        /// <returns>A list of all available tests</returns>
         public List<Test> GetAllTests()
         {
             List<Test> testList = new List<Test>();
@@ -103,6 +120,10 @@ namespace HealthCare.DAL
             return testList;
         }
 
+        /// <summary>
+        /// Insert a new test into the test result table indicating it has been ordered
+        /// </summary>
+        /// <param name="testToOrder"> the test to be ordered</param>
         public void OrderTest(Test testToOrder)
         {
             string insertStatement = "INSERT INTO testResult(visitID,testCode,testDate,results,normal)VALUES(@visitID,@testCode,@testDate,@results,@normal);";
