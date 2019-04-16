@@ -240,7 +240,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\HealthCare.exe" />
     <Content Include="bin\Debug\HealthCare.pdb" />
-    <Content Include="DB\cs6232_g2_script.sql" />
+    <Content Include="DB\cs6232_g2_iteration2_script.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
