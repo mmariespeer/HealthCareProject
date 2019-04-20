@@ -18,6 +18,7 @@ namespace HealthCare.UserControls
         private DateTime time;
         private DataTable selectedTime;
         private int patientID;
+        List<Person> doctorNames;
 
         /// <summary>
         /// Initalizes appointment user control
@@ -41,12 +42,12 @@ namespace HealthCare.UserControls
             {
                 List<Doctor> doctorForAppointments = healthcareController.GetDoctors();
 
-                List<Person> doctorNames = new List<Person>();
+                this.doctorNames = new List<Person>();
                 foreach (Doctor doc in doctorForAppointments)
                 {
-                    doctorNames.Add(this.healthcareController.GetPeronById(doc.PersonID));
+                    this.doctorNames.Add(this.healthcareController.GetPeronById(doc.PersonID));
                 }
-                doctorComboBox.DataSource = doctorNames;
+                doctorComboBox.DataSource = this.doctorNames;
                 doctorComboBox.DisplayMember = "FullName";
                 doctorComboBox.ValueMember = "personID";
             }
@@ -158,10 +159,12 @@ namespace HealthCare.UserControls
         /// </summary>
         private void LoadAppointmentGridView()
         {
-            List<Appointment> appointments = new List<Appointment>();
+            DataTable dt = new DataTable();
+            //List<Appointment> appointment = new Appointment();
+            //appointment = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
             appointmentGridView.DataBindings.Clear();
-            appointments = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
-            appointmentGridView.DataSource = appointments;
+            dt = this.healthcareController.GetAppointmentsAndDoctorByPatientID(this.patientID);
+            appointmentGridView.DataSource = dt ;
         }
 
         /// <summary>

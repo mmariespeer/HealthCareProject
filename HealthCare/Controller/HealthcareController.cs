@@ -95,6 +95,11 @@ namespace HealthCare.Controller
             return appointmentDAL.GetAppointmentsByPatientID(patientID);
         }
 
+        public DataTable GetAppointmentsAndDoctorByPatientID(int patientID)
+        {
+            return appointmentDAL.GetAppointmentsAndDoctorByPatientID(patientID);
+        }
+
         /// <summary>
         /// Checks if the doctor already has an appointment scheduled at that time.
         /// </summary>

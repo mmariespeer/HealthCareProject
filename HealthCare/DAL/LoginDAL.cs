@@ -28,11 +28,6 @@ namespace HealthCare.DAL
                 SqlCommand sc = new SqlCommand(selectStatement, connection);
                 sc.Parameters.AddWithValue("@username", username);
                 sc.Parameters.AddWithValue("@password", hashing.PasswordHashing(password));
-
-                //SqlParameter passwordParam = new SqlParameter("password", SqlDbType.VarChar, 50);
-                //passwordParam.Value = password;
-                //sc.Parameters.Add(passwordParam);
-
                 SqlDataReader reader = sc.ExecuteReader();
 
 

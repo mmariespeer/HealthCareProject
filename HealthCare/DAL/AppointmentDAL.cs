@@ -2,6 +2,7 @@
 using HealthCare.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace HealthCare.DAL
@@ -71,12 +72,41 @@ namespace HealthCare.DAL
                             appointment.ReasonForVisit = (string)reader["reasonForVisit"];
 
                             appointments.Add(appointment);
-                        }
-                        
+                        } 
                     }
                 }
             }
             return appointments;
+        }
+
+        /// <summary>
+        /// Gets an appointment with the doctor displayed and returns a datatable.
+        /// </summary>
+        /// <param name="patientID"></param>
+        /// <returns></returns>
+        public DataTable GetAppointmentsAndDoctorByPatientID(int patientID)
+        {
+           
+            DataTable dataTable = new DataTable();
+            string selectStatement =
+                "SELECT appointmentID AS AppointmentID, patientID AS PatientID, person.lastName AS Doctor,  dateTime AS 'Appointment Time', reasonForVisit AS Reason " +
+                "FROM Appointment " +
+                "JOIN Doctor ON Doctor.doctorID = appointment.doctorID " +
+                "JOIN Person ON Person.personID = Doctor.personID " +
+                "WHERE patientID = @patientID " +
+                "ORDER BY dateTime";
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@patientID", patientID);
+                    dataTable.Load(selectCommand.ExecuteReader());
+                   
+                }
+            }
+            return dataTable;
         }
     }
 }
