@@ -224,6 +224,7 @@ namespace HealthCare.UserControls
                 {
                     this.healthController.UpdateNurse(this.currentPerson.PersonID, lName, fName, dob, streetAddress, city, state, zipCode, phoneNumber, ssn, active);
                     MessageBox.Show("Nurse has been updated");
+                    this.SetListView();
                 }
                 catch (Exception ex)
                 {
