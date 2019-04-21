@@ -337,5 +337,10 @@ namespace HealthCare.Controller
         {
             return this.nurseDAL.GetNurseStatus(nurseID);
         }
+
+        public void AddLogin(Login login)
+        {
+            this.loginDAL.AddLogin(login);
+        }
     }
 }

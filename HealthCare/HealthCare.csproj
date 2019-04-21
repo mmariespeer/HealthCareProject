@@ -77,6 +77,7 @@
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\HashingService.cs" />
+    <Compile Include="Model\Login.cs" />
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="UserControls\LogTestResultsUserControl.Designer.cs">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NewLoginUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\NewLoginUserControl.Designer.cs">
+      <DependentUpon>NewLoginUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\PaitentSearchSimple.cs">
       <SubType>UserControl</SubType>
@@ -157,6 +164,12 @@
     <Compile Include="View\NurseDashboard.Designer.cs">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UsernameCreationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UsernameCreationForm.Designer.cs">
+      <DependentUpon>UsernameCreationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="_cs6232_g2DataSet.cs">
       <DependentUpon>_cs6232_g2DataSet.xsd</DependentUpon>
     </Compile>
@@ -182,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogTestResultsUserControl.resx">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\NewLoginUserControl.resx">
+      <DependentUpon>NewLoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PaitentSearchSimple.resx">
       <DependentUpon>PaitentSearchSimple.cs</DependentUpon>
@@ -209,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NurseDashboard.resx">
       <DependentUpon>NurseDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UsernameCreationForm.resx">
+      <DependentUpon>UsernameCreationForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\HealthCare.exe.config" />
     <None Include="obj\Release\HealthCare.csproj.CoreCompileInputs.cache" />

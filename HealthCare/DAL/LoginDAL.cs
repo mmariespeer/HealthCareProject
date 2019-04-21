@@ -79,7 +79,23 @@ namespace HealthCare.DAL
             }
         }
 
+        public void AddLogin(Login login)
+        {
+            SqlConnection connection = HealthcareDBConnection.GetConnection();
+            string insertStatement =
+                "INSERT Login " +
+                  "(personID, userName, password) " +
+                "VALUES (@personID, @userName, @password)";
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            insertCommand.Parameters.AddWithValue("@personID", login.PersonID);
+            insertCommand.Parameters.AddWithValue("@userName", login.UserName);
+            insertCommand.Parameters.AddWithValue("@password", login.Password);
 
+            connection.Open();
+            insertCommand.ExecuteNonQuery();
+            string selectStatement = "SELECT IDENT_CURRENT('Login') FROM Login";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+        }
 
     }
 }

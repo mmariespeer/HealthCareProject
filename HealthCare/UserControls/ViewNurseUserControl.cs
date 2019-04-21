@@ -13,7 +13,8 @@ namespace HealthCare.UserControls
         private List<State> stateList;
         private Person currentPerson;
         private int nurseID;
-
+        private UsernameCreationForm addUsername;
+        public static int personID;
 
         public ViewNurseUserControl()
         {
@@ -61,9 +62,16 @@ namespace HealthCare.UserControls
 
                     if (this.healthController.addNurse(person, active))
                     {
-                        MessageBox.Show("New Nurse Added");
+                        
+                        personID = person.PersonID;
+                        MessageBox.Show("New Nurse Added! Please create their username and password.");
                         this.SetListView();
-                    } else
+                        int nurseID = int.Parse(nurseListView.Items[(nurseListView.Items.Count - 1)].Text);
+                        Person latest = this.healthController.GetPersonByNurseID(nurseID);
+                        this.addUsername = new UsernameCreationForm(latest.PersonID, this);
+                        this.addUsername.ShowDialog();
+                    }
+                    else
                     {
                         MessageBox.Show("Duplicate SSN is not allowed");
                     }
@@ -118,14 +126,12 @@ namespace HealthCare.UserControls
 
         }
 
-        private void SetListView()
+        private List<Nurse> SetListView()
         {
             this.nurseListView.Items.Clear();
-
+            List<Nurse> nurseList = this.healthController.GetAllNurses();
             try
             {
-                List<Nurse> nurseList = this.healthController.GetAllNurses();
-
                 Nurse nurse;
                 for (int i = 0; i < nurseList.Count; i++)
                 {
@@ -139,12 +145,14 @@ namespace HealthCare.UserControls
                 this.nurseListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
                 this.nurseListView.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
                 this.nurseListView.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+                return nurseList;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            return nurseList;
         }
 
         private void clear_Button_Click(object sender, EventArgs e)
