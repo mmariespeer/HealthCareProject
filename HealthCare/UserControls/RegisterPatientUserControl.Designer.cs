@@ -62,7 +62,7 @@
             this.phoneTextBox.Mask = "000-000-0000";
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(260, 38);
-            this.phoneTextBox.TabIndex = 71;
+            this.phoneTextBox.TabIndex = 5;
             // 
             // ssnTextBox
             // 
@@ -71,7 +71,7 @@
             this.ssnTextBox.Mask = "000-00-0000";
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(260, 38);
-            this.ssnTextBox.TabIndex = 70;
+            this.ssnTextBox.TabIndex = 6;
             // 
             // DOBDateTimePicker
             // 
@@ -79,7 +79,7 @@
             this.DOBDateTimePicker.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.DOBDateTimePicker.Name = "DOBDateTimePicker";
             this.DOBDateTimePicker.Size = new System.Drawing.Size(580, 38);
-            this.DOBDateTimePicker.TabIndex = 69;
+            this.DOBDateTimePicker.TabIndex = 3;
             // 
             // DOBLabel
             // 
@@ -97,7 +97,7 @@
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(260, 38);
-            this.cityTextBox.TabIndex = 67;
+            this.cityTextBox.TabIndex = 8;
             // 
             // addressLabel
             // 
@@ -115,7 +115,7 @@
             this.addressTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(260, 38);
-            this.addressTextBox.TabIndex = 65;
+            this.addressTextBox.TabIndex = 7;
             // 
             // cityLabel
             // 
@@ -154,7 +154,7 @@
             this.stateCodeComboBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.stateCodeComboBox.Name = "stateCodeComboBox";
             this.stateCodeComboBox.Size = new System.Drawing.Size(319, 39);
-            this.stateCodeComboBox.TabIndex = 59;
+            this.stateCodeComboBox.TabIndex = 4;
             // 
             // ssnLabel
             // 
@@ -182,7 +182,7 @@
             this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(260, 38);
-            this.lastNameTextBox.TabIndex = 55;
+            this.lastNameTextBox.TabIndex = 2;
             // 
             // firstNameLabel
             // 
@@ -200,7 +200,7 @@
             this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(260, 38);
-            this.firstNameTextBox.TabIndex = 53;
+            this.firstNameTextBox.TabIndex = 1;
             // 
             // lastNameLabel
             // 
@@ -218,7 +218,7 @@
             this.registerButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(227, 79);
-            this.registerButton.TabIndex = 51;
+            this.registerButton.TabIndex = 10;
             this.registerButton.Text = "Register";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.RegisterButton_Click);
@@ -229,7 +229,7 @@
             this.deleteButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(200, 79);
-            this.deleteButton.TabIndex = 50;
+            this.deleteButton.TabIndex = 13;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
@@ -239,7 +239,7 @@
             this.updateButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(200, 79);
-            this.updateButton.TabIndex = 49;
+            this.updateButton.TabIndex = 11;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
@@ -250,7 +250,7 @@
             this.clearButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(200, 79);
-            this.clearButton.TabIndex = 48;
+            this.clearButton.TabIndex = 12;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
@@ -262,7 +262,7 @@
             this.zipTextBox.Mask = "00000";
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(153, 38);
-            this.zipTextBox.TabIndex = 74;
+            this.zipTextBox.TabIndex = 9;
             this.zipTextBox.ValidatingType = typeof(int);
             // 
             // stateBindingSource
