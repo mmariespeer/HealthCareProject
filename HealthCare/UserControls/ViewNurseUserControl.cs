@@ -179,6 +179,7 @@ namespace HealthCare.UserControls
             this.stateCodeComboBox.SelectedIndex = 0;
             this.activeRadioButton.Checked = false;
             this.inactiveRadioButton.Checked = false;
+            this.DOBDateTimePicker.Value = DateTime.Now;
 
         }
 
