@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HealthCare.Model;
 using HealthCare.View;
@@ -27,23 +20,41 @@ namespace HealthCare.UserControls
 
         private void createUserButton_Click(object sender, EventArgs e)
         {
+           
+            try
+            {
+                if (this.passwordTextBox.Text == this.confirmPasswordTextBox.Text)
+                {
+                    Login login = new Login();
+                    login.UserName = this.usernameTextBox.Text;
+                    login.Password = hashing.PasswordHashing(this.passwordTextBox.Text);
+                    var parent = this.ParentForm as UsernameCreationForm;
+                    login.PersonID = parent.PersonID;
+                    if (this.usernameTextBox.Text == "" || this.usernameTextBox.Text == null || this.usernameTextBox.Text.Length < 4)
+                    {
+                        MessageBox.Show("Username must not be null or blank. Username must be greater than 4 characters");
+                        return;
+                    }
+                    if (this.passwordTextBox.Text == " " || this.passwordTextBox.Text == null || this.passwordTextBox.Text.Length < 6)
+                    {
+                        MessageBox.Show("Password must not be null or blank. Password must be at least 6 characters.");
+                        return;
+                    }
 
-            if (this.passwordTextBox.Text == this.confirmPasswordTextBox.Text)
+                    healthcareController.AddLogin(login);
+                    MessageBox.Show("Username and password created successfully!");
+                    parent.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Passwords must match.");
+                    return;
+                }
+            } catch
             {
-                Login login = new Login();
-                login.UserName = this.usernameTextBox.Text;
-                login.Password = hashing.PasswordHashing(this.passwordTextBox.Text);
-                var parent = this.ParentForm as UsernameCreationForm;
-                login.PersonID = parent.PersonID;
-                healthcareController.AddLogin(login);
-                parent.Close();
-                MessageBox.Show("Username and password created successfully!");
+                MessageBox.Show("Username could not be created.");
             }
-            else
-            {
-                MessageBox.Show("Passwords must match.");
-                return;
-            }
+
         }
     }
 }

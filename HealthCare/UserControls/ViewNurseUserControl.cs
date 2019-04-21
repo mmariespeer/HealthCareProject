@@ -70,6 +70,8 @@ namespace HealthCare.UserControls
                         Person latest = this.healthController.GetPersonByNurseID(nurseID);
                         this.addUsername = new UsernameCreationForm(latest.PersonID, this);
                         this.addUsername.ShowDialog();
+                        this.addButton.Enabled = false;
+                        this.updateButton.Enabled = true;
                     }
                     else
                     {
