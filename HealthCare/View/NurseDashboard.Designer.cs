@@ -77,12 +77,11 @@
             // 
             // addAppointmentUserControl1
             // 
-            this.addAppointmentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addAppointmentUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addAppointmentUserControl1.Location = new System.Drawing.Point(3, 3);
+            this.addAppointmentUserControl1.Location = new System.Drawing.Point(26, 19);
             this.addAppointmentUserControl1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.addAppointmentUserControl1.Name = "addAppointmentUserControl1";
-            this.addAppointmentUserControl1.Size = new System.Drawing.Size(682, 546);
+            this.addAppointmentUserControl1.Size = new System.Drawing.Size(657, 546);
             this.addAppointmentUserControl1.TabIndex = 0;
             // 
             // patientTabPage

@@ -107,7 +107,7 @@
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Location = new System.Drawing.Point(257, 431);
+            this.createAppointmentButton.Location = new System.Drawing.Point(232, 424);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(141, 33);
@@ -149,7 +149,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(273, 12);
+            this.label1.Location = new System.Drawing.Point(248, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 13);
@@ -172,7 +172,7 @@
             // scheduleNewAppointmentLabel
             // 
             this.scheduleNewAppointmentLabel.AutoSize = true;
-            this.scheduleNewAppointmentLabel.Location = new System.Drawing.Point(260, 219);
+            this.scheduleNewAppointmentLabel.Location = new System.Drawing.Point(234, 220);
             this.scheduleNewAppointmentLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.scheduleNewAppointmentLabel.Name = "scheduleNewAppointmentLabel";
             this.scheduleNewAppointmentLabel.Size = new System.Drawing.Size(139, 13);
