@@ -58,6 +58,34 @@ namespace HealthCare.UserControls
         }
 
         /// <summary>
+        /// Populates the listview of the selected doctors specialites
+        /// </summary>
+        private void PopulateDoctorSpecialities()
+        {
+            if(doctorComboBox.ValueMember.ToString() == "" || doctorComboBox.ValueMember.ToString() == null)
+            {
+                return;
+            }
+            int personID = Int32.Parse(doctorComboBox.SelectedValue.ToString());
+            int doctorID = this.healthcareController.GetDoctorByPersonID(personID).DoctorID;
+            
+            List<Specialty> specialties = new List<Specialty>();
+            specialties = this.healthcareController.GetSpecialtiesByDoctorID(doctorID);
+
+            this.specialtyListView.Items.Clear();
+
+            if (specialties.Count > 0)
+            {
+                Specialty specialty;
+                for (int i = 0; i < specialties.Count; i++)
+                {
+                   specialty = specialties[i];
+                   this.specialtyListView.Items.Add(specialty.SpecialityName.ToString());
+                }
+            }
+        }
+
+        /// <summary>
         /// Creates a combobox of times between 9:00am and 4:30pm for a nurse to use in scheduling
         /// </summary>
         private void LoadTimesComboBox()
@@ -188,6 +216,7 @@ namespace HealthCare.UserControls
                     this.doctorComboBox.Enabled = true;
                     this.appointmentDateTimePicker.Enabled = true;
                     this.appointmentTimeComboBox.Enabled = true;
+                    this.specialtyListView.Enabled = true;
                 }
                 else
                 {
@@ -196,12 +225,18 @@ namespace HealthCare.UserControls
                     this.doctorComboBox.Enabled = false;
                     this.appointmentDateTimePicker.Enabled = false;
                     this.appointmentTimeComboBox.Enabled = false;
+                    this.specialtyListView.Enabled = false;
                 }
             }
             catch (Exception ex)
             {
                 // MessageBox.Show(ex.Message);
             }
+        }
+
+        private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.PopulateDoctorSpecialities();
         }
     }
 }

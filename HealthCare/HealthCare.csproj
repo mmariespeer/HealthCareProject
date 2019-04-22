@@ -71,6 +71,7 @@
     <Compile Include="DAL\NurseDAL.cs" />
     <Compile Include="DAL\PatientDAL.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\SpecialityDAL.cs" />
     <Compile Include="DAL\TestDAL.cs" />
     <Compile Include="DAL\VisitDAL.cs" />
     <Compile Include="DAL\HealthcareDBConnection.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Model\Nurse.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\Specialty.cs" />
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Visit.cs" />

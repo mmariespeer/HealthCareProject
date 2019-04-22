@@ -19,6 +19,7 @@ namespace HealthCare.Controller
         private PatientDAL patientDAL;
         private NurseDAL nurseDAL;
         private TestDAL testDAL;
+        private SpecialityDAL specialtyDAL;
 
         /// <summary>
         /// Initalizes DAL objects
@@ -33,6 +34,7 @@ namespace HealthCare.Controller
             patientDAL = new PatientDAL();
             nurseDAL = new NurseDAL();
             testDAL = new TestDAL();
+            specialtyDAL = new SpecialityDAL();
         }
 
         /// <summary>
@@ -338,9 +340,24 @@ namespace HealthCare.Controller
             return this.nurseDAL.GetNurseStatus(nurseID);
         }
 
+        /// <summary>
+        /// Adds a login to a new nurse
+        /// </summary>
+        /// <param name="login"></param>
         public void AddLogin(Login login)
         {
             this.loginDAL.AddLogin(login);
         }
+
+        /// <summary>
+        /// Gets a list of doctors specialty(s)
+        /// </summary>
+        /// <param name="doctorID"></param>
+        /// <returns></returns>
+        public List<Specialty> GetSpecialtiesByDoctorID(int doctorID)
+        {
+            return this.specialtyDAL.GetSpecialtyByDoctorID(doctorID);
+        }
+   
     }
 }
