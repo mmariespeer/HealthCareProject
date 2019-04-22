@@ -30,49 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.cs6232g2DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this._cs6232_g2DataSet = new HealthCare._cs6232_g2DataSet();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoutLinkDashboard = new System.Windows.Forms.LinkLabel();
             this.adminTabControl = new System.Windows.Forms.TabControl();
+            this.viewNurseTabPage = new System.Windows.Forms.TabPage();
+            this.viewNurseUserControl2 = new HealthCare.UserControls.ViewNurseUserControl();
             this.reportTabPage = new System.Windows.Forms.TabPage();
+            this.instructionsLabel = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.endDate = new System.Windows.Forms.DateTimePicker();
+            this.startDate = new System.Windows.Forms.DateTimePicker();
             this.generateReportButton = new System.Windows.Forms.Button();
             this.toLabel = new System.Windows.Forms.Label();
             this.fromLabel = new System.Windows.Forms.Label();
-            this.toTextBox = new System.Windows.Forms.TextBox();
-            this.fromTextBox = new System.Windows.Forms.TextBox();
-            this.viewNurseTabPage = new System.Windows.Forms.TabPage();
-            this.viewNurseUserControl2 = new HealthCare.UserControls.ViewNurseUserControl();
-            this.MostPerformedTestDuringDatesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cs6232g2DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mostPerformedTestDuringDatesTableAdapter1 = new HealthCare._cs6232_g2DataSetTableAdapters.MostPerformedTestDuringDatesTableAdapter();
-            this.mostPerformedTestDuringDatesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.cs6232g2DataSetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g2DataSet)).BeginInit();
+            this.mostperformed = new HealthCare.mostperformed();
+            this.spMostPerformedTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spMostPerformedTestsTableAdapter = new HealthCare.mostperformedTableAdapters.spMostPerformedTestsTableAdapter();
             this.adminTabControl.SuspendLayout();
-            this.reportTabPage.SuspendLayout();
             this.viewNurseTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MostPerformedTestDuringDatesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cs6232g2DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostPerformedTestDuringDatesBindingSource1)).BeginInit();
+            this.reportTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cs6232g2DataSetBindingSource1
-            // 
-            this.cs6232g2DataSetBindingSource1.DataSource = this._cs6232_g2DataSet;
-            this.cs6232g2DataSetBindingSource1.Position = 0;
-            // 
-            // _cs6232_g2DataSet
-            // 
-            this._cs6232_g2DataSet.DataSetName = "_cs6232_g2DataSet";
-            this._cs6232_g2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(648, 24);
+            this.nameLabel.Location = new System.Drawing.Point(961, 24);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 6;
@@ -81,7 +65,7 @@
             // logoutLinkDashboard
             // 
             this.logoutLinkDashboard.AutoSize = true;
-            this.logoutLinkDashboard.Location = new System.Drawing.Point(748, 24);
+            this.logoutLinkDashboard.Location = new System.Drawing.Point(1061, 24);
             this.logoutLinkDashboard.Name = "logoutLinkDashboard";
             this.logoutLinkDashboard.Size = new System.Drawing.Size(36, 13);
             this.logoutLinkDashboard.TabIndex = 5;
@@ -99,77 +83,6 @@
             this.adminTabControl.SelectedIndex = 0;
             this.adminTabControl.Size = new System.Drawing.Size(1092, 722);
             this.adminTabControl.TabIndex = 7;
-            // 
-            // reportTabPage
-            // 
-            this.reportTabPage.Controls.Add(this.label1);
-            this.reportTabPage.Controls.Add(this.reportViewer1);
-            this.reportTabPage.Controls.Add(this.generateReportButton);
-            this.reportTabPage.Controls.Add(this.toLabel);
-            this.reportTabPage.Controls.Add(this.fromLabel);
-            this.reportTabPage.Controls.Add(this.toTextBox);
-            this.reportTabPage.Controls.Add(this.fromTextBox);
-            this.reportTabPage.Location = new System.Drawing.Point(4, 29);
-            this.reportTabPage.Name = "reportTabPage";
-            this.reportTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.reportTabPage.Size = new System.Drawing.Size(1084, 689);
-            this.reportTabPage.TabIndex = 0;
-            this.reportTabPage.Text = "Generate Test Report";
-            this.reportTabPage.UseVisualStyleBackColor = true;
-            // 
-            // reportViewer1
-            // 
-            reportDataSource1.Name = "MostPerformedTests";
-            reportDataSource1.Value = this.cs6232g2DataSetBindingSource1;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(19, 104);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1043, 566);
-            this.reportViewer1.TabIndex = 6;
-            // 
-            // generateReportButton
-            // 
-            this.generateReportButton.Location = new System.Drawing.Point(534, 15);
-            this.generateReportButton.Name = "generateReportButton";
-            this.generateReportButton.Size = new System.Drawing.Size(167, 38);
-            this.generateReportButton.TabIndex = 5;
-            this.generateReportButton.Text = "Generate Report";
-            this.generateReportButton.UseVisualStyleBackColor = true;
-            this.generateReportButton.Click += new System.EventHandler(this.generateReportButton_Click);
-            // 
-            // toLabel
-            // 
-            this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(355, 21);
-            this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(39, 20);
-            this.toLabel.TabIndex = 4;
-            this.toLabel.Text = "To : ";
-            // 
-            // fromLabel
-            // 
-            this.fromLabel.AutoSize = true;
-            this.fromLabel.Location = new System.Drawing.Point(125, 27);
-            this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(58, 20);
-            this.fromLabel.TabIndex = 3;
-            this.fromLabel.Text = "From : ";
-            // 
-            // toTextBox
-            // 
-            this.toTextBox.Location = new System.Drawing.Point(400, 21);
-            this.toTextBox.Name = "toTextBox";
-            this.toTextBox.Size = new System.Drawing.Size(100, 26);
-            this.toTextBox.TabIndex = 2;
-            // 
-            // fromTextBox
-            // 
-            this.fromTextBox.Location = new System.Drawing.Point(189, 21);
-            this.fromTextBox.Name = "fromTextBox";
-            this.fromTextBox.Size = new System.Drawing.Size(100, 26);
-            this.fromTextBox.TabIndex = 1;
             // 
             // viewNurseTabPage
             // 
@@ -191,40 +104,107 @@
             this.viewNurseUserControl2.Size = new System.Drawing.Size(1078, 683);
             this.viewNurseUserControl2.TabIndex = 0;
             // 
-            // MostPerformedTestDuringDatesBindingSource
+            // reportTabPage
             // 
-            this.MostPerformedTestDuringDatesBindingSource.DataMember = "MostPerformedTestDuringDates";
-            this.MostPerformedTestDuringDatesBindingSource.DataSource = this._cs6232_g2DataSet;
+            this.reportTabPage.Controls.Add(this.instructionsLabel);
+            this.reportTabPage.Controls.Add(this.reportViewer1);
+            this.reportTabPage.Controls.Add(this.endDate);
+            this.reportTabPage.Controls.Add(this.startDate);
+            this.reportTabPage.Controls.Add(this.generateReportButton);
+            this.reportTabPage.Controls.Add(this.toLabel);
+            this.reportTabPage.Controls.Add(this.fromLabel);
+            this.reportTabPage.Location = new System.Drawing.Point(4, 29);
+            this.reportTabPage.Name = "reportTabPage";
+            this.reportTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.reportTabPage.Size = new System.Drawing.Size(1084, 689);
+            this.reportTabPage.TabIndex = 0;
+            this.reportTabPage.Text = "Generate Test Report";
+            this.reportTabPage.UseVisualStyleBackColor = true;
             // 
-            // cs6232g2DataSetBindingSource
+            // instructionsLabel
             // 
-            this.cs6232g2DataSetBindingSource.DataSource = this._cs6232_g2DataSet;
-            this.cs6232g2DataSetBindingSource.Position = 0;
+            this.instructionsLabel.AutoSize = true;
+            this.instructionsLabel.Location = new System.Drawing.Point(301, 16);
+            this.instructionsLabel.Name = "instructionsLabel";
+            this.instructionsLabel.Size = new System.Drawing.Size(401, 20);
+            this.instructionsLabel.TabIndex = 9;
+            this.instructionsLabel.Text = "Enter dates in which you would like to search results for.";
             // 
-            // mostPerformedTestDuringDatesTableAdapter1
+            // reportViewer1
             // 
-            this.mostPerformedTestDuringDatesTableAdapter1.ClearBeforeFill = true;
+            reportDataSource1.Name = "MostPerformed";
+            reportDataSource1.Value = this.spMostPerformedTestsBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.MostPerformedTests.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(6, 98);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(1072, 552);
+            this.reportViewer1.TabIndex = 8;
             // 
-            // mostPerformedTestDuringDatesBindingSource1
+            // endDate
             // 
-            this.mostPerformedTestDuringDatesBindingSource1.DataMember = "MostPerformedTestDuringDates";
-            this.mostPerformedTestDuringDatesBindingSource1.DataSource = this.cs6232g2DataSetBindingSource;
+            this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endDate.Location = new System.Drawing.Point(491, 58);
+            this.endDate.Name = "endDate";
+            this.endDate.Size = new System.Drawing.Size(112, 26);
+            this.endDate.TabIndex = 7;
             // 
-            // label1
+            // startDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(224, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 29);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Coming soon (final iteration) ...";
+            this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startDate.Location = new System.Drawing.Point(305, 58);
+            this.startDate.Name = "startDate";
+            this.startDate.Size = new System.Drawing.Size(115, 26);
+            this.startDate.TabIndex = 6;
+            // 
+            // generateReportButton
+            // 
+            this.generateReportButton.Location = new System.Drawing.Point(619, 54);
+            this.generateReportButton.Name = "generateReportButton";
+            this.generateReportButton.Size = new System.Drawing.Size(167, 38);
+            this.generateReportButton.TabIndex = 5;
+            this.generateReportButton.Text = "Generate Report";
+            this.generateReportButton.UseVisualStyleBackColor = true;
+            this.generateReportButton.Click += new System.EventHandler(this.generateReportButton_Click);
+            // 
+            // toLabel
+            // 
+            this.toLabel.AutoSize = true;
+            this.toLabel.Location = new System.Drawing.Point(446, 63);
+            this.toLabel.Name = "toLabel";
+            this.toLabel.Size = new System.Drawing.Size(39, 20);
+            this.toLabel.TabIndex = 4;
+            this.toLabel.Text = "To : ";
+            // 
+            // fromLabel
+            // 
+            this.fromLabel.AutoSize = true;
+            this.fromLabel.Location = new System.Drawing.Point(241, 63);
+            this.fromLabel.Name = "fromLabel";
+            this.fromLabel.Size = new System.Drawing.Size(58, 20);
+            this.fromLabel.TabIndex = 3;
+            this.fromLabel.Text = "From : ";
+            // 
+            // mostperformed
+            // 
+            this.mostperformed.DataSetName = "mostperformed";
+            this.mostperformed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spMostPerformedTestsBindingSource
+            // 
+            this.spMostPerformedTestsBindingSource.DataMember = "spMostPerformedTests";
+            this.spMostPerformedTestsBindingSource.DataSource = this.mostperformed;
+            // 
+            // spMostPerformedTestsTableAdapter
+            // 
+            this.spMostPerformedTestsTableAdapter.ClearBeforeFill = true;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 761);
+            this.ClientSize = new System.Drawing.Size(1120, 731);
             this.Controls.Add(this.adminTabControl);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.logoutLinkDashboard);
@@ -233,15 +213,12 @@
             this.Text = "Admin Dashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminDashboard_FormClosing);
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.cs6232g2DataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g2DataSet)).EndInit();
             this.adminTabControl.ResumeLayout(false);
+            this.viewNurseTabPage.ResumeLayout(false);
             this.reportTabPage.ResumeLayout(false);
             this.reportTabPage.PerformLayout();
-            this.viewNurseTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MostPerformedTestDuringDatesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cs6232g2DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostPerformedTestDuringDatesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,19 +232,16 @@
         private System.Windows.Forms.TabPage reportTabPage;
         private System.Windows.Forms.TabPage viewNurseTabPage;
         private UserControls.ViewNurseUserControl viewNurseUserControl1;
-        private System.Windows.Forms.BindingSource cs6232g2DataSetBindingSource;
-        private _cs6232_g2DataSet _cs6232_g2DataSet;
-        private System.Windows.Forms.BindingSource MostPerformedTestDuringDatesBindingSource;
         private UserControls.ViewNurseUserControl viewNurseUserControl2;
         private System.Windows.Forms.Button generateReportButton;
         private System.Windows.Forms.Label toLabel;
         private System.Windows.Forms.Label fromLabel;
-        private System.Windows.Forms.TextBox toTextBox;
-        private System.Windows.Forms.TextBox fromTextBox;
-        private _cs6232_g2DataSetTableAdapters.MostPerformedTestDuringDatesTableAdapter mostPerformedTestDuringDatesTableAdapter1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource mostPerformedTestDuringDatesBindingSource1;
-        private System.Windows.Forms.BindingSource cs6232g2DataSetBindingSource1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker endDate;
+        private System.Windows.Forms.DateTimePicker startDate;
+        private System.Windows.Forms.Label instructionsLabel;
+        private System.Windows.Forms.BindingSource spMostPerformedTestsBindingSource;
+        private mostperformed mostperformed;
+        private mostperformedTableAdapters.spMostPerformedTestsTableAdapter spMostPerformedTestsTableAdapter;
     }
 }

@@ -20,17 +20,17 @@ namespace HealthCare {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("_cs6232_g2DataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("mostperformed")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class _cs6232_g2DataSet : global::System.Data.DataSet {
+    public partial class mostperformed : global::System.Data.DataSet {
         
-        private MostPerformedTestDuringDatesDataTable tableMostPerformedTestDuringDates;
+        private spMostPerformedTestsDataTable tablespMostPerformedTests;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public _cs6232_g2DataSet() {
+        public mostperformed() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace HealthCare {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected _cs6232_g2DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected mostperformed(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace HealthCare {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["MostPerformedTestDuringDates"] != null)) {
-                    base.Tables.Add(new MostPerformedTestDuringDatesDataTable(ds.Tables["MostPerformedTestDuringDates"]));
+                if ((ds.Tables["spMostPerformedTests"] != null)) {
+                    base.Tables.Add(new spMostPerformedTestsDataTable(ds.Tables["spMostPerformedTests"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace HealthCare {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public MostPerformedTestDuringDatesDataTable MostPerformedTestDuringDates {
+        public spMostPerformedTestsDataTable spMostPerformedTests {
             get {
-                return this.tableMostPerformedTestDuringDates;
+                return this.tablespMostPerformedTests;
             }
         }
         
@@ -127,7 +127,7 @@ namespace HealthCare {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            _cs6232_g2DataSet cln = ((_cs6232_g2DataSet)(base.Clone()));
+            mostperformed cln = ((mostperformed)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace HealthCare {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["MostPerformedTestDuringDates"] != null)) {
-                    base.Tables.Add(new MostPerformedTestDuringDatesDataTable(ds.Tables["MostPerformedTestDuringDates"]));
+                if ((ds.Tables["spMostPerformedTests"] != null)) {
+                    base.Tables.Add(new spMostPerformedTestsDataTable(ds.Tables["spMostPerformedTests"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace HealthCare {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableMostPerformedTestDuringDates = ((MostPerformedTestDuringDatesDataTable)(base.Tables["MostPerformedTestDuringDates"]));
+            this.tablespMostPerformedTests = ((spMostPerformedTestsDataTable)(base.Tables["spMostPerformedTests"]));
             if ((initTable == true)) {
-                if ((this.tableMostPerformedTestDuringDates != null)) {
-                    this.tableMostPerformedTestDuringDates.InitVars();
+                if ((this.tablespMostPerformedTests != null)) {
+                    this.tablespMostPerformedTests.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace HealthCare {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "_cs6232_g2DataSet";
+            this.DataSetName = "mostperformed";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/_cs6232_g2DataSet.xsd";
+            this.Namespace = "http://tempuri.org/mostperformed.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableMostPerformedTestDuringDates = new MostPerformedTestDuringDatesDataTable();
-            base.Tables.Add(this.tableMostPerformedTestDuringDates);
+            this.tablespMostPerformedTests = new spMostPerformedTestsDataTable();
+            base.Tables.Add(this.tablespMostPerformedTests);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeMostPerformedTestDuringDates() {
+        private bool ShouldSerializespMostPerformedTests() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace HealthCare {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            _cs6232_g2DataSet ds = new _cs6232_g2DataSet();
+            mostperformed ds = new mostperformed();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace HealthCare {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void MostPerformedTestDuringDatesRowChangeEventHandler(object sender, MostPerformedTestDuringDatesRowChangeEvent e);
+        public delegate void spMostPerformedTestsRowChangeEventHandler(object sender, spMostPerformedTestsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class MostPerformedTestDuringDatesDataTable : global::System.Data.TypedTableBase<MostPerformedTestDuringDatesRow> {
+        public partial class spMostPerformedTestsDataTable : global::System.Data.TypedTableBase<spMostPerformedTestsRow> {
             
             private global::System.Data.DataColumn columntestCode;
             
@@ -291,16 +291,16 @@ namespace HealthCare {
             
             private global::System.Data.DataColumn columnAbnormal_Results;
             
-            private global::System.Data.DataColumn columneightteenToTwentyNine;
+            private global::System.Data.DataColumn columneightteentotwentynine;
             
-            private global::System.Data.DataColumn columnthirtyToThrityNine;
+            private global::System.Data.DataColumn columnthirtytothirtynine;
             
-            private global::System.Data.DataColumn columnAll_other_age_groups;
+            private global::System.Data.DataColumn columnallotheragegroups;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MostPerformedTestDuringDatesDataTable() {
-                this.TableName = "MostPerformedTestDuringDates";
+            public spMostPerformedTestsDataTable() {
+                this.TableName = "spMostPerformedTests";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +308,7 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal MostPerformedTestDuringDatesDataTable(global::System.Data.DataTable table) {
+            internal spMostPerformedTestsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +325,7 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected MostPerformedTestDuringDatesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected spMostPerformedTestsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -380,25 +380,25 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn eightteenToTwentyNineColumn {
+            public global::System.Data.DataColumn eightteentotwentynineColumn {
                 get {
-                    return this.columneightteenToTwentyNine;
+                    return this.columneightteentotwentynine;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn thirtyToThrityNineColumn {
+            public global::System.Data.DataColumn thirtytothirtynineColumn {
                 get {
-                    return this.columnthirtyToThrityNine;
+                    return this.columnthirtytothirtynine;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn All_other_age_groupsColumn {
+            public global::System.Data.DataColumn allotheragegroupsColumn {
                 get {
-                    return this.columnAll_other_age_groups;
+                    return this.columnallotheragegroups;
                 }
             }
             
@@ -413,34 +413,34 @@ namespace HealthCare {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MostPerformedTestDuringDatesRow this[int index] {
+            public spMostPerformedTestsRow this[int index] {
                 get {
-                    return ((MostPerformedTestDuringDatesRow)(this.Rows[index]));
+                    return ((spMostPerformedTestsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MostPerformedTestDuringDatesRowChangeEventHandler MostPerformedTestDuringDatesRowChanging;
+            public event spMostPerformedTestsRowChangeEventHandler spMostPerformedTestsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MostPerformedTestDuringDatesRowChangeEventHandler MostPerformedTestDuringDatesRowChanged;
+            public event spMostPerformedTestsRowChangeEventHandler spMostPerformedTestsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MostPerformedTestDuringDatesRowChangeEventHandler MostPerformedTestDuringDatesRowDeleting;
+            public event spMostPerformedTestsRowChangeEventHandler spMostPerformedTestsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event MostPerformedTestDuringDatesRowChangeEventHandler MostPerformedTestDuringDatesRowDeleted;
+            public event spMostPerformedTestsRowChangeEventHandler spMostPerformedTestsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddMostPerformedTestDuringDatesRow(MostPerformedTestDuringDatesRow row) {
+            public void AddspMostPerformedTestsRow(spMostPerformedTestsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MostPerformedTestDuringDatesRow AddMostPerformedTestDuringDatesRow(string testCode, string testName, int SumOfTests, int PercentagePerformed, int Normal_Results, int Abnormal_Results, int eightteenToTwentyNine, int thirtyToThrityNine, int All_other_age_groups) {
-                MostPerformedTestDuringDatesRow rowMostPerformedTestDuringDatesRow = ((MostPerformedTestDuringDatesRow)(this.NewRow()));
+            public spMostPerformedTestsRow AddspMostPerformedTestsRow(string testCode, string testName, int SumOfTests, decimal PercentagePerformed, int Normal_Results, int Abnormal_Results, decimal eightteentotwentynine, decimal thirtytothirtynine, decimal allotheragegroups) {
+                spMostPerformedTestsRow rowspMostPerformedTestsRow = ((spMostPerformedTestsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         testCode,
                         testName,
@@ -448,18 +448,18 @@ namespace HealthCare {
                         PercentagePerformed,
                         Normal_Results,
                         Abnormal_Results,
-                        eightteenToTwentyNine,
-                        thirtyToThrityNine,
-                        All_other_age_groups};
-                rowMostPerformedTestDuringDatesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowMostPerformedTestDuringDatesRow);
-                return rowMostPerformedTestDuringDatesRow;
+                        eightteentotwentynine,
+                        thirtytothirtynine,
+                        allotheragegroups};
+                rowspMostPerformedTestsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowspMostPerformedTestsRow);
+                return rowspMostPerformedTestsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                MostPerformedTestDuringDatesDataTable cln = ((MostPerformedTestDuringDatesDataTable)(base.Clone()));
+                spMostPerformedTestsDataTable cln = ((spMostPerformedTestsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,7 +467,7 @@ namespace HealthCare {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new MostPerformedTestDuringDatesDataTable();
+                return new spMostPerformedTestsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -479,9 +479,9 @@ namespace HealthCare {
                 this.columnPercentagePerformed = base.Columns["PercentagePerformed"];
                 this.columnNormal_Results = base.Columns["Normal_Results"];
                 this.columnAbnormal_Results = base.Columns["Abnormal_Results"];
-                this.columneightteenToTwentyNine = base.Columns["eightteenToTwentyNine"];
-                this.columnthirtyToThrityNine = base.Columns["thirtyToThrityNine"];
-                this.columnAll_other_age_groups = base.Columns["All_other_age_groups"];
+                this.columneightteentotwentynine = base.Columns["eightteentotwentynine"];
+                this.columnthirtytothirtynine = base.Columns["thirtytothirtynine"];
+                this.columnallotheragegroups = base.Columns["allotheragegroups"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -493,18 +493,18 @@ namespace HealthCare {
                 base.Columns.Add(this.columntestName);
                 this.columnSumOfTests = new global::System.Data.DataColumn("SumOfTests", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSumOfTests);
-                this.columnPercentagePerformed = new global::System.Data.DataColumn("PercentagePerformed", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnPercentagePerformed = new global::System.Data.DataColumn("PercentagePerformed", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPercentagePerformed);
                 this.columnNormal_Results = new global::System.Data.DataColumn("Normal_Results", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNormal_Results);
                 this.columnAbnormal_Results = new global::System.Data.DataColumn("Abnormal_Results", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAbnormal_Results);
-                this.columneightteenToTwentyNine = new global::System.Data.DataColumn("eightteenToTwentyNine", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columneightteenToTwentyNine);
-                this.columnthirtyToThrityNine = new global::System.Data.DataColumn("thirtyToThrityNine", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnthirtyToThrityNine);
-                this.columnAll_other_age_groups = new global::System.Data.DataColumn("All_other_age_groups", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAll_other_age_groups);
+                this.columneightteentotwentynine = new global::System.Data.DataColumn("eightteentotwentynine", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columneightteentotwentynine);
+                this.columnthirtytothirtynine = new global::System.Data.DataColumn("thirtytothirtynine", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnthirtytothirtynine);
+                this.columnallotheragegroups = new global::System.Data.DataColumn("allotheragegroups", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnallotheragegroups);
                 this.columntestCode.AllowDBNull = false;
                 this.columntestCode.MaxLength = 50;
                 this.columntestName.AllowDBNull = false;
@@ -513,35 +513,35 @@ namespace HealthCare {
                 this.columnPercentagePerformed.ReadOnly = true;
                 this.columnNormal_Results.ReadOnly = true;
                 this.columnAbnormal_Results.ReadOnly = true;
-                this.columneightteenToTwentyNine.ReadOnly = true;
-                this.columnthirtyToThrityNine.ReadOnly = true;
-                this.columnAll_other_age_groups.ReadOnly = true;
+                this.columneightteentotwentynine.ReadOnly = true;
+                this.columnthirtytothirtynine.ReadOnly = true;
+                this.columnallotheragegroups.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MostPerformedTestDuringDatesRow NewMostPerformedTestDuringDatesRow() {
-                return ((MostPerformedTestDuringDatesRow)(this.NewRow()));
+            public spMostPerformedTestsRow NewspMostPerformedTestsRow() {
+                return ((spMostPerformedTestsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new MostPerformedTestDuringDatesRow(builder);
+                return new spMostPerformedTestsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(MostPerformedTestDuringDatesRow);
+                return typeof(spMostPerformedTestsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.MostPerformedTestDuringDatesRowChanged != null)) {
-                    this.MostPerformedTestDuringDatesRowChanged(this, new MostPerformedTestDuringDatesRowChangeEvent(((MostPerformedTestDuringDatesRow)(e.Row)), e.Action));
+                if ((this.spMostPerformedTestsRowChanged != null)) {
+                    this.spMostPerformedTestsRowChanged(this, new spMostPerformedTestsRowChangeEvent(((spMostPerformedTestsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -549,8 +549,8 @@ namespace HealthCare {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.MostPerformedTestDuringDatesRowChanging != null)) {
-                    this.MostPerformedTestDuringDatesRowChanging(this, new MostPerformedTestDuringDatesRowChangeEvent(((MostPerformedTestDuringDatesRow)(e.Row)), e.Action));
+                if ((this.spMostPerformedTestsRowChanging != null)) {
+                    this.spMostPerformedTestsRowChanging(this, new spMostPerformedTestsRowChangeEvent(((spMostPerformedTestsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -558,8 +558,8 @@ namespace HealthCare {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.MostPerformedTestDuringDatesRowDeleted != null)) {
-                    this.MostPerformedTestDuringDatesRowDeleted(this, new MostPerformedTestDuringDatesRowChangeEvent(((MostPerformedTestDuringDatesRow)(e.Row)), e.Action));
+                if ((this.spMostPerformedTestsRowDeleted != null)) {
+                    this.spMostPerformedTestsRowDeleted(this, new spMostPerformedTestsRowChangeEvent(((spMostPerformedTestsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -567,14 +567,14 @@ namespace HealthCare {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.MostPerformedTestDuringDatesRowDeleting != null)) {
-                    this.MostPerformedTestDuringDatesRowDeleting(this, new MostPerformedTestDuringDatesRowChangeEvent(((MostPerformedTestDuringDatesRow)(e.Row)), e.Action));
+                if ((this.spMostPerformedTestsRowDeleting != null)) {
+                    this.spMostPerformedTestsRowDeleting(this, new spMostPerformedTestsRowChangeEvent(((spMostPerformedTestsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveMostPerformedTestDuringDatesRow(MostPerformedTestDuringDatesRow row) {
+            public void RemovespMostPerformedTestsRow(spMostPerformedTestsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -583,7 +583,7 @@ namespace HealthCare {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                _cs6232_g2DataSet ds = new _cs6232_g2DataSet();
+                mostperformed ds = new mostperformed();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -601,7 +601,7 @@ namespace HealthCare {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "MostPerformedTestDuringDatesDataTable";
+                attribute2.FixedValue = "spMostPerformedTestsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -645,25 +645,25 @@ namespace HealthCare {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class MostPerformedTestDuringDatesRow : global::System.Data.DataRow {
+        public partial class spMostPerformedTestsRow : global::System.Data.DataRow {
             
-            private MostPerformedTestDuringDatesDataTable tableMostPerformedTestDuringDates;
+            private spMostPerformedTestsDataTable tablespMostPerformedTests;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal MostPerformedTestDuringDatesRow(global::System.Data.DataRowBuilder rb) : 
+            internal spMostPerformedTestsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableMostPerformedTestDuringDates = ((MostPerformedTestDuringDatesDataTable)(this.Table));
+                this.tablespMostPerformedTests = ((spMostPerformedTestsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string testCode {
                 get {
-                    return ((string)(this[this.tableMostPerformedTestDuringDates.testCodeColumn]));
+                    return ((string)(this[this.tablespMostPerformedTests.testCodeColumn]));
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.testCodeColumn] = value;
+                    this[this.tablespMostPerformedTests.testCodeColumn] = value;
                 }
             }
             
@@ -671,10 +671,10 @@ namespace HealthCare {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string testName {
                 get {
-                    return ((string)(this[this.tableMostPerformedTestDuringDates.testNameColumn]));
+                    return ((string)(this[this.tablespMostPerformedTests.testNameColumn]));
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.testNameColumn] = value;
+                    this[this.tablespMostPerformedTests.testNameColumn] = value;
                 }
             }
             
@@ -683,32 +683,31 @@ namespace HealthCare {
             public int SumOfTests {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.SumOfTestsColumn]));
+                        return ((int)(this[this.tablespMostPerformedTests.SumOfTestsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SumOfTests\' in table \'MostPerformedTestDuringDates\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SumOfTests\' in table \'spMostPerformedTests\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.SumOfTestsColumn] = value;
+                    this[this.tablespMostPerformedTests.SumOfTestsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int PercentagePerformed {
+            public decimal PercentagePerformed {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.PercentagePerformedColumn]));
+                        return ((decimal)(this[this.tablespMostPerformedTests.PercentagePerformedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PercentagePerformed\' in table \'MostPerformedTestDuringDates" +
-                                "\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PercentagePerformed\' in table \'spMostPerformedTests\' is DBN" +
+                                "ull.", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.PercentagePerformedColumn] = value;
+                    this[this.tablespMostPerformedTests.PercentagePerformedColumn] = value;
                 }
             }
             
@@ -717,15 +716,14 @@ namespace HealthCare {
             public int Normal_Results {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.Normal_ResultsColumn]));
+                        return ((int)(this[this.tablespMostPerformedTests.Normal_ResultsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Normal_Results\' in table \'MostPerformedTestDuringDates\' is " +
-                                "DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Normal_Results\' in table \'spMostPerformedTests\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.Normal_ResultsColumn] = value;
+                    this[this.tablespMostPerformedTests.Normal_ResultsColumn] = value;
                 }
             }
             
@@ -734,151 +732,151 @@ namespace HealthCare {
             public int Abnormal_Results {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.Abnormal_ResultsColumn]));
+                        return ((int)(this[this.tablespMostPerformedTests.Abnormal_ResultsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Abnormal_Results\' in table \'MostPerformedTestDuringDates\' i" +
-                                "s DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Abnormal_Results\' in table \'spMostPerformedTests\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.Abnormal_ResultsColumn] = value;
+                    this[this.tablespMostPerformedTests.Abnormal_ResultsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int eightteenToTwentyNine {
+            public decimal eightteentotwentynine {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.eightteenToTwentyNineColumn]));
+                        return ((decimal)(this[this.tablespMostPerformedTests.eightteentotwentynineColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'eightteenToTwentyNine\' in table \'MostPerformedTestDuringDat" +
-                                "es\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'eightteentotwentynine\' in table \'spMostPerformedTests\' is D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.eightteenToTwentyNineColumn] = value;
+                    this[this.tablespMostPerformedTests.eightteentotwentynineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int thirtyToThrityNine {
+            public decimal thirtytothirtynine {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.thirtyToThrityNineColumn]));
+                        return ((decimal)(this[this.tablespMostPerformedTests.thirtytothirtynineColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'thirtyToThrityNine\' in table \'MostPerformedTestDuringDates\'" +
-                                " is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'thirtytothirtynine\' in table \'spMostPerformedTests\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.thirtyToThrityNineColumn] = value;
+                    this[this.tablespMostPerformedTests.thirtytothirtynineColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int All_other_age_groups {
+            public decimal allotheragegroups {
                 get {
                     try {
-                        return ((int)(this[this.tableMostPerformedTestDuringDates.All_other_age_groupsColumn]));
+                        return ((decimal)(this[this.tablespMostPerformedTests.allotheragegroupsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'All_other_age_groups\' in table \'MostPerformedTestDuringDate" +
-                                "s\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'allotheragegroups\' in table \'spMostPerformedTests\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableMostPerformedTestDuringDates.All_other_age_groupsColumn] = value;
+                    this[this.tablespMostPerformedTests.allotheragegroupsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsSumOfTestsNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.SumOfTestsColumn);
+                return this.IsNull(this.tablespMostPerformedTests.SumOfTestsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetSumOfTestsNull() {
-                this[this.tableMostPerformedTestDuringDates.SumOfTestsColumn] = global::System.Convert.DBNull;
+                this[this.tablespMostPerformedTests.SumOfTestsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPercentagePerformedNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.PercentagePerformedColumn);
+                return this.IsNull(this.tablespMostPerformedTests.PercentagePerformedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPercentagePerformedNull() {
-                this[this.tableMostPerformedTestDuringDates.PercentagePerformedColumn] = global::System.Convert.DBNull;
+                this[this.tablespMostPerformedTests.PercentagePerformedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsNormal_ResultsNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.Normal_ResultsColumn);
+                return this.IsNull(this.tablespMostPerformedTests.Normal_ResultsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNormal_ResultsNull() {
-                this[this.tableMostPerformedTestDuringDates.Normal_ResultsColumn] = global::System.Convert.DBNull;
+                this[this.tablespMostPerformedTests.Normal_ResultsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsAbnormal_ResultsNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.Abnormal_ResultsColumn);
+                return this.IsNull(this.tablespMostPerformedTests.Abnormal_ResultsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetAbnormal_ResultsNull() {
-                this[this.tableMostPerformedTestDuringDates.Abnormal_ResultsColumn] = global::System.Convert.DBNull;
+                this[this.tablespMostPerformedTests.Abnormal_ResultsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IseightteenToTwentyNineNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.eightteenToTwentyNineColumn);
+            public bool IseightteentotwentynineNull() {
+                return this.IsNull(this.tablespMostPerformedTests.eightteentotwentynineColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SeteightteenToTwentyNineNull() {
-                this[this.tableMostPerformedTestDuringDates.eightteenToTwentyNineColumn] = global::System.Convert.DBNull;
+            public void SeteightteentotwentynineNull() {
+                this[this.tablespMostPerformedTests.eightteentotwentynineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsthirtyToThrityNineNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.thirtyToThrityNineColumn);
+            public bool IsthirtytothirtynineNull() {
+                return this.IsNull(this.tablespMostPerformedTests.thirtytothirtynineColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetthirtyToThrityNineNull() {
-                this[this.tableMostPerformedTestDuringDates.thirtyToThrityNineColumn] = global::System.Convert.DBNull;
+            public void SetthirtytothirtynineNull() {
+                this[this.tablespMostPerformedTests.thirtytothirtynineColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsAll_other_age_groupsNull() {
-                return this.IsNull(this.tableMostPerformedTestDuringDates.All_other_age_groupsColumn);
+            public bool IsallotheragegroupsNull() {
+                return this.IsNull(this.tablespMostPerformedTests.allotheragegroupsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetAll_other_age_groupsNull() {
-                this[this.tableMostPerformedTestDuringDates.All_other_age_groupsColumn] = global::System.Convert.DBNull;
+            public void SetallotheragegroupsNull() {
+                this[this.tablespMostPerformedTests.allotheragegroupsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -886,22 +884,22 @@ namespace HealthCare {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class MostPerformedTestDuringDatesRowChangeEvent : global::System.EventArgs {
+        public class spMostPerformedTestsRowChangeEvent : global::System.EventArgs {
             
-            private MostPerformedTestDuringDatesRow eventRow;
+            private spMostPerformedTestsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MostPerformedTestDuringDatesRowChangeEvent(MostPerformedTestDuringDatesRow row, global::System.Data.DataRowAction action) {
+            public spMostPerformedTestsRowChangeEvent(spMostPerformedTestsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MostPerformedTestDuringDatesRow Row {
+            public spMostPerformedTestsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -917,7 +915,7 @@ namespace HealthCare {
         }
     }
 }
-namespace HealthCare._cs6232_g2DataSetTableAdapters {
+namespace HealthCare.mostperformedTableAdapters {
     
     
     /// <summary>
@@ -929,7 +927,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class MostPerformedTestDuringDatesTableAdapter : global::System.ComponentModel.Component {
+    public partial class spMostPerformedTestsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -943,7 +941,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public MostPerformedTestDuringDatesTableAdapter() {
+        public spMostPerformedTestsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1040,16 +1038,16 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "MostPerformedTestDuringDates";
+            tableMapping.DataSetTable = "spMostPerformedTests";
             tableMapping.ColumnMappings.Add("testCode", "testCode");
             tableMapping.ColumnMappings.Add("testName", "testName");
             tableMapping.ColumnMappings.Add("SumOfTests", "SumOfTests");
             tableMapping.ColumnMappings.Add("PercentagePerformed", "PercentagePerformed");
             tableMapping.ColumnMappings.Add("Normal_Results", "Normal_Results");
             tableMapping.ColumnMappings.Add("Abnormal_Results", "Abnormal_Results");
-            tableMapping.ColumnMappings.Add("18-29", "eightteenToTwentyNine");
-            tableMapping.ColumnMappings.Add("30-39", "thirtyToThrityNine");
-            tableMapping.ColumnMappings.Add("All other age groups", "All_other_age_groups");
+            tableMapping.ColumnMappings.Add("eightteentotwentynine", "eightteentotwentynine");
+            tableMapping.ColumnMappings.Add("thirtytothirtynine", "thirtytothirtynine");
+            tableMapping.ColumnMappings.Add("allotheragegroups", "allotheragegroups");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1066,35 +1064,31 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT dbo.testResult.testCode, dbo.test.testName, COUNT(dbo.testResult.testCode)" +
-                " AS SumOfTests, \r\nROUND((SUM(CASE WHEN dbo.testResult.testCode IS NOT NULL THEN " +
-                "1 ELSE 0 END)/(SUM(CASE WHEN dbo.testResult.testCode IS NOT NULL THEN 1 ELSE 0 E" +
-                "ND)) * 100),2) AS PercentagePerformed,\r\nSUM(CASE dbo.testResult.results WHEN \'no" +
-                "rmal\' THEN 1 ELSE 0 END) AS Normal_Results,\r\nSUM(CASE dbo.testResult.results WHE" +
-                "N \'abnormal\' THEN 1 ELSE 0 END) AS Abnormal_Results,\r\nROUND((SUM(CASE WHEN DATED" +
-                "IFF(year, dbo.person.dateOfBirth, dbo.testResult.testDate) BETWEEN 18 AND 29 THE" +
-                "N 1 ELSE 0 END))/SUM(CASE WHEN dbo.testResult.testCode IS NOT NULL THEN 1 ELSE 0" +
-                " END) * 100,2) AS \'18-29\',\r\nROUND((SUM(CASE WHEN DATEDIFF(year, dbo.person.dateO" +
-                "fBirth, dbo.testResult.testDate) BETWEEN 30 AND 39 THEN 1 ELSE 0 END))/SUM(CASE " +
-                "WHEN dbo.testResult.testCode IS NOT NULL THEN 1 ELSE 0 END) * 100,2) AS \'30-39\'," +
-                "\r\nROUND((SUM(CASE WHEN DATEDIFF(year, dbo.person.dateOfBirth, dbo.testResult.tes" +
-                "tDate) > 40 THEN 1 ELSE 0 END))/SUM(CASE WHEN dbo.testResult.testCode IS NOT NUL" +
-                "L THEN 1 ELSE 0 END) * 100,2) AS \'All other age groups\'\r\nFROM dbo.person\r\nJOIN d" +
-                "bo.patient\r\nON dbo.patient.personID = dbo.person.personID\r\nJOIN appointment\r\nON " +
-                "dbo.appointment.patientID = dbo.patient.patientID\r\nJOIN dbo.visit \r\nON dbo.visit" +
-                ".appointmentID =dbo.appointment.appointmentID\r\nJOIN dbo.testResult\r\nON dbo.testR" +
-                "esult.visitID = dbo.visit.visitID\r\nJOIN dbo.test\r\nON dbo.test.testCode = dbo.tes" +
-                "tResult.testCode\r\nGROUP BY dbo.testResult.testCode, dbo.test.testName\r\nORDER BY " +
-                "SumOfTests DESC, DBO.test.testName DESC;";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].CommandText = "dbo.spMostPerformedTests";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@startDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@endDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(_cs6232_g2DataSet.MostPerformedTestDuringDatesDataTable dataTable) {
+        public virtual int Fill(mostperformed.spMostPerformedTestsDataTable dataTable, global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((startDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(startDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((endDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(endDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1106,9 +1100,21 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual _cs6232_g2DataSet.MostPerformedTestDuringDatesDataTable GetData() {
+        public virtual mostperformed.spMostPerformedTestsDataTable GetData(global::System.Nullable<global::System.DateTime> startDate, global::System.Nullable<global::System.DateTime> endDate) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            _cs6232_g2DataSet.MostPerformedTestDuringDatesDataTable dataTable = new _cs6232_g2DataSet.MostPerformedTestDuringDatesDataTable();
+            if ((startDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(startDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((endDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(endDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            mostperformed.spMostPerformedTestsDataTable dataTable = new mostperformed.spMostPerformedTestsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1182,7 +1188,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(_cs6232_g2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(mostperformed dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1192,7 +1198,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(_cs6232_g2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(mostperformed dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1202,7 +1208,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(_cs6232_g2DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(mostperformed dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1236,7 +1242,7 @@ namespace HealthCare._cs6232_g2DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(_cs6232_g2DataSet dataSet) {
+        public virtual int UpdateAll(mostperformed dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
