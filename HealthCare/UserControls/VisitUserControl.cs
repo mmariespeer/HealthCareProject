@@ -116,34 +116,40 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         private void VisitListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
-            this.visitListView.Enabled = false;
-            Visit visit = this.controller.GetVisitByAppointmentID(apptID);
-            _visitID = visit.VisitID;
-            if (visit.VisitID != 0)
+            if (!string.IsNullOrEmpty(this.visitListView.SelectedItems[0].SubItems[0].Text)) 
             {
-                this.doctorTextBox.Text = visit.DoctorName.ToString();
-                this.weightTextBox.Text = visit.Weight.ToString();
-                this.tempTextBox.Text = visit.Temp.ToString(); 
-                this.systolicTextBox.Text = visit.SystolicBP.ToString();
-                this.diastolicTextBox.Text = visit.DiastolicBP.ToString();
-                this.symptomsTextBox.Text = visit.Symptoms;
-                this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
-                this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
-                this.GetTests(visit.VisitID);
-                this.addTestsButton.Enabled = true;
-                this.addTest = new AddTestForm(visit.VisitID, this);
-            } else
-            {
-                this.doctorTextBox.Text = visit.DoctorName.ToString();
-                this.weightTextBox.Text = "";
-                this.tempTextBox.Text = "";
-                this.systolicTextBox.Text = "";
-                this.diastolicTextBox.Text = "";
-                this.symptomsTextBox.Text = "";
-                this.initDiagnosisTextBox.Text = "";
-                this.finalDiagnosisTextBox.Text = "";
-            }            
+                int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
+                Visit visit = this.controller.GetVisitByAppointmentID(apptID);
+                _visitID = visit.VisitID;
+
+                if (visit.VisitID != 0)
+                {
+                    this.doctorTextBox.Text = visit.DoctorName.ToString();
+                    this.weightTextBox.Text = visit.Weight.ToString();
+                    this.pulseTextBox.Text = visit.Pulse.ToString();
+                    this.tempTextBox.Text = visit.Temp.ToString();
+                    this.systolicTextBox.Text = visit.SystolicBP.ToString();
+                    this.diastolicTextBox.Text = visit.DiastolicBP.ToString();
+                    this.symptomsTextBox.Text = visit.Symptoms;
+                    this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
+                    this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
+                    this.GetTests(visit.VisitID);
+                    this.addTestsButton.Enabled = true;
+                    this.addTest = new AddTestForm(visit.VisitID, this);
+                }
+                else
+                {
+                    this.doctorTextBox.Text = visit.DoctorName.ToString();
+                    this.weightTextBox.Text = "";
+                    this.pulseTextBox.Text = "";
+                    this.tempTextBox.Text = "";
+                    this.systolicTextBox.Text = "";
+                    this.diastolicTextBox.Text = "";
+                    this.symptomsTextBox.Text = "";
+                    this.initDiagnosisTextBox.Text = "";
+                    this.finalDiagnosisTextBox.Text = "";
+                }
+            }
         }
 
         /// <summary>
@@ -200,6 +206,13 @@ namespace HealthCare.UserControls
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            bool validPulse = int.TryParse(this.pulseTextBox.Text, out int pulseValidated);
+            if (!validPulse)
+            {
+                MessageBox.Show("Pulse is required, it must be an integer and cannot be empty!" + Environment.NewLine,
+                "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool validWeight = decimal.TryParse(this.weightTextBox.Text, out decimal weightValidated);
             if (!validWeight)
             {
@@ -220,13 +233,13 @@ namespace HealthCare.UserControls
                 return;
             }
 
-            //PULSE STILL NEEDED
             Visit visit = new Visit()
             {
                 DiastolicBP = diastolicValidated,
                 SystolicBP = systolicValidated,
                 Weight = weightValidated,
                 Temp = tempValidated,
+                Pulse = pulseValidated,
                 Symptoms = this.symptomsTextBox.Text,
                 NurseID = 1,
                 AppointmentID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text),

@@ -61,6 +61,7 @@ namespace HealthCare.DAL
                             visit.Temp = reader["temp"] as decimal? ?? 0;
                             visit.SystolicBP = reader["systolicBP"] as int? ?? 0;
                             visit.DiastolicBP = reader["diastolicBP"] as int? ?? 0;
+                            visit.Pulse = reader["pulse"] as int? ?? 0;
                             visit.Symptoms = reader["symptoms"] as string;
                             visit.InitialDiagnosis = reader["initialDiagnosis"] as string;
                             visit.FinalDiagnosis = reader["finalDiagnosis"] as string;
@@ -100,6 +101,7 @@ namespace HealthCare.DAL
                             insertCommand.Parameters.AddWithValue("@weight", visit.Weight);
                             insertCommand.Parameters.AddWithValue("@systolicBP", visit.SystolicBP);
                             insertCommand.Parameters.AddWithValue("@diastolicBP", visit.DiastolicBP);
+                            insertCommand.Parameters.AddWithValue("@pulse", visit.Pulse);
                             insertCommand.Parameters.AddWithValue("@temp", visit.Temp);
                             insertCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
 
@@ -143,6 +145,7 @@ namespace HealthCare.DAL
                             updateVisitCommand.Parameters.AddWithValue("@systolicBP", visit.SystolicBP);
                             updateVisitCommand.Parameters.AddWithValue("@diastolicBP", visit.DiastolicBP);
                             updateVisitCommand.Parameters.AddWithValue("@temp", visit.Temp);
+                            updateVisitCommand.Parameters.AddWithValue("@pulse", visit.Pulse);
                             updateVisitCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
                             updateVisitCommand.Parameters.AddWithValue("@visitID", visit.VisitID);
 

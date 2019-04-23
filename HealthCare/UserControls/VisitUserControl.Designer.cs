@@ -65,6 +65,8 @@
             this.instructionLabel = new System.Windows.Forms.Label();
             this.clearVisitButton = new System.Windows.Forms.Button();
             this.visitLabel = new System.Windows.Forms.Label();
+            this.pulseTextBox = new System.Windows.Forms.TextBox();
+            this.pulseLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -89,20 +91,20 @@
             // 
             this.weightTextBox.Location = new System.Drawing.Point(111, 196);
             this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(100, 20);
+            this.weightTextBox.Size = new System.Drawing.Size(64, 20);
             this.weightTextBox.TabIndex = 3;
             // 
             // tempTextBox
             // 
-            this.tempTextBox.Location = new System.Drawing.Point(290, 196);
+            this.tempTextBox.Location = new System.Drawing.Point(370, 196);
             this.tempTextBox.Name = "tempTextBox";
-            this.tempTextBox.Size = new System.Drawing.Size(96, 20);
+            this.tempTextBox.Size = new System.Drawing.Size(58, 20);
             this.tempTextBox.TabIndex = 5;
             // 
             // tempLabel
             // 
             this.tempLabel.AutoSize = true;
-            this.tempLabel.Location = new System.Drawing.Point(232, 199);
+            this.tempLabel.Location = new System.Drawing.Point(312, 199);
             this.tempLabel.Name = "tempLabel";
             this.tempLabel.Size = new System.Drawing.Size(56, 13);
             this.tempLabel.TabIndex = 4;
@@ -118,11 +120,11 @@
             // bpLabel
             // 
             this.bpLabel.AutoSize = true;
-            this.bpLabel.Location = new System.Drawing.Point(405, 199);
+            this.bpLabel.Location = new System.Drawing.Point(445, 199);
             this.bpLabel.Name = "bpLabel";
-            this.bpLabel.Size = new System.Drawing.Size(112, 13);
+            this.bpLabel.Size = new System.Drawing.Size(68, 13);
             this.bpLabel.TabIndex = 6;
-            this.bpLabel.Text = "BP Systolic/Diastolic*:";
+            this.bpLabel.Text = "BP Sys/Dis*:";
             // 
             // diastolicTextBox
             // 
@@ -389,10 +391,28 @@
             this.visitLabel.TabIndex = 32;
             this.visitLabel.Text = "Selected Visit Information:   *indicates a required field";
             // 
+            // pulseTextBox
+            // 
+            this.pulseTextBox.Location = new System.Drawing.Point(235, 197);
+            this.pulseTextBox.Name = "pulseTextBox";
+            this.pulseTextBox.Size = new System.Drawing.Size(58, 20);
+            this.pulseTextBox.TabIndex = 34;
+            // 
+            // pulseLabel
+            // 
+            this.pulseLabel.AutoSize = true;
+            this.pulseLabel.Location = new System.Drawing.Point(189, 200);
+            this.pulseLabel.Name = "pulseLabel";
+            this.pulseLabel.Size = new System.Drawing.Size(40, 13);
+            this.pulseLabel.TabIndex = 33;
+            this.pulseLabel.Text = "Pulse*:";
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pulseTextBox);
+            this.Controls.Add(this.pulseLabel);
             this.Controls.Add(this.visitLabel);
             this.Controls.Add(this.clearVisitButton);
             this.Controls.Add(this.instructionLabel);
@@ -470,5 +490,7 @@
         private System.Windows.Forms.Label instructionLabel;
         private System.Windows.Forms.Button clearVisitButton;
         private System.Windows.Forms.Label visitLabel;
+        private System.Windows.Forms.TextBox pulseTextBox;
+        private System.Windows.Forms.Label pulseLabel;
     }
 }
