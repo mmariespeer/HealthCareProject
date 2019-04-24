@@ -232,6 +232,19 @@ namespace HealthCare.UserControls
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!string.IsNullOrEmpty(this.finalDiagnosisTextBox.Text))
+            {
+                if (this.CheckAllTestsHaveResults(_visitID))
+                {
+                }
+                else
+                {
+                    MessageBox.Show("All test results must be logged before a final diagnois can be made." + Environment.NewLine,
+                                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                };
+
+            }
 
             Visit visit = new Visit()
             {
@@ -297,6 +310,19 @@ namespace HealthCare.UserControls
         private void clearVisitButton_Click(object sender, EventArgs e)
         {
             this.VisitUserControl_Load(sender, e);
+        }
+
+        private bool CheckAllTestsHaveResults (int visitId)
+        {
+            List<Test> testList = new List<Test>();
+            testList = this.controller.GetTestsByVisitId(visitId);
+            foreach (Test test in testList)
+            {
+                if (string.IsNullOrEmpty(test.Results)) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

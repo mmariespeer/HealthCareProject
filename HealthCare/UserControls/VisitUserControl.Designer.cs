@@ -45,9 +45,6 @@
             this.addTestsButton = new System.Windows.Forms.Button();
             this.finalDiagnosisTextBox = new System.Windows.Forms.TextBox();
             this.finalDiagnosisLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.pendingRadioButton = new System.Windows.Forms.RadioButton();
-            this.completeRadioButton = new System.Windows.Forms.RadioButton();
             this.updateButton = new System.Windows.Forms.Button();
             this.completedLabel = new System.Windows.Forms.Label();
             this.visitListView = new System.Windows.Forms.ListView();
@@ -67,6 +64,7 @@
             this.visitLabel = new System.Windows.Forms.Label();
             this.pulseTextBox = new System.Windows.Forms.TextBox();
             this.pulseLabel = new System.Windows.Forms.Label();
+            this.finalInstructLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -196,7 +194,7 @@
             // 
             // finalDiagnosisTextBox
             // 
-            this.finalDiagnosisTextBox.Location = new System.Drawing.Point(111, 459);
+            this.finalDiagnosisTextBox.Location = new System.Drawing.Point(111, 476);
             this.finalDiagnosisTextBox.Name = "finalDiagnosisTextBox";
             this.finalDiagnosisTextBox.Size = new System.Drawing.Size(275, 20);
             this.finalDiagnosisTextBox.TabIndex = 18;
@@ -204,49 +202,15 @@
             // finalDiagnosisLabel
             // 
             this.finalDiagnosisLabel.AutoSize = true;
-            this.finalDiagnosisLabel.Location = new System.Drawing.Point(22, 462);
+            this.finalDiagnosisLabel.Location = new System.Drawing.Point(22, 479);
             this.finalDiagnosisLabel.Name = "finalDiagnosisLabel";
             this.finalDiagnosisLabel.Size = new System.Drawing.Size(81, 13);
             this.finalDiagnosisLabel.TabIndex = 17;
             this.finalDiagnosisLabel.Text = "Final Diagnosis:";
             // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(22, 496);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(62, 13);
-            this.statusLabel.TabIndex = 19;
-            this.statusLabel.Text = "Visit Status:";
-            this.statusLabel.Visible = false;
-            // 
-            // pendingRadioButton
-            // 
-            this.pendingRadioButton.AutoSize = true;
-            this.pendingRadioButton.Location = new System.Drawing.Point(111, 494);
-            this.pendingRadioButton.Name = "pendingRadioButton";
-            this.pendingRadioButton.Size = new System.Drawing.Size(64, 17);
-            this.pendingRadioButton.TabIndex = 20;
-            this.pendingRadioButton.TabStop = true;
-            this.pendingRadioButton.Text = "Pending";
-            this.pendingRadioButton.UseVisualStyleBackColor = true;
-            this.pendingRadioButton.Visible = false;
-            // 
-            // completeRadioButton
-            // 
-            this.completeRadioButton.AutoSize = true;
-            this.completeRadioButton.Location = new System.Drawing.Point(200, 494);
-            this.completeRadioButton.Name = "completeRadioButton";
-            this.completeRadioButton.Size = new System.Drawing.Size(69, 17);
-            this.completeRadioButton.TabIndex = 21;
-            this.completeRadioButton.TabStop = true;
-            this.completeRadioButton.Text = "Complete";
-            this.completeRadioButton.UseVisualStyleBackColor = true;
-            this.completeRadioButton.Visible = false;
-            // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(558, 515);
+            this.updateButton.Location = new System.Drawing.Point(558, 512);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 22;
@@ -259,7 +223,7 @@
             this.completedLabel.AutoSize = true;
             this.completedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.completedLabel.ForeColor = System.Drawing.Color.Red;
-            this.completedLabel.Location = new System.Drawing.Point(22, 518);
+            this.completedLabel.Location = new System.Drawing.Point(111, 515);
             this.completedLabel.Name = "completedLabel";
             this.completedLabel.Size = new System.Drawing.Size(341, 17);
             this.completedLabel.TabIndex = 23;
@@ -374,7 +338,7 @@
             // 
             // clearVisitButton
             // 
-            this.clearVisitButton.Location = new System.Drawing.Point(474, 515);
+            this.clearVisitButton.Location = new System.Drawing.Point(474, 512);
             this.clearVisitButton.Name = "clearVisitButton";
             this.clearVisitButton.Size = new System.Drawing.Size(75, 23);
             this.clearVisitButton.TabIndex = 31;
@@ -407,10 +371,20 @@
             this.pulseLabel.TabIndex = 33;
             this.pulseLabel.Text = "Pulse*:";
             // 
+            // finalInstructLabel
+            // 
+            this.finalInstructLabel.AutoSize = true;
+            this.finalInstructLabel.Location = new System.Drawing.Point(111, 457);
+            this.finalInstructLabel.Name = "finalInstructLabel";
+            this.finalInstructLabel.Size = new System.Drawing.Size(310, 13);
+            this.finalInstructLabel.TabIndex = 35;
+            this.finalInstructLabel.Text = "All tests must have results before a final diagnosis can be saved.";
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.finalInstructLabel);
             this.Controls.Add(this.pulseTextBox);
             this.Controls.Add(this.pulseLabel);
             this.Controls.Add(this.visitLabel);
@@ -423,9 +397,6 @@
             this.Controls.Add(this.visitListView);
             this.Controls.Add(this.completedLabel);
             this.Controls.Add(this.updateButton);
-            this.Controls.Add(this.completeRadioButton);
-            this.Controls.Add(this.pendingRadioButton);
-            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.finalDiagnosisTextBox);
             this.Controls.Add(this.finalDiagnosisLabel);
             this.Controls.Add(this.addTestsButton);
@@ -470,9 +441,6 @@
         private System.Windows.Forms.Button addTestsButton;
         private System.Windows.Forms.TextBox finalDiagnosisTextBox;
         private System.Windows.Forms.Label finalDiagnosisLabel;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.RadioButton pendingRadioButton;
-        private System.Windows.Forms.RadioButton completeRadioButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Label completedLabel;
         private System.Windows.Forms.ListView visitListView;
@@ -492,5 +460,6 @@
         private System.Windows.Forms.Label visitLabel;
         private System.Windows.Forms.TextBox pulseTextBox;
         private System.Windows.Forms.Label pulseLabel;
+        private System.Windows.Forms.Label finalInstructLabel;
     }
 }
