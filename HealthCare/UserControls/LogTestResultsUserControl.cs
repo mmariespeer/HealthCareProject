@@ -21,6 +21,11 @@ namespace HealthCare.UserControls
             this.controller = new HealthcareController();
         }
 
+        public void UpdateLabel(string labelText)
+        {
+            this.testNameLabel.Text = labelText;
+        }
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.Close();
