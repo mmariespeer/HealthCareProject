@@ -270,5 +270,42 @@ namespace HealthCare.DAL
 
             return searchList;
         }
+
+        public Boolean DeletePatient(int patientID)
+        {
+            Boolean success = false;
+            int personID;
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+
+                try
+                {
+                    SqlCommand selectCommand = new SqlCommand("SELECT p.personID FROM person p JOIN patient pa ON pa.personID = p.personID WHERE pa.patientID = @patientID", connection, transaction);
+                    selectCommand.Parameters.AddWithValue("@patientID", patientID);
+                    personID = (int)selectCommand.ExecuteScalar();
+                    
+
+                    SqlCommand deleteCommand = new SqlCommand("DELETE FROM patient WHERE patientID = @patientID", connection, transaction);
+                    deleteCommand.Parameters.AddWithValue("@patientId", patientID);
+                    deleteCommand.ExecuteNonQuery();
+
+                    deleteCommand = new SqlCommand("DELETE FROM person WHERE personID = @personID", connection, transaction);
+                    deleteCommand.Parameters.AddWithValue("@personID", personID);
+                    deleteCommand.ExecuteNonQuery();
+
+                    transaction.Commit();
+                    success = true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }
+            }
+
+            return success;
+        }
     }
 }

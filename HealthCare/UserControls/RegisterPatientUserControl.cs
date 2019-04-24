@@ -186,5 +186,30 @@ namespace HealthCare.UserControls
             
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+        try {
+                if (this.healthController.GetAppointmentsByPatientID(this.patientID).Count != 0)
+                {
+                    MessageBox.Show("Pateint still has active appointments and can't be deleted");
+                }
+                else
+                {
+                    if (this.healthController.DeletePatient(this.patientID))
+                    {
+                        MessageBox.Show("Patient has been deleted");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Patient could not be deleted due to database error. Please try again.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
     }
 }

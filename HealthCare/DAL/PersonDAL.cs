@@ -1,11 +1,8 @@
 ﻿using HealthCare.DB;
 using HealthCare.Model;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HealthCare.DAL
 {
@@ -174,6 +171,25 @@ namespace HealthCare.DAL
                     }
                 }
                 return person;
+            }
+        }
+
+        public int GetPersonID(int patientID)
+        {
+            int id;
+
+            string selectStatement = "SELECT p.personID FROM person p JOIN patient pa ON pa.personID = p.personID WHERE pa.patientID = @patientID";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@patientID", patientID);
+                    id = (int)selectCommand.ExecuteScalar();
+                }
+                return id;
             }
         }
 
