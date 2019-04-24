@@ -44,9 +44,9 @@ namespace HealthCare.Controller
         /// <param name="testCode"></param>
         /// <param name="result"></param>
         /// <param name="normal"></param>
-        public void UpdateTestResult(int visitID, string testCode, string result, bool normal)
+        public void UpdateTestResult(int visitID, string testCode, string result, bool normal, DateTime performDate)
         {
-            testDAL.UpdateTestResult(visitID, testCode, result, normal);
+            testDAL.UpdateTestResult(visitID, testCode, result, normal, performDate);
         }
 
         /// <summary>

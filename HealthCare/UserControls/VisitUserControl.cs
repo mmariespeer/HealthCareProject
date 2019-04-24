@@ -181,6 +181,7 @@ namespace HealthCare.UserControls
                     this.testsListView.Items[i].SubItems.Add(test.TestDate.ToShortDateString());
                     this.testsListView.Items[i].SubItems.Add(test.Results);
                     this.testsListView.Items[i].SubItems.Add(test.Normal.ToString());
+                    this.testsListView.Items[i].SubItems.Add(test.PerformDate.GetValueOrDefault() == DateTime.MinValue ? string.Empty : test.PerformDate.Value.ToShortDateString());
                 }
             }
         }
@@ -227,12 +228,7 @@ namespace HealthCare.UserControls
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(this.initDiagnosisTextBox.Text) || this.initDiagnosisTextBox.Text.Length >= 50)
-            {
-                MessageBox.Show("Initial Diagnosis is required, must be less than 50 characters and cannot be empty!" + Environment.NewLine,
-                "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
             if (this.symptomsTextBox.Text.Length > 250 || string.IsNullOrEmpty(this.symptomsTextBox.Text))
             {
                 MessageBox.Show("Initial Diagnosis is required, must be less than 50 characters and cannot be empty!" + Environment.NewLine,
@@ -242,6 +238,12 @@ namespace HealthCare.UserControls
             int status = 0;
             if (!string.IsNullOrEmpty(this.finalDiagnosisTextBox.Text))
             {
+                if (string.IsNullOrEmpty(this.initDiagnosisTextBox.Text) || this.initDiagnosisTextBox.Text.Length >= 50)
+                {
+                    MessageBox.Show("Initial Diagnosis is required before final diagnosis, must be less than 50 characters and cannot be empty!" + Environment.NewLine,
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (this.CheckAllTestsHaveResults(_visitID))
                 {
                     DialogResult result =  MessageBox.Show("By entering a final diagnosis, you are completing this appointment where it can no longer be edited. Would you like to continue?" + Environment.NewLine,
@@ -285,6 +287,10 @@ namespace HealthCare.UserControls
             {
                 MessageBox.Show("Patient visit data has been updated!" + Environment.NewLine,
                 "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                var selectedItemIndex = this.visitListView.SelectedItems[0].Index;
+                this.VisitUserControl_Load(null, null);
+                var item = this.visitListView.Items[selectedItemIndex];
+                item.Selected = true;
                 return;
             }
             else

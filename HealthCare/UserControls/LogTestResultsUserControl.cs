@@ -35,6 +35,8 @@ namespace HealthCare.UserControls
         {
             bool valid = true;
             string result = logResultText.Text;
+            string pDate = performMaskedTextBox.Text;
+            DateTime performDate = DateTime.MinValue;
             bool normal = normalRadioButton.Checked;
             if (string.IsNullOrEmpty(result))
             {
@@ -46,12 +48,28 @@ namespace HealthCare.UserControls
                 MessageBox.Show("Please select Normal or Abnormal");
                 valid = false;
             }
+            if (!this.performMaskedTextBox.MaskFull)
+            {
+                MessageBox.Show("Please enter a perform date");
+                valid = false;
+            } else
+            {
+                try
+                {
+                    performDate = DateTime.Parse(this.performMaskedTextBox.Text);
+                } catch
+                {
+                    MessageBox.Show("Date entered is not a valid date.");
+                    valid = false;
+                }
 
+
+}
             if (valid)
             {
                 var parent = this.ParentForm as LogTestResultForm;
-                controller.UpdateTestResult(parent.VisitID, parent.TestCode, result, normal);
-                MessageBox.Show("TestResult updated");
+                controller.UpdateTestResult(parent.VisitID, parent.TestCode, result, normal, performDate);
+                MessageBox.Show("Test Result updated");
                 ListView apptListView = parent.VisitControl.Controls["visitListView"] as ListView;
                 var selectedItemIndex = apptListView.SelectedItems[0].Index;
                 parent.VisitControl.VisitUserControl_Load(null, null);

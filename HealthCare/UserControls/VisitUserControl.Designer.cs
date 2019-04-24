@@ -67,6 +67,7 @@
             this.finalInstructLabel = new System.Windows.Forms.Label();
             this.specialTextBox = new System.Windows.Forms.TextBox();
             this.specialLabel = new System.Windows.Forms.Label();
+            this.performDateColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -171,9 +172,9 @@
             this.initDiagnosisLabel.AutoSize = true;
             this.initDiagnosisLabel.Location = new System.Drawing.Point(22, 291);
             this.initDiagnosisLabel.Name = "initDiagnosisLabel";
-            this.initDiagnosisLabel.Size = new System.Drawing.Size(87, 13);
+            this.initDiagnosisLabel.Size = new System.Drawing.Size(83, 13);
             this.initDiagnosisLabel.TabIndex = 12;
-            this.initDiagnosisLabel.Text = "Initial Diagnosis*:";
+            this.initDiagnosisLabel.Text = "Initial Diagnosis:";
             // 
             // orderedTestlabel
             // 
@@ -282,7 +283,8 @@
             this.testNameHeader,
             this.testDateHeader,
             this.resultHeader,
-            this.normalHeader});
+            this.normalHeader,
+            this.performDateColumnHeader});
             this.testsListView.FullRowSelect = true;
             this.testsListView.Location = new System.Drawing.Point(111, 316);
             this.testsListView.Name = "testsListView";
@@ -399,6 +401,11 @@
             this.specialLabel.TabIndex = 36;
             this.specialLabel.Text = "Specialty(s):";
             // 
+            // performDateColumnHeader
+            // 
+            this.performDateColumnHeader.Text = "Perform Date";
+            this.performDateColumnHeader.Width = 99;
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,5 +491,6 @@
         private System.Windows.Forms.Label finalInstructLabel;
         private System.Windows.Forms.TextBox specialTextBox;
         private System.Windows.Forms.Label specialLabel;
+        private System.Windows.Forms.ColumnHeader performDateColumnHeader;
     }
 }
