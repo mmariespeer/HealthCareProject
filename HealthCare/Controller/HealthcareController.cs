@@ -358,6 +358,13 @@ namespace HealthCare.Controller
         {
             return this.specialtyDAL.GetSpecialtyByDoctorID(doctorID);
         }
+
+        public Boolean DeletePatient(int patientID)
+        {
+            return this.patientDAL.DeletePatient(patientID);
+        }
+
+      
    
     }
 }
