@@ -19,6 +19,8 @@ namespace HealthCare.UserControls
         private DataTable selectedTime;
         private int patientID;
         List<Person> doctorNames;
+        private int appointmentID;
+
 
         /// <summary>
         /// Initalizes appointment user control
@@ -151,25 +153,6 @@ namespace HealthCare.UserControls
             }
         }
 
-        /// <summary>
-        /// Reads the data inputed into the fields and inserts into the new appointment
-        /// </summary>
-        /// <param name="appointment"></param>
-        private void ReadIncidentData(Appointment appointment)
-        {
-           
-                appointment.PatientID = this.patientID;
-
-                int docID = (int)doctorComboBox.SelectedValue;
-                appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
-
-                DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
-                appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
-
-                appointment.ReasonForVisit = reasonForVisitTextBox.Text;
-            
-
-        }
 
         /// <summary>
         /// Clears all data from appointment 
@@ -207,12 +190,23 @@ namespace HealthCare.UserControls
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
                 this.patientID = dashboard.SelectedPatientID;
 
-                
-
                 if (this.patientID != 0)
                 {
                     this.LoadAppointmentGridView();
+                    this.PopulateAppointment();
                     this.createAppointmentButton.Enabled = true;
+
+                    if (this.appointmentDateTimePicker.Value <= DateTime.Now.Date)
+                    {
+                       this.updateAppointmentButton.Enabled = false;
+                        this.updateLabel.Visible = true;
+                    }
+                    else
+                    {
+                       this.updateAppointmentButton.Enabled = true;
+                        this.updateLabel.Visible = false;
+                    }
+
                     this.doctorComboBox.Enabled = true;
                     this.appointmentDateTimePicker.Enabled = true;
                     this.appointmentTimeComboBox.Enabled = true;
@@ -222,6 +216,7 @@ namespace HealthCare.UserControls
                 {
                     this.ClearScheduling();
                     this.createAppointmentButton.Enabled = false;
+                    this.updateAppointmentButton.Enabled = false;
                     this.doctorComboBox.Enabled = false;
                     this.appointmentDateTimePicker.Enabled = false;
                     this.appointmentTimeComboBox.Enabled = false;
@@ -238,5 +233,84 @@ namespace HealthCare.UserControls
         {
             this.PopulateDoctorSpecialities();
         }
+
+        private void PopulateAppointment()
+        {
+            try
+            {
+                Appointment appmt = this.healthcareController.GetAppointmentByAppointmentID(this.appointmentID);
+                this.reasonForVisitTextBox.Text = appmt.ReasonForVisit;
+                this.doctorComboBox.SelectedIndex = this.doctorComboBox.FindStringExact(appmt.DoctorName);
+
+                this.appointmentDateTimePicker.Value = appmt.DateTime.Date;
+                this.appointmentTimeComboBox.SelectedIndex = this.appointmentTimeComboBox.FindStringExact(appmt.DateTime.ToString("h:mm tt"));
+                //ToString("HH:mm:ss")  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
+        }
+
+        /// <summary>
+        /// Reads the data inputed into the fields and inserts into the new appointment
+        /// </summary>
+        /// <param name="appointment"></param>
+        private void ReadIncidentData(Appointment appointment)
+        {
+
+            appointment.PatientID = this.patientID;
+
+            int docID = (int)doctorComboBox.SelectedValue;
+            appointment.DoctorID = this.healthcareController.GetDoctorByPersonID(docID).DoctorID;
+
+            DateTime appointmentTime = (DateTime)appointmentTimeComboBox.SelectedValue;
+            appointment.DateTime = appointmentDateTimePicker.Value.Date + appointmentTime.TimeOfDay;
+
+            appointment.ReasonForVisit = reasonForVisitTextBox.Text;
+
+
+        }
+
+        private void updateAppointmentButton_Click(object sender, EventArgs e)
+        {
+            if (reasonForVisitTextBox.Text == null || reasonForVisitTextBox.Text == "" ||
+                this.appointmentDateTimePicker.Value == null || this.appointmentTimeComboBox.SelectedIndex == -1 || this.doctorComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("All fields must be filled in.", "Error", 
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                appointment = new Appointment();
+                this.ReadIncidentData(appointment);
+                appointment.AppointmentID = this.appointmentID;
+
+                try
+                {
+                    this.healthcareController.UpdateAppointment(appointment);
+                    MessageBox.Show("Appointment has been updated");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+        }
+
+        private void appointmentGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in this.appointmentGridView.SelectedRows)
+            {
+                this.appointmentID = (int)row.Cells[0].Value;
+            }
+
+            this.PopulateAppointment();
+        }
     }
 }
+
+
+
+

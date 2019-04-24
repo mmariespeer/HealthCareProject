@@ -32,5 +32,7 @@ namespace HealthCare.Model
         /// The reason the patient is making the appointment with getter and setter
         /// </summary>
         public string ReasonForVisit { get; set; }
+
+        public string DoctorName { get; set; }
     }
 }

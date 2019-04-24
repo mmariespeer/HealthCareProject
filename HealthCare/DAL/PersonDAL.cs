@@ -174,6 +174,11 @@ namespace HealthCare.DAL
             }
         }
 
+        /// <summary>
+        /// Get a personID from a patientID
+        /// </summary>
+        /// <param name="patientID"></param>
+        /// <returns>a personID </returns>
         public int GetPersonID(int patientID)
         {
             int id;

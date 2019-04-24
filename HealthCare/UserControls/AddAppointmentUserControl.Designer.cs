@@ -43,6 +43,8 @@
             this.scheduleNewAppointmentLabel = new System.Windows.Forms.Label();
             this.specialtyListView = new System.Windows.Forms.ListView();
             this.specialtyLabel = new System.Windows.Forms.Label();
+            this.updateAppointmentButton = new System.Windows.Forms.Button();
+            this.updateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +109,7 @@
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Location = new System.Drawing.Point(232, 424);
+            this.createAppointmentButton.Location = new System.Drawing.Point(137, 425);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(141, 33);
@@ -168,6 +170,7 @@
             this.appointmentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentGridView.Size = new System.Drawing.Size(596, 184);
             this.appointmentGridView.TabIndex = 42;
+            this.appointmentGridView.SelectionChanged += new System.EventHandler(this.appointmentGridView_SelectionChanged);
             // 
             // scheduleNewAppointmentLabel
             // 
@@ -200,10 +203,32 @@
             this.specialtyLabel.TabIndex = 46;
             this.specialtyLabel.Text = "Specialty(s) :";
             // 
+            // updateAppointmentButton
+            // 
+            this.updateAppointmentButton.Location = new System.Drawing.Point(304, 425);
+            this.updateAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
+            this.updateAppointmentButton.Name = "updateAppointmentButton";
+            this.updateAppointmentButton.Size = new System.Drawing.Size(141, 33);
+            this.updateAppointmentButton.TabIndex = 47;
+            this.updateAppointmentButton.Text = "Update Appointment";
+            this.updateAppointmentButton.UseVisualStyleBackColor = true;
+            this.updateAppointmentButton.Click += new System.EventHandler(this.updateAppointmentButton_Click);
+            // 
+            // updateLabel
+            // 
+            this.updateLabel.AutoSize = true;
+            this.updateLabel.Location = new System.Drawing.Point(177, 469);
+            this.updateLabel.Name = "updateLabel";
+            this.updateLabel.Size = new System.Drawing.Size(227, 13);
+            this.updateLabel.TabIndex = 48;
+            this.updateLabel.Text = "Appointment has passed and can\'t be updated";
+            // 
             // AddAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.updateLabel);
+            this.Controls.Add(this.updateAppointmentButton);
             this.Controls.Add(this.specialtyLabel);
             this.Controls.Add(this.specialtyListView);
             this.Controls.Add(this.scheduleNewAppointmentLabel);
@@ -221,7 +246,7 @@
             this.Controls.Add(this.createAppointmentButton);
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "AddAppointmentUserControl";
-            this.Size = new System.Drawing.Size(627, 481);
+            this.Size = new System.Drawing.Size(627, 499);
             this.Load += new System.EventHandler(this.AddAppointmentUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).EndInit();
             this.ResumeLayout(false);
@@ -245,5 +270,7 @@
         private System.Windows.Forms.Label scheduleNewAppointmentLabel;
         private System.Windows.Forms.ListView specialtyListView;
         private System.Windows.Forms.Label specialtyLabel;
+        private System.Windows.Forms.Button updateAppointmentButton;
+        private System.Windows.Forms.Label updateLabel;
     }
 }

@@ -364,6 +364,15 @@ namespace HealthCare.Controller
             return this.patientDAL.DeletePatient(patientID);
         }
 
+        public void UpdateAppointment(Appointment appointment)
+        {
+            this.appointmentDAL.UpdateAppointment(appointment);
+        }
+
+        public Appointment GetAppointmentByAppointmentID(int appointmentID)
+        {
+            return this.appointmentDAL.GetAppointmentByAppointmentID(appointmentID);
+        }
       
    
     }

@@ -108,5 +108,55 @@ namespace HealthCare.DAL
             }
             return dataTable;
         }
+
+        public void UpdateAppointment(Appointment appointment)
+        {
+            string updateStatement = "UPDATE appointment " +
+                                     "SET reasonForVisit = @reason, doctorID = @docID, dateTime = @datetime " +
+                                     "WHERE appointmentID = @appmtID";
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+                updateCommand.Parameters.AddWithValue("@reason", appointment.ReasonForVisit);
+                updateCommand.Parameters.AddWithValue("@docID", appointment.DoctorID);
+                updateCommand.Parameters.AddWithValue("@dateTime", appointment.DateTime);
+                updateCommand.Parameters.AddWithValue("@appmtID", appointment.AppointmentID);
+
+                updateCommand.ExecuteNonQuery();
+            }
+        }
+
+        public Appointment GetAppointmentByAppointmentID(int appointmentID)
+        {
+            Appointment appointment = new Appointment();
+
+            string selectStatement =
+                "SELECT a.appointmentID, a.patientID, (p.firstName + ' ' + p.lastName) AS name, a.dateTime, a.reasonForVisit FROM Appointment a JOIN doctor d" +
+                " ON a.doctorID = d.doctorID JOIN person p ON p.personID = d.personID WHERE appointmentID = @appmtID";
+
+            using (SqlConnection connection = HealthcareDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@appmtID", appointmentID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            appointment.AppointmentID = (int)reader["appointmentID"];
+                            appointment.PatientID = (int)reader["patientID"];
+                            appointment.DoctorName = reader["name"].ToString();
+                            appointment.DateTime = (DateTime)reader["dateTime"];
+                            appointment.ReasonForVisit = (string)reader["reasonForVisit"];
+                        }
+                    }
+                }
+            }
+            return appointment;
+        }
     }
 }
