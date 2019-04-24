@@ -55,6 +55,7 @@ namespace HealthCare.UserControls
                 ordered.Add(test);
             }
             this.RefreshListView();
+            this.submitOrderButton.Enabled = true;
         }
 
         private void RefreshListView()

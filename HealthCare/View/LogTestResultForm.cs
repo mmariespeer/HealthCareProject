@@ -20,6 +20,7 @@ namespace HealthCare.View
         public LogTestResultForm(int visitID,string testCode, VisitUserControl visitControl)
         {
             InitializeComponent();
+            this.logTestResultsUserControl1.UpdateLabel(testCode.ToString());
             this.VisitID = visitID;
             this.TestCode = testCode;
             this.VisitControl = visitControl;

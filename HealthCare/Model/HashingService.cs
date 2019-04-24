@@ -20,6 +20,7 @@ namespace HealthCare.Model
         }
 
         //converts hashed passwords to appropriate hashed string
+        //Developed using tutrial at https://youtu.be/AU-4oLUV5VU
         private string ByteArrayToHexString(byte[] ba)
         {
             StringBuilder hex = new StringBuilder(ba.Length * 2);

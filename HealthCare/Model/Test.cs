@@ -33,8 +33,13 @@ namespace HealthCare.Model
         public bool? Normal { get; set; }
 
         /// <summary>
-        /// The date the test was performed with getter and setter
+        /// The date the test was ordered with getter and setter
         /// </summary>
         public DateTime TestDate { get; set; }
+
+        /// <summary>
+        /// The date the test was performed
+        /// </summary>
+        public DateTime? PerformDate { get; set; }
     }
 }

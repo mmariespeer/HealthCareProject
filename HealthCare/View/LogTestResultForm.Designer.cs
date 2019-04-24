@@ -53,6 +53,6 @@
 
         #endregion
 
-        private UserControls.LogTestResultsUserControl logTestResultsUserControl1;
+        public UserControls.LogTestResultsUserControl logTestResultsUserControl1;
     }
 }

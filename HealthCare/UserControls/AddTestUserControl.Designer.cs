@@ -34,14 +34,14 @@
             this.orderedListView = new System.Windows.Forms.ListView();
             this.codeColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nameColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dateColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.resultColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.normalColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.addToOrderButton = new System.Windows.Forms.Button();
             this.availableTestsLabel = new System.Windows.Forms.Label();
             this.orderedTestsLabel = new System.Windows.Forms.Label();
             this.submitOrderButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.dateColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.resultColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.normalColumnHead = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.instructionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -94,6 +94,20 @@
             this.nameColumnHead.Text = "Name";
             this.nameColumnHead.Width = 184;
             // 
+            // dateColumnHead
+            // 
+            this.dateColumnHead.Text = "Date";
+            this.dateColumnHead.Width = 82;
+            // 
+            // resultColumnHead
+            // 
+            this.resultColumnHead.Text = "Result";
+            // 
+            // normalColumnHead
+            // 
+            this.normalColumnHead.Text = "Normal";
+            this.normalColumnHead.Width = 67;
+            // 
             // addToOrderButton
             // 
             this.addToOrderButton.Location = new System.Drawing.Point(22, 347);
@@ -124,6 +138,7 @@
             // 
             // submitOrderButton
             // 
+            this.submitOrderButton.Enabled = false;
             this.submitOrderButton.Location = new System.Drawing.Point(644, 347);
             this.submitOrderButton.Name = "submitOrderButton";
             this.submitOrderButton.Size = new System.Drawing.Size(96, 23);
@@ -141,20 +156,6 @@
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-            // 
-            // dateColumnHead
-            // 
-            this.dateColumnHead.Text = "Date";
-            this.dateColumnHead.Width = 82;
-            // 
-            // resultColumnHead
-            // 
-            this.resultColumnHead.Text = "Result";
-            // 
-            // normalColumnHead
-            // 
-            this.normalColumnHead.Text = "Normal";
-            this.normalColumnHead.Width = 67;
             // 
             // instructionLabel
             // 

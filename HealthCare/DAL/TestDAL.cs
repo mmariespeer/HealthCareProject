@@ -19,7 +19,7 @@ namespace HealthCare.DAL
             List<Test> testList = new List<Test>();
 
             string selectStatement =
-                "SELECT t.testName, tr.testCode, tr.results, tr.normal, tr.testDate " +
+                "SELECT t.testName, tr.testCode, tr.results, tr.normal, tr.testDate, tr.performDate " +
                 "FROM testResult AS tr " +
                 "JOIN test AS t ON tr.testCode = t.testCode " +
                 "WHERE tr.visitID = @visitID";
@@ -42,6 +42,7 @@ namespace HealthCare.DAL
                             test.Results = reader["results"] as string;
                             test.Normal = reader["normal"] as bool?;
                             test.TestDate = (DateTime)reader["testDate"];
+                            test.PerformDate = reader["performDate"] as DateTime?;
                             test.VisitId = visitId;
                             testList.Add(test);
                         }
@@ -59,9 +60,9 @@ namespace HealthCare.DAL
         /// <param name="result">as string</param>
         /// <param name="normal">as bool</param>
 
-        public void UpdateTestResult(int visitID, string testCode, string result, bool normal)
+        public void UpdateTestResult(int visitID, string testCode, string result, bool normal, DateTime performDate)
         {
-            string updateStatement = "UPDATE testResult SET results = @result, normal = @normal WHERE visitID = @visitID AND testCode = @testCode;";
+            string updateStatement = "UPDATE testResult SET results = @result, normal = @normal, performDate = @performDate WHERE visitID = @visitID AND testCode = @testCode;";
             DateTime now = DateTime.Now;
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
@@ -75,6 +76,7 @@ namespace HealthCare.DAL
                     updateCommand.Parameters.AddWithValue("@testCode", testCode);
                     updateCommand.Parameters.AddWithValue("@result", result);
                     updateCommand.Parameters.AddWithValue("@normal", normal);
+                    updateCommand.Parameters.AddWithValue("@performDate", performDate);
 
                     updateCommand.ExecuteNonQuery();
 
