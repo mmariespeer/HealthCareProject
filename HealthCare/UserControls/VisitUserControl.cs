@@ -116,7 +116,7 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         private void VisitListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.visitListView.SelectedItems[0].SubItems[0].Text)) 
+            if (this.visitListView.SelectedItems.Count != 0) 
             {
                 int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
                 Visit visit = this.controller.GetVisitByAppointmentID(apptID);
