@@ -290,7 +290,7 @@
             this.testsListView.TabIndex = 28;
             this.testsListView.UseCompatibleStateImageBehavior = false;
             this.testsListView.View = System.Windows.Forms.View.Details;
-            this.testsListView.SelectedIndexChanged += new System.EventHandler(this.testsListView_SelectedIndexChanged);
+            this.testsListView.SelectedIndexChanged += new System.EventHandler(this.TestsListView_SelectedIndexChanged);
             // 
             // testCodeHeader
             // 
@@ -326,7 +326,7 @@
             this.updateResultButton.TabIndex = 29;
             this.updateResultButton.Text = "Update Result";
             this.updateResultButton.UseVisualStyleBackColor = true;
-            this.updateResultButton.Click += new System.EventHandler(this.updateResultButton_Click);
+            this.updateResultButton.Click += new System.EventHandler(this.UpdateResultButton_Click);
             // 
             // instructionLabel
             // 
@@ -346,7 +346,7 @@
             this.clearVisitButton.TabIndex = 31;
             this.clearVisitButton.Text = "Clear";
             this.clearVisitButton.UseVisualStyleBackColor = true;
-            this.clearVisitButton.Click += new System.EventHandler(this.clearVisitButton_Click);
+            this.clearVisitButton.Click += new System.EventHandler(this.ClearVisitButton_Click);
             // 
             // visitLabel
             // 

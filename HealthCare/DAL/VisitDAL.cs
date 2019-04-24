@@ -13,18 +13,18 @@ namespace HealthCare.DAL
     class VisitDAL
     {
         #region VisitStatements
-        private const string insertVisitStatement = "INSERT INTO visit([nurseID], [appointmentID], [weight], [systolicBP], [diastolicBP], [temp], [pulse], [symptoms])" +
-                        "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,1,@symptoms); SELECT SCOPE_IDENTITY()";
+        private const string insertVisitStatement = "INSERT INTO visit([nurseID], [appointmentID], [weight], [systolicBP], [diastolicBP], [temp], [pulse], [symptoms], [status])" +
+                        "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,1,@symptoms,@status); SELECT SCOPE_IDENTITY()";
         private const string insertDiagnosticStatement = "INSERT INTO diagnosis([visitID],[initialDiagnosis],[finalDiagnosis])" +
                         "VALUES(@visitID,@initial,@final)";
         private const string updateVisitStatement = "UPDATE visit SET [nurseID] = @nurseID, [appointmentID] = @apptID, [weight] = @weight, [systolicBP] = @systolicBP, [diastolicBP] = @diastolicBP"+
-            ", [temp] = @temp ,[pulse] = 1 ,[symptoms] = @symptoms " +
+            ", [temp] = @temp ,[pulse] = 1 ,[symptoms] = @symptoms, [status] = @status " +
             "WHERE visitID = @visitID";
         private const string updateDiagnosticsStatement = "UPDATE diagnosis SET [visitID] = @visitID, [initialDiagnosis] = @initial, [finalDiagnosis] = @final WHERE visitID = @visitID";
 
         #endregion
 
-        private const string selectStatement = "SELECT p.firstName + ' ' + p.lastName AS doctorName, a.patientID, a.doctorID, a.datetime, dg.initialDiagnosis, dg.finalDiagnosis, v.weight, v.systolicBP, v.diastolicBP, v.temp, v.pulse, v.symptoms, v.visitID, a.appointmentID " +
+        private const string selectStatement = "SELECT p.firstName + ' ' + p.lastName AS doctorName, v.status, a.patientID, a.doctorID, a.datetime, dg.initialDiagnosis, dg.finalDiagnosis, v.weight, v.systolicBP, v.diastolicBP, v.temp, v.pulse, v.symptoms, v.visitID, a.appointmentID " +
                 "FROM Appointment AS a " +
                 "LEFT JOIN Visit AS v ON v.appointmentID = a.appointmentID " +
                 "JOIN Doctor AS d ON a.doctorID = d.doctorID " +
@@ -54,6 +54,7 @@ namespace HealthCare.DAL
                         {
                             visit.VisitID = reader["visitID"] as int? ?? 0;
                             visit.AppointmentID = (int)reader["appointmentID"];
+                            visit.Status = (int)reader["status"];
                             visit.PatientID = (int)reader["patientID"];
                             visit.DoctorName = (string)reader["doctorName"];
                             visit.DoctorID = (int)reader["doctorID"];
@@ -105,6 +106,7 @@ namespace HealthCare.DAL
                             insertCommand.Parameters.AddWithValue("@pulse", visit.Pulse);
                             insertCommand.Parameters.AddWithValue("@temp", visit.Temp);
                             insertCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
+                            insertCommand.Parameters.AddWithValue("@status", visit.Status);
 
                             
                             pk = Convert.ToInt32(insertCommand.ExecuteScalar());
@@ -149,6 +151,7 @@ namespace HealthCare.DAL
                             updateVisitCommand.Parameters.AddWithValue("@pulse", visit.Pulse);
                             updateVisitCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
                             updateVisitCommand.Parameters.AddWithValue("@visitID", visit.VisitID);
+                            updateVisitCommand.Parameters.AddWithValue("@status", visit.Status);
 
                             visitResult = updateVisitCommand.ExecuteNonQuery();
                         }

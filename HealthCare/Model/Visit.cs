@@ -81,5 +81,10 @@ namespace HealthCare.Model
         /// The final diagnosis of the patient at visit with getter and setter
         /// </summary>
         public string FinalDiagnosis { get; set; }
+
+        /// <summary>
+        /// The status of the appt. 0 is open 1 is closed
+        /// </summary>
+        public int Status { get; set; }
     }
 }

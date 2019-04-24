@@ -43,15 +43,11 @@ namespace HealthCare.UserControls
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
                 this.patientID = dashboard.SelectedPatientID;
 
-                //This is going to be implemented later
-                this.addTestsButton.Enabled = false;
-
                 if (this.patientID != 0)
                 {
                     this.ResetVisitForm();
                     this.PopulateApptList();
                     this.visitListView.Enabled = true;
-                    this.updateButton.Enabled = true;
                 }
                 else
                 {
@@ -78,6 +74,7 @@ namespace HealthCare.UserControls
             this.symptomsTextBox.Text = "";
             this.initDiagnosisTextBox.Text = "";
             this.finalDiagnosisTextBox.Text = "";
+            this.addTestsButton.Enabled = false;
             this.updateButton.Enabled = false;
             this.testsListView.Items.Clear();
             this.visitListView.Items.Clear();
@@ -122,6 +119,7 @@ namespace HealthCare.UserControls
                 int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
                 Visit visit = this.controller.GetVisitByAppointmentID(apptID);
                 _visitID = visit.VisitID;
+                this.CheckVisitStatus(visit);
 
                 if (visit.VisitID != 0)
                 {
@@ -137,7 +135,6 @@ namespace HealthCare.UserControls
                     this.initDiagnosisTextBox.Text = visit.InitialDiagnosis;
                     this.finalDiagnosisTextBox.Text = visit.FinalDiagnosis;
                     this.GetTests(visit.VisitID);
-                    this.addTestsButton.Enabled = true;
                     this.addTest = new AddTestForm(visit.VisitID, this);
                 }
                 else
@@ -242,10 +239,21 @@ namespace HealthCare.UserControls
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            int status = 0;
             if (!string.IsNullOrEmpty(this.finalDiagnosisTextBox.Text))
             {
                 if (this.CheckAllTestsHaveResults(_visitID))
                 {
+                    DialogResult result =  MessageBox.Show("By entering a final diagnosis, you are completing this appointment where it can no longer be edited. Would you like to continue?" + Environment.NewLine,
+                                    "Alert!", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.Cancel)
+                    {
+                        return;
+                    } else
+                    {
+                        status = 1;
+                    }
+                    
                 }
                 else
                 {
@@ -267,7 +275,8 @@ namespace HealthCare.UserControls
                 NurseID = 1,
                 AppointmentID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text),
                 InitialDiagnosis = this.initDiagnosisTextBox.Text,
-                FinalDiagnosis = this.finalDiagnosisTextBox.Text
+                FinalDiagnosis = this.finalDiagnosisTextBox.Text,
+                Status = status
             };
 
             bool success = this.controller.AddVisit(visit);
@@ -293,12 +302,12 @@ namespace HealthCare.UserControls
             this.addTest.ShowDialog();
         }
 
-        private void updateResultButton_Click(object sender, EventArgs e)
+        private void UpdateResultButton_Click(object sender, EventArgs e)
         {
             this.logTest.ShowDialog();
         }
 
-        private void testsListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void TestsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(this.testsListView.SelectedItems.Count > 0)
             {
@@ -317,7 +326,7 @@ namespace HealthCare.UserControls
 
         }
 
-        private void clearVisitButton_Click(object sender, EventArgs e)
+        private void ClearVisitButton_Click(object sender, EventArgs e)
         {
             this.VisitUserControl_Load(sender, e);
         }
@@ -333,6 +342,45 @@ namespace HealthCare.UserControls
                 }
             }
             return true;
+        }
+
+        private void CheckVisitStatus(Visit visit)
+        {
+            if (visit.Status == 0)
+            {
+                this.weightTextBox.Enabled = true;
+                this.weightTextBox.ReadOnly = false;
+                this.pulseTextBox.Enabled = true;
+                this.pulseTextBox.ReadOnly = false;
+                this.tempTextBox.Enabled = true;
+                this.tempTextBox.ReadOnly = false;
+                this.systolicTextBox.Enabled = true;
+                this.systolicTextBox.ReadOnly = false;
+                this.diastolicTextBox.Enabled = true;
+                this.diastolicTextBox.ReadOnly = false;
+                this.symptomsTextBox.Enabled = true;
+                this.symptomsTextBox.ReadOnly = false;
+                this.initDiagnosisTextBox.Enabled = true;
+                this.initDiagnosisTextBox.ReadOnly = false;
+                this.finalDiagnosisTextBox.Enabled = true;
+                this.finalDiagnosisTextBox.ReadOnly = false;
+                this.addTestsButton.Enabled = true;
+                this.completedLabel.Visible = false;
+                this.updateButton.Enabled = true;
+            } else
+            {
+                this.weightTextBox.ReadOnly = true;
+                this.pulseTextBox.ReadOnly = true;
+                this.tempTextBox.ReadOnly = true;
+                this.systolicTextBox.ReadOnly = true;
+                this.diastolicTextBox.ReadOnly = true;
+                this.symptomsTextBox.ReadOnly = true;
+                this.initDiagnosisTextBox.ReadOnly = true;
+                this.finalDiagnosisTextBox.ReadOnly = true;
+                this.addTestsButton.Enabled = false;
+                this.completedLabel.Visible = true;
+                this.updateButton.Enabled = false;
+            }
         }
     }
 }
