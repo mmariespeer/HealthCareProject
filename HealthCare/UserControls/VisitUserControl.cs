@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using HealthCare.Controller;
 using HealthCare.Model;
@@ -124,7 +125,9 @@ namespace HealthCare.UserControls
 
                 if (visit.VisitID != 0)
                 {
+                    List<Specialty> specials = this.GetSpecialty(visit.DoctorID);
                     this.doctorTextBox.Text = visit.DoctorName.ToString();
+                    this.specialTextBox.Text = string.Join(", ", specials.Select(x => x.SpecialityName));
                     this.weightTextBox.Text = visit.Weight.ToString();
                     this.pulseTextBox.Text = visit.Pulse.ToString();
                     this.tempTextBox.Text = visit.Temp.ToString();
@@ -139,7 +142,9 @@ namespace HealthCare.UserControls
                 }
                 else
                 {
+                    List<Specialty> specials = this.GetSpecialty(visit.DoctorID);
                     this.doctorTextBox.Text = visit.DoctorName.ToString();
+                    this.specialTextBox.Text = string.Join(", ", specials);
                     this.weightTextBox.Text = "";
                     this.pulseTextBox.Text = "";
                     this.tempTextBox.Text = "";
@@ -150,6 +155,11 @@ namespace HealthCare.UserControls
                     this.finalDiagnosisTextBox.Text = "";
                 }
             }
+        }
+
+        private List<Specialty> GetSpecialty(int doctorID)
+        {
+            return this.controller.GetSpecialtiesByDoctorID(doctorID);
         }
 
         /// <summary>

@@ -65,6 +65,8 @@
             this.pulseTextBox = new System.Windows.Forms.TextBox();
             this.pulseLabel = new System.Windows.Forms.Label();
             this.finalInstructLabel = new System.Windows.Forms.Label();
+            this.specialTextBox = new System.Windows.Forms.TextBox();
+            this.specialLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // doctorLabel
@@ -380,10 +382,29 @@
             this.finalInstructLabel.TabIndex = 35;
             this.finalInstructLabel.Text = "All tests must have results before a final diagnosis can be saved.";
             // 
+            // specialTextBox
+            // 
+            this.specialTextBox.Location = new System.Drawing.Point(300, 163);
+            this.specialTextBox.Name = "specialTextBox";
+            this.specialTextBox.ReadOnly = true;
+            this.specialTextBox.Size = new System.Drawing.Size(334, 20);
+            this.specialTextBox.TabIndex = 37;
+            // 
+            // specialLabel
+            // 
+            this.specialLabel.AutoSize = true;
+            this.specialLabel.Location = new System.Drawing.Point(229, 166);
+            this.specialLabel.Name = "specialLabel";
+            this.specialLabel.Size = new System.Drawing.Size(64, 13);
+            this.specialLabel.TabIndex = 36;
+            this.specialLabel.Text = "Specialty(s):";
+            // 
             // VisitUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.specialTextBox);
+            this.Controls.Add(this.specialLabel);
             this.Controls.Add(this.finalInstructLabel);
             this.Controls.Add(this.pulseTextBox);
             this.Controls.Add(this.pulseLabel);
@@ -461,5 +482,7 @@
         private System.Windows.Forms.TextBox pulseTextBox;
         private System.Windows.Forms.Label pulseLabel;
         private System.Windows.Forms.Label finalInstructLabel;
+        private System.Windows.Forms.TextBox specialTextBox;
+        private System.Windows.Forms.Label specialLabel;
     }
 }

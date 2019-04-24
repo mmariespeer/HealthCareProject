@@ -24,7 +24,7 @@ namespace HealthCare.DAL
 
         #endregion
 
-        private const string selectStatement = "SELECT p.firstName + ' ' + p.lastName AS doctorName, a.patientID, a.datetime, dg.initialDiagnosis, dg.finalDiagnosis, v.weight, v.systolicBP, v.diastolicBP, v.temp, v.pulse, v.symptoms, v.visitID, a.appointmentID " +
+        private const string selectStatement = "SELECT p.firstName + ' ' + p.lastName AS doctorName, a.patientID, a.doctorID, a.datetime, dg.initialDiagnosis, dg.finalDiagnosis, v.weight, v.systolicBP, v.diastolicBP, v.temp, v.pulse, v.symptoms, v.visitID, a.appointmentID " +
                 "FROM Appointment AS a " +
                 "LEFT JOIN Visit AS v ON v.appointmentID = a.appointmentID " +
                 "JOIN Doctor AS d ON a.doctorID = d.doctorID " +
@@ -56,6 +56,7 @@ namespace HealthCare.DAL
                             visit.AppointmentID = (int)reader["appointmentID"];
                             visit.PatientID = (int)reader["patientID"];
                             visit.DoctorName = (string)reader["doctorName"];
+                            visit.DoctorID = (int)reader["doctorID"];
                             visit.DateTime = (DateTime)reader["dateTime"];
                             visit.Weight = reader["weight"] as decimal? ?? 0;
                             visit.Temp = reader["temp"] as decimal? ?? 0;
