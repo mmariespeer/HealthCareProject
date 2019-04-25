@@ -14,8 +14,8 @@ namespace HealthCare
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new View.LoginForm());
-            Application.Run(new View.NurseDashboard(new View.LoginForm()));
-            //Application.Run(new View.AdminDashboard(new View.LoginForm()));
+            //Application.Run(new View.NurseDashboard(new View.LoginForm()));
+            Application.Run(new View.AdminDashboard(new View.LoginForm()));
 
         }
     }

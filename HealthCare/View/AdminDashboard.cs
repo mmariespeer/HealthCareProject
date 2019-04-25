@@ -53,14 +53,14 @@ namespace HealthCare.View
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-            this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, DateTime.Today, DateTime.Today);
-            this.reportViewer1.RefreshReport();
+            //this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, DateTime.Today, DateTime.Today);
+            //this.reportViewer1.RefreshReport();
         }
 
         private void generateReportButton_Click(object sender, EventArgs e)
         {
-            this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, this.startDate.Value, this.endDate.Value);
-            this.reportViewer1.RefreshReport();
+            //this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, this.startDate.Value, this.endDate.Value);
+            //this.reportViewer1.RefreshReport();
         }
     }
 }

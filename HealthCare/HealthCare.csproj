@@ -109,6 +109,12 @@
     <Compile Include="UserControls\LogTestResultsUserControl.Designer.cs">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MostPeformedTestsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MostPeformedTestsUserControl.Designer.cs">
+      <DependentUpon>MostPeformedTestsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NewLoginUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogTestResultsUserControl.resx">
       <DependentUpon>LogTestResultsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MostPeformedTestsUserControl.resx">
+      <DependentUpon>MostPeformedTestsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NewLoginUserControl.resx">
       <DependentUpon>NewLoginUserControl.cs</DependentUpon>

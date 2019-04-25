@@ -9,6 +9,8 @@ namespace HealthCare.Model
     /// </summary>
     class HashingService
     {
+        //converts string to hashed password
+        //Developed using tutrial at https://youtu.be/AU-4oLUV5VU
         public String PasswordHashing(string password)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password);
