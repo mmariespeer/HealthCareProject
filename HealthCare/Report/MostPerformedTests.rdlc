@@ -1168,7 +1168,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>mostperformed</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\megan\source\repos\healthcare3\HealthCare\mostperformed.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\megan\source\repos\healthcare3\HealthCare\Report\mostperformed.xsd</rd:SchemaPath>
         <rd:TableName>spMostPerformedTests</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

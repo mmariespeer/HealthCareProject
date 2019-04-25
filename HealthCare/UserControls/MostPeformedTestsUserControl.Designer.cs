@@ -1,4 +1,6 @@
-﻿namespace HealthCare.UserControls
+﻿using HealthCare.Report;
+
+namespace HealthCare.UserControls
 {
     partial class MostPeformedTestsUserControl
     {
@@ -30,6 +32,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.spMostPerformedTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mostperformed = new HealthCare.Report.mostperformed();
             this.instructionsLabel = new System.Windows.Forms.Label();
             this.endDate = new System.Windows.Forms.DateTimePicker();
             this.startDate = new System.Windows.Forms.DateTimePicker();
@@ -37,47 +41,51 @@
             this.toLabel = new System.Windows.Forms.Label();
             this.fromLabel = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.mostperformed = new HealthCare.mostperformed();
-            this.spMostPerformedTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.spMostPerformedTestsTableAdapter = new HealthCare.mostperformedTableAdapters.spMostPerformedTestsTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).BeginInit();
+            this.spMostPerformedTestsTableAdapter = new HealthCare.Report.mostperformedTableAdapters.spMostPerformedTestsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).BeginInit();
             this.SuspendLayout();
+            // 
+            // spMostPerformedTestsBindingSource
+            // 
+            this.spMostPerformedTestsBindingSource.DataMember = "spMostPerformedTests";
+            this.spMostPerformedTestsBindingSource.DataSource = this.mostperformed;
+            // 
+            // mostperformed
+            // 
+            this.mostperformed.DataSetName = "mostperformed";
+            this.mostperformed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // instructionsLabel
             // 
             this.instructionsLabel.AutoSize = true;
-            this.instructionsLabel.Location = new System.Drawing.Point(531, 38);
-            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.instructionsLabel.Location = new System.Drawing.Point(199, 16);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(718, 32);
+            this.instructionsLabel.Size = new System.Drawing.Size(271, 13);
             this.instructionsLabel.TabIndex = 15;
             this.instructionsLabel.Text = "Enter dates in which you would like to search results for.";
             // 
             // endDate
             // 
             this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.endDate.Location = new System.Drawing.Point(955, 134);
-            this.endDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.endDate.Location = new System.Drawing.Point(358, 56);
             this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(292, 38);
+            this.endDate.Size = new System.Drawing.Size(112, 20);
             this.endDate.TabIndex = 14;
             // 
             // startDate
             // 
             this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.startDate.Location = new System.Drawing.Point(459, 134);
-            this.startDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.startDate.Location = new System.Drawing.Point(172, 56);
             this.startDate.Name = "startDate";
-            this.startDate.Size = new System.Drawing.Size(300, 38);
+            this.startDate.Size = new System.Drawing.Size(115, 20);
             this.startDate.TabIndex = 13;
             // 
             // generateReportButton
             // 
-            this.generateReportButton.Location = new System.Drawing.Point(1296, 114);
-            this.generateReportButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.generateReportButton.Location = new System.Drawing.Point(486, 48);
             this.generateReportButton.Name = "generateReportButton";
-            this.generateReportButton.Size = new System.Drawing.Size(445, 91);
+            this.generateReportButton.Size = new System.Drawing.Size(167, 38);
             this.generateReportButton.TabIndex = 12;
             this.generateReportButton.Text = "Generate Report";
             this.generateReportButton.UseVisualStyleBackColor = true;
@@ -86,20 +94,18 @@
             // toLabel
             // 
             this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(835, 145);
-            this.toLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.toLabel.Location = new System.Drawing.Point(313, 61);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(70, 32);
+            this.toLabel.Size = new System.Drawing.Size(29, 13);
             this.toLabel.TabIndex = 11;
             this.toLabel.Text = "To : ";
             // 
             // fromLabel
             // 
             this.fromLabel.AutoSize = true;
-            this.fromLabel.Location = new System.Drawing.Point(288, 145);
-            this.fromLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.fromLabel.Location = new System.Drawing.Point(108, 61);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(102, 32);
+            this.fromLabel.Size = new System.Drawing.Size(39, 13);
             this.fromLabel.TabIndex = 10;
             this.fromLabel.Text = "From : ";
             // 
@@ -108,23 +114,14 @@
             reportDataSource1.Name = "MostPerformed";
             reportDataSource1.Value = this.spMostPerformedTestsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.MostPerformedTests.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 229);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.Report.MostPerformedTests.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(1, 105);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(1);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1957, 1099);
+            this.reportViewer1.Size = new System.Drawing.Size(735, 462);
             this.reportViewer1.TabIndex = 16;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
-            // 
-            // mostperformed
-            // 
-            this.mostperformed.DataSetName = "mostperformed";
-            this.mostperformed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spMostPerformedTestsBindingSource
-            // 
-            this.spMostPerformedTestsBindingSource.DataMember = "spMostPerformedTests";
-            this.spMostPerformedTestsBindingSource.DataSource = this.mostperformed;
             // 
             // spMostPerformedTestsTableAdapter
             // 
@@ -132,7 +129,7 @@
             // 
             // MostPeformedTestsUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.instructionsLabel);
@@ -141,11 +138,10 @@
             this.Controls.Add(this.generateReportButton);
             this.Controls.Add(this.toLabel);
             this.Controls.Add(this.fromLabel);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "MostPeformedTestsUserControl";
-            this.Size = new System.Drawing.Size(1960, 1331);
-            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).EndInit();
+            this.Size = new System.Drawing.Size(735, 558);
             ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,6 +157,6 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource spMostPerformedTestsBindingSource;
         private mostperformed mostperformed;
-        private mostperformedTableAdapters.spMostPerformedTestsTableAdapter spMostPerformedTestsTableAdapter;
+        private Report.mostperformedTableAdapters.spMostPerformedTestsTableAdapter spMostPerformedTestsTableAdapter;
     }
 }

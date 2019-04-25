@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace HealthCare {
+namespace HealthCare.Report {
     
     
     /// <summary>
@@ -915,7 +915,7 @@ namespace HealthCare {
         }
     }
 }
-namespace HealthCare.mostperformedTableAdapters {
+namespace HealthCare.Report.mostperformedTableAdapters {
     
     
     /// <summary>
