@@ -54,7 +54,7 @@ namespace HealthCare.DAL
                         {
                             visit.VisitID = reader["visitID"] as int? ?? 0;
                             visit.AppointmentID = (int)reader["appointmentID"];
-                            visit.Status = (int)reader["status"];
+                            visit.Status = reader["status"] as int? ?? 0;
                             visit.PatientID = (int)reader["patientID"];
                             visit.DoctorName = (string)reader["doctorName"];
                             visit.DoctorID = (int)reader["doctorID"];
