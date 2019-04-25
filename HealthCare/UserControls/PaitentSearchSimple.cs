@@ -41,6 +41,11 @@ namespace HealthCare.UserControls
                         patientList = this.controller.GetPatientsByDOBandLastName(dob, this.lastNameTextBox.Text);
                         this.SetListView(patientList);
                     }
+                    else if (!String.IsNullOrEmpty(this.firstNameTextBox.Text)) {
+                        MessageBox.Show("Cannot search by first name and date of birth!" +
+                        Environment.NewLine, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     else
                     {
                         patientList = this.controller.GetPatientsByDOB(dob);
