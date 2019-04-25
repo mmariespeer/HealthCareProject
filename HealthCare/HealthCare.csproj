@@ -183,6 +183,11 @@
     <Compile Include="View\UsernameCreationForm.Designer.cs">
       <DependentUpon>UsernameCreationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="_cs6232_g2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_cs6232_g2DataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MostPerformedTests.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -261,6 +266,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="_cs6232_g2DataSet.xsc">
+      <DependentUpon>_cs6232_g2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_cs6232_g2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_cs6232_g2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_cs6232_g2DataSet.xss">
+      <DependentUpon>_cs6232_g2DataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
