@@ -97,7 +97,7 @@ namespace HealthCare.UserControls
             selectedTime.Columns.Add("time", typeof(string));
             try
             {
-                for (DateTime tm = time.AddHours(9); tm < time.AddHours(17); tm = tm.AddMinutes(30))
+                for (DateTime tm = time.AddHours(9); tm < time.AddHours(17); tm = tm.AddMinutes(15))
                 {
                     selectedTime.Rows.Add(tm, tm.ToShortTimeString());
                 }
@@ -159,10 +159,13 @@ namespace HealthCare.UserControls
         /// </summary>
         private void ClearScheduling()
         {
-            this.LoadDoctorComboBox();
-            this.LoadTimesComboBox();
+            //this.LoadDoctorComboBox();
+            //this.LoadTimesComboBox();
+            this.appointmentTimeComboBox.SelectedIndex = -1;
+            //this.doctorComboBox.SelectedIndex = -1;
             reasonForVisitTextBox.Text = "";
             this.LoadAppointmentGridView();
+            this.appointmentDateTimePicker.Value = DateTime.Now;
         }
 
         /// <summary>
@@ -170,12 +173,20 @@ namespace HealthCare.UserControls
         /// </summary>
         private void LoadAppointmentGridView()
         {
-            DataTable dt = new DataTable();
-            //List<Appointment> appointment = new Appointment();
-            //appointment = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
-            appointmentGridView.DataBindings.Clear();
-            dt = this.healthcareController.GetAppointmentsAndDoctorByPatientID(this.patientID);
-            appointmentGridView.DataSource = dt ;
+        try
+            {
+                DataTable dt = new DataTable();
+                //List<Appointment> appointment = new Appointment();
+                //appointment = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
+                appointmentGridView.DataBindings.Clear();
+                dt = this.healthcareController.GetAppointmentsAndDoctorByPatientID(this.patientID);
+                appointmentGridView.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
+
         }
 
         /// <summary>
@@ -192,20 +203,11 @@ namespace HealthCare.UserControls
 
                 if (this.patientID != 0)
                 {
+
                     this.LoadAppointmentGridView();
                     this.PopulateAppointment();
                     this.createAppointmentButton.Enabled = true;
-
-                    if (this.appointmentDateTimePicker.Value <= DateTime.Now.Date)
-                    {
-                       this.updateAppointmentButton.Enabled = false;
-                        this.updateLabel.Visible = true;
-                    }
-                    else
-                    {
-                       this.updateAppointmentButton.Enabled = true;
-                        this.updateLabel.Visible = false;
-                    }
+                    this.clearButton.Enabled = true;
 
                     this.doctorComboBox.Enabled = true;
                     this.appointmentDateTimePicker.Enabled = true;
@@ -221,6 +223,7 @@ namespace HealthCare.UserControls
                     this.appointmentDateTimePicker.Enabled = false;
                     this.appointmentTimeComboBox.Enabled = false;
                     this.specialtyListView.Enabled = false;
+                    this.clearButton.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -244,7 +247,17 @@ namespace HealthCare.UserControls
 
                 this.appointmentDateTimePicker.Value = appmt.DateTime.Date;
                 this.appointmentTimeComboBox.SelectedIndex = this.appointmentTimeComboBox.FindStringExact(appmt.DateTime.ToString("h:mm tt"));
-                //ToString("HH:mm:ss")  
+
+                if (appmt.DateTime <= DateTime.Now.Date)
+                {
+                    this.updateAppointmentButton.Enabled = false;
+                    this.updateLabel.Visible = true;
+                }
+                else
+                {
+                    this.updateAppointmentButton.Enabled = true;
+                    this.updateLabel.Visible = false;
+                }
             }
             catch (Exception ex)
             {
@@ -291,6 +304,7 @@ namespace HealthCare.UserControls
                 {
                     this.healthcareController.UpdateAppointment(appointment);
                     MessageBox.Show("Appointment has been updated");
+                    this.LoadAppointmentGridView();
                 }
                 catch (Exception ex)
                 {
@@ -301,12 +315,29 @@ namespace HealthCare.UserControls
 
         private void appointmentGridView_SelectionChanged(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in this.appointmentGridView.SelectedRows)
+        if (this.appointmentGridView.Rows.Count != 0)
             {
-                this.appointmentID = (int)row.Cells[0].Value;
-            }
 
-            this.PopulateAppointment();
+                foreach (DataGridViewRow row in this.appointmentGridView.SelectedRows)
+                {
+                    this.appointmentID = (int)row.Cells[0].Value;
+                }
+
+                this.PopulateAppointment();
+            }
+        else
+            {
+                this.appointmentGridView.ClearSelection();
+                this.ClearScheduling();
+            }
+            
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            this.AddAppointmentUserControl_Load(sender, e);
+            this.ClearScheduling();
+            this.appointmentGridView.ClearSelection();
         }
     }
 }

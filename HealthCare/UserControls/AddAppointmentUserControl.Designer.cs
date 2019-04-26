@@ -45,6 +45,7 @@
             this.specialtyLabel = new System.Windows.Forms.Label();
             this.updateAppointmentButton = new System.Windows.Forms.Button();
             this.updateLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +110,7 @@
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Location = new System.Drawing.Point(137, 425);
+            this.createAppointmentButton.Location = new System.Drawing.Point(88, 425);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(141, 33);
@@ -205,7 +206,7 @@
             // 
             // updateAppointmentButton
             // 
-            this.updateAppointmentButton.Location = new System.Drawing.Point(304, 425);
+            this.updateAppointmentButton.Location = new System.Drawing.Point(251, 425);
             this.updateAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
             this.updateAppointmentButton.Name = "updateAppointmentButton";
             this.updateAppointmentButton.Size = new System.Drawing.Size(141, 33);
@@ -223,10 +224,22 @@
             this.updateLabel.TabIndex = 48;
             this.updateLabel.Text = "Appointment has passed and can\'t be updated";
             // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(413, 425);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(1);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(141, 33);
+            this.clearButton.TabIndex = 49;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // AddAppointmentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.updateLabel);
             this.Controls.Add(this.updateAppointmentButton);
             this.Controls.Add(this.specialtyLabel);
@@ -272,5 +285,6 @@
         private System.Windows.Forms.Label specialtyLabel;
         private System.Windows.Forms.Button updateAppointmentButton;
         private System.Windows.Forms.Label updateLabel;
+        private System.Windows.Forms.Button clearButton;
     }
 }
