@@ -42,8 +42,12 @@ namespace HealthCare.UserControls
             this.fromLabel = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.spMostPerformedTestsTableAdapter = new HealthCare.Report.mostperformedTableAdapters.spMostPerformedTestsTableAdapter();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // spMostPerformedTestsBindingSource
@@ -58,34 +62,43 @@ namespace HealthCare.UserControls
             // 
             // instructionsLabel
             // 
+            this.instructionsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.instructionsLabel.AutoSize = true;
-            this.instructionsLabel.Location = new System.Drawing.Point(199, 16);
+            this.instructionsLabel.Location = new System.Drawing.Point(8, 43);
+            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(271, 13);
+            this.instructionsLabel.Size = new System.Drawing.Size(1944, 32);
             this.instructionsLabel.TabIndex = 15;
             this.instructionsLabel.Text = "Enter dates in which you would like to search results for.";
+            this.instructionsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // endDate
             // 
+            this.endDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.endDate.Location = new System.Drawing.Point(358, 56);
+            this.endDate.Location = new System.Drawing.Point(1025, 33);
+            this.endDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(112, 20);
+            this.endDate.Size = new System.Drawing.Size(292, 38);
             this.endDate.TabIndex = 14;
             // 
             // startDate
             // 
+            this.startDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.startDate.Location = new System.Drawing.Point(172, 56);
+            this.startDate.Location = new System.Drawing.Point(448, 33);
+            this.startDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.startDate.Name = "startDate";
-            this.startDate.Size = new System.Drawing.Size(115, 20);
+            this.startDate.Size = new System.Drawing.Size(300, 38);
             this.startDate.TabIndex = 13;
             // 
             // generateReportButton
             // 
-            this.generateReportButton.Location = new System.Drawing.Point(486, 48);
+            this.generateReportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.generateReportButton.Location = new System.Drawing.Point(1466, 7);
+            this.generateReportButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.generateReportButton.Name = "generateReportButton";
-            this.generateReportButton.Size = new System.Drawing.Size(167, 38);
+            this.generateReportButton.Size = new System.Drawing.Size(384, 91);
             this.generateReportButton.TabIndex = 12;
             this.generateReportButton.Text = "Generate Report";
             this.generateReportButton.UseVisualStyleBackColor = true;
@@ -93,33 +106,39 @@ namespace HealthCare.UserControls
             // 
             // toLabel
             // 
+            this.toLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(313, 61);
+            this.toLabel.Location = new System.Drawing.Point(924, 36);
+            this.toLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(29, 13);
+            this.toLabel.Size = new System.Drawing.Size(70, 32);
             this.toLabel.TabIndex = 11;
             this.toLabel.Text = "To : ";
             // 
             // fromLabel
             // 
+            this.fromLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.fromLabel.AutoSize = true;
-            this.fromLabel.Location = new System.Drawing.Point(108, 61);
+            this.fromLabel.Location = new System.Drawing.Point(330, 36);
+            this.fromLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.fromLabel.Name = "fromLabel";
-            this.fromLabel.Size = new System.Drawing.Size(39, 13);
+            this.fromLabel.Size = new System.Drawing.Size(102, 32);
             this.fromLabel.TabIndex = 10;
             this.fromLabel.Text = "From : ";
+            this.fromLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // reportViewer1
             // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Bottom;
             reportDataSource1.Name = "MostPerformed";
             reportDataSource1.Value = this.spMostPerformedTestsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.Report.MostPerformedTests.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(1, 105);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(1);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 541);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(735, 462);
+            this.reportViewer1.Size = new System.Drawing.Size(1960, 790);
             this.reportViewer1.TabIndex = 16;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -127,23 +146,60 @@ namespace HealthCare.UserControls
             // 
             this.spMostPerformedTestsTableAdapter.ClearBeforeFill = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 571F));
+            this.tableLayoutPanel1.Controls.Add(this.fromLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.startDate, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.toLabel, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.generateReportButton, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.endDate, 3, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 126);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1944, 105);
+            this.tableLayoutPanel1.TabIndex = 17;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.instructionsLabel, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1960, 238);
+            this.tableLayoutPanel2.TabIndex = 18;
+            // 
             // MostPeformedTestsUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.reportViewer1);
-            this.Controls.Add(this.instructionsLabel);
-            this.Controls.Add(this.endDate);
-            this.Controls.Add(this.startDate);
-            this.Controls.Add(this.generateReportButton);
-            this.Controls.Add(this.toLabel);
-            this.Controls.Add(this.fromLabel);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "MostPeformedTestsUserControl";
-            this.Size = new System.Drawing.Size(735, 558);
+            this.Size = new System.Drawing.Size(1960, 1331);
             ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -158,5 +214,7 @@ namespace HealthCare.UserControls
         private System.Windows.Forms.BindingSource spMostPerformedTestsBindingSource;
         private mostperformed mostperformed;
         private Report.mostperformedTableAdapters.spMostPerformedTestsTableAdapter spMostPerformedTestsTableAdapter;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

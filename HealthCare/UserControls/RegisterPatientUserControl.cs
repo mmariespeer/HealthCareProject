@@ -33,7 +33,7 @@ namespace HealthCare.UserControls
             {
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
                 this.patientID = dashboard.SelectedPatientID;
-            } catch (Exception ex)
+            } catch (Exception)
             {
                 //MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
@@ -120,9 +120,9 @@ namespace HealthCare.UserControls
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
-               String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull)
+                 !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null)
             {
-                MessageBox.Show("All fields must be filled in completely. Phone must be 10 digits and zipcode must be 5 digits", "Invalid input format",
+                MessageBox.Show("All fields must be filled in completely. SSN must be 9 digits, phone must be 10 digits, and zipcode must be 5 digits", "Invalid input format",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
