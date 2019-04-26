@@ -38,6 +38,7 @@ namespace HealthCare.UserControls
             {
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
                 this.patientID = dashboard.SelectedPatientID;
+                dashboard.CancelButton.PerformClick();
             }
             catch (Exception)
             {
@@ -210,6 +211,7 @@ namespace HealthCare.UserControls
             this.lastNameTextBox.Clear();
             this.firstNameTextBox.Clear();
             this.stateCodeComboBox.SelectedIndex = 0;
+            this.DOBDateTimePicker.ResetText();
 
         }
 
@@ -231,6 +233,7 @@ namespace HealthCare.UserControls
                     if (this.healthController.DeletePatient(this.patientID))
                     {
                         MessageBox.Show("Patient has been deleted");
+                        this.ClearForm();
                     }
                     else
                     {
