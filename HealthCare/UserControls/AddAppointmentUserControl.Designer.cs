@@ -110,7 +110,7 @@
             // 
             // createAppointmentButton
             // 
-            this.createAppointmentButton.Location = new System.Drawing.Point(88, 425);
+            this.createAppointmentButton.Location = new System.Drawing.Point(63, 425);
             this.createAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(141, 33);
@@ -206,7 +206,7 @@
             // 
             // updateAppointmentButton
             // 
-            this.updateAppointmentButton.Location = new System.Drawing.Point(251, 425);
+            this.updateAppointmentButton.Location = new System.Drawing.Point(232, 425);
             this.updateAppointmentButton.Margin = new System.Windows.Forms.Padding(1);
             this.updateAppointmentButton.Name = "updateAppointmentButton";
             this.updateAppointmentButton.Size = new System.Drawing.Size(141, 33);
@@ -218,7 +218,7 @@
             // updateLabel
             // 
             this.updateLabel.AutoSize = true;
-            this.updateLabel.Location = new System.Drawing.Point(177, 469);
+            this.updateLabel.Location = new System.Drawing.Point(183, 469);
             this.updateLabel.Name = "updateLabel";
             this.updateLabel.Size = new System.Drawing.Size(227, 13);
             this.updateLabel.TabIndex = 48;
@@ -226,7 +226,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(413, 425);
+            this.clearButton.Location = new System.Drawing.Point(401, 425);
             this.clearButton.Margin = new System.Windows.Forms.Padding(1);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(141, 33);
