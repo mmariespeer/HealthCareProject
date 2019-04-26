@@ -1,37 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using HealthCare.Controller;
+﻿using HealthCare.Controller;
 using HealthCare.View;
+using System;
+using System.Windows.Forms;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// Log test Result User Control
+    /// </summary>
     public partial class LogTestResultsUserControl : UserControl
     {
         private HealthcareController controller;
+
+        /// <summary>
+        /// Initialize the component
+        /// </summary>
         public LogTestResultsUserControl()
         {
             InitializeComponent();
             this.controller = new HealthcareController();
         }
 
+        /// <summary>
+        /// Update the test fill in label with the name of the test
+        /// </summary>
+        /// <param name="labelText"></param>
         public void UpdateLabel(string labelText)
         {
             this.testNameLabel.Text = labelText;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Process Cancel button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.ParentForm.Close();
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Process Save button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveButton_Click(object sender, EventArgs e)
         {
             bool valid = true;
             string result = logResultText.Text;
@@ -52,19 +66,21 @@ namespace HealthCare.UserControls
             {
                 MessageBox.Show("Please enter a perform date");
                 valid = false;
-            } else
+            }
+            else
             {
                 try
                 {
                     performDate = DateTime.Parse(this.performMaskedTextBox.Text);
-                } catch
+                }
+                catch
                 {
                     MessageBox.Show("Date entered is not a valid date.");
                     valid = false;
                 }
 
 
-}
+            }
             if (valid)
             {
                 var parent = this.ParentForm as LogTestResultForm;
@@ -77,9 +93,9 @@ namespace HealthCare.UserControls
                 item.Selected = true;
 
 
-                parent.Close();                
+                parent.Close();
             }
-            
+
         }
     }
 }

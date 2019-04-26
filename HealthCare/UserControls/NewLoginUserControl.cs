@@ -1,16 +1,22 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using HealthCare.Controller;
 using HealthCare.Model;
 using HealthCare.View;
-using HealthCare.Controller;
+using System;
+using System.Windows.Forms;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// New Login User Control
+    /// </summary>
     public partial class NewLoginUserControl : UserControl
     {
         private HashingService hashing;
         private HealthcareController healthcareController;
 
+        /// <summary>
+        /// Initialize the component
+        /// </summary>
         public NewLoginUserControl()
         {
             InitializeComponent();
@@ -18,9 +24,13 @@ namespace HealthCare.UserControls
             healthcareController = new HealthcareController();
         }
 
-        private void createUserButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Process the create user button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateUserButton_Click(object sender, EventArgs e)
         {
-           
             try
             {
                 if (this.passwordTextBox.Text == this.confirmPasswordTextBox.Text)
@@ -50,7 +60,8 @@ namespace HealthCare.UserControls
                     MessageBox.Show("Passwords must match.");
                     return;
                 }
-            } catch
+            }
+            catch
             {
                 MessageBox.Show("Username could not be created.");
             }

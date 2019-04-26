@@ -10,13 +10,13 @@ namespace HealthCare.DAL
     /// Performs all DB sql statements for Person
     /// </summary>
     class PersonDAL
-    {   
+    {
 
-       /// <summary>
-       /// get a person by their person id
-       /// </summary>
-       /// <param name="personID"></param>
-       /// <returns>a person searched by personID</returns>
+        /// <summary>
+        /// get a person by their person id
+        /// </summary>
+        /// <param name="personID"></param>
+        /// <returns>a person searched by personID</returns>
         public Person GetPersonByID(int personID)
         {
             Person person = new Person();

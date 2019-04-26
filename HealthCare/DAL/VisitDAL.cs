@@ -1,9 +1,7 @@
 ﻿using HealthCare.DB;
 using HealthCare.Model;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Diagnostics;
 
 namespace HealthCare.DAL
 {
@@ -17,7 +15,7 @@ namespace HealthCare.DAL
                         "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,@pulse,@symptoms,@status); SELECT SCOPE_IDENTITY()";
         private const string insertDiagnosticStatement = "INSERT INTO diagnosis([visitID],[initialDiagnosis],[finalDiagnosis])" +
                         "VALUES(@visitID,@initial,@final)";
-        private const string updateVisitStatement = "UPDATE visit SET [nurseID] = @nurseID, [appointmentID] = @apptID, [weight] = @weight, [systolicBP] = @systolicBP, [diastolicBP] = @diastolicBP"+
+        private const string updateVisitStatement = "UPDATE visit SET [nurseID] = @nurseID, [appointmentID] = @apptID, [weight] = @weight, [systolicBP] = @systolicBP, [diastolicBP] = @diastolicBP" +
             ", [temp] = @temp ,[pulse] = 1 ,[symptoms] = @symptoms, [status] = @status " +
             "WHERE visitID = @visitID";
         private const string updateDiagnosticsStatement = "UPDATE diagnosis SET [visitID] = @visitID, [initialDiagnosis] = @initial, [finalDiagnosis] = @final WHERE visitID = @visitID";
@@ -82,8 +80,8 @@ namespace HealthCare.DAL
         /// <returns>True if visit is updated</returns>
         public bool AddOrUpdateVisit(Visit visit)
         {
-            int visitResult=0;
-            int diagnosisResult=0;
+            int visitResult = 0;
+            int diagnosisResult = 0;
 
             if (visit.VisitID == 0)
             {
@@ -108,7 +106,7 @@ namespace HealthCare.DAL
                             insertCommand.Parameters.AddWithValue("@symptoms", visit.Symptoms);
                             insertCommand.Parameters.AddWithValue("@status", visit.Status);
 
-                            
+
                             pk = Convert.ToInt32(insertCommand.ExecuteScalar());
                             visitResult = 1;
                         }
@@ -160,7 +158,7 @@ namespace HealthCare.DAL
                             updateDiagnositicsCommand.Transaction = transaction;
                             updateDiagnositicsCommand.Parameters.AddWithValue("@visitID", visit.VisitID);
                             updateDiagnositicsCommand.Parameters.AddWithValue("@initial", visit.InitialDiagnosis);
-                            updateDiagnositicsCommand.Parameters.AddWithValue("@final", visit.FinalDiagnosis);     
+                            updateDiagnositicsCommand.Parameters.AddWithValue("@final", visit.FinalDiagnosis);
 
                             diagnosisResult = updateDiagnositicsCommand.ExecuteNonQuery();
                         }

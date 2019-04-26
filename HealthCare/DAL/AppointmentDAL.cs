@@ -29,7 +29,7 @@ namespace HealthCare.DAL
             insertCommand.Parameters.AddWithValue("@doctorID", appointment.DoctorID);
             insertCommand.Parameters.AddWithValue("@dateTime", appointment.DateTime);
             insertCommand.Parameters.AddWithValue("@reasonForVisit", appointment.ReasonForVisit);
-           
+
             connection.Open();
             insertCommand.ExecuteNonQuery();
             string selectStatement = "SELECT IDENT_CURRENT('Appointment') FROM Appointment";
@@ -72,7 +72,7 @@ namespace HealthCare.DAL
                             appointment.ReasonForVisit = (string)reader["reasonForVisit"];
 
                             appointments.Add(appointment);
-                        } 
+                        }
                     }
                 }
             }
@@ -86,7 +86,7 @@ namespace HealthCare.DAL
         /// <returns></returns>
         public DataTable GetAppointmentsAndDoctorByPatientID(int patientID)
         {
-           
+
             DataTable dataTable = new DataTable();
             string selectStatement =
                 "SELECT appointmentID AS AppointmentID, patientID AS PatientID, person.lastName AS Doctor,  dateTime AS 'Appointment Time', reasonForVisit AS Reason " +
@@ -98,12 +98,12 @@ namespace HealthCare.DAL
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
-                
+
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
                     selectCommand.Parameters.AddWithValue("@patientID", patientID);
                     dataTable.Load(selectCommand.ExecuteReader());
-                   
+
                 }
             }
             return dataTable;

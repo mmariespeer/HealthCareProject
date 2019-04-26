@@ -95,7 +95,7 @@
             this.createUserButton.TabIndex = 113;
             this.createUserButton.Text = "Create User";
             this.createUserButton.UseVisualStyleBackColor = true;
-            this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
+            this.createUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
             // NewLoginUserControl
             // 

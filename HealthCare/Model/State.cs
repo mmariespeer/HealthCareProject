@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HealthCare.Model
+﻿namespace HealthCare.Model
 {
     /// <summary>
     /// State model for use by person address
@@ -14,12 +8,12 @@ namespace HealthCare.Model
         /// <summary>
         /// The state Code with getter and setter
         /// </summary>
-        public string stateCode { get; set; }
+        public string StateCode { get; set; }
 
         /// <summary>
         /// The state Name with getter and setter
         /// </summary>
-        public string stateName { get; set; }
+        public string StateName { get; set; }
 
 
     }

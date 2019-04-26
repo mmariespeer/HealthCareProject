@@ -1,18 +1,21 @@
-﻿using System;
+﻿using HealthCare.DB;
+using HealthCare.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using HealthCare.DB;
-using HealthCare.Model;
 
 namespace HealthCare.DAL
 {
+    /// <summary>
+    /// The nurse data access layer
+    /// </summary>
     class NurseDAL
     {
         /// <summary>
         /// add a new nurse 
         /// </summary>
         /// <param name="person"></param>
-        public Boolean addNurse(Person person, String active)
+        public Boolean AddNurse(Person person, String active)
         {
             Boolean success = false;
 

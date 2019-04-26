@@ -1,10 +1,10 @@
-﻿using System;
+﻿using HealthCare.Controller;
+using HealthCare.Model;
+using HealthCare.View;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using HealthCare.Controller;
-using HealthCare.Model;
-using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
@@ -64,8 +64,8 @@ namespace HealthCare.UserControls
         /// </summary>
         private void PopulateDoctorSpecialities()
         {
-        
-        try
+
+            try
             {
                 if (doctorComboBox.ValueMember.ToString() == "" || doctorComboBox.ValueMember.ToString() == null)
                 {
@@ -138,17 +138,17 @@ namespace HealthCare.UserControls
             try
             {
                 if (this.healthcareController.CheckIfDoctorHasAppointmentScheduled(appointment.DoctorID, appointment.DateTime))
-            {
-                MessageBox.Show("An appointment has already been scheduled at this time and date with this doctor. " +
-                    "Please select another date, time, or doctor.");
-                return;
-            }
-            if (reasonForVisitTextBox.Text == null || reasonForVisitTextBox.Text == "")
-            {
-                MessageBox.Show("Reason for visit cannot be null or empty.");
-                return;
-            }
-            
+                {
+                    MessageBox.Show("An appointment has already been scheduled at this time and date with this doctor. " +
+                        "Please select another date, time, or doctor.");
+                    return;
+                }
+                if (reasonForVisitTextBox.Text == null || reasonForVisitTextBox.Text == "")
+                {
+                    MessageBox.Show("Reason for visit cannot be null or empty.");
+                    return;
+                }
+
                 this.healthcareController.AddAppointment(appointment);
                 this.LoadAppointmentGridView();
                 this.ClearScheduling();
@@ -163,7 +163,6 @@ namespace HealthCare.UserControls
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
-
 
         /// <summary>
         /// Clears all data from appointment 
@@ -184,9 +183,9 @@ namespace HealthCare.UserControls
         /// </summary>
         private void LoadAppointmentGridView()
         {
-           this.ClearScheduling();
+            this.ClearScheduling();
 
-        try
+            try
             {
                 DataTable dt = new DataTable();
                 appointmentGridView.DataBindings.Clear();
@@ -201,7 +200,7 @@ namespace HealthCare.UserControls
                 {
                     this.appointmentID = (int)this.appointmentGridView.Rows[0].Cells[0].Value;
                 }
-                   
+
                 foreach (DataGridViewColumn col in this.appointmentGridView.Columns)
                 {
                     col.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -263,11 +262,19 @@ namespace HealthCare.UserControls
             }
         }
 
-        private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// If combo box changes, load info
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DoctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.PopulateDoctorSpecialities();
         }
 
+        /// <summary>
+        /// Populate the appointments
+        /// </summary>
         private void PopulateAppointment()
         {
             try
@@ -281,8 +288,9 @@ namespace HealthCare.UserControls
                     this.appointmentDateTimePicker.Value = DateTime.Now;
                     this.appointmentTimeComboBox.SelectedIndex = 0;
                 }
-                else if (this.healthcareController.GetAppointmentsByPatientID(this.patientID).Count != 0 && appmt.DateTime <= DateTime.Now.Date) {
-                   this.updateAppointmentButton.Enabled = false;
+                else if (this.healthcareController.GetAppointmentsByPatientID(this.patientID).Count != 0 && appmt.DateTime <= DateTime.Now.Date)
+                {
+                    this.updateAppointmentButton.Enabled = false;
                     this.updateLabel.Visible = true;
                     this.appointmentDateTimePicker.Value = appmt.DateTime.Date;
                     this.appointmentTimeComboBox.SelectedIndex = this.appointmentTimeComboBox.FindStringExact(appmt.DateTime.ToString("h:mm tt"));
@@ -313,7 +321,7 @@ namespace HealthCare.UserControls
         /// <param name="appointment"></param>
         private void ReadIncidentData(Appointment appointment)
         {
-          try
+            try
             {
                 appointment.PatientID = this.patientID;
 
@@ -327,18 +335,23 @@ namespace HealthCare.UserControls
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message, ex.GetType().ToString());
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
 
 
         }
 
-        private void updateAppointmentButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Update the appointment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateAppointmentButton_Click(object sender, EventArgs e)
         {
             if (reasonForVisitTextBox.Text == null || reasonForVisitTextBox.Text == "" ||
                 this.appointmentDateTimePicker.Value == null || this.appointmentTimeComboBox.SelectedIndex == -1 || this.doctorComboBox.SelectedIndex == -1)
             {
-                MessageBox.Show("All fields must be filled in.", "Error", 
+                MessageBox.Show("All fields must be filled in.", "Error",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -360,9 +373,13 @@ namespace HealthCare.UserControls
             }
         }
 
-        private void appointmentGridView_SelectionChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Appointment Select Index change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AppointmentGridView_SelectionChanged(object sender, EventArgs e)
         {
-
             try
             {
                 if (this.healthcareController.GetAppointmentsByPatientID(this.patientID).Count != 0)
@@ -375,10 +392,14 @@ namespace HealthCare.UserControls
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-        } 
+        }
 
-
-        private void clearButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Clear button select
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             this.ClearScheduling();
         }

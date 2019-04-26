@@ -55,7 +55,7 @@ namespace HealthCare.DAL
              "SELECT doctorID, personID " +
              "FROM doctor " +
              "WHERE personID = @personID";
-            
+
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
                 connection.Open();
@@ -111,7 +111,8 @@ namespace HealthCare.DAL
                 if (appointment.DoctorID == doctorID && appointment.DateTime == dateTime)
                 {
                     return true;
-                } else
+                }
+                else
                 {
                     return false;
                 }

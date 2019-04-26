@@ -7,6 +7,10 @@ namespace HealthCare.DB
     /// </summary>
     class HealthcareDBConnection
     {
+        /// <summary>
+        /// Get the connection to/for the db
+        /// </summary>
+        /// <returns>A sql connection</returns>
         public static SqlConnection GetConnection()
         {
             string connectionString =
@@ -15,7 +19,7 @@ namespace HealthCare.DB
 
 
             SqlConnection connection = new SqlConnection(connectionString);
-            
+
             return connection;
         }
     }

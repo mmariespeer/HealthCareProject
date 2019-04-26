@@ -1,18 +1,21 @@
-﻿using System;
+﻿using HealthCare.DB;
+using HealthCare.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using HealthCare.DB;
-using HealthCare.Model;
 
 namespace HealthCare.DAL
 {
+    /// <summary>
+    /// Patient data access layer
+    /// </summary>
     class PatientDAL
     {
         /// <summary>
         /// add a new patient
         /// </summary>
         /// <param name="person"></param>
-        public Boolean registerPatient(Person person)
+        public Boolean RegisterPatient(Person person)
         {
             Boolean success = false;
 
@@ -73,8 +76,8 @@ namespace HealthCare.DAL
                         while (reader.Read())
                         {
                             State state = new State();
-                            state.stateCode = reader["stateCode"].ToString();
-                            state.stateName = reader["stateName"].ToString();
+                            state.StateCode = reader["stateCode"].ToString();
+                            state.StateName = reader["stateName"].ToString();
 
                             allStates.Add(state);
                         }
@@ -98,7 +101,7 @@ namespace HealthCare.DAL
         /// <param name="city"></param>
         /// <param name="state"></param>
         /// <param name="phone"></param>
-        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone, string ssn, DateTime dob)
+        public void UpdatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone, string ssn, DateTime dob)
         {
             string updateStatement = "UPDATE person SET firstName = @firstName, lastName = @lastName, stateCode = @stateCode, phoneNumber = @phone, streetAddress = @street, " +
                                       "city = @city, zipCode = @zip, ssn = @ssn, dateOfBirth = @dob WHERE personID = @id";
@@ -127,7 +130,7 @@ namespace HealthCare.DAL
         /// </summary>
         /// <param name="stateCode"></param>
         /// <returns>name of a state</returns>
-        public String findStateNamebyCode(string stateCode)
+        public String FindStateNamebyCode(string stateCode)
         {
             string stateName = "";
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
@@ -271,6 +274,11 @@ namespace HealthCare.DAL
             return searchList;
         }
 
+        /// <summary>
+        /// Delete the patient from the db
+        /// </summary>
+        /// <param name="patientID">patientID as an integer</param>
+        /// <returns></returns>
         public Boolean DeletePatient(int patientID)
         {
             Boolean success = false;
@@ -286,7 +294,7 @@ namespace HealthCare.DAL
                     SqlCommand selectCommand = new SqlCommand("SELECT p.personID FROM person p JOIN patient pa ON pa.personID = p.personID WHERE pa.patientID = @patientID", connection, transaction);
                     selectCommand.Parameters.AddWithValue("@patientID", patientID);
                     personID = (int)selectCommand.ExecuteScalar();
-                    
+
 
                     SqlCommand deleteCommand = new SqlCommand("DELETE FROM patient WHERE patientID = @patientID", connection, transaction);
                     deleteCommand.Parameters.AddWithValue("@patientId", patientID);

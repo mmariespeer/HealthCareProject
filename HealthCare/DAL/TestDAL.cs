@@ -6,7 +6,9 @@ using System.Data.SqlClient;
 
 namespace HealthCare.DAL
 {
-    //The test data access layer
+    /// <summary>
+    /// The Test model class data access layer
+    /// </summary>
     class TestDAL
     {
         /// <summary>
@@ -130,7 +132,7 @@ namespace HealthCare.DAL
 
             using (SqlConnection connection = HealthcareDBConnection.GetConnection())
             {
-                connection.Open();             
+                connection.Open();
 
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {

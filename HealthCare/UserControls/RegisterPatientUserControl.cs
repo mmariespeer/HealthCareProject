@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using HealthCare.Controller;
+﻿using HealthCare.Controller;
 using HealthCare.Model;
 using HealthCare.View;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// Register Patient User Control
+    /// </summary>
     public partial class RegisterPatientUserControl : UserControl
     {
         private readonly HealthcareController healthController;
@@ -14,6 +17,9 @@ namespace HealthCare.UserControls
         private int patientID;
         private Person currentPerson;
 
+        /// <summary>
+        /// Initialize the component
+        /// </summary>
         public RegisterPatientUserControl()
         {
             InitializeComponent();
@@ -28,55 +34,65 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         public void RegisterPatientUserControl_Load(object sender, EventArgs e)
         {
-
             try
             {
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
                 this.patientID = dashboard.SelectedPatientID;
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-    
 
-                try
-                {
-                    stateList = this.healthController.GetAllStates();
 
-                    stateCodeComboBox.DataSource = stateList;
-                    stateCodeComboBox.DisplayMember = "stateName";
-                    stateCodeComboBox.ValueMember = "stateCode";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message,
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            try
+            {
+                stateList = this.healthController.GetAllStates();
 
-                if (this.patientID != 0)
-                {
-                    this.PopulatePatient();
-                    this.updateButton.Enabled = true;
-                    this.deleteButton.Enabled = true;
-                    this.registerButton.Enabled = false;
-                    this.clearButton.Enabled = false;
-                }
-                else
-                {
-                    this.updateButton.Enabled = false;
-                    this.deleteButton.Enabled = false;
-                    this.registerButton.Enabled = true;
-                    this.clearButton.Enabled = true;
-                    this.ClearForm();                    
-                }
-            
+                stateCodeComboBox.DataSource = stateList;
+                stateCodeComboBox.DisplayMember = "stateName";
+                stateCodeComboBox.ValueMember = "stateCode";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (this.patientID != 0)
+            {
+                this.PopulatePatient();
+                this.updateButton.Enabled = true;
+                this.deleteButton.Enabled = true;
+                this.registerButton.Enabled = false;
+                this.clearButton.Enabled = false;
+            }
+            else
+            {
+                this.updateButton.Enabled = false;
+                this.deleteButton.Enabled = false;
+                this.registerButton.Enabled = true;
+                this.clearButton.Enabled = true;
+                this.ClearForm();
+            }
+
         }
 
+        /// <summary>
+        /// Process Clear button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
             this.ClearForm();
         }
 
+        /// <summary>
+        /// Process Register button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RegisterButton_Click(object sender, EventArgs e)
         {
 
@@ -97,11 +113,11 @@ namespace HealthCare.UserControls
                     person.PhoneNumber = this.phoneTextBox.Text;
                     person.SSN = this.ssnTextBox.Text;
                     person.StreetAddress = this.addressTextBox.Text;
-                    person.StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                    person.StateCode = stateList[this.stateCodeComboBox.SelectedIndex].StateCode;
                     person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
                     person.DateOfBirth = this.DOBDateTimePicker.Value;
 
-                    if (this.healthController.registerPatient(person))
+                    if (this.healthController.RegisterPatient(person))
                     {
                         MessageBox.Show("New Patient Registered");
                     }
@@ -117,6 +133,11 @@ namespace HealthCare.UserControls
             }
         }
 
+        /// <summary>
+        /// Process update button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
@@ -133,14 +154,14 @@ namespace HealthCare.UserControls
                 string city = this.cityTextBox.Text;
                 string PhoneNumber = this.phoneTextBox.Text;
                 string StreetAddress = this.addressTextBox.Text;
-                string StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                string StateCode = stateList[this.stateCodeComboBox.SelectedIndex].StateCode;
                 int ZipCode = Convert.ToInt32(this.zipTextBox.Text);
                 string ssn = this.ssnTextBox.Text;
                 DateTime dob = this.DOBDateTimePicker.Value;
 
                 try
                 {
-                    this.healthController.updatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber, ssn, dob);
+                    this.healthController.UpdatePatient(this.currentPerson.PersonID, lastName, ZipCode, firstName, StreetAddress, city, StateCode, PhoneNumber, ssn, dob);
                     MessageBox.Show("Patient has been updated");
 
                 }
@@ -151,6 +172,9 @@ namespace HealthCare.UserControls
             }
         }
 
+        /// <summary>
+        /// Populate the patient
+        /// </summary>
         private void PopulatePatient()
         {
             try
@@ -162,7 +186,7 @@ namespace HealthCare.UserControls
                 this.phoneTextBox.Text = this.currentPerson.PhoneNumber;
                 this.ssnTextBox.Text = currentPerson.SSN;
                 this.addressTextBox.Text = currentPerson.StreetAddress;
-                this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.findStateNamebyCode(currentPerson.StateCode));
+                this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.FindStateNamebyCode(currentPerson.StateCode));
                 this.zipTextBox.Text = this.currentPerson.ZipCode.ToString();
                 this.DOBDateTimePicker.Value = this.currentPerson.DateOfBirth;
             }
@@ -173,6 +197,9 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Clear the form
+        /// </summary>
         private void ClearForm()
         {
             this.addressTextBox.Clear();
@@ -183,12 +210,18 @@ namespace HealthCare.UserControls
             this.lastNameTextBox.Clear();
             this.firstNameTextBox.Clear();
             this.stateCodeComboBox.SelectedIndex = 0;
-            
+
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Process the delete button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
-        try {
+            try
+            {
                 if (this.healthController.GetAppointmentsByPatientID(this.patientID).Count != 0)
                 {
                     MessageBox.Show("Pateint still has active appointments and can't be deleted");

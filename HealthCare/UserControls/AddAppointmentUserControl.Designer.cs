@@ -67,7 +67,7 @@
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(399, 39);
             this.doctorComboBox.TabIndex = 1;
-            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_SelectedIndexChanged);
+            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.DoctorComboBox_SelectedIndexChanged);
             // 
             // appointmentDateTimePicker
             // 
@@ -168,7 +168,7 @@
             this.appointmentGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.appointmentGridView.Size = new System.Drawing.Size(1589, 439);
             this.appointmentGridView.TabIndex = 42;
-            this.appointmentGridView.SelectionChanged += new System.EventHandler(this.appointmentGridView_SelectionChanged);
+            this.appointmentGridView.SelectionChanged += new System.EventHandler(this.AppointmentGridView_SelectionChanged);
             // 
             // scheduleNewAppointmentLabel
             // 
@@ -211,7 +211,7 @@
             this.updateAppointmentButton.TabIndex = 47;
             this.updateAppointmentButton.Text = "Update Appointment";
             this.updateAppointmentButton.UseVisualStyleBackColor = true;
-            this.updateAppointmentButton.Click += new System.EventHandler(this.updateAppointmentButton_Click);
+            this.updateAppointmentButton.Click += new System.EventHandler(this.UpdateAppointmentButton_Click);
             // 
             // updateLabel
             // 
@@ -232,7 +232,7 @@
             this.clearButton.TabIndex = 49;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // AddAppointmentUserControl
             // 

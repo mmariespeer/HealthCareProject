@@ -23,11 +23,11 @@ namespace HealthCare.View
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            DataTable dt = this.healthController.getLogin(usernameTextBox.Text, passwordTextBox.Text);
+            DataTable dt = this.healthController.GetLogin(usernameTextBox.Text, passwordTextBox.Text);
 
             if (dt.Rows.Count > 0)
             {
-                Boolean isNurse = this.healthController.isNurse(Convert.ToInt32(dt.Rows[0]["personID"]));
+                Boolean isNurse = this.healthController.IsNurse(Convert.ToInt32(dt.Rows[0]["personID"]));
                 Console.WriteLine(isNurse);
 
                 if (isNurse)

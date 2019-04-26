@@ -97,6 +97,11 @@ namespace HealthCare.Controller
             return appointmentDAL.GetAppointmentsByPatientID(patientID);
         }
 
+        /// <summary>
+        /// Get the datatable of appointments and doctors by patientID
+        /// </summary>
+        /// <param name="patientID">Patient ID as an integer</param>
+        /// <returns></returns>
         public DataTable GetAppointmentsAndDoctorByPatientID(int patientID)
         {
             return appointmentDAL.GetAppointmentsAndDoctorByPatientID(patientID);
@@ -161,9 +166,9 @@ namespace HealthCare.Controller
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns>a person's id, username and password</returns>
-        public DataTable getLogin(string username, string password)
+        public DataTable GetLogin(string username, string password)
         {
-            return loginDAL.getLogin(username, password);
+            return loginDAL.GetLogin(username, password);
         }
 
         /// <summary>
@@ -171,9 +176,9 @@ namespace HealthCare.Controller
         /// </summary>
         /// <param name="personID"></param>
         /// <returns>true if user is a nurse</returns>
-        public Boolean isNurse(int personID)
+        public Boolean IsNurse(int personID)
         {
-            return loginDAL.isNurse(personID);
+            return loginDAL.IsNurse(personID);
         }
 
         /// <summary>
@@ -184,7 +189,7 @@ namespace HealthCare.Controller
         public bool AddVisit(Visit visit)
         {
             Visit existingVisit = visitDAL.GetVisitByAppt(visit.AppointmentID);
-            if(existingVisit != null)
+            if (existingVisit != null)
             {
                 visit.VisitID = existingVisit.VisitID;
             }
@@ -243,9 +248,9 @@ namespace HealthCare.Controller
         /// add a new patient
         /// </summary>
         /// <param name="person"></param>
-        public Boolean registerPatient(Person person)
+        public Boolean RegisterPatient(Person person)
         {
-            return this.patientDAL.registerPatient(person);
+            return this.patientDAL.RegisterPatient(person);
         }
 
         /// <summary>
@@ -262,9 +267,9 @@ namespace HealthCare.Controller
         /// </summary>
         /// <param name="stateCode"></param>
         /// <returns>a state's name</returns>
-        public String findStateNamebyCode(string stateCode)
+        public String FindStateNamebyCode(string stateCode)
         {
-            return this.patientDAL.findStateNamebyCode(stateCode);
+            return this.patientDAL.FindStateNamebyCode(stateCode);
         }
 
         /// <summary>
@@ -278,18 +283,18 @@ namespace HealthCare.Controller
         /// <param name="city"></param>
         /// <param name="state"></param>
         /// <param name="phone"></param>
-        public void updatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone, string ssn, DateTime dob)
+        public void UpdatePatient(int personID, string lastName, int zipCode, string firstName, string street, string city, string state, string phone, string ssn, DateTime dob)
         {
-            this.patientDAL.updatePatient(personID, lastName, zipCode, firstName, street, city, state, phone, ssn, dob);
+            this.patientDAL.UpdatePatient(personID, lastName, zipCode, firstName, street, city, state, phone, ssn, dob);
         }
 
         /// <summary>
         /// Adds a nurse
         /// </summary>
         /// <param name="person"></param>
-        public Boolean addNurse(Person person, String active)
+        public Boolean AddNurse(Person person, String active)
         {
-            return this.nurseDAL.addNurse(person, active);
+            return this.nurseDAL.AddNurse(person, active);
         }
 
         /// <summary>
@@ -305,7 +310,7 @@ namespace HealthCare.Controller
         /// <param name="zipCode"></param>
         /// <param name="phone"></param>
         /// <param name="ssn"></param>
-        public void UpdateNurse(int personID, string lName, string fName, DateTime dob, 
+        public void UpdateNurse(int personID, string lName, string fName, DateTime dob,
             string streetAddress, string city, string state, int zipCode, string phone, string ssn, string active)
         {
             this.nurseDAL.UpdateNurse(personID, lName, fName, dob, streetAddress, city, state, zipCode, phone, ssn, active);
@@ -359,21 +364,35 @@ namespace HealthCare.Controller
             return this.specialtyDAL.GetSpecialtyByDoctorID(doctorID);
         }
 
+        /// <summary>
+        /// Remove the patient from the database
+        /// </summary>
+        /// <param name="patientID">PatientID as an integer</param>
+        /// <returns></returns>
         public Boolean DeletePatient(int patientID)
         {
             return this.patientDAL.DeletePatient(patientID);
         }
 
+        /// <summary>
+        /// Update an Appointment
+        /// </summary>
+        /// <param name="appointment">An appointment object to be updated</param>
         public void UpdateAppointment(Appointment appointment)
         {
             this.appointmentDAL.UpdateAppointment(appointment);
         }
 
+        /// <summary>
+        /// Get appointment by the id
+        /// </summary>
+        /// <param name="appointmentID">AppointmentID as an integer</param>
+        /// <returns></returns>
         public Appointment GetAppointmentByAppointmentID(int appointmentID)
         {
             return this.appointmentDAL.GetAppointmentByAppointmentID(appointmentID);
         }
-      
-   
+
+
     }
 }

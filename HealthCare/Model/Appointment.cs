@@ -12,7 +12,7 @@ namespace HealthCare.Model
         /// The appointment's ID with  getter and setter
         /// </summary>
         public int AppointmentID { get; set; }
-        
+
         /// <summary>
         /// The patient's ID with getter and setter
         /// </summary>
@@ -22,7 +22,7 @@ namespace HealthCare.Model
         /// The doctor's ID with getter and setter
         /// </summary>
         public int DoctorID { get; set; }
-        
+
         /// <summary>
         /// The Date and Time of an appointment with getter and setter
         /// </summary>
@@ -33,6 +33,9 @@ namespace HealthCare.Model
         /// </summary>
         public string ReasonForVisit { get; set; }
 
+        /// <summary>
+        /// The Doctor's name associated with the appointment
+        /// </summary>
         public string DoctorName { get; set; }
     }
 }

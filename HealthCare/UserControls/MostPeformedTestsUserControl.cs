@@ -1,30 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// Most performed test user control
+    /// </summary>
     public partial class MostPeformedTestsUserControl : UserControl
     {
+        /// <summary>
+        /// Initialize component
+        /// </summary>
         public MostPeformedTestsUserControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Load the report viewer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reportViewer1_Load(object sender, EventArgs e)
         {
 
-             this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, DateTime.Today, DateTime.Today);
+            this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, DateTime.Today, DateTime.Today);
             this.reportViewer1.RefreshReport();
 
         }
 
+        /// <summary>
+        /// Process the generate report button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void generateReportButton_Click_1(object sender, EventArgs e)
         {
             this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, this.startDate.Value, this.endDate.Value);

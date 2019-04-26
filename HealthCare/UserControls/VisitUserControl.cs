@@ -1,10 +1,10 @@
-﻿using System;
+﻿using HealthCare.Controller;
+using HealthCare.Model;
+using HealthCare.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using HealthCare.Controller;
-using HealthCare.Model;
-using HealthCare.View;
 
 namespace HealthCare.UserControls
 {
@@ -37,7 +37,6 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         public void VisitUserControl_Load(object sender, EventArgs e)
         {
-            
             try
             {
                 NurseDashboard dashboard = this.ParentForm as NurseDashboard;
@@ -53,10 +52,10 @@ namespace HealthCare.UserControls
                 {
                     this.ResetVisitForm();
                 }
-            } 
+            }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.Message);
+                // MessageBox.Show(ex.Message);
             }
 
         }
@@ -67,6 +66,7 @@ namespace HealthCare.UserControls
         private void ResetVisitForm()
         {
             this.doctorTextBox.Text = "";
+            this.specialTextBox.Text = "";
             this.weightTextBox.Text = "";
             this.tempTextBox.Text = "";
             this.systolicTextBox.Text = "";
@@ -114,7 +114,7 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         private void VisitListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (this.visitListView.SelectedItems.Count != 0) 
+            if (this.visitListView.SelectedItems.Count != 0)
             {
                 int apptID = int.Parse(this.visitListView.SelectedItems[0].SubItems[0].Text);
                 Visit visit = this.controller.GetVisitByAppointmentID(apptID);
@@ -123,8 +123,8 @@ namespace HealthCare.UserControls
 
                 if (visit.VisitID != 0)
                 {
-                    List<Specialty> specials = this.GetSpecialty(visit.DoctorID);
                     this.doctorTextBox.Text = visit.DoctorName.ToString();
+                    List<Specialty> specials = this.GetSpecialty(visit.DoctorID);
                     this.specialTextBox.Text = string.Join(", ", specials.Select(x => x.SpecialityName));
                     this.weightTextBox.Text = visit.Weight.ToString();
                     this.pulseTextBox.Text = visit.Pulse.ToString();
@@ -139,9 +139,9 @@ namespace HealthCare.UserControls
                 }
                 else
                 {
-                    List<Specialty> specials = this.GetSpecialty(visit.DoctorID);
                     this.doctorTextBox.Text = visit.DoctorName.ToString();
-                    this.specialTextBox.Text = string.Join(", ", specials);
+                    List<Specialty> specials = this.GetSpecialty(visit.DoctorID);
+                    this.specialTextBox.Text = string.Join(", ", specials.Select(x => x.SpecialityName));
                     this.weightTextBox.Text = "";
                     this.pulseTextBox.Text = "";
                     this.tempTextBox.Text = "";
@@ -154,6 +154,11 @@ namespace HealthCare.UserControls
             }
         }
 
+        /// <summary>
+        /// Get doctor specialty
+        /// </summary>
+        /// <param name="doctorID"></param>
+        /// <returns></returns>
         private List<Specialty> GetSpecialty(int doctorID)
         {
             return this.controller.GetSpecialtiesByDoctorID(doctorID);
@@ -228,7 +233,7 @@ namespace HealthCare.UserControls
                 "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             if (this.symptomsTextBox.Text.Length > 250 || string.IsNullOrEmpty(this.symptomsTextBox.Text))
             {
                 MessageBox.Show("Initial Diagnosis is required, must be less than 50 characters and cannot be empty!" + Environment.NewLine,
@@ -246,16 +251,17 @@ namespace HealthCare.UserControls
                 }
                 if (this.CheckAllTestsHaveResults(_visitID))
                 {
-                    DialogResult result =  MessageBox.Show("By entering a final diagnosis, you are completing this appointment where it can no longer be edited. Would you like to continue?" + Environment.NewLine,
+                    DialogResult result = MessageBox.Show("By entering a final diagnosis, you are completing this appointment where it can no longer be edited. Would you like to continue?" + Environment.NewLine,
                                     "Alert!", MessageBoxButtons.OKCancel);
                     if (result == DialogResult.Cancel)
                     {
                         return;
-                    } else
+                    }
+                    else
                     {
                         status = 1;
                     }
-                    
+
                 }
                 else
                 {
@@ -302,20 +308,35 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Process Add button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddTestsButton_Click(object sender, EventArgs e)
         {
-            
+
             this.addTest.ShowDialog();
         }
 
+        /// <summary>
+        /// Process update button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateResultButton_Click(object sender, EventArgs e)
         {
             this.logTest.ShowDialog();
         }
 
+        /// <summary>
+        /// Process index change on test list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TestsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(this.testsListView.SelectedItems.Count > 0)
+            if (this.testsListView.SelectedItems.Count > 0)
             {
                 string result = this.testsListView.SelectedItems[0].SubItems[3].Text;
                 if (!string.IsNullOrEmpty(result))
@@ -325,31 +346,46 @@ namespace HealthCare.UserControls
                 else
                 {
                     string testCode = this.testsListView.SelectedItems[0].SubItems[0].Text;
-                    this.logTest = new LogTestResultForm(this._visitID,testCode,this);
+                    this.logTest = new LogTestResultForm(this._visitID, testCode, this);
                     updateResultButton.Enabled = true;
                 }
             }
 
         }
 
+        /// <summary>
+        /// Process Clear Visit button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearVisitButton_Click(object sender, EventArgs e)
         {
             this.VisitUserControl_Load(sender, e);
         }
 
-        private bool CheckAllTestsHaveResults (int visitId)
+        /// <summary>
+        /// Check the test results
+        /// </summary>
+        /// <param name="visitId"></param>
+        /// <returns></returns>
+        private bool CheckAllTestsHaveResults(int visitId)
         {
             List<Test> testList = new List<Test>();
             testList = this.controller.GetTestsByVisitId(visitId);
             foreach (Test test in testList)
             {
-                if (string.IsNullOrEmpty(test.Results)) {
+                if (string.IsNullOrEmpty(test.Results))
+                {
                     return false;
                 }
             }
             return true;
         }
 
+        /// <summary>
+        /// Check visit status
+        /// </summary>
+        /// <param name="visit"></param>
         private void CheckVisitStatus(Visit visit)
         {
             if (visit.Status == 0)
@@ -373,7 +409,8 @@ namespace HealthCare.UserControls
                 this.addTestsButton.Enabled = true;
                 this.completedLabel.Visible = false;
                 this.updateButton.Enabled = true;
-            } else
+            }
+            else
             {
                 this.weightTextBox.ReadOnly = true;
                 this.pulseTextBox.ReadOnly = true;

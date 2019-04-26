@@ -1,17 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HealthCare.Model
+﻿namespace HealthCare.Model
 {
+    /// <summary>
+    /// Specialty class relating to a doctor's 1 or more specialties
+    /// </summary>
     class Specialty
     {
-        public string SpecialityName {get; set;}
+        /// <summary>
+        /// The name of the specialty
+        /// </summary>
+        public string SpecialityName { get; set; }
 
+        /// <summary>
+        /// The doctor's Id 
+        /// </summary>
         public int DoctorID { get; set; }
 
+        /// <summary>
+        /// The description of the specialty
+        /// </summary>
         public string SpecialityDescription { get; set; }
     }
 }

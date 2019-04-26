@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using HealthCare.Controller;
+﻿using HealthCare.Controller;
 using HealthCare.Model;
 using HealthCare.View;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace HealthCare.UserControls
 {
+    /// <summary>
+    /// View Nurse User Control
+    /// </summary>
     public partial class ViewNurseUserControl : UserControl
     {
         private readonly HealthcareController healthController;
@@ -16,6 +19,9 @@ namespace HealthCare.UserControls
         private UsernameCreationForm addUsername;
         public static int personID;
 
+        /// <summary>
+        /// Initialize component
+        /// </summary>
         public ViewNurseUserControl()
         {
             this.healthController = new HealthcareController();
@@ -29,10 +35,15 @@ namespace HealthCare.UserControls
             this.nurseListView.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Process Add button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(this.lastNameTextBox.Text) || String.IsNullOrEmpty(this.firstNameTextBox.Text) || String.IsNullOrEmpty(this.cityTextBox.Text) || !this.phoneTextBox.MaskFull ||
-                 !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null || 
+                 !this.ssnTextBox.MaskFull || String.IsNullOrEmpty(this.addressTextBox.Text) || !this.zipTextBox.MaskFull || this.DOBDateTimePicker.Value == null ||
                  (!this.activeRadioButton.Checked && !this.inactiveRadioButton.Checked)
                  )
             {
@@ -51,22 +62,23 @@ namespace HealthCare.UserControls
                     person.PhoneNumber = this.phoneTextBox.Text;
                     person.SSN = this.ssnTextBox.Text;
                     person.StreetAddress = this.addressTextBox.Text;
-                    person.StateCode = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                    person.StateCode = stateList[this.stateCodeComboBox.SelectedIndex].StateCode;
                     person.ZipCode = Convert.ToInt32(this.zipTextBox.Text);
                     person.DateOfBirth = this.DOBDateTimePicker.Value;
 
                     string active = "";
-                   if (activeRadioButton.Checked)
+                    if (activeRadioButton.Checked)
                     {
                         active = "true";
-                    } else
+                    }
+                    else
                     {
                         active = "false";
                     }
 
-                    if (this.healthController.addNurse(person, active))
+                    if (this.healthController.AddNurse(person, active))
                     {
-                        
+
                         personID = person.PersonID;
                         MessageBox.Show("New Nurse Added! Please create their username and password.");
                         this.SetListView();
@@ -90,6 +102,11 @@ namespace HealthCare.UserControls
             }
         }
 
+        /// <summary>
+        /// Load the control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ViewNurseUserControl_Load(object sender, EventArgs e)
         {
 
@@ -132,6 +149,10 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Set the list view
+        /// </summary>
+        /// <returns></returns>
         private List<Nurse> SetListView()
         {
             this.nurseListView.Items.Clear();
@@ -162,7 +183,12 @@ namespace HealthCare.UserControls
             return nurseList;
         }
 
-        private void clear_Button_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Process clear button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Clear_Button_Click(object sender, EventArgs e)
         {
             this.ClearForm();
 
@@ -172,6 +198,9 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Clear the form
+        /// </summary>
         private void ClearForm()
         {
             this.addressTextBox.Clear();
@@ -188,6 +217,11 @@ namespace HealthCare.UserControls
 
         }
 
+        /// <summary>
+        /// Process Update button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (this.lastNameTextBox.Text == null || this.lastNameTextBox.Text == "" ||
@@ -210,7 +244,7 @@ namespace HealthCare.UserControls
                 DateTime dob = this.DOBDateTimePicker.Value;
                 string city = this.cityTextBox.Text;
                 string streetAddress = this.addressTextBox.Text;
-                string state = stateList[this.stateCodeComboBox.SelectedIndex].stateCode;
+                string state = stateList[this.stateCodeComboBox.SelectedIndex].StateCode;
                 int zipCode = Convert.ToInt32(this.zipTextBox.Text);
                 string phoneNumber = this.phoneTextBox.Text;
                 string ssn = this.ssnTextBox.Text;
@@ -239,7 +273,12 @@ namespace HealthCare.UserControls
 
         }
 
-        private void nurseListView_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Nurse view select index change process
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NurseListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.nurseListView.SelectedItems.Count == 0)
             {
@@ -250,6 +289,9 @@ namespace HealthCare.UserControls
             dashboard.RefreshTabs(sender, e);
         }
 
+        /// <summary>
+        /// Populate the nurses
+        /// </summary>
         private void PopulateNurse()
         {
             try
@@ -261,7 +303,7 @@ namespace HealthCare.UserControls
                 this.phoneTextBox.Text = this.currentPerson.PhoneNumber;
                 this.ssnTextBox.Text = currentPerson.SSN;
                 this.addressTextBox.Text = currentPerson.StreetAddress;
-                this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.findStateNamebyCode(currentPerson.StateCode));
+                this.stateCodeComboBox.SelectedIndex = this.stateCodeComboBox.FindStringExact(this.healthController.FindStateNamebyCode(currentPerson.StateCode));
                 this.zipTextBox.Text = this.currentPerson.ZipCode.ToString();
                 this.DOBDateTimePicker.Value = this.currentPerson.DateOfBirth;
 

@@ -103,7 +103,7 @@
             this.addButton.TabIndex = 12;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // updateButton
             // 
@@ -299,7 +299,7 @@
             this.nurseListView.TabIndex = 101;
             this.nurseListView.UseCompatibleStateImageBehavior = false;
             this.nurseListView.View = System.Windows.Forms.View.Details;
-            this.nurseListView.SelectedIndexChanged += new System.EventHandler(this.nurseListView_SelectedIndexChanged);
+            this.nurseListView.SelectedIndexChanged += new System.EventHandler(this.NurseListView_SelectedIndexChanged);
             // 
             // nurseIDHeader
             // 
@@ -340,7 +340,7 @@
             this.clear_Button.TabIndex = 14;
             this.clear_Button.Text = "Clear";
             this.clear_Button.UseVisualStyleBackColor = true;
-            this.clear_Button.Click += new System.EventHandler(this.clear_Button_Click);
+            this.clear_Button.Click += new System.EventHandler(this.Clear_Button_Click);
             // 
             // ViewNurseUserControl
             // 

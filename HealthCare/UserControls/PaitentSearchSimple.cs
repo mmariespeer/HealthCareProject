@@ -14,6 +14,10 @@ namespace HealthCare.UserControls
     public partial class PaitentSearchSimple : UserControl
     {
         private HealthcareController controller;
+
+        /// <summary>
+        /// Initialize the component
+        /// </summary>
         public PaitentSearchSimple()
         {
             InitializeComponent();
@@ -28,7 +32,7 @@ namespace HealthCare.UserControls
         private void SearchButton_Click(object sender, EventArgs e)
         {
             List<Patient> patientList;
-            
+
             //Check for dob presence first
             if (this.dobMaskedTextBox.MaskFull)
             {
@@ -41,7 +45,8 @@ namespace HealthCare.UserControls
                         patientList = this.controller.GetPatientsByDOBandLastName(dob, this.lastNameTextBox.Text);
                         this.SetListView(patientList);
                     }
-                    else if (!String.IsNullOrEmpty(this.firstNameTextBox.Text)) {
+                    else if (!String.IsNullOrEmpty(this.firstNameTextBox.Text))
+                    {
                         MessageBox.Show("Cannot search by first name and date of birth!" +
                         Environment.NewLine, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -72,7 +77,7 @@ namespace HealthCare.UserControls
                 Environment.NewLine, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            
+
         }
 
         /// <summary>
@@ -93,14 +98,15 @@ namespace HealthCare.UserControls
                     this.patientListView.Items[i].SubItems.Add(patient.LastName.ToString());
                     this.patientListView.Items[i].SubItems.Add(patient.FirstName.ToString());
                     this.patientListView.Items[i].SubItems.Add(patient.DateOfBirth.ToShortDateString());
-                   
+
                 }
                 this.patientListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 this.patientListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
                 this.patientListView.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
                 this.patientListView.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
 
-            } else
+            }
+            else
             {
                 MessageBox.Show("There are no patients that meet your search criteria!" +
                                 Environment.NewLine, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -115,7 +121,7 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         private void PatientListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-           if(this.patientListView.SelectedItems.Count == 0)
+            if (this.patientListView.SelectedItems.Count == 0)
             {
                 return;
             }
