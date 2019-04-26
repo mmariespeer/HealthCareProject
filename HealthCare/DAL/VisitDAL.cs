@@ -14,7 +14,7 @@ namespace HealthCare.DAL
     {
         #region VisitStatements
         private const string insertVisitStatement = "INSERT INTO visit([nurseID], [appointmentID], [weight], [systolicBP], [diastolicBP], [temp], [pulse], [symptoms], [status])" +
-                        "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,1,@symptoms,@status); SELECT SCOPE_IDENTITY()";
+                        "VALUES(@nurseID,@apptID,@weight,@systolicBP,@diastolicBP,@temp,@pulse,@symptoms,@status); SELECT SCOPE_IDENTITY()";
         private const string insertDiagnosticStatement = "INSERT INTO diagnosis([visitID],[initialDiagnosis],[finalDiagnosis])" +
                         "VALUES(@visitID,@initial,@final)";
         private const string updateVisitStatement = "UPDATE visit SET [nurseID] = @nurseID, [appointmentID] = @apptID, [weight] = @weight, [systolicBP] = @systolicBP, [diastolicBP] = @diastolicBP"+
