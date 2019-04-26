@@ -171,8 +171,6 @@ namespace HealthCare.UserControls
         private void LoadAppointmentGridView()
         {
             DataTable dt = new DataTable();
-            //List<Appointment> appointment = new Appointment();
-            //appointment = this.healthcareController.GetAppointmentsByPatientID(this.patientID);
             appointmentGridView.DataBindings.Clear();
             dt = this.healthcareController.GetAppointmentsAndDoctorByPatientID(this.patientID);
             appointmentGridView.DataSource = dt ;
@@ -193,6 +191,7 @@ namespace HealthCare.UserControls
                 if (this.patientID != 0)
                 {
                     this.LoadAppointmentGridView();
+                    this.appointmentGridView.Enabled = true;
                     this.PopulateAppointment();
                     this.createAppointmentButton.Enabled = true;
 
@@ -221,9 +220,10 @@ namespace HealthCare.UserControls
                     this.appointmentDateTimePicker.Enabled = false;
                     this.appointmentTimeComboBox.Enabled = false;
                     this.specialtyListView.Enabled = false;
+                    this.appointmentGridView.Enabled = false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // MessageBox.Show(ex.Message);
             }
