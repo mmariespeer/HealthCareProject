@@ -22,7 +22,11 @@ namespace HealthCare.UserControls
             InitializeComponent();
             this.nurseID = 0;
             this.SetListView();
-
+            this.nurseListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            this.nurseListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.nurseListView.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.nurseListView.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+            this.nurseListView.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -94,7 +98,7 @@ namespace HealthCare.UserControls
                 AdminDashboard dashboard = this.ParentForm as AdminDashboard;
                 this.nurseID = dashboard.SelectedNurseID;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
@@ -147,6 +151,7 @@ namespace HealthCare.UserControls
                 this.nurseListView.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.HeaderSize);
                 this.nurseListView.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.HeaderSize);
                 this.nurseListView.AutoResizeColumn(2, ColumnHeaderAutoResizeStyle.HeaderSize);
+                this.nurseListView.AutoResizeColumn(3, ColumnHeaderAutoResizeStyle.HeaderSize);
                 return nurseList;
             }
             catch (Exception ex)
