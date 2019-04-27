@@ -86,10 +86,13 @@
     <Compile Include="Model\Test.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Visit.cs" />
-    <Compile Include="Report\mostperformed.Designer.cs">
+    <Compile Include="Report\MostPerformedTests.cs">
+      <DependentUpon>MostPerformedTests.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\MostPerformedTests.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>mostperformed.xsd</DependentUpon>
+      <DependentUpon>MostPerformedTests.xsd</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AddAppointmentUserControl.cs">
       <SubType>UserControl</SubType>
@@ -183,7 +186,7 @@
     <Compile Include="View\UsernameCreationForm.Designer.cs">
       <DependentUpon>UsernameCreationForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report\MostPerformedTests.rdlc" />
+    <EmbeddedResource Include="Report\MostPerformedTestsDuringDates.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -239,16 +242,16 @@
       <DependentUpon>UsernameCreationForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\HealthCare.exe.config" />
-    <None Include="Report\mostperformed.xsc">
-      <DependentUpon>mostperformed.xsd</DependentUpon>
+    <None Include="Report\MostPerformedTests.xsc">
+      <DependentUpon>MostPerformedTests.xsd</DependentUpon>
     </None>
-    <None Include="Report\mostperformed.xsd">
+    <None Include="Report\MostPerformedTests.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>mostperformed.Designer.cs</LastGenOutput>
+      <LastGenOutput>MostPerformedTests.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Report\mostperformed.xss">
-      <DependentUpon>mostperformed.xsd</DependentUpon>
+    <None Include="Report\MostPerformedTests.xss">
+      <DependentUpon>MostPerformedTests.xsd</DependentUpon>
     </None>
     <None Include="obj\Release\HealthCare.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
@@ -269,6 +272,7 @@
     <Content Include="bin\Debug\HealthCare.exe" />
     <Content Include="bin\Debug\HealthCare.pdb" />
     <Content Include="DB\cs6232_g2_finaliteration.sql" />
+    <Content Include="DB\FINALERD.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

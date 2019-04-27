@@ -24,7 +24,7 @@ namespace HealthCare.UserControls
         private void reportViewer1_Load(object sender, EventArgs e)
         {
 
-            this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, DateTime.Today, DateTime.Today);
+            this.spMostPerformedTestsTableAdapter.Fill(this.mostPerformedTests.spMostPerformedTests, DateTime.Today, DateTime.Today);
             this.reportViewer1.RefreshReport();
 
         }
@@ -36,7 +36,7 @@ namespace HealthCare.UserControls
         /// <param name="e"></param>
         private void generateReportButton_Click_1(object sender, EventArgs e)
         {
-            this.spMostPerformedTestsTableAdapter.Fill(this.mostperformed.spMostPerformedTests, this.startDate.Value, this.endDate.Value);
+            this.spMostPerformedTestsTableAdapter.Fill(this.mostPerformedTests.spMostPerformedTests, this.startDate.Value, this.endDate.Value);
             this.reportViewer1.RefreshReport();
         }
     }
