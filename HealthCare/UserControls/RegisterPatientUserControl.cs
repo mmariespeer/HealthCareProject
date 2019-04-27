@@ -121,8 +121,7 @@ namespace HealthCare.UserControls
                     if (this.healthController.RegisterPatient(person))
                     {
                         MessageBox.Show("New Patient Registered");
-                        this.registerButton.Enabled = false;
-                        this.clearButton.Enabled = false;
+                        this.ClearForm();
                     }
                     else
                     {
