@@ -32,8 +32,6 @@ namespace HealthCare.UserControls
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.spMostPerformedTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mostperformed = new HealthCare.Report.mostperformed();
             this.instructionsLabel = new System.Windows.Forms.Label();
             this.endDate = new System.Windows.Forms.DateTimePicker();
             this.startDate = new System.Windows.Forms.DateTimePicker();
@@ -41,24 +39,16 @@ namespace HealthCare.UserControls
             this.toLabel = new System.Windows.Forms.Label();
             this.fromLabel = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.spMostPerformedTestsTableAdapter = new HealthCare.Report.mostperformedTableAdapters.spMostPerformedTestsTableAdapter();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).BeginInit();
+            this.mostPerformedTests = new HealthCare.Report.MostPerformedTests();
+            this.spMostPerformedTestsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.spMostPerformedTestsTableAdapter = new HealthCare.Report.MostPerformedTestsTableAdapters.spMostPerformedTestsTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mostPerformedTests)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // spMostPerformedTestsBindingSource
-            // 
-            this.spMostPerformedTestsBindingSource.DataMember = "spMostPerformedTests";
-            this.spMostPerformedTestsBindingSource.DataSource = this.mostperformed;
-            // 
-            // mostperformed
-            // 
-            this.mostperformed.DataSetName = "mostperformed";
-            this.mostperformed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // instructionsLabel
             // 
@@ -76,7 +66,7 @@ namespace HealthCare.UserControls
             // 
             this.endDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.endDate.Location = new System.Drawing.Point(1025, 33);
+            this.endDate.Location = new System.Drawing.Point(1023, 33);
             this.endDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.endDate.Name = "endDate";
             this.endDate.Size = new System.Drawing.Size(292, 38);
@@ -86,7 +76,7 @@ namespace HealthCare.UserControls
             // 
             this.startDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.startDate.Location = new System.Drawing.Point(448, 33);
+            this.startDate.Location = new System.Drawing.Point(447, 33);
             this.startDate.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(300, 38);
@@ -95,7 +85,7 @@ namespace HealthCare.UserControls
             // generateReportButton
             // 
             this.generateReportButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.generateReportButton.Location = new System.Drawing.Point(1466, 7);
+            this.generateReportButton.Location = new System.Drawing.Point(1465, 7);
             this.generateReportButton.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.generateReportButton.Name = "generateReportButton";
             this.generateReportButton.Size = new System.Drawing.Size(384, 91);
@@ -108,7 +98,7 @@ namespace HealthCare.UserControls
             // 
             this.toLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(924, 36);
+            this.toLabel.Location = new System.Drawing.Point(922, 36);
             this.toLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.toLabel.Name = "toLabel";
             this.toLabel.Size = new System.Drawing.Size(70, 32);
@@ -119,7 +109,7 @@ namespace HealthCare.UserControls
             // 
             this.fromLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.fromLabel.AutoSize = true;
-            this.fromLabel.Location = new System.Drawing.Point(330, 36);
+            this.fromLabel.Location = new System.Drawing.Point(329, 36);
             this.fromLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.fromLabel.Name = "fromLabel";
             this.fromLabel.Size = new System.Drawing.Size(102, 32);
@@ -130,10 +120,10 @@ namespace HealthCare.UserControls
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            reportDataSource1.Name = "MostPerformed";
+            reportDataSource1.Name = "MostPerformedTestsDuringDates";
             reportDataSource1.Value = this.spMostPerformedTestsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.Report.MostPerformedTests.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HealthCare.Report.MostPerformedTestsDuringDates.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 541);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.reportViewer1.Name = "reportViewer1";
@@ -142,10 +132,6 @@ namespace HealthCare.UserControls
             this.reportViewer1.TabIndex = 16;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // spMostPerformedTestsTableAdapter
-            // 
-            this.spMostPerformedTestsTableAdapter.ClearBeforeFill = true;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 5;
@@ -153,7 +139,7 @@ namespace HealthCare.UserControls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 573F));
             this.tableLayoutPanel1.Controls.Add(this.fromLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.startDate, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.toLabel, 2, 0);
@@ -184,6 +170,20 @@ namespace HealthCare.UserControls
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1960, 238);
             this.tableLayoutPanel2.TabIndex = 18;
             // 
+            // mostPerformedTests
+            // 
+            this.mostPerformedTests.DataSetName = "MostPerformedTests";
+            this.mostPerformedTests.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // spMostPerformedTestsBindingSource
+            // 
+            this.spMostPerformedTestsBindingSource.DataMember = "spMostPerformedTests";
+            this.spMostPerformedTestsBindingSource.DataSource = this.mostPerformedTests;
+            // 
+            // spMostPerformedTestsTableAdapter
+            // 
+            this.spMostPerformedTestsTableAdapter.ClearBeforeFill = true;
+            // 
             // MostPeformedTestsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -193,12 +193,12 @@ namespace HealthCare.UserControls
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "MostPeformedTestsUserControl";
             this.Size = new System.Drawing.Size(1960, 1331);
-            ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostperformed)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mostPerformedTests)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMostPerformedTestsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -211,10 +211,10 @@ namespace HealthCare.UserControls
         private System.Windows.Forms.Label toLabel;
         private System.Windows.Forms.Label fromLabel;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource spMostPerformedTestsBindingSource;
-        private mostperformed mostperformed;
-        private Report.mostperformedTableAdapters.spMostPerformedTestsTableAdapter spMostPerformedTestsTableAdapter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.BindingSource spMostPerformedTestsBindingSource;
+        private MostPerformedTests mostPerformedTests;
+        private Report.MostPerformedTestsTableAdapters.spMostPerformedTestsTableAdapter spMostPerformedTestsTableAdapter;
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="mostperformed" targetNamespace="http://tempuri.org/mostperformed.xsd" xmlns:mstns="http://tempuri.org/mostperformed.xsd" xmlns="http://tempuri.org/mostperformed.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="_cs6232_g2DataSet" targetNamespace="http://tempuri.org/_cs6232_g2DataSet.xsd" xmlns:mstns="http://tempuri.org/_cs6232_g2DataSet.xsd" xmlns="http://tempuri.org/_cs6232_g2DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -26,6 +26,7 @@
               <Mapping SourceColumn="testCode" DataSetColumn="testCode" />
               <Mapping SourceColumn="testName" DataSetColumn="testName" />
               <Mapping SourceColumn="SumOfTests" DataSetColumn="SumOfTests" />
+              <Mapping SourceColumn="TotalTestsPerformed" DataSetColumn="TotalTestsPerformed" />
               <Mapping SourceColumn="PercentagePerformed" DataSetColumn="PercentagePerformed" />
               <Mapping SourceColumn="Normal_Results" DataSetColumn="Normal_Results" />
               <Mapping SourceColumn="Abnormal_Results" DataSetColumn="Abnormal_Results" />
@@ -40,7 +41,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="mostperformed" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="mostperformed" msprop:Generator_UserDSName="mostperformed">
+  <xs:element name="_cs6232_g2DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="_cs6232_g2DataSet" msprop:Generator_UserDSName="_cs6232_g2DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="spMostPerformedTests" msprop:Generator_TableClassName="spMostPerformedTestsDataTable" msprop:Generator_TableVarName="tablespMostPerformedTests" msprop:Generator_TablePropName="spMostPerformedTests" msprop:Generator_RowDeletingName="spMostPerformedTestsRowDeleting" msprop:Generator_RowChangingName="spMostPerformedTestsRowChanging" msprop:Generator_RowEvHandlerName="spMostPerformedTestsRowChangeEventHandler" msprop:Generator_RowDeletedName="spMostPerformedTestsRowDeleted" msprop:Generator_UserTableName="spMostPerformedTests" msprop:Generator_RowChangedName="spMostPerformedTestsRowChanged" msprop:Generator_RowEvArgName="spMostPerformedTestsRowChangeEvent" msprop:Generator_RowClassName="spMostPerformedTestsRow">
@@ -61,6 +62,7 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="SumOfTests" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSumOfTests" msprop:Generator_ColumnPropNameInRow="SumOfTests" msprop:Generator_ColumnPropNameInTable="SumOfTestsColumn" msprop:Generator_UserColumnName="SumOfTests" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalTestsPerformed" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalTestsPerformed" msprop:Generator_ColumnPropNameInRow="TotalTestsPerformed" msprop:Generator_ColumnPropNameInTable="TotalTestsPerformedColumn" msprop:Generator_UserColumnName="TotalTestsPerformed" type="xs:int" minOccurs="0" />
               <xs:element name="PercentagePerformed" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPercentagePerformed" msprop:Generator_ColumnPropNameInRow="PercentagePerformed" msprop:Generator_ColumnPropNameInTable="PercentagePerformedColumn" msprop:Generator_UserColumnName="PercentagePerformed" type="xs:decimal" minOccurs="0" />
               <xs:element name="Normal_Results" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNormal_Results" msprop:Generator_ColumnPropNameInRow="Normal_Results" msprop:Generator_ColumnPropNameInTable="Normal_ResultsColumn" msprop:Generator_UserColumnName="Normal_Results" type="xs:int" minOccurs="0" />
               <xs:element name="Abnormal_Results" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAbnormal_Results" msprop:Generator_ColumnPropNameInRow="Abnormal_Results" msprop:Generator_ColumnPropNameInTable="Abnormal_ResultsColumn" msprop:Generator_UserColumnName="Abnormal_Results" type="xs:int" minOccurs="0" />
