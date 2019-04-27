@@ -120,6 +120,7 @@ namespace HealthCare.UserControls
                 Visit visit = this.controller.GetVisitByAppointmentID(apptID);
                 _visitID = visit.VisitID;
                 this.CheckVisitStatus(visit);
+                this.testsListView.Items.Clear();
 
                 if (visit.VisitID != 0)
                 {
